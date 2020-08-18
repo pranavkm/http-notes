@@ -9,22 +9,12 @@ namespace Microsoft.AspNetCore
 {
 	public static class WebHost
 	{
-		public static IWebHostBuilder CreateDefaultBuilder()
-		{
-			throw null;
-		}
-
-		public static IWebHostBuilder CreateDefaultBuilder(string[] args)
-		{
-			throw null;
-		}
-
-		public static IWebHostBuilder CreateDefaultBuilder<TStartup>(string[] args) where TStartup : class
-		{
-			throw null;
-		}
-
 		public static IWebHost Start(RequestDelegate app)
+		{
+			throw null;
+		}
+
+		public static IWebHost Start(string? url, RequestDelegate app)
 		{
 			throw null;
 		}
@@ -34,12 +24,7 @@ namespace Microsoft.AspNetCore
 			throw null;
 		}
 
-		public static IWebHost Start(string url, RequestDelegate app)
-		{
-			throw null;
-		}
-
-		public static IWebHost Start(string url, Action<IRouteBuilder> routeBuilder)
+		public static IWebHost Start(string? url, Action<IRouteBuilder> routeBuilder)
 		{
 			throw null;
 		}
@@ -49,7 +34,22 @@ namespace Microsoft.AspNetCore
 			throw null;
 		}
 
-		public static IWebHost StartWith(string url, Action<IApplicationBuilder> app)
+		public static IWebHost StartWith(string? url, Action<IApplicationBuilder> app)
+		{
+			throw null;
+		}
+
+		public static IWebHostBuilder CreateDefaultBuilder()
+		{
+			throw null;
+		}
+
+		public static IWebHostBuilder CreateDefaultBuilder(string[]? args)
+		{
+			throw null;
+		}
+
+		public static IWebHostBuilder CreateDefaultBuilder<TStartup>(string[] args) where TStartup : class
 		{
 			throw null;
 		}
@@ -91,6 +91,7 @@ namespace Microsoft.AspNetCore.Antiforgery
 			}
 			set
 			{
+				throw null;
 			}
 		}
 
@@ -102,19 +103,23 @@ namespace Microsoft.AspNetCore.Antiforgery
 			}
 			set
 			{
+				throw null;
 			}
 		}
 
-		public string HeaderName
+		public string? HeaderName
 		{
+			[System.Runtime.CompilerServices.NullableContext(2)]
 			[CompilerGenerated]
 			get
 			{
 				throw null;
 			}
+			[System.Runtime.CompilerServices.NullableContext(2)]
 			[CompilerGenerated]
 			set
 			{
+				throw null;
 			}
 		}
 
@@ -128,7 +133,13 @@ namespace Microsoft.AspNetCore.Antiforgery
 			[CompilerGenerated]
 			set
 			{
+				throw null;
 			}
+		}
+
+		public AntiforgeryOptions()
+		{
+			throw null;
 		}
 	}
 }
@@ -141,7 +152,7 @@ namespace Microsoft.AspNetCore.Antiforgery
 {
 	public class AntiforgeryTokenSet
 	{
-		public string CookieToken
+		public string? RequestToken
 		{
 			[CompilerGenerated]
 			get
@@ -152,6 +163,7 @@ namespace Microsoft.AspNetCore.Antiforgery
 
 		public string FormFieldName
 		{
+			[System.Runtime.CompilerServices.NullableContext(1)]
 			[CompilerGenerated]
 			get
 			{
@@ -159,7 +171,7 @@ namespace Microsoft.AspNetCore.Antiforgery
 			}
 		}
 
-		public string HeaderName
+		public string? HeaderName
 		{
 			[CompilerGenerated]
 			get
@@ -168,7 +180,7 @@ namespace Microsoft.AspNetCore.Antiforgery
 			}
 		}
 
-		public string RequestToken
+		public string? CookieToken
 		{
 			[CompilerGenerated]
 			get
@@ -177,8 +189,9 @@ namespace Microsoft.AspNetCore.Antiforgery
 			}
 		}
 
-		public AntiforgeryTokenSet(string requestToken, string cookieToken, string formFieldName, string headerName)
+		public AntiforgeryTokenSet(string? requestToken, string? cookieToken, string formFieldName, string? headerName)
 		{
+			throw null;
 		}
 	}
 }
@@ -193,10 +206,12 @@ namespace Microsoft.AspNetCore.Antiforgery
 	{
 		public AntiforgeryValidationException(string message)
 		{
+			throw null;
 		}
 
-		public AntiforgeryValidationException(string message, Exception innerException)
+		public AntiforgeryValidationException(string message, Exception? innerException)
 		{
+			throw null;
 		}
 	}
 }
@@ -216,9 +231,9 @@ namespace Microsoft.AspNetCore.Antiforgery
 
 		Task<bool> IsRequestValidAsync(HttpContext httpContext);
 
-		void SetCookieTokenAndHeader(HttpContext httpContext);
-
 		Task ValidateRequestAsync(HttpContext httpContext);
+
+		void SetCookieTokenAndHeader(HttpContext httpContext);
 	}
 }
 
@@ -242,7 +257,7 @@ namespace Microsoft.AspNetCore.Antiforgery
 {
 	internal interface IAntiforgeryFeature
 	{
-		AntiforgeryToken CookieToken
+		AntiforgeryToken? CookieToken
 		{
 			get;
 			set;
@@ -272,31 +287,31 @@ namespace Microsoft.AspNetCore.Antiforgery
 			set;
 		}
 
-		AntiforgeryToken NewCookieToken
+		AntiforgeryToken? NewCookieToken
 		{
 			get;
 			set;
 		}
 
-		string NewCookieTokenString
+		string? NewCookieTokenString
 		{
 			get;
 			set;
 		}
 
-		AntiforgeryToken NewRequestToken
+		AntiforgeryToken? NewRequestToken
 		{
 			get;
 			set;
 		}
 
-		string NewRequestTokenString
+		string? NewRequestTokenString
 		{
 			get;
 			set;
 		}
 
-		AntiforgeryToken RequestToken
+		AntiforgeryToken? RequestToken
 		{
 			get;
 			set;
@@ -307,6 +322,7 @@ namespace Microsoft.AspNetCore.Antiforgery
 
 // Microsoft.AspNetCore.Antiforgery\Microsoft.AspNetCore.Antiforgery\IAntiforgeryTokenGenerator.cs
 using Microsoft.AspNetCore.Http;
+using System.Diagnostics.CodeAnalysis;
 
 namespace Microsoft.AspNetCore.Antiforgery
 {
@@ -316,9 +332,9 @@ namespace Microsoft.AspNetCore.Antiforgery
 
 		AntiforgeryToken GenerateRequestToken(HttpContext httpContext, AntiforgeryToken cookieToken);
 
-		bool IsCookieTokenValid(AntiforgeryToken cookieToken);
+		bool IsCookieTokenValid(AntiforgeryToken? cookieToken);
 
-		bool TryValidateTokenSet(HttpContext httpContext, AntiforgeryToken cookieToken, AntiforgeryToken requestToken, out string message);
+		bool TryValidateTokenSet(HttpContext httpContext, AntiforgeryToken cookieToken, AntiforgeryToken requestToken, [NotNullWhen(false)] out string? message);
 	}
 }
 
@@ -343,7 +359,7 @@ namespace Microsoft.AspNetCore.Antiforgery
 {
 	internal interface IAntiforgeryTokenStore
 	{
-		string GetCookieToken(HttpContext httpContext);
+		string? GetCookieToken(HttpContext httpContext);
 
 		Task<AntiforgeryTokenSet> GetRequestTokensAsync(HttpContext httpContext);
 
@@ -359,7 +375,7 @@ namespace Microsoft.AspNetCore.Antiforgery
 {
 	internal interface IClaimUidExtractor
 	{
-		string ExtractClaimUid(ClaimsPrincipal claimsPrincipal);
+		string? ExtractClaimUid(ClaimsPrincipal claimsPrincipal);
 	}
 }
 
@@ -403,10 +419,11 @@ namespace Microsoft.AspNetCore.Authentication
 			[CompilerGenerated]
 			set
 			{
+				throw null;
 			}
 		}
 
-		public AuthenticationProperties Properties
+		public AuthenticationProperties? Properties
 		{
 			[CompilerGenerated]
 			get
@@ -416,10 +433,11 @@ namespace Microsoft.AspNetCore.Authentication
 			[CompilerGenerated]
 			set
 			{
+				throw null;
 			}
 		}
 
-		public string ReturnUrl
+		public string? ReturnUrl
 		{
 			[CompilerGenerated]
 			get
@@ -429,25 +447,30 @@ namespace Microsoft.AspNetCore.Authentication
 			[CompilerGenerated]
 			set
 			{
+				throw null;
 			}
 		}
 
 		public string ReturnUrlParameter
 		{
+			[System.Runtime.CompilerServices.NullableContext(1)]
 			[CompilerGenerated]
 			get
 			{
 				throw null;
 			}
+			[System.Runtime.CompilerServices.NullableContext(1)]
 			[CompilerGenerated]
 			set
 			{
+				throw null;
 			}
 		}
 
+		[System.Runtime.CompilerServices.NullableContext(1)]
 		public AccessDeniedContext(HttpContext context, AuthenticationScheme scheme, RemoteAuthenticationOptions options)
-			: base((HttpContext)null, (AuthenticationScheme)null, (RemoteAuthenticationOptions)null)
 		{
+			throw null;
 		}
 	}
 }
@@ -455,13 +478,28 @@ namespace Microsoft.AspNetCore.Authentication
 
 // Microsoft.AspNetCore.Authentication\Microsoft.AspNetCore.Authentication\AuthenticationBuilder.cs
 using Microsoft.Extensions.DependencyInjection;
+using Microsoft.Extensions.Options;
 using System;
+using System.Diagnostics.CodeAnalysis;
 using System.Runtime.CompilerServices;
 
 namespace Microsoft.AspNetCore.Authentication
 {
 	public class AuthenticationBuilder
 	{
+		private class EnsureSignInScheme<TOptions> : IPostConfigureOptions<TOptions> where TOptions : RemoteAuthenticationOptions
+		{
+			public EnsureSignInScheme(IOptions<AuthenticationOptions> authOptions)
+			{
+				throw null;
+			}
+
+			public void PostConfigure(string name, TOptions options)
+			{
+				throw null;
+			}
+		}
+
 		public virtual IServiceCollection Services
 		{
 			[CompilerGenerated]
@@ -473,24 +511,25 @@ namespace Microsoft.AspNetCore.Authentication
 
 		public AuthenticationBuilder(IServiceCollection services)
 		{
+			throw null;
 		}
 
-		public virtual AuthenticationBuilder AddPolicyScheme(string authenticationScheme, string displayName, Action<PolicySchemeOptions> configureOptions)
+		public virtual AuthenticationBuilder AddScheme<TOptions, [DynamicallyAccessedMembers(DynamicallyAccessedMemberTypes.PublicConstructors)] THandler>(string authenticationScheme, string? displayName, Action<TOptions>? configureOptions) where TOptions : AuthenticationSchemeOptions, new()where THandler : AuthenticationHandler<TOptions>
 		{
 			throw null;
 		}
 
-		public virtual AuthenticationBuilder AddRemoteScheme<TOptions, THandler>(string authenticationScheme, string displayName, Action<TOptions> configureOptions) where TOptions : RemoteAuthenticationOptions, new()where THandler : RemoteAuthenticationHandler<TOptions>
+		public virtual AuthenticationBuilder AddScheme<TOptions, [DynamicallyAccessedMembers(DynamicallyAccessedMemberTypes.PublicConstructors)] THandler>(string authenticationScheme, Action<TOptions>? configureOptions) where TOptions : AuthenticationSchemeOptions, new()where THandler : AuthenticationHandler<TOptions>
 		{
 			throw null;
 		}
 
-		public virtual AuthenticationBuilder AddScheme<TOptions, THandler>(string authenticationScheme, Action<TOptions> configureOptions) where TOptions : AuthenticationSchemeOptions, new()where THandler : AuthenticationHandler<TOptions>
+		public virtual AuthenticationBuilder AddRemoteScheme<TOptions, [DynamicallyAccessedMembers(DynamicallyAccessedMemberTypes.PublicConstructors)] THandler>(string authenticationScheme, string? displayName, Action<TOptions>? configureOptions) where TOptions : RemoteAuthenticationOptions, new()where THandler : RemoteAuthenticationHandler<TOptions>
 		{
 			throw null;
 		}
 
-		public virtual AuthenticationBuilder AddScheme<TOptions, THandler>(string authenticationScheme, string displayName, Action<TOptions> configureOptions) where TOptions : AuthenticationSchemeOptions, new()where THandler : AuthenticationHandler<TOptions>
+		public virtual AuthenticationBuilder AddPolicyScheme(string authenticationScheme, string? displayName, Action<PolicySchemeOptions> configureOptions)
 		{
 			throw null;
 		}
@@ -511,54 +550,7 @@ namespace Microsoft.AspNetCore.Authentication
 {
 	public abstract class AuthenticationHandler<TOptions> : IAuthenticationHandler where TOptions : AuthenticationSchemeOptions, new()
 	{
-		protected virtual string ClaimsIssuer
-		{
-			get
-			{
-				throw null;
-			}
-		}
-
-		protected ISystemClock Clock
-		{
-			[CompilerGenerated]
-			get
-			{
-				throw null;
-			}
-		}
-
-		protected HttpContext Context
-		{
-			[CompilerGenerated]
-			get
-			{
-				throw null;
-			}
-		}
-
-		protected string CurrentUri
-		{
-			get
-			{
-				throw null;
-			}
-		}
-
-		protected virtual object Events
-		{
-			[CompilerGenerated]
-			get
-			{
-				throw null;
-			}
-			[CompilerGenerated]
-			set
-			{
-			}
-		}
-
-		protected ILogger Logger
+		public AuthenticationScheme Scheme
 		{
 			[CompilerGenerated]
 			get
@@ -576,25 +568,9 @@ namespace Microsoft.AspNetCore.Authentication
 			}
 		}
 
-		protected IOptionsMonitor<TOptions> OptionsMonitor
+		protected HttpContext Context
 		{
 			[CompilerGenerated]
-			get
-			{
-				throw null;
-			}
-		}
-
-		protected PathString OriginalPath
-		{
-			get
-			{
-				throw null;
-			}
-		}
-
-		protected PathString OriginalPathBase
-		{
 			get
 			{
 				throw null;
@@ -617,7 +593,23 @@ namespace Microsoft.AspNetCore.Authentication
 			}
 		}
 
-		public AuthenticationScheme Scheme
+		protected PathString OriginalPath
+		{
+			get
+			{
+				throw null;
+			}
+		}
+
+		protected PathString OriginalPathBase
+		{
+			get
+			{
+				throw null;
+			}
+		}
+
+		protected ILogger Logger
 		{
 			[CompilerGenerated]
 			get
@@ -635,23 +627,71 @@ namespace Microsoft.AspNetCore.Authentication
 			}
 		}
 
+		protected ISystemClock Clock
+		{
+			[CompilerGenerated]
+			get
+			{
+				throw null;
+			}
+		}
+
+		protected IOptionsMonitor<TOptions> OptionsMonitor
+		{
+			[CompilerGenerated]
+			get
+			{
+				throw null;
+			}
+		}
+
+		protected virtual object? Events
+		{
+			[System.Runtime.CompilerServices.NullableContext(2)]
+			[CompilerGenerated]
+			get
+			{
+				throw null;
+			}
+			[System.Runtime.CompilerServices.NullableContext(2)]
+			[CompilerGenerated]
+			set
+			{
+				throw null;
+			}
+		}
+
+		protected virtual string ClaimsIssuer
+		{
+			get
+			{
+				throw null;
+			}
+		}
+
+		protected string CurrentUri
+		{
+			get
+			{
+				throw null;
+			}
+		}
+
 		protected AuthenticationHandler(IOptionsMonitor<TOptions> options, ILoggerFactory logger, UrlEncoder encoder, ISystemClock clock)
 		{
+			throw null;
 		}
 
+		[AsyncStateMachine(typeof(AuthenticationHandler<>._003CInitializeAsync_003Ed__42))]
 		[DebuggerStepThrough]
-		public Task<AuthenticateResult> AuthenticateAsync()
+		public Task InitializeAsync(AuthenticationScheme scheme, HttpContext context)
 		{
 			throw null;
 		}
 
-		protected string BuildRedirectUri(string targetPath)
-		{
-			throw null;
-		}
-
+		[AsyncStateMachine(typeof(AuthenticationHandler<>._003CInitializeEventsAsync_003Ed__43))]
 		[DebuggerStepThrough]
-		public Task ChallengeAsync(AuthenticationProperties properties)
+		protected virtual Task InitializeEventsAsync()
 		{
 			throw null;
 		}
@@ -661,21 +701,43 @@ namespace Microsoft.AspNetCore.Authentication
 			throw null;
 		}
 
-		[DebuggerStepThrough]
-		public Task ForbidAsync(AuthenticationProperties properties)
+		protected virtual Task InitializeHandlerAsync()
 		{
 			throw null;
 		}
 
-		protected abstract Task<AuthenticateResult> HandleAuthenticateAsync();
+		protected string BuildRedirectUri(string targetPath)
+		{
+			throw null;
+		}
+
+		protected virtual string? ResolveTarget(string? scheme)
+		{
+			throw null;
+		}
+
+		[AsyncStateMachine(typeof(AuthenticationHandler<>._003CAuthenticateAsync_003Ed__48))]
+		[DebuggerStepThrough]
+		public Task<AuthenticateResult> AuthenticateAsync()
+		{
+			throw null;
+		}
 
 		protected Task<AuthenticateResult> HandleAuthenticateOnceAsync()
 		{
 			throw null;
 		}
 
+		[AsyncStateMachine(typeof(AuthenticationHandler<>._003CHandleAuthenticateOnceSafeAsync_003Ed__50))]
 		[DebuggerStepThrough]
 		protected Task<AuthenticateResult> HandleAuthenticateOnceSafeAsync()
+		{
+			throw null;
+		}
+
+		protected abstract Task<AuthenticateResult> HandleAuthenticateAsync();
+
+		protected virtual Task HandleForbiddenAsync(AuthenticationProperties properties)
 		{
 			throw null;
 		}
@@ -685,29 +747,16 @@ namespace Microsoft.AspNetCore.Authentication
 			throw null;
 		}
 
-		protected virtual Task HandleForbiddenAsync(AuthenticationProperties properties)
-		{
-			throw null;
-		}
-
+		[AsyncStateMachine(typeof(AuthenticationHandler<>._003CChallengeAsync_003Ed__54))]
 		[DebuggerStepThrough]
-		public Task InitializeAsync(AuthenticationScheme scheme, HttpContext context)
+		public Task ChallengeAsync(AuthenticationProperties? properties)
 		{
 			throw null;
 		}
 
+		[AsyncStateMachine(typeof(AuthenticationHandler<>._003CForbidAsync_003Ed__55))]
 		[DebuggerStepThrough]
-		protected virtual Task InitializeEventsAsync()
-		{
-			throw null;
-		}
-
-		protected virtual Task InitializeHandlerAsync()
-		{
-			throw null;
-		}
-
-		protected virtual string ResolveTarget(string scheme)
+		public Task ForbidAsync(AuthenticationProperties? properties)
 		{
 			throw null;
 		}
@@ -735,13 +784,16 @@ namespace Microsoft.AspNetCore.Authentication
 			[CompilerGenerated]
 			set
 			{
+				throw null;
 			}
 		}
 
 		public AuthenticationMiddleware(RequestDelegate next, IAuthenticationSchemeProvider schemes)
 		{
+			throw null;
 		}
 
+		[AsyncStateMachine(typeof(_003CInvoke_003Ed__6))]
 		[DebuggerStepThrough]
 		public Task Invoke(HttpContext context)
 		{
@@ -760,7 +812,7 @@ namespace Microsoft.AspNetCore.Authentication
 {
 	public class AuthenticationSchemeOptions
 	{
-		public string ClaimsIssuer
+		public string? ClaimsIssuer
 		{
 			[CompilerGenerated]
 			get
@@ -770,10 +822,11 @@ namespace Microsoft.AspNetCore.Authentication
 			[CompilerGenerated]
 			set
 			{
+				throw null;
 			}
 		}
 
-		public object Events
+		public object? Events
 		{
 			[CompilerGenerated]
 			get
@@ -783,10 +836,11 @@ namespace Microsoft.AspNetCore.Authentication
 			[CompilerGenerated]
 			set
 			{
+				throw null;
 			}
 		}
 
-		public Type EventsType
+		public Type? EventsType
 		{
 			[CompilerGenerated]
 			get
@@ -796,10 +850,11 @@ namespace Microsoft.AspNetCore.Authentication
 			[CompilerGenerated]
 			set
 			{
+				throw null;
 			}
 		}
 
-		public string ForwardAuthenticate
+		public string? ForwardDefault
 		{
 			[CompilerGenerated]
 			get
@@ -809,10 +864,11 @@ namespace Microsoft.AspNetCore.Authentication
 			[CompilerGenerated]
 			set
 			{
+				throw null;
 			}
 		}
 
-		public string ForwardChallenge
+		public string? ForwardAuthenticate
 		{
 			[CompilerGenerated]
 			get
@@ -822,10 +878,11 @@ namespace Microsoft.AspNetCore.Authentication
 			[CompilerGenerated]
 			set
 			{
+				throw null;
 			}
 		}
 
-		public string ForwardDefault
+		public string? ForwardChallenge
 		{
 			[CompilerGenerated]
 			get
@@ -835,10 +892,11 @@ namespace Microsoft.AspNetCore.Authentication
 			[CompilerGenerated]
 			set
 			{
+				throw null;
 			}
 		}
 
-		public Func<HttpContext, string> ForwardDefaultSelector
+		public string? ForwardForbid
 		{
 			[CompilerGenerated]
 			get
@@ -848,10 +906,11 @@ namespace Microsoft.AspNetCore.Authentication
 			[CompilerGenerated]
 			set
 			{
+				throw null;
 			}
 		}
 
-		public string ForwardForbid
+		public string? ForwardSignIn
 		{
 			[CompilerGenerated]
 			get
@@ -861,10 +920,11 @@ namespace Microsoft.AspNetCore.Authentication
 			[CompilerGenerated]
 			set
 			{
+				throw null;
 			}
 		}
 
-		public string ForwardSignIn
+		public string? ForwardSignOut
 		{
 			[CompilerGenerated]
 			get
@@ -874,10 +934,11 @@ namespace Microsoft.AspNetCore.Authentication
 			[CompilerGenerated]
 			set
 			{
+				throw null;
 			}
 		}
 
-		public string ForwardSignOut
+		public Func<HttpContext, string>? ForwardDefaultSelector
 		{
 			[CompilerGenerated]
 			get
@@ -887,15 +948,23 @@ namespace Microsoft.AspNetCore.Authentication
 			[CompilerGenerated]
 			set
 			{
+				throw null;
 			}
 		}
 
 		public virtual void Validate()
 		{
+			throw null;
 		}
 
 		public virtual void Validate(string scheme)
 		{
+			throw null;
+		}
+
+		public AuthenticationSchemeOptions()
+		{
+			throw null;
 		}
 	}
 }
@@ -906,12 +975,12 @@ namespace Microsoft.AspNetCore.Authentication
 {
 	public static class Base64UrlTextEncoder
 	{
-		public static byte[] Decode(string text)
+		public static string Encode(byte[] data)
 		{
 			throw null;
 		}
 
-		public static string Encode(byte[] data)
+		public static byte[] Decode(string text)
 		{
 			throw null;
 		}
@@ -927,7 +996,7 @@ namespace Microsoft.AspNetCore.Authentication
 {
 	public abstract class BaseContext<TOptions> where TOptions : AuthenticationSchemeOptions
 	{
-		public HttpContext HttpContext
+		public AuthenticationScheme Scheme
 		{
 			[CompilerGenerated]
 			get
@@ -937,6 +1006,15 @@ namespace Microsoft.AspNetCore.Authentication
 		}
 
 		public TOptions Options
+		{
+			[CompilerGenerated]
+			get
+			{
+				throw null;
+			}
+		}
+
+		public HttpContext HttpContext
 		{
 			[CompilerGenerated]
 			get
@@ -961,17 +1039,9 @@ namespace Microsoft.AspNetCore.Authentication
 			}
 		}
 
-		public AuthenticationScheme Scheme
-		{
-			[CompilerGenerated]
-			get
-			{
-				throw null;
-			}
-		}
-
 		protected BaseContext(HttpContext context, AuthenticationScheme scheme, TOptions options)
 		{
+			throw null;
 		}
 	}
 }
@@ -995,20 +1065,23 @@ namespace Microsoft.AspNetCore.Authentication
 			[CompilerGenerated]
 			protected set
 			{
+				throw null;
 			}
 		}
 
 		protected HandleRequestContext(HttpContext context, AuthenticationScheme scheme, TOptions options)
-			: base((HttpContext)null, (AuthenticationScheme)null, (TOptions)null)
 		{
+			throw null;
 		}
 
 		public void HandleResponse()
 		{
+			throw null;
 		}
 
 		public void SkipHandler()
 		{
+			throw null;
 		}
 	}
 }
@@ -1040,6 +1113,11 @@ namespace Microsoft.AspNetCore.Authentication
 			}
 		}
 
+		public new static HandleRequestResult Success(AuthenticationTicket ticket)
+		{
+			throw null;
+		}
+
 		public new static HandleRequestResult Fail(Exception failure)
 		{
 			throw null;
@@ -1065,17 +1143,17 @@ namespace Microsoft.AspNetCore.Authentication
 			throw null;
 		}
 
-		public new static HandleRequestResult NoResult()
-		{
-			throw null;
-		}
-
 		public static HandleRequestResult SkipHandler()
 		{
 			throw null;
 		}
 
-		public new static HandleRequestResult Success(AuthenticationTicket ticket)
+		public new static HandleRequestResult NoResult()
+		{
+			throw null;
+		}
+
+		public HandleRequestResult()
 		{
 			throw null;
 		}
@@ -1084,29 +1162,36 @@ namespace Microsoft.AspNetCore.Authentication
 
 
 // Microsoft.AspNetCore.Authentication\Microsoft.AspNetCore.Authentication\IDataSerializer.cs
+using System.Diagnostics.CodeAnalysis;
+
 namespace Microsoft.AspNetCore.Authentication
 {
 	public interface IDataSerializer<TModel>
 	{
-		TModel Deserialize(byte[] data);
-
 		byte[] Serialize(TModel model);
+
+		[return: MaybeNull]
+		TModel Deserialize(byte[] data);
 	}
 }
 
 
 // Microsoft.AspNetCore.Authentication\Microsoft.AspNetCore.Authentication\ISecureDataFormat.cs
+using System.Diagnostics.CodeAnalysis;
+
 namespace Microsoft.AspNetCore.Authentication
 {
 	public interface ISecureDataFormat<TData>
 	{
 		string Protect(TData data);
 
-		string Protect(TData data, string purpose);
+		string Protect(TData data, string? purpose);
 
+		[return: MaybeNull]
 		TData Unprotect(string protectedText);
 
-		TData Unprotect(string protectedText, string purpose);
+		[return: MaybeNull]
+		TData Unprotect(string protectedText, string? purpose);
 	}
 }
 
@@ -1133,7 +1218,7 @@ namespace Microsoft.AspNetCore.Authentication
 {
 	public static class JsonDocumentAuthExtensions
 	{
-		public static string GetString(this JsonElement element, string key)
+		public static string? GetString(this JsonElement element, string key)
 		{
 			throw null;
 		}
@@ -1153,31 +1238,31 @@ namespace Microsoft.AspNetCore.Authentication
 	public class PolicySchemeHandler : SignInAuthenticationHandler<PolicySchemeOptions>
 	{
 		public PolicySchemeHandler(IOptionsMonitor<PolicySchemeOptions> options, ILoggerFactory logger, UrlEncoder encoder, ISystemClock clock)
-			: base((IOptionsMonitor<PolicySchemeOptions>)null, (ILoggerFactory)null, (UrlEncoder)null, (ISystemClock)null)
 		{
+			throw null;
+		}
+
+		protected override Task HandleChallengeAsync(AuthenticationProperties? properties)
+		{
+			throw null;
+		}
+
+		protected override Task HandleForbiddenAsync(AuthenticationProperties? properties)
+		{
+			throw null;
+		}
+
+		protected override Task HandleSignInAsync(ClaimsPrincipal user, AuthenticationProperties? properties)
+		{
+			throw null;
+		}
+
+		protected override Task HandleSignOutAsync(AuthenticationProperties? properties)
+		{
+			throw null;
 		}
 
 		protected override Task<AuthenticateResult> HandleAuthenticateAsync()
-		{
-			throw null;
-		}
-
-		protected override Task HandleChallengeAsync(AuthenticationProperties properties)
-		{
-			throw null;
-		}
-
-		protected override Task HandleForbiddenAsync(AuthenticationProperties properties)
-		{
-			throw null;
-		}
-
-		protected override Task HandleSignInAsync(ClaimsPrincipal user, AuthenticationProperties properties)
-		{
-			throw null;
-		}
-
-		protected override Task HandleSignOutAsync(AuthenticationProperties properties)
 		{
 			throw null;
 		}
@@ -1190,6 +1275,10 @@ namespace Microsoft.AspNetCore.Authentication
 {
 	public class PolicySchemeOptions : AuthenticationSchemeOptions
 	{
+		public PolicySchemeOptions()
+		{
+			throw null;
+		}
 	}
 }
 
@@ -1203,7 +1292,7 @@ namespace Microsoft.AspNetCore.Authentication
 {
 	public abstract class PrincipalContext<TOptions> : PropertiesContext<TOptions> where TOptions : AuthenticationSchemeOptions
 	{
-		public virtual ClaimsPrincipal Principal
+		public virtual ClaimsPrincipal? Principal
 		{
 			[CompilerGenerated]
 			get
@@ -1213,12 +1302,14 @@ namespace Microsoft.AspNetCore.Authentication
 			[CompilerGenerated]
 			set
 			{
+				throw null;
 			}
 		}
 
-		protected PrincipalContext(HttpContext context, AuthenticationScheme scheme, TOptions options, AuthenticationProperties properties)
-			: base((HttpContext)null, (AuthenticationScheme)null, (TOptions)null, (AuthenticationProperties)null)
+		[System.Runtime.CompilerServices.NullableContext(1)]
+		protected PrincipalContext(HttpContext context, AuthenticationScheme scheme, TOptions options, AuthenticationProperties? properties)
 		{
+			throw null;
 		}
 	}
 }
@@ -1242,12 +1333,13 @@ namespace Microsoft.AspNetCore.Authentication
 			[CompilerGenerated]
 			protected set
 			{
+				throw null;
 			}
 		}
 
-		protected PropertiesContext(HttpContext context, AuthenticationScheme scheme, TOptions options, AuthenticationProperties properties)
-			: base((HttpContext)null, (AuthenticationScheme)null, (TOptions)null)
+		protected PropertiesContext(HttpContext context, AuthenticationScheme scheme, TOptions options, AuthenticationProperties? properties)
 		{
+			throw null;
 		}
 	}
 }
@@ -1261,8 +1353,8 @@ namespace Microsoft.AspNetCore.Authentication
 	public class PropertiesDataFormat : SecureDataFormat<AuthenticationProperties>
 	{
 		public PropertiesDataFormat(IDataProtector protector)
-			: base((IDataSerializer<AuthenticationProperties>)null, (IDataProtector)null)
 		{
+			throw null;
 		}
 	}
 }
@@ -1285,23 +1377,29 @@ namespace Microsoft.AspNetCore.Authentication
 			}
 		}
 
-		public virtual AuthenticationProperties Deserialize(byte[] data)
-		{
-			throw null;
-		}
-
-		public virtual AuthenticationProperties Read(BinaryReader reader)
-		{
-			throw null;
-		}
-
 		public virtual byte[] Serialize(AuthenticationProperties model)
+		{
+			throw null;
+		}
+
+		public virtual AuthenticationProperties? Deserialize(byte[] data)
 		{
 			throw null;
 		}
 
 		public virtual void Write(BinaryWriter writer, AuthenticationProperties properties)
 		{
+			throw null;
+		}
+
+		public virtual AuthenticationProperties? Read(BinaryReader reader)
+		{
+			throw null;
+		}
+
+		public PropertiesSerializer()
+		{
+			throw null;
 		}
 	}
 }
@@ -1325,12 +1423,13 @@ namespace Microsoft.AspNetCore.Authentication
 			[CompilerGenerated]
 			set
 			{
+				throw null;
 			}
 		}
 
 		public RedirectContext(HttpContext context, AuthenticationScheme scheme, TOptions options, AuthenticationProperties properties, string redirectUri)
-			: base((HttpContext)null, (AuthenticationScheme)null, (TOptions)null, (AuthenticationProperties)null)
 		{
+			throw null;
 		}
 	}
 }
@@ -1346,16 +1445,19 @@ namespace Microsoft.AspNetCore.Authentication
 {
 	public abstract class RemoteAuthenticationContext<TOptions> : HandleRequestContext<TOptions> where TOptions : AuthenticationSchemeOptions
 	{
-		public ClaimsPrincipal Principal
+		public ClaimsPrincipal? Principal
 		{
+			[System.Runtime.CompilerServices.NullableContext(2)]
 			[CompilerGenerated]
 			get
 			{
 				throw null;
 			}
+			[System.Runtime.CompilerServices.NullableContext(2)]
 			[CompilerGenerated]
 			set
 			{
+				throw null;
 			}
 		}
 
@@ -1369,24 +1471,28 @@ namespace Microsoft.AspNetCore.Authentication
 			[CompilerGenerated]
 			set
 			{
+				throw null;
 			}
 		}
 
-		protected RemoteAuthenticationContext(HttpContext context, AuthenticationScheme scheme, TOptions options, AuthenticationProperties properties)
-			: base((HttpContext)null, (AuthenticationScheme)null, (TOptions)null)
+		protected RemoteAuthenticationContext(HttpContext context, AuthenticationScheme scheme, TOptions options, AuthenticationProperties? properties)
 		{
-		}
-
-		public void Fail(Exception failure)
-		{
-		}
-
-		public void Fail(string failureMessage)
-		{
+			throw null;
 		}
 
 		public void Success()
 		{
+			throw null;
+		}
+
+		public void Fail(Exception failure)
+		{
+			throw null;
+		}
+
+		public void Fail(string failureMessage)
+		{
+			throw null;
 		}
 	}
 }
@@ -1411,6 +1517,7 @@ namespace Microsoft.AspNetCore.Authentication
 			[CompilerGenerated]
 			set
 			{
+				throw null;
 			}
 		}
 
@@ -1424,6 +1531,7 @@ namespace Microsoft.AspNetCore.Authentication
 			[CompilerGenerated]
 			set
 			{
+				throw null;
 			}
 		}
 
@@ -1437,6 +1545,7 @@ namespace Microsoft.AspNetCore.Authentication
 			[CompilerGenerated]
 			set
 			{
+				throw null;
 			}
 		}
 
@@ -1454,6 +1563,11 @@ namespace Microsoft.AspNetCore.Authentication
 		{
 			throw null;
 		}
+
+		public RemoteAuthenticationEvents()
+		{
+			throw null;
+		}
 	}
 }
 
@@ -1462,13 +1576,23 @@ namespace Microsoft.AspNetCore.Authentication
 using Microsoft.Extensions.Logging;
 using Microsoft.Extensions.Options;
 using System.Diagnostics;
+using System.Runtime.CompilerServices;
 using System.Text.Encodings.Web;
 using System.Threading.Tasks;
 
 namespace Microsoft.AspNetCore.Authentication
 {
-	public abstract class RemoteAuthenticationHandler<TOptions> : AuthenticationHandler<TOptions>, IAuthenticationHandler, IAuthenticationRequestHandler where TOptions : RemoteAuthenticationOptions, new()
+	public abstract class RemoteAuthenticationHandler<TOptions> : AuthenticationHandler<TOptions>, IAuthenticationRequestHandler, IAuthenticationHandler where TOptions : RemoteAuthenticationOptions, new()
 	{
+		protected string? SignInScheme
+		{
+			[System.Runtime.CompilerServices.NullableContext(2)]
+			get
+			{
+				throw null;
+			}
+		}
+
 		protected new RemoteAuthenticationEvents Events
 		{
 			get
@@ -1477,20 +1601,13 @@ namespace Microsoft.AspNetCore.Authentication
 			}
 			set
 			{
-			}
-		}
-
-		protected string SignInScheme
-		{
-			get
-			{
 				throw null;
 			}
 		}
 
 		protected RemoteAuthenticationHandler(IOptionsMonitor<TOptions> options, ILoggerFactory logger, UrlEncoder encoder, ISystemClock clock)
-			: base((IOptionsMonitor<TOptions>)null, (ILoggerFactory)null, (UrlEncoder)null, (ISystemClock)null)
 		{
+			throw null;
 		}
 
 		protected override Task<object> CreateEventsAsync()
@@ -1498,16 +1615,21 @@ namespace Microsoft.AspNetCore.Authentication
 			throw null;
 		}
 
-		protected virtual void GenerateCorrelationId(AuthenticationProperties properties)
-		{
-		}
-
-		[DebuggerStepThrough]
-		protected virtual Task<HandleRequestResult> HandleAccessDeniedErrorAsync(AuthenticationProperties properties)
+		public virtual Task<bool> ShouldHandleRequestAsync()
 		{
 			throw null;
 		}
 
+		[AsyncStateMachine(typeof(RemoteAuthenticationHandler<>._003CHandleRequestAsync_003Ed__11))]
+		[DebuggerStepThrough]
+		public virtual Task<bool> HandleRequestAsync()
+		{
+			throw null;
+		}
+
+		protected abstract Task<HandleRequestResult> HandleRemoteAuthenticateAsync();
+
+		[AsyncStateMachine(typeof(RemoteAuthenticationHandler<>._003CHandleAuthenticateAsync_003Ed__13))]
 		[DebuggerStepThrough]
 		protected override Task<AuthenticateResult> HandleAuthenticateAsync()
 		{
@@ -1519,20 +1641,19 @@ namespace Microsoft.AspNetCore.Authentication
 			throw null;
 		}
 
-		protected abstract Task<HandleRequestResult> HandleRemoteAuthenticateAsync();
-
-		[DebuggerStepThrough]
-		public virtual Task<bool> HandleRequestAsync()
-		{
-			throw null;
-		}
-
-		public virtual Task<bool> ShouldHandleRequestAsync()
+		protected virtual void GenerateCorrelationId(AuthenticationProperties properties)
 		{
 			throw null;
 		}
 
 		protected virtual bool ValidateCorrelationId(AuthenticationProperties properties)
+		{
+			throw null;
+		}
+
+		[AsyncStateMachine(typeof(RemoteAuthenticationHandler<>._003CHandleAccessDeniedErrorAsync_003Ed__17))]
+		[DebuggerStepThrough]
+		protected virtual Task<HandleRequestResult> HandleAccessDeniedErrorAsync(AuthenticationProperties properties)
 		{
 			throw null;
 		}
@@ -1551,42 +1672,24 @@ namespace Microsoft.AspNetCore.Authentication
 {
 	public class RemoteAuthenticationOptions : AuthenticationSchemeOptions
 	{
-		public PathString AccessDeniedPath
+		private class CorrelationCookieBuilder : RequestPathBaseCookieBuilder
 		{
-			[CompilerGenerated]
-			get
+			protected override string AdditionalPath
 			{
-				throw null;
+				get
+				{
+					throw null;
+				}
 			}
-			[CompilerGenerated]
-			set
-			{
-			}
-		}
 
-		public HttpClient Backchannel
-		{
-			[CompilerGenerated]
-			get
+			public CorrelationCookieBuilder(RemoteAuthenticationOptions remoteAuthenticationOptions)
 			{
 				throw null;
 			}
-			[CompilerGenerated]
-			set
-			{
-			}
-		}
 
-		public HttpMessageHandler BackchannelHttpHandler
-		{
-			[CompilerGenerated]
-			get
+			public override CookieOptions Build(HttpContext context, DateTimeOffset expiresFrom)
 			{
 				throw null;
-			}
-			[CompilerGenerated]
-			set
-			{
 			}
 		}
 
@@ -1600,6 +1703,53 @@ namespace Microsoft.AspNetCore.Authentication
 			[CompilerGenerated]
 			set
 			{
+				throw null;
+			}
+		}
+
+		public HttpMessageHandler? BackchannelHttpHandler
+		{
+			[System.Runtime.CompilerServices.NullableContext(2)]
+			[CompilerGenerated]
+			get
+			{
+				throw null;
+			}
+			[System.Runtime.CompilerServices.NullableContext(2)]
+			[CompilerGenerated]
+			set
+			{
+				throw null;
+			}
+		}
+
+		public HttpClient Backchannel
+		{
+			[CompilerGenerated]
+			get
+			{
+				throw null;
+			}
+			[CompilerGenerated]
+			set
+			{
+				throw null;
+			}
+		}
+
+		public IDataProtectionProvider? DataProtectionProvider
+		{
+			[System.Runtime.CompilerServices.NullableContext(2)]
+			[CompilerGenerated]
+			get
+			{
+				throw null;
+			}
+			[System.Runtime.CompilerServices.NullableContext(2)]
+			[CompilerGenerated]
+			set
+			{
+				throw null;
 			}
 		}
 
@@ -1613,21 +1763,11 @@ namespace Microsoft.AspNetCore.Authentication
 			[CompilerGenerated]
 			set
 			{
-			}
-		}
-
-		public CookieBuilder CorrelationCookie
-		{
-			get
-			{
 				throw null;
 			}
-			set
-			{
-			}
 		}
 
-		public IDataProtectionProvider DataProtectionProvider
+		public PathString AccessDeniedPath
 		{
 			[CompilerGenerated]
 			get
@@ -1637,30 +1777,7 @@ namespace Microsoft.AspNetCore.Authentication
 			[CompilerGenerated]
 			set
 			{
-			}
-		}
-
-		public new RemoteAuthenticationEvents Events
-		{
-			get
-			{
 				throw null;
-			}
-			set
-			{
-			}
-		}
-
-		public TimeSpan RemoteAuthenticationTimeout
-		{
-			[CompilerGenerated]
-			get
-			{
-				throw null;
-			}
-			[CompilerGenerated]
-			set
-			{
 			}
 		}
 
@@ -1674,6 +1791,49 @@ namespace Microsoft.AspNetCore.Authentication
 			[CompilerGenerated]
 			set
 			{
+				throw null;
+			}
+		}
+
+		public string? SignInScheme
+		{
+			[System.Runtime.CompilerServices.NullableContext(2)]
+			[CompilerGenerated]
+			get
+			{
+				throw null;
+			}
+			[System.Runtime.CompilerServices.NullableContext(2)]
+			[CompilerGenerated]
+			set
+			{
+				throw null;
+			}
+		}
+
+		public TimeSpan RemoteAuthenticationTimeout
+		{
+			[CompilerGenerated]
+			get
+			{
+				throw null;
+			}
+			[CompilerGenerated]
+			set
+			{
+				throw null;
+			}
+		}
+
+		public new RemoteAuthenticationEvents Events
+		{
+			get
+			{
+				throw null;
+			}
+			set
+			{
+				throw null;
 			}
 		}
 
@@ -1687,32 +1847,35 @@ namespace Microsoft.AspNetCore.Authentication
 			[CompilerGenerated]
 			set
 			{
+				throw null;
 			}
 		}
 
-		public string SignInScheme
+		public CookieBuilder CorrelationCookie
 		{
-			[CompilerGenerated]
 			get
 			{
 				throw null;
 			}
-			[CompilerGenerated]
 			set
 			{
+				throw null;
 			}
 		}
 
 		public RemoteAuthenticationOptions()
 		{
-		}
-
-		public override void Validate()
-		{
+			throw null;
 		}
 
 		public override void Validate(string scheme)
 		{
+			throw null;
+		}
+
+		public override void Validate()
+		{
+			throw null;
 		}
 	}
 }
@@ -1727,7 +1890,7 @@ namespace Microsoft.AspNetCore.Authentication
 {
 	public class RemoteFailureContext : HandleRequestContext<RemoteAuthenticationOptions>
 	{
-		public Exception Failure
+		public Exception? Failure
 		{
 			[CompilerGenerated]
 			get
@@ -1737,10 +1900,11 @@ namespace Microsoft.AspNetCore.Authentication
 			[CompilerGenerated]
 			set
 			{
+				throw null;
 			}
 		}
 
-		public AuthenticationProperties Properties
+		public AuthenticationProperties? Properties
 		{
 			[CompilerGenerated]
 			get
@@ -1750,12 +1914,14 @@ namespace Microsoft.AspNetCore.Authentication
 			[CompilerGenerated]
 			set
 			{
+				throw null;
 			}
 		}
 
+		[System.Runtime.CompilerServices.NullableContext(1)]
 		public RemoteFailureContext(HttpContext context, AuthenticationScheme scheme, RemoteAuthenticationOptions options, Exception failure)
-			: base((HttpContext)null, (AuthenticationScheme)null, (RemoteAuthenticationOptions)null)
 		{
+			throw null;
 		}
 	}
 }
@@ -1770,7 +1936,7 @@ namespace Microsoft.AspNetCore.Authentication
 {
 	public class RequestPathBaseCookieBuilder : CookieBuilder
 	{
-		protected virtual string AdditionalPath
+		protected virtual string? AdditionalPath
 		{
 			[CompilerGenerated]
 			get
@@ -1780,6 +1946,11 @@ namespace Microsoft.AspNetCore.Authentication
 		}
 
 		public override CookieOptions Build(HttpContext context, DateTimeOffset expiresFrom)
+		{
+			throw null;
+		}
+
+		public RequestPathBaseCookieBuilder()
 		{
 			throw null;
 		}
@@ -1797,16 +1968,19 @@ namespace Microsoft.AspNetCore.Authentication
 {
 	public abstract class ResultContext<TOptions> : BaseContext<TOptions> where TOptions : AuthenticationSchemeOptions
 	{
-		public ClaimsPrincipal Principal
+		public ClaimsPrincipal? Principal
 		{
+			[System.Runtime.CompilerServices.NullableContext(2)]
 			[CompilerGenerated]
 			get
 			{
 				throw null;
 			}
+			[System.Runtime.CompilerServices.NullableContext(2)]
 			[CompilerGenerated]
 			set
 			{
+				throw null;
 			}
 		}
 
@@ -1818,6 +1992,7 @@ namespace Microsoft.AspNetCore.Authentication
 			}
 			set
 			{
+				throw null;
 			}
 		}
 
@@ -1831,24 +2006,28 @@ namespace Microsoft.AspNetCore.Authentication
 		}
 
 		protected ResultContext(HttpContext context, AuthenticationScheme scheme, TOptions options)
-			: base((HttpContext)null, (AuthenticationScheme)null, (TOptions)null)
 		{
-		}
-
-		public void Fail(Exception failure)
-		{
-		}
-
-		public void Fail(string failureMessage)
-		{
-		}
-
-		public void NoResult()
-		{
+			throw null;
 		}
 
 		public void Success()
 		{
+			throw null;
+		}
+
+		public void NoResult()
+		{
+			throw null;
+		}
+
+		public void Fail(Exception failure)
+		{
+			throw null;
+		}
+
+		public void Fail(string failureMessage)
+		{
+			throw null;
 		}
 	}
 }
@@ -1856,6 +2035,7 @@ namespace Microsoft.AspNetCore.Authentication
 
 // Microsoft.AspNetCore.Authentication\Microsoft.AspNetCore.Authentication\SecureDataFormat.cs
 using Microsoft.AspNetCore.DataProtection;
+using System.Diagnostics.CodeAnalysis;
 
 namespace Microsoft.AspNetCore.Authentication
 {
@@ -1863,6 +2043,7 @@ namespace Microsoft.AspNetCore.Authentication
 	{
 		public SecureDataFormat(IDataSerializer<TData> serializer, IDataProtector protector)
 		{
+			throw null;
 		}
 
 		public string Protect(TData data)
@@ -1870,17 +2051,19 @@ namespace Microsoft.AspNetCore.Authentication
 			throw null;
 		}
 
-		public string Protect(TData data, string purpose)
+		public string Protect(TData data, string? purpose)
 		{
 			throw null;
 		}
 
+		[return: MaybeNull]
 		public TData Unprotect(string protectedText)
 		{
 			throw null;
 		}
 
-		public TData Unprotect(string protectedText, string purpose)
+		[return: MaybeNull]
+		public TData Unprotect(string protectedText, string? purpose)
 		{
 			throw null;
 		}
@@ -1891,25 +2074,27 @@ namespace Microsoft.AspNetCore.Authentication
 // Microsoft.AspNetCore.Authentication\Microsoft.AspNetCore.Authentication\SignInAuthenticationHandler.cs
 using Microsoft.Extensions.Logging;
 using Microsoft.Extensions.Options;
+using System.Runtime.CompilerServices;
 using System.Security.Claims;
 using System.Text.Encodings.Web;
 using System.Threading.Tasks;
 
 namespace Microsoft.AspNetCore.Authentication
 {
-	public abstract class SignInAuthenticationHandler<TOptions> : SignOutAuthenticationHandler<TOptions>, IAuthenticationHandler, IAuthenticationSignInHandler, IAuthenticationSignOutHandler where TOptions : AuthenticationSchemeOptions, new()
+	public abstract class SignInAuthenticationHandler<TOptions> : SignOutAuthenticationHandler<TOptions>, IAuthenticationSignInHandler, IAuthenticationSignOutHandler, IAuthenticationHandler where TOptions : AuthenticationSchemeOptions, new()
 	{
+		[System.Runtime.CompilerServices.NullableContext(1)]
 		public SignInAuthenticationHandler(IOptionsMonitor<TOptions> options, ILoggerFactory logger, UrlEncoder encoder, ISystemClock clock)
-			: base((IOptionsMonitor<TOptions>)null, (ILoggerFactory)null, (UrlEncoder)null, (ISystemClock)null)
-		{
-		}
-
-		protected abstract Task HandleSignInAsync(ClaimsPrincipal user, AuthenticationProperties properties);
-
-		public virtual Task SignInAsync(ClaimsPrincipal user, AuthenticationProperties properties)
 		{
 			throw null;
 		}
+
+		public virtual Task SignInAsync(ClaimsPrincipal user, AuthenticationProperties? properties)
+		{
+			throw null;
+		}
+
+		protected abstract Task HandleSignInAsync(ClaimsPrincipal user, AuthenticationProperties? properties);
 	}
 }
 
@@ -1922,19 +2107,19 @@ using System.Threading.Tasks;
 
 namespace Microsoft.AspNetCore.Authentication
 {
-	public abstract class SignOutAuthenticationHandler<TOptions> : AuthenticationHandler<TOptions>, IAuthenticationHandler, IAuthenticationSignOutHandler where TOptions : AuthenticationSchemeOptions, new()
+	public abstract class SignOutAuthenticationHandler<TOptions> : AuthenticationHandler<TOptions>, IAuthenticationSignOutHandler, IAuthenticationHandler where TOptions : AuthenticationSchemeOptions, new()
 	{
 		public SignOutAuthenticationHandler(IOptionsMonitor<TOptions> options, ILoggerFactory logger, UrlEncoder encoder, ISystemClock clock)
-			: base((IOptionsMonitor<TOptions>)null, (ILoggerFactory)null, (UrlEncoder)null, (ISystemClock)null)
-		{
-		}
-
-		protected abstract Task HandleSignOutAsync(AuthenticationProperties properties);
-
-		public virtual Task SignOutAsync(AuthenticationProperties properties)
 		{
 			throw null;
 		}
+
+		public virtual Task SignOutAsync(AuthenticationProperties? properties)
+		{
+			throw null;
+		}
+
+		protected abstract Task HandleSignOutAsync(AuthenticationProperties? properties);
 	}
 }
 
@@ -1953,6 +2138,11 @@ namespace Microsoft.AspNetCore.Authentication
 				throw null;
 			}
 		}
+
+		public SystemClock()
+		{
+			throw null;
+		}
 	}
 }
 
@@ -1965,8 +2155,8 @@ namespace Microsoft.AspNetCore.Authentication
 	public class TicketDataFormat : SecureDataFormat<AuthenticationTicket>
 	{
 		public TicketDataFormat(IDataProtector protector)
-			: base((IDataSerializer<AuthenticationTicket>)null, (IDataProtector)null)
 		{
+			throw null;
 		}
 	}
 }
@@ -1980,7 +2170,7 @@ namespace Microsoft.AspNetCore.Authentication
 {
 	public class TicketReceivedContext : RemoteAuthenticationContext<RemoteAuthenticationOptions>
 	{
-		public string ReturnUri
+		public string? ReturnUri
 		{
 			[CompilerGenerated]
 			get
@@ -1990,12 +2180,14 @@ namespace Microsoft.AspNetCore.Authentication
 			[CompilerGenerated]
 			set
 			{
+				throw null;
 			}
 		}
 
+		[System.Runtime.CompilerServices.NullableContext(1)]
 		public TicketReceivedContext(HttpContext context, AuthenticationScheme scheme, RemoteAuthenticationOptions options, AuthenticationTicket ticket)
-			: base((HttpContext)null, (AuthenticationScheme)null, (RemoteAuthenticationOptions)null, (AuthenticationProperties)null)
 		{
+			throw null;
 		}
 	}
 }
@@ -2019,17 +2211,32 @@ namespace Microsoft.AspNetCore.Authentication
 			}
 		}
 
-		public virtual AuthenticationTicket Deserialize(byte[] data)
+		public virtual byte[] Serialize(AuthenticationTicket ticket)
 		{
 			throw null;
 		}
 
-		public virtual AuthenticationTicket Read(BinaryReader reader)
+		public virtual AuthenticationTicket? Deserialize(byte[] data)
 		{
 			throw null;
 		}
 
-		protected virtual Claim ReadClaim(BinaryReader reader, ClaimsIdentity identity)
+		public virtual void Write(BinaryWriter writer, AuthenticationTicket ticket)
+		{
+			throw null;
+		}
+
+		protected virtual void WriteIdentity(BinaryWriter writer, ClaimsIdentity identity)
+		{
+			throw null;
+		}
+
+		protected virtual void WriteClaim(BinaryWriter writer, Claim claim)
+		{
+			throw null;
+		}
+
+		public virtual AuthenticationTicket? Read(BinaryReader reader)
 		{
 			throw null;
 		}
@@ -2039,21 +2246,14 @@ namespace Microsoft.AspNetCore.Authentication
 			throw null;
 		}
 
-		public virtual byte[] Serialize(AuthenticationTicket ticket)
+		protected virtual Claim ReadClaim(BinaryReader reader, ClaimsIdentity identity)
 		{
 			throw null;
 		}
 
-		public virtual void Write(BinaryWriter writer, AuthenticationTicket ticket)
+		public TicketSerializer()
 		{
-		}
-
-		protected virtual void WriteClaim(BinaryWriter writer, Claim claim)
-		{
-		}
-
-		protected virtual void WriteIdentity(BinaryWriter writer, ClaimsIdentity identity)
-		{
+			throw null;
 		}
 	}
 }
@@ -2074,23 +2274,37 @@ namespace Microsoft.AspNetCore.Builder
 
 // Microsoft.AspNetCore.Authentication\Microsoft.Extensions.DependencyInjection\AuthenticationServiceCollectionExtensions.cs
 using Microsoft.AspNetCore.Authentication;
+using Microsoft.Extensions.Options;
 using System;
 
 namespace Microsoft.Extensions.DependencyInjection
 {
 	public static class AuthenticationServiceCollectionExtensions
 	{
+		private class EnsureSignInScheme<TOptions> : IPostConfigureOptions<TOptions> where TOptions : RemoteAuthenticationOptions
+		{
+			public EnsureSignInScheme(IOptions<AuthenticationOptions> authOptions)
+			{
+				throw null;
+			}
+
+			public void PostConfigure(string name, TOptions options)
+			{
+				throw null;
+			}
+		}
+
 		public static AuthenticationBuilder AddAuthentication(this IServiceCollection services)
 		{
 			throw null;
 		}
 
-		public static AuthenticationBuilder AddAuthentication(this IServiceCollection services, Action<AuthenticationOptions> configureOptions)
+		public static AuthenticationBuilder AddAuthentication(this IServiceCollection services, string defaultScheme)
 		{
 			throw null;
 		}
 
-		public static AuthenticationBuilder AddAuthentication(this IServiceCollection services, string defaultScheme)
+		public static AuthenticationBuilder AddAuthentication(this IServiceCollection services, Action<AuthenticationOptions> configureOptions)
 		{
 			throw null;
 		}
@@ -2100,6 +2314,7 @@ namespace Microsoft.Extensions.DependencyInjection
 
 // Microsoft.AspNetCore.Authentication.Abstractions\Microsoft.AspNetCore.Authentication\AuthenticateResult.cs
 using System;
+using System.Diagnostics.CodeAnalysis;
 using System.Runtime.CompilerServices;
 using System.Security.Claims;
 
@@ -2107,7 +2322,17 @@ namespace Microsoft.AspNetCore.Authentication
 {
 	public class AuthenticateResult
 	{
-		public Exception Failure
+		[MemberNotNullWhen(true, "Ticket")]
+		public bool Succeeded
+		{
+			[MemberNotNullWhen(true, "Ticket")]
+			get
+			{
+				throw null;
+			}
+		}
+
+		public AuthenticationTicket? Ticket
 		{
 			[CompilerGenerated]
 			get
@@ -2117,6 +2342,43 @@ namespace Microsoft.AspNetCore.Authentication
 			[CompilerGenerated]
 			protected set
 			{
+				throw null;
+			}
+		}
+
+		public ClaimsPrincipal? Principal
+		{
+			get
+			{
+				throw null;
+			}
+		}
+
+		public AuthenticationProperties? Properties
+		{
+			[CompilerGenerated]
+			get
+			{
+				throw null;
+			}
+			[CompilerGenerated]
+			protected set
+			{
+				throw null;
+			}
+		}
+
+		public Exception? Failure
+		{
+			[CompilerGenerated]
+			get
+			{
+				throw null;
+			}
+			[CompilerGenerated]
+			protected set
+			{
+				throw null;
 			}
 		}
 
@@ -2130,71 +2392,21 @@ namespace Microsoft.AspNetCore.Authentication
 			[CompilerGenerated]
 			protected set
 			{
-			}
-		}
-
-		public ClaimsPrincipal Principal
-		{
-			get
-			{
 				throw null;
-			}
-		}
-
-		public AuthenticationProperties Properties
-		{
-			[CompilerGenerated]
-			get
-			{
-				throw null;
-			}
-			[CompilerGenerated]
-			protected set
-			{
-			}
-		}
-
-		public bool Succeeded
-		{
-			get
-			{
-				throw null;
-			}
-		}
-
-		public AuthenticationTicket Ticket
-		{
-			[CompilerGenerated]
-			get
-			{
-				throw null;
-			}
-			[CompilerGenerated]
-			protected set
-			{
 			}
 		}
 
 		protected AuthenticateResult()
 		{
+			throw null;
 		}
 
-		public static AuthenticateResult Fail(Exception failure)
+		public AuthenticateResult Clone()
 		{
 			throw null;
 		}
 
-		public static AuthenticateResult Fail(Exception failure, AuthenticationProperties properties)
-		{
-			throw null;
-		}
-
-		public static AuthenticateResult Fail(string failureMessage)
-		{
-			throw null;
-		}
-
-		public static AuthenticateResult Fail(string failureMessage, AuthenticationProperties properties)
+		public static AuthenticateResult Success(AuthenticationTicket ticket)
 		{
 			throw null;
 		}
@@ -2204,7 +2416,22 @@ namespace Microsoft.AspNetCore.Authentication
 			throw null;
 		}
 
-		public static AuthenticateResult Success(AuthenticationTicket ticket)
+		public static AuthenticateResult Fail(Exception? failure)
+		{
+			throw null;
+		}
+
+		public static AuthenticateResult Fail(Exception? failure, AuthenticationProperties? properties)
+		{
+			throw null;
+		}
+
+		public static AuthenticateResult Fail(string? failureMessage)
+		{
+			throw null;
+		}
+
+		public static AuthenticateResult Fail(string? failureMessage, AuthenticationProperties? properties)
 		{
 			throw null;
 		}
@@ -2226,7 +2453,12 @@ namespace Microsoft.AspNetCore.Authentication
 			throw null;
 		}
 
-		public static Task<AuthenticateResult> AuthenticateAsync(this HttpContext context, string scheme)
+		public static Task<AuthenticateResult> AuthenticateAsync(this HttpContext context, string? scheme)
+		{
+			throw null;
+		}
+
+		public static Task ChallengeAsync(this HttpContext context, string? scheme)
 		{
 			throw null;
 		}
@@ -2236,17 +2468,17 @@ namespace Microsoft.AspNetCore.Authentication
 			throw null;
 		}
 
-		public static Task ChallengeAsync(this HttpContext context, AuthenticationProperties properties)
+		public static Task ChallengeAsync(this HttpContext context, AuthenticationProperties? properties)
 		{
 			throw null;
 		}
 
-		public static Task ChallengeAsync(this HttpContext context, string scheme)
+		public static Task ChallengeAsync(this HttpContext context, string? scheme, AuthenticationProperties? properties)
 		{
 			throw null;
 		}
 
-		public static Task ChallengeAsync(this HttpContext context, string scheme, AuthenticationProperties properties)
+		public static Task ForbidAsync(this HttpContext context, string? scheme)
 		{
 			throw null;
 		}
@@ -2256,27 +2488,17 @@ namespace Microsoft.AspNetCore.Authentication
 			throw null;
 		}
 
-		public static Task ForbidAsync(this HttpContext context, AuthenticationProperties properties)
+		public static Task ForbidAsync(this HttpContext context, AuthenticationProperties? properties)
 		{
 			throw null;
 		}
 
-		public static Task ForbidAsync(this HttpContext context, string scheme)
+		public static Task ForbidAsync(this HttpContext context, string? scheme, AuthenticationProperties? properties)
 		{
 			throw null;
 		}
 
-		public static Task ForbidAsync(this HttpContext context, string scheme, AuthenticationProperties properties)
-		{
-			throw null;
-		}
-
-		public static Task<string> GetTokenAsync(this HttpContext context, string tokenName)
-		{
-			throw null;
-		}
-
-		public static Task<string> GetTokenAsync(this HttpContext context, string scheme, string tokenName)
+		public static Task SignInAsync(this HttpContext context, string? scheme, ClaimsPrincipal principal)
 		{
 			throw null;
 		}
@@ -2286,17 +2508,12 @@ namespace Microsoft.AspNetCore.Authentication
 			throw null;
 		}
 
-		public static Task SignInAsync(this HttpContext context, ClaimsPrincipal principal, AuthenticationProperties properties)
+		public static Task SignInAsync(this HttpContext context, ClaimsPrincipal principal, AuthenticationProperties? properties)
 		{
 			throw null;
 		}
 
-		public static Task SignInAsync(this HttpContext context, string scheme, ClaimsPrincipal principal)
-		{
-			throw null;
-		}
-
-		public static Task SignInAsync(this HttpContext context, string scheme, ClaimsPrincipal principal, AuthenticationProperties properties)
+		public static Task SignInAsync(this HttpContext context, string? scheme, ClaimsPrincipal principal, AuthenticationProperties? properties)
 		{
 			throw null;
 		}
@@ -2306,17 +2523,27 @@ namespace Microsoft.AspNetCore.Authentication
 			throw null;
 		}
 
-		public static Task SignOutAsync(this HttpContext context, AuthenticationProperties properties)
+		public static Task SignOutAsync(this HttpContext context, AuthenticationProperties? properties)
 		{
 			throw null;
 		}
 
-		public static Task SignOutAsync(this HttpContext context, string scheme)
+		public static Task SignOutAsync(this HttpContext context, string? scheme)
 		{
 			throw null;
 		}
 
-		public static Task SignOutAsync(this HttpContext context, string scheme, AuthenticationProperties properties)
+		public static Task SignOutAsync(this HttpContext context, string? scheme, AuthenticationProperties? properties)
+		{
+			throw null;
+		}
+
+		public static Task<string?> GetTokenAsync(this HttpContext context, string? scheme, string tokenName)
+		{
+			throw null;
+		}
+
+		public static Task<string?> GetTokenAsync(this HttpContext context, string tokenName)
 		{
 			throw null;
 		}
@@ -2327,39 +2554,33 @@ namespace Microsoft.AspNetCore.Authentication
 // Microsoft.AspNetCore.Authentication.Abstractions\Microsoft.AspNetCore.Authentication\AuthenticationOptions.cs
 using System;
 using System.Collections.Generic;
+using System.Diagnostics.CodeAnalysis;
 using System.Runtime.CompilerServices;
 
 namespace Microsoft.AspNetCore.Authentication
 {
 	public class AuthenticationOptions
 	{
-		public string DefaultAuthenticateScheme
+		public IEnumerable<AuthenticationSchemeBuilder> Schemes
 		{
-			[CompilerGenerated]
+			[System.Runtime.CompilerServices.NullableContext(1)]
 			get
 			{
 				throw null;
-			}
-			[CompilerGenerated]
-			set
-			{
 			}
 		}
 
-		public string DefaultChallengeScheme
+		public IDictionary<string, AuthenticationSchemeBuilder> SchemeMap
 		{
+			[System.Runtime.CompilerServices.NullableContext(1)]
 			[CompilerGenerated]
 			get
 			{
 				throw null;
-			}
-			[CompilerGenerated]
-			set
-			{
 			}
 		}
 
-		public string DefaultForbidScheme
+		public string? DefaultScheme
 		{
 			[CompilerGenerated]
 			get
@@ -2369,10 +2590,11 @@ namespace Microsoft.AspNetCore.Authentication
 			[CompilerGenerated]
 			set
 			{
+				throw null;
 			}
 		}
 
-		public string DefaultScheme
+		public string? DefaultAuthenticateScheme
 		{
 			[CompilerGenerated]
 			get
@@ -2382,10 +2604,11 @@ namespace Microsoft.AspNetCore.Authentication
 			[CompilerGenerated]
 			set
 			{
+				throw null;
 			}
 		}
 
-		public string DefaultSignInScheme
+		public string? DefaultSignInScheme
 		{
 			[CompilerGenerated]
 			get
@@ -2395,10 +2618,11 @@ namespace Microsoft.AspNetCore.Authentication
 			[CompilerGenerated]
 			set
 			{
+				throw null;
 			}
 		}
 
-		public string DefaultSignOutScheme
+		public string? DefaultSignOutScheme
 		{
 			[CompilerGenerated]
 			get
@@ -2408,6 +2632,35 @@ namespace Microsoft.AspNetCore.Authentication
 			[CompilerGenerated]
 			set
 			{
+				throw null;
+			}
+		}
+
+		public string? DefaultChallengeScheme
+		{
+			[CompilerGenerated]
+			get
+			{
+				throw null;
+			}
+			[CompilerGenerated]
+			set
+			{
+				throw null;
+			}
+		}
+
+		public string? DefaultForbidScheme
+		{
+			[CompilerGenerated]
+			get
+			{
+				throw null;
+			}
+			[CompilerGenerated]
+			set
+			{
+				throw null;
 			}
 		}
 
@@ -2421,32 +2674,23 @@ namespace Microsoft.AspNetCore.Authentication
 			[CompilerGenerated]
 			set
 			{
-			}
-		}
-
-		public IDictionary<string, AuthenticationSchemeBuilder> SchemeMap
-		{
-			[CompilerGenerated]
-			get
-			{
-				throw null;
-			}
-		}
-
-		public IEnumerable<AuthenticationSchemeBuilder> Schemes
-		{
-			get
-			{
 				throw null;
 			}
 		}
 
 		public void AddScheme(string name, Action<AuthenticationSchemeBuilder> configureBuilder)
 		{
+			throw null;
 		}
 
-		public void AddScheme<THandler>(string name, string displayName) where THandler : IAuthenticationHandler
+		public void AddScheme<[DynamicallyAccessedMembers(DynamicallyAccessedMemberTypes.PublicConstructors)] THandler>(string name, string displayName) where THandler : IAuthenticationHandler
 		{
+			throw null;
+		}
+
+		public AuthenticationOptions()
+		{
+			throw null;
 		}
 	}
 }
@@ -2455,31 +2699,28 @@ namespace Microsoft.AspNetCore.Authentication
 // Microsoft.AspNetCore.Authentication.Abstractions\Microsoft.AspNetCore.Authentication\AuthenticationProperties.cs
 using System;
 using System.Collections.Generic;
+using System.Diagnostics.CodeAnalysis;
 using System.Runtime.CompilerServices;
 
 namespace Microsoft.AspNetCore.Authentication
 {
 	public class AuthenticationProperties
 	{
-		public bool? AllowRefresh
+		public IDictionary<string, string?> Items
 		{
+			[CompilerGenerated]
 			get
 			{
 				throw null;
-			}
-			set
-			{
 			}
 		}
 
-		public DateTimeOffset? ExpiresUtc
+		public IDictionary<string, object?> Parameters
 		{
+			[CompilerGenerated]
 			get
 			{
 				throw null;
-			}
-			set
-			{
 			}
 		}
 
@@ -2491,6 +2732,21 @@ namespace Microsoft.AspNetCore.Authentication
 			}
 			set
 			{
+				throw null;
+			}
+		}
+
+		public string? RedirectUri
+		{
+			[System.Runtime.CompilerServices.NullableContext(2)]
+			get
+			{
+				throw null;
+			}
+			[System.Runtime.CompilerServices.NullableContext(2)]
+			set
+			{
+				throw null;
 			}
 		}
 
@@ -2502,28 +2758,11 @@ namespace Microsoft.AspNetCore.Authentication
 			}
 			set
 			{
-			}
-		}
-
-		public IDictionary<string, string> Items
-		{
-			[CompilerGenerated]
-			get
-			{
 				throw null;
 			}
 		}
 
-		public IDictionary<string, object> Parameters
-		{
-			[CompilerGenerated]
-			get
-			{
-				throw null;
-			}
-		}
-
-		public string RedirectUri
+		public DateTimeOffset? ExpiresUtc
 		{
 			get
 			{
@@ -2531,22 +2770,69 @@ namespace Microsoft.AspNetCore.Authentication
 			}
 			set
 			{
+				throw null;
+			}
+		}
+
+		public bool? AllowRefresh
+		{
+			get
+			{
+				throw null;
+			}
+			set
+			{
+				throw null;
 			}
 		}
 
 		public AuthenticationProperties()
 		{
+			throw null;
 		}
 
-		public AuthenticationProperties(IDictionary<string, string> items)
+		public AuthenticationProperties(IDictionary<string, string?> items)
 		{
+			throw null;
 		}
 
-		public AuthenticationProperties(IDictionary<string, string> items, IDictionary<string, object> parameters)
+		public AuthenticationProperties(IDictionary<string, string?>? items, IDictionary<string, object?>? parameters)
 		{
+			throw null;
+		}
+
+		public AuthenticationProperties Clone()
+		{
+			throw null;
+		}
+
+		public string? GetString(string key)
+		{
+			throw null;
+		}
+
+		public void SetString(string key, string? value)
+		{
+			throw null;
+		}
+
+		[return: MaybeNull]
+		public T GetParameter<T>(string key)
+		{
+			throw null;
+		}
+
+		public void SetParameter<T>(string key, [MaybeNull] T value)
+		{
+			throw null;
 		}
 
 		protected bool? GetBool(string key)
+		{
+			throw null;
+		}
+
+		protected void SetBool(string key, bool? value)
 		{
 			throw null;
 		}
@@ -2556,30 +2842,9 @@ namespace Microsoft.AspNetCore.Authentication
 			throw null;
 		}
 
-		public T GetParameter<T>(string key)
-		{
-			throw null;
-		}
-
-		public string GetString(string key)
-		{
-			throw null;
-		}
-
-		protected void SetBool(string key, bool? value)
-		{
-		}
-
 		protected void SetDateTimeOffset(string key, DateTimeOffset? value)
 		{
-		}
-
-		public void SetParameter<T>(string key, T value)
-		{
-		}
-
-		public void SetString(string key, string value)
-		{
+			throw null;
 		}
 	}
 }
@@ -2587,30 +2852,13 @@ namespace Microsoft.AspNetCore.Authentication
 
 // Microsoft.AspNetCore.Authentication.Abstractions\Microsoft.AspNetCore.Authentication\AuthenticationScheme.cs
 using System;
+using System.Diagnostics.CodeAnalysis;
 using System.Runtime.CompilerServices;
 
 namespace Microsoft.AspNetCore.Authentication
 {
 	public class AuthenticationScheme
 	{
-		public string DisplayName
-		{
-			[CompilerGenerated]
-			get
-			{
-				throw null;
-			}
-		}
-
-		public Type HandlerType
-		{
-			[CompilerGenerated]
-			get
-			{
-				throw null;
-			}
-		}
-
 		public string Name
 		{
 			[CompilerGenerated]
@@ -2620,8 +2868,29 @@ namespace Microsoft.AspNetCore.Authentication
 			}
 		}
 
-		public AuthenticationScheme(string name, string displayName, Type handlerType)
+		public string? DisplayName
 		{
+			[System.Runtime.CompilerServices.NullableContext(2)]
+			[CompilerGenerated]
+			get
+			{
+				throw null;
+			}
+		}
+
+		[DynamicallyAccessedMembers(DynamicallyAccessedMemberTypes.PublicConstructors)]
+		public Type HandlerType
+		{
+			[CompilerGenerated]
+			get
+			{
+				throw null;
+			}
+		}
+
+		public AuthenticationScheme(string name, string? displayName, [DynamicallyAccessedMembers(DynamicallyAccessedMemberTypes.PublicConstructors)] Type handlerType)
+		{
+			throw null;
 		}
 	}
 }
@@ -2629,40 +2898,16 @@ namespace Microsoft.AspNetCore.Authentication
 
 // Microsoft.AspNetCore.Authentication.Abstractions\Microsoft.AspNetCore.Authentication\AuthenticationSchemeBuilder.cs
 using System;
+using System.Diagnostics.CodeAnalysis;
 using System.Runtime.CompilerServices;
 
 namespace Microsoft.AspNetCore.Authentication
 {
 	public class AuthenticationSchemeBuilder
 	{
-		public string DisplayName
-		{
-			[CompilerGenerated]
-			get
-			{
-				throw null;
-			}
-			[CompilerGenerated]
-			set
-			{
-			}
-		}
-
-		public Type HandlerType
-		{
-			[CompilerGenerated]
-			get
-			{
-				throw null;
-			}
-			[CompilerGenerated]
-			set
-			{
-			}
-		}
-
 		public string Name
 		{
+			[System.Runtime.CompilerServices.NullableContext(1)]
 			[CompilerGenerated]
 			get
 			{
@@ -2670,8 +2915,39 @@ namespace Microsoft.AspNetCore.Authentication
 			}
 		}
 
+		public string? DisplayName
+		{
+			[CompilerGenerated]
+			get
+			{
+				throw null;
+			}
+			[CompilerGenerated]
+			set
+			{
+				throw null;
+			}
+		}
+
+		[DynamicallyAccessedMembers(DynamicallyAccessedMemberTypes.PublicConstructors)]
+		public Type? HandlerType
+		{
+			[CompilerGenerated]
+			get
+			{
+				throw null;
+			}
+			[CompilerGenerated]
+			set
+			{
+				throw null;
+			}
+		}
+
+		[System.Runtime.CompilerServices.NullableContext(1)]
 		public AuthenticationSchemeBuilder(string name)
 		{
+			throw null;
 		}
 
 		public AuthenticationScheme Build()
@@ -2717,12 +2993,19 @@ namespace Microsoft.AspNetCore.Authentication
 			}
 		}
 
-		public AuthenticationTicket(ClaimsPrincipal principal, AuthenticationProperties properties, string authenticationScheme)
+		public AuthenticationTicket(ClaimsPrincipal principal, AuthenticationProperties? properties, string authenticationScheme)
 		{
+			throw null;
 		}
 
 		public AuthenticationTicket(ClaimsPrincipal principal, string authenticationScheme)
 		{
+			throw null;
+		}
+
+		public AuthenticationTicket Clone()
+		{
+			throw null;
 		}
 	}
 }
@@ -2735,7 +3018,7 @@ namespace Microsoft.AspNetCore.Authentication
 {
 	public class AuthenticationToken
 	{
-		public string Name
+		public string? Name
 		{
 			[CompilerGenerated]
 			get
@@ -2745,10 +3028,11 @@ namespace Microsoft.AspNetCore.Authentication
 			[CompilerGenerated]
 			set
 			{
+				throw null;
 			}
 		}
 
-		public string Value
+		public string? Value
 		{
 			[CompilerGenerated]
 			get
@@ -2758,7 +3042,13 @@ namespace Microsoft.AspNetCore.Authentication
 			[CompilerGenerated]
 			set
 			{
+				throw null;
 			}
+		}
+
+		public AuthenticationToken()
+		{
+			throw null;
 		}
 	}
 }
@@ -2768,19 +3058,24 @@ namespace Microsoft.AspNetCore.Authentication
 using Microsoft.AspNetCore.Http;
 using System.Collections.Generic;
 using System.Diagnostics;
+using System.Runtime.CompilerServices;
 using System.Threading.Tasks;
 
 namespace Microsoft.AspNetCore.Authentication
 {
 	public static class AuthenticationTokenExtensions
 	{
-		public static Task<string> GetTokenAsync(this IAuthenticationService auth, HttpContext context, string tokenName)
+		public static void StoreTokens(this AuthenticationProperties properties, IEnumerable<AuthenticationToken> tokens)
 		{
 			throw null;
 		}
 
-		[DebuggerStepThrough]
-		public static Task<string> GetTokenAsync(this IAuthenticationService auth, HttpContext context, string scheme, string tokenName)
+		public static string? GetTokenValue(this AuthenticationProperties properties, string tokenName)
+		{
+			throw null;
+		}
+
+		public static bool UpdateTokenValue(this AuthenticationProperties properties, string tokenName, string tokenValue)
 		{
 			throw null;
 		}
@@ -2790,16 +3085,14 @@ namespace Microsoft.AspNetCore.Authentication
 			throw null;
 		}
 
-		public static string GetTokenValue(this AuthenticationProperties properties, string tokenName)
+		public static Task<string?> GetTokenAsync(this IAuthenticationService auth, HttpContext context, string tokenName)
 		{
 			throw null;
 		}
 
-		public static void StoreTokens(this AuthenticationProperties properties, IEnumerable<AuthenticationToken> tokens)
-		{
-		}
-
-		public static bool UpdateTokenValue(this AuthenticationProperties properties, string tokenName, string tokenValue)
+		[AsyncStateMachine(typeof(_003CGetTokenAsync_003Ed__7))]
+		[DebuggerStepThrough]
+		public static Task<string?> GetTokenAsync(this IAuthenticationService auth, HttpContext context, string? scheme, string tokenName)
 		{
 			throw null;
 		}
@@ -2814,13 +3107,13 @@ namespace Microsoft.AspNetCore.Authentication
 {
 	public interface IAuthenticationFeature
 	{
-		PathString OriginalPath
+		PathString OriginalPathBase
 		{
 			get;
 			set;
 		}
 
-		PathString OriginalPathBase
+		PathString OriginalPath
 		{
 			get;
 			set;
@@ -2837,13 +3130,13 @@ namespace Microsoft.AspNetCore.Authentication
 {
 	public interface IAuthenticationHandler
 	{
+		Task InitializeAsync(AuthenticationScheme scheme, HttpContext context);
+
 		Task<AuthenticateResult> AuthenticateAsync();
 
-		Task ChallengeAsync(AuthenticationProperties properties);
+		Task ChallengeAsync(AuthenticationProperties? properties);
 
-		Task ForbidAsync(AuthenticationProperties properties);
-
-		Task InitializeAsync(AuthenticationScheme scheme, HttpContext context);
+		Task ForbidAsync(AuthenticationProperties? properties);
 	}
 }
 
@@ -2856,7 +3149,7 @@ namespace Microsoft.AspNetCore.Authentication
 {
 	public interface IAuthenticationHandlerProvider
 	{
-		Task<IAuthenticationHandler> GetHandlerAsync(HttpContext context, string authenticationScheme);
+		Task<IAuthenticationHandler?> GetHandlerAsync(HttpContext context, string authenticationScheme);
 	}
 }
 
@@ -2881,25 +3174,30 @@ namespace Microsoft.AspNetCore.Authentication
 {
 	public interface IAuthenticationSchemeProvider
 	{
-		void AddScheme(AuthenticationScheme scheme);
-
 		Task<IEnumerable<AuthenticationScheme>> GetAllSchemesAsync();
 
-		Task<AuthenticationScheme> GetDefaultAuthenticateSchemeAsync();
+		Task<AuthenticationScheme?> GetSchemeAsync(string name);
 
-		Task<AuthenticationScheme> GetDefaultChallengeSchemeAsync();
+		Task<AuthenticationScheme?> GetDefaultAuthenticateSchemeAsync();
 
-		Task<AuthenticationScheme> GetDefaultForbidSchemeAsync();
+		Task<AuthenticationScheme?> GetDefaultChallengeSchemeAsync();
 
-		Task<AuthenticationScheme> GetDefaultSignInSchemeAsync();
+		Task<AuthenticationScheme?> GetDefaultForbidSchemeAsync();
 
-		Task<AuthenticationScheme> GetDefaultSignOutSchemeAsync();
+		Task<AuthenticationScheme?> GetDefaultSignInSchemeAsync();
 
-		Task<IEnumerable<AuthenticationScheme>> GetRequestHandlerSchemesAsync();
+		Task<AuthenticationScheme?> GetDefaultSignOutSchemeAsync();
 
-		Task<AuthenticationScheme> GetSchemeAsync(string name);
+		void AddScheme(AuthenticationScheme scheme);
+
+		bool TryAddScheme(AuthenticationScheme scheme)
+		{
+			throw null;
+		}
 
 		void RemoveScheme(string name);
+
+		Task<IEnumerable<AuthenticationScheme>> GetRequestHandlerSchemesAsync();
 	}
 }
 
@@ -2913,15 +3211,15 @@ namespace Microsoft.AspNetCore.Authentication
 {
 	public interface IAuthenticationService
 	{
-		Task<AuthenticateResult> AuthenticateAsync(HttpContext context, string scheme);
+		Task<AuthenticateResult> AuthenticateAsync(HttpContext context, string? scheme);
 
-		Task ChallengeAsync(HttpContext context, string scheme, AuthenticationProperties properties);
+		Task ChallengeAsync(HttpContext context, string? scheme, AuthenticationProperties? properties);
 
-		Task ForbidAsync(HttpContext context, string scheme, AuthenticationProperties properties);
+		Task ForbidAsync(HttpContext context, string? scheme, AuthenticationProperties? properties);
 
-		Task SignInAsync(HttpContext context, string scheme, ClaimsPrincipal principal, AuthenticationProperties properties);
+		Task SignInAsync(HttpContext context, string? scheme, ClaimsPrincipal principal, AuthenticationProperties? properties);
 
-		Task SignOutAsync(HttpContext context, string scheme, AuthenticationProperties properties);
+		Task SignOutAsync(HttpContext context, string? scheme, AuthenticationProperties? properties);
 	}
 }
 
@@ -2932,9 +3230,9 @@ using System.Threading.Tasks;
 
 namespace Microsoft.AspNetCore.Authentication
 {
-	public interface IAuthenticationSignInHandler : IAuthenticationHandler, IAuthenticationSignOutHandler
+	public interface IAuthenticationSignInHandler : IAuthenticationSignOutHandler, IAuthenticationHandler
 	{
-		Task SignInAsync(ClaimsPrincipal user, AuthenticationProperties properties);
+		Task SignInAsync(ClaimsPrincipal user, AuthenticationProperties? properties);
 	}
 }
 
@@ -2946,7 +3244,7 @@ namespace Microsoft.AspNetCore.Authentication
 {
 	public interface IAuthenticationSignOutHandler : IAuthenticationHandler
 	{
-		Task SignOutAsync(AuthenticationProperties properties);
+		Task SignOutAsync(AuthenticationProperties? properties);
 	}
 }
 
@@ -2972,6 +3270,10 @@ namespace Microsoft.AspNetCore.Authorization
 	[AttributeUsage(AttributeTargets.Class | AttributeTargets.Method, AllowMultiple = false, Inherited = true)]
 	public class AllowAnonymousAttribute : Attribute, IAllowAnonymous
 	{
+		public AllowAnonymousAttribute()
+		{
+			throw null;
+		}
 	}
 }
 
@@ -3002,10 +3304,6 @@ namespace Microsoft.AspNetCore.Authorization
 			}
 		}
 
-		internal AuthorizationFailure()
-		{
-		}
-
 		public static AuthorizationFailure ExplicitFail()
 		{
 			throw null;
@@ -3021,12 +3319,14 @@ namespace Microsoft.AspNetCore.Authorization
 
 // Microsoft.AspNetCore.Authorization\Microsoft.AspNetCore.Authorization\AuthorizationHandler.cs
 using System.Diagnostics;
+using System.Runtime.CompilerServices;
 using System.Threading.Tasks;
 
 namespace Microsoft.AspNetCore.Authorization
 {
 	public abstract class AuthorizationHandler<TRequirement> : IAuthorizationHandler where TRequirement : IAuthorizationRequirement
 	{
+		[AsyncStateMachine(typeof(AuthorizationHandler<>._003CHandleAsync_003Ed__0))]
 		[DebuggerStepThrough]
 		public virtual Task HandleAsync(AuthorizationHandlerContext context)
 		{
@@ -3034,9 +3334,15 @@ namespace Microsoft.AspNetCore.Authorization
 		}
 
 		protected abstract Task HandleRequirementAsync(AuthorizationHandlerContext context, TRequirement requirement);
+
+		protected AuthorizationHandler()
+		{
+			throw null;
+		}
 	}
 	public abstract class AuthorizationHandler<TRequirement, TResource> : IAuthorizationHandler where TRequirement : IAuthorizationRequirement
 	{
+		[AsyncStateMachine(typeof(AuthorizationHandler<, >._003CHandleAsync_003Ed__0))]
 		[DebuggerStepThrough]
 		public virtual Task HandleAsync(AuthorizationHandlerContext context)
 		{
@@ -3044,6 +3350,11 @@ namespace Microsoft.AspNetCore.Authorization
 		}
 
 		protected abstract Task HandleRequirementAsync(AuthorizationHandlerContext context, TRequirement requirement, TResource resource);
+
+		protected AuthorizationHandler()
+		{
+			throw null;
+		}
 	}
 }
 
@@ -3057,40 +3368,7 @@ namespace Microsoft.AspNetCore.Authorization
 {
 	public class AuthorizationHandlerContext
 	{
-		public virtual bool HasFailed
-		{
-			get
-			{
-				throw null;
-			}
-		}
-
-		public virtual bool HasSucceeded
-		{
-			get
-			{
-				throw null;
-			}
-		}
-
-		public virtual IEnumerable<IAuthorizationRequirement> PendingRequirements
-		{
-			get
-			{
-				throw null;
-			}
-		}
-
 		public virtual IEnumerable<IAuthorizationRequirement> Requirements
-		{
-			[CompilerGenerated]
-			get
-			{
-				throw null;
-			}
-		}
-
-		public virtual object Resource
 		{
 			[CompilerGenerated]
 			get
@@ -3108,16 +3386,53 @@ namespace Microsoft.AspNetCore.Authorization
 			}
 		}
 
-		public AuthorizationHandlerContext(IEnumerable<IAuthorizationRequirement> requirements, ClaimsPrincipal user, object resource)
+		public virtual object? Resource
 		{
+			[System.Runtime.CompilerServices.NullableContext(2)]
+			[CompilerGenerated]
+			get
+			{
+				throw null;
+			}
+		}
+
+		public virtual IEnumerable<IAuthorizationRequirement> PendingRequirements
+		{
+			get
+			{
+				throw null;
+			}
+		}
+
+		public virtual bool HasFailed
+		{
+			get
+			{
+				throw null;
+			}
+		}
+
+		public virtual bool HasSucceeded
+		{
+			get
+			{
+				throw null;
+			}
+		}
+
+		public AuthorizationHandlerContext(IEnumerable<IAuthorizationRequirement> requirements, ClaimsPrincipal user, object? resource)
+		{
+			throw null;
 		}
 
 		public virtual void Fail()
 		{
+			throw null;
 		}
 
 		public virtual void Succeed(IAuthorizationRequirement requirement)
 		{
+			throw null;
 		}
 	}
 }
@@ -3131,32 +3446,6 @@ namespace Microsoft.AspNetCore.Authorization
 {
 	public class AuthorizationOptions
 	{
-		public AuthorizationPolicy DefaultPolicy
-		{
-			[CompilerGenerated]
-			get
-			{
-				throw null;
-			}
-			[CompilerGenerated]
-			set
-			{
-			}
-		}
-
-		public AuthorizationPolicy FallbackPolicy
-		{
-			[CompilerGenerated]
-			get
-			{
-				throw null;
-			}
-			[CompilerGenerated]
-			set
-			{
-			}
-		}
-
 		public bool InvokeHandlersAfterFailure
 		{
 			[CompilerGenerated]
@@ -3167,18 +3456,56 @@ namespace Microsoft.AspNetCore.Authorization
 			[CompilerGenerated]
 			set
 			{
+				throw null;
+			}
+		}
+
+		public AuthorizationPolicy DefaultPolicy
+		{
+			[CompilerGenerated]
+			get
+			{
+				throw null;
+			}
+			[CompilerGenerated]
+			set
+			{
+				throw null;
+			}
+		}
+
+		public AuthorizationPolicy? FallbackPolicy
+		{
+			[System.Runtime.CompilerServices.NullableContext(2)]
+			[CompilerGenerated]
+			get
+			{
+				throw null;
+			}
+			[System.Runtime.CompilerServices.NullableContext(2)]
+			[CompilerGenerated]
+			set
+			{
+				throw null;
 			}
 		}
 
 		public void AddPolicy(string name, AuthorizationPolicy policy)
 		{
+			throw null;
 		}
 
 		public void AddPolicy(string name, Action<AuthorizationPolicyBuilder> configurePolicy)
 		{
+			throw null;
 		}
 
-		public AuthorizationPolicy GetPolicy(string name)
+		public AuthorizationPolicy? GetPolicy(string name)
+		{
+			throw null;
+		}
+
+		public AuthorizationOptions()
 		{
 			throw null;
 		}
@@ -3196,7 +3523,7 @@ namespace Microsoft.AspNetCore.Authorization
 {
 	public class AuthorizationPolicy
 	{
-		public IReadOnlyList<string> AuthenticationSchemes
+		public IReadOnlyList<IAuthorizationRequirement> Requirements
 		{
 			[CompilerGenerated]
 			get
@@ -3205,7 +3532,7 @@ namespace Microsoft.AspNetCore.Authorization
 			}
 		}
 
-		public IReadOnlyList<IAuthorizationRequirement> Requirements
+		public IReadOnlyList<string> AuthenticationSchemes
 		{
 			[CompilerGenerated]
 			get
@@ -3216,6 +3543,7 @@ namespace Microsoft.AspNetCore.Authorization
 
 		public AuthorizationPolicy(IEnumerable<IAuthorizationRequirement> requirements, IEnumerable<string> authenticationSchemes)
 		{
+			throw null;
 		}
 
 		public static AuthorizationPolicy Combine(params AuthorizationPolicy[] policies)
@@ -3228,8 +3556,9 @@ namespace Microsoft.AspNetCore.Authorization
 			throw null;
 		}
 
+		[AsyncStateMachine(typeof(_003CCombineAsync_003Ed__9))]
 		[DebuggerStepThrough]
-		public static Task<AuthorizationPolicy> CombineAsync(IAuthorizationPolicyProvider policyProvider, IEnumerable<IAuthorizeData> authorizeData)
+		public static Task<AuthorizationPolicy?> CombineAsync(IAuthorizationPolicyProvider policyProvider, IEnumerable<IAuthorizeData> authorizeData)
 		{
 			throw null;
 		}
@@ -3247,19 +3576,6 @@ namespace Microsoft.AspNetCore.Authorization
 {
 	public class AuthorizationPolicyBuilder
 	{
-		public IList<string> AuthenticationSchemes
-		{
-			[CompilerGenerated]
-			get
-			{
-				throw null;
-			}
-			[CompilerGenerated]
-			set
-			{
-			}
-		}
-
 		public IList<IAuthorizationRequirement> Requirements
 		{
 			[CompilerGenerated]
@@ -3270,15 +3586,32 @@ namespace Microsoft.AspNetCore.Authorization
 			[CompilerGenerated]
 			set
 			{
+				throw null;
 			}
 		}
 
-		public AuthorizationPolicyBuilder(AuthorizationPolicy policy)
+		public IList<string> AuthenticationSchemes
 		{
+			[CompilerGenerated]
+			get
+			{
+				throw null;
+			}
+			[CompilerGenerated]
+			set
+			{
+				throw null;
+			}
 		}
 
 		public AuthorizationPolicyBuilder(params string[] authenticationSchemes)
 		{
+			throw null;
+		}
+
+		public AuthorizationPolicyBuilder(AuthorizationPolicy policy)
+		{
+			throw null;
 		}
 
 		public AuthorizationPolicyBuilder AddAuthenticationSchemes(params string[] schemes)
@@ -3291,12 +3624,42 @@ namespace Microsoft.AspNetCore.Authorization
 			throw null;
 		}
 
-		public AuthorizationPolicy Build()
+		public AuthorizationPolicyBuilder Combine(AuthorizationPolicy policy)
 		{
 			throw null;
 		}
 
-		public AuthorizationPolicyBuilder Combine(AuthorizationPolicy policy)
+		public AuthorizationPolicyBuilder RequireClaim(string claimType, params string[] allowedValues)
+		{
+			throw null;
+		}
+
+		public AuthorizationPolicyBuilder RequireClaim(string claimType, IEnumerable<string> allowedValues)
+		{
+			throw null;
+		}
+
+		public AuthorizationPolicyBuilder RequireClaim(string claimType)
+		{
+			throw null;
+		}
+
+		public AuthorizationPolicyBuilder RequireRole(params string[] roles)
+		{
+			throw null;
+		}
+
+		public AuthorizationPolicyBuilder RequireRole(IEnumerable<string> roles)
+		{
+			throw null;
+		}
+
+		public AuthorizationPolicyBuilder RequireUserName(string userName)
+		{
+			throw null;
+		}
+
+		public AuthorizationPolicyBuilder RequireAuthenticatedUser()
 		{
 			throw null;
 		}
@@ -3311,37 +3674,7 @@ namespace Microsoft.AspNetCore.Authorization
 			throw null;
 		}
 
-		public AuthorizationPolicyBuilder RequireAuthenticatedUser()
-		{
-			throw null;
-		}
-
-		public AuthorizationPolicyBuilder RequireClaim(string claimType)
-		{
-			throw null;
-		}
-
-		public AuthorizationPolicyBuilder RequireClaim(string claimType, IEnumerable<string> allowedValues)
-		{
-			throw null;
-		}
-
-		public AuthorizationPolicyBuilder RequireClaim(string claimType, params string[] allowedValues)
-		{
-			throw null;
-		}
-
-		public AuthorizationPolicyBuilder RequireRole(IEnumerable<string> roles)
-		{
-			throw null;
-		}
-
-		public AuthorizationPolicyBuilder RequireRole(params string[] roles)
-		{
-			throw null;
-		}
-
-		public AuthorizationPolicyBuilder RequireUserName(string userName)
+		public AuthorizationPolicy Build()
 		{
 			throw null;
 		}
@@ -3356,15 +3689,6 @@ namespace Microsoft.AspNetCore.Authorization
 {
 	public class AuthorizationResult
 	{
-		public AuthorizationFailure Failure
-		{
-			[CompilerGenerated]
-			get
-			{
-				throw null;
-			}
-		}
-
 		public bool Succeeded
 		{
 			[CompilerGenerated]
@@ -3374,11 +3698,16 @@ namespace Microsoft.AspNetCore.Authorization
 			}
 		}
 
-		internal AuthorizationResult()
+		public AuthorizationFailure? Failure
 		{
+			[CompilerGenerated]
+			get
+			{
+				throw null;
+			}
 		}
 
-		public static AuthorizationResult Failed()
+		public static AuthorizationResult Success()
 		{
 			throw null;
 		}
@@ -3388,7 +3717,7 @@ namespace Microsoft.AspNetCore.Authorization
 			throw null;
 		}
 
-		public static AuthorizationResult Success()
+		public static AuthorizationResult Failed()
 		{
 			throw null;
 		}
@@ -3404,17 +3733,17 @@ namespace Microsoft.AspNetCore.Authorization
 {
 	public static class AuthorizationServiceExtensions
 	{
-		public static Task<AuthorizationResult> AuthorizeAsync(this IAuthorizationService service, ClaimsPrincipal user, AuthorizationPolicy policy)
-		{
-			throw null;
-		}
-
-		public static Task<AuthorizationResult> AuthorizeAsync(this IAuthorizationService service, ClaimsPrincipal user, object resource, AuthorizationPolicy policy)
-		{
-			throw null;
-		}
-
 		public static Task<AuthorizationResult> AuthorizeAsync(this IAuthorizationService service, ClaimsPrincipal user, object resource, IAuthorizationRequirement requirement)
+		{
+			throw null;
+		}
+
+		public static Task<AuthorizationResult> AuthorizeAsync(this IAuthorizationService service, ClaimsPrincipal user, object? resource, AuthorizationPolicy policy)
+		{
+			throw null;
+		}
+
+		public static Task<AuthorizationResult> AuthorizeAsync(this IAuthorizationService service, ClaimsPrincipal user, AuthorizationPolicy policy)
 		{
 			throw null;
 		}
@@ -3436,7 +3765,7 @@ namespace Microsoft.AspNetCore.Authorization
 	[AttributeUsage(AttributeTargets.Class | AttributeTargets.Method, AllowMultiple = true, Inherited = true)]
 	public class AuthorizeAttribute : Attribute, IAuthorizeData
 	{
-		public string AuthenticationSchemes
+		public string? Policy
 		{
 			[CompilerGenerated]
 			get
@@ -3446,10 +3775,11 @@ namespace Microsoft.AspNetCore.Authorization
 			[CompilerGenerated]
 			set
 			{
+				throw null;
 			}
 		}
 
-		public string Policy
+		public string? Roles
 		{
 			[CompilerGenerated]
 			get
@@ -3459,10 +3789,11 @@ namespace Microsoft.AspNetCore.Authorization
 			[CompilerGenerated]
 			set
 			{
+				throw null;
 			}
 		}
 
-		public string Roles
+		public string? AuthenticationSchemes
 		{
 			[CompilerGenerated]
 			get
@@ -3472,15 +3803,19 @@ namespace Microsoft.AspNetCore.Authorization
 			[CompilerGenerated]
 			set
 			{
+				throw null;
 			}
 		}
 
 		public AuthorizeAttribute()
 		{
+			throw null;
 		}
 
+		[System.Runtime.CompilerServices.NullableContext(1)]
 		public AuthorizeAttribute(string policy)
 		{
+			throw null;
 		}
 	}
 }
@@ -3492,6 +3827,11 @@ namespace Microsoft.AspNetCore.Authorization
 	public class DefaultAuthorizationEvaluator : IAuthorizationEvaluator
 	{
 		public AuthorizationResult Evaluate(AuthorizationHandlerContext context)
+		{
+			throw null;
+		}
+
+		public DefaultAuthorizationEvaluator()
 		{
 			throw null;
 		}
@@ -3507,7 +3847,12 @@ namespace Microsoft.AspNetCore.Authorization
 {
 	public class DefaultAuthorizationHandlerContextFactory : IAuthorizationHandlerContextFactory
 	{
-		public virtual AuthorizationHandlerContext CreateContext(IEnumerable<IAuthorizationRequirement> requirements, ClaimsPrincipal user, object resource)
+		public virtual AuthorizationHandlerContext CreateContext(IEnumerable<IAuthorizationRequirement> requirements, ClaimsPrincipal user, object? resource)
+		{
+			throw null;
+		}
+
+		public DefaultAuthorizationHandlerContextFactory()
 		{
 			throw null;
 		}
@@ -3525,6 +3870,7 @@ namespace Microsoft.AspNetCore.Authorization
 	{
 		public DefaultAuthorizationHandlerProvider(IEnumerable<IAuthorizationHandler> handlers)
 		{
+			throw null;
 		}
 
 		public Task<IEnumerable<IAuthorizationHandler>> GetHandlersAsync(AuthorizationHandlerContext context)
@@ -3545,6 +3891,7 @@ namespace Microsoft.AspNetCore.Authorization
 	{
 		public DefaultAuthorizationPolicyProvider(IOptions<AuthorizationOptions> options)
 		{
+			throw null;
 		}
 
 		public Task<AuthorizationPolicy> GetDefaultPolicyAsync()
@@ -3552,12 +3899,12 @@ namespace Microsoft.AspNetCore.Authorization
 			throw null;
 		}
 
-		public Task<AuthorizationPolicy> GetFallbackPolicyAsync()
+		public Task<AuthorizationPolicy?> GetFallbackPolicyAsync()
 		{
 			throw null;
 		}
 
-		public virtual Task<AuthorizationPolicy> GetPolicyAsync(string policyName)
+		public virtual Task<AuthorizationPolicy?> GetPolicyAsync(string policyName)
 		{
 			throw null;
 		}
@@ -3570,6 +3917,7 @@ using Microsoft.Extensions.Logging;
 using Microsoft.Extensions.Options;
 using System.Collections.Generic;
 using System.Diagnostics;
+using System.Runtime.CompilerServices;
 using System.Security.Claims;
 using System.Threading.Tasks;
 
@@ -3579,16 +3927,19 @@ namespace Microsoft.AspNetCore.Authorization
 	{
 		public DefaultAuthorizationService(IAuthorizationPolicyProvider policyProvider, IAuthorizationHandlerProvider handlers, ILogger<DefaultAuthorizationService> logger, IAuthorizationHandlerContextFactory contextFactory, IAuthorizationEvaluator evaluator, IOptions<AuthorizationOptions> options)
 		{
+			throw null;
 		}
 
+		[AsyncStateMachine(typeof(_003CAuthorizeAsync_003Ed__7))]
 		[DebuggerStepThrough]
-		public Task<AuthorizationResult> AuthorizeAsync(ClaimsPrincipal user, object resource, IEnumerable<IAuthorizationRequirement> requirements)
+		public virtual Task<AuthorizationResult> AuthorizeAsync(ClaimsPrincipal user, object? resource, IEnumerable<IAuthorizationRequirement> requirements)
 		{
 			throw null;
 		}
 
+		[AsyncStateMachine(typeof(_003CAuthorizeAsync_003Ed__8))]
 		[DebuggerStepThrough]
-		public Task<AuthorizationResult> AuthorizeAsync(ClaimsPrincipal user, object resource, string policyName)
+		public virtual Task<AuthorizationResult> AuthorizeAsync(ClaimsPrincipal user, object? resource, string policyName)
 		{
 			throw null;
 		}
@@ -3626,7 +3977,7 @@ namespace Microsoft.AspNetCore.Authorization
 {
 	public interface IAuthorizationHandlerContextFactory
 	{
-		AuthorizationHandlerContext CreateContext(IEnumerable<IAuthorizationRequirement> requirements, ClaimsPrincipal user, object resource);
+		AuthorizationHandlerContext CreateContext(IEnumerable<IAuthorizationRequirement> requirements, ClaimsPrincipal user, object? resource);
 	}
 }
 
@@ -3651,11 +4002,11 @@ namespace Microsoft.AspNetCore.Authorization
 {
 	public interface IAuthorizationPolicyProvider
 	{
+		Task<AuthorizationPolicy?> GetPolicyAsync(string policyName);
+
 		Task<AuthorizationPolicy> GetDefaultPolicyAsync();
 
-		Task<AuthorizationPolicy> GetFallbackPolicyAsync();
-
-		Task<AuthorizationPolicy> GetPolicyAsync(string policyName);
+		Task<AuthorizationPolicy?> GetFallbackPolicyAsync();
 	}
 }
 
@@ -3678,9 +4029,9 @@ namespace Microsoft.AspNetCore.Authorization
 {
 	public interface IAuthorizationService
 	{
-		Task<AuthorizationResult> AuthorizeAsync(ClaimsPrincipal user, object resource, IEnumerable<IAuthorizationRequirement> requirements);
+		Task<AuthorizationResult> AuthorizeAsync(ClaimsPrincipal user, object? resource, IEnumerable<IAuthorizationRequirement> requirements);
 
-		Task<AuthorizationResult> AuthorizeAsync(ClaimsPrincipal user, object resource, string policyName);
+		Task<AuthorizationResult> AuthorizeAsync(ClaimsPrincipal user, object? resource, string policyName);
 	}
 }
 
@@ -3706,14 +4057,22 @@ namespace Microsoft.AspNetCore.Authorization.Infrastructure
 
 		public AssertionRequirement(Func<AuthorizationHandlerContext, bool> handler)
 		{
+			throw null;
 		}
 
 		public AssertionRequirement(Func<AuthorizationHandlerContext, Task<bool>> handler)
 		{
+			throw null;
 		}
 
+		[AsyncStateMachine(typeof(_003CHandleAsync_003Ed__5))]
 		[DebuggerStepThrough]
 		public Task HandleAsync(AuthorizationHandlerContext context)
+		{
+			throw null;
+		}
+
+		public override string ToString()
 		{
 			throw null;
 		}
@@ -3730,15 +4089,6 @@ namespace Microsoft.AspNetCore.Authorization.Infrastructure
 {
 	public class ClaimsAuthorizationRequirement : AuthorizationHandler<ClaimsAuthorizationRequirement>, IAuthorizationRequirement
 	{
-		public IEnumerable<string> AllowedValues
-		{
-			[CompilerGenerated]
-			get
-			{
-				throw null;
-			}
-		}
-
 		public string ClaimType
 		{
 			[CompilerGenerated]
@@ -3748,11 +4098,26 @@ namespace Microsoft.AspNetCore.Authorization.Infrastructure
 			}
 		}
 
-		public ClaimsAuthorizationRequirement(string claimType, IEnumerable<string> allowedValues)
+		public IEnumerable<string>? AllowedValues
 		{
+			[CompilerGenerated]
+			get
+			{
+				throw null;
+			}
+		}
+
+		public ClaimsAuthorizationRequirement(string claimType, IEnumerable<string>? allowedValues)
+		{
+			throw null;
 		}
 
 		protected override Task HandleRequirementAsync(AuthorizationHandlerContext context, ClaimsAuthorizationRequirement requirement)
+		{
+			throw null;
+		}
+
+		public override string ToString()
 		{
 			throw null;
 		}
@@ -3768,6 +4133,16 @@ namespace Microsoft.AspNetCore.Authorization.Infrastructure
 	public class DenyAnonymousAuthorizationRequirement : AuthorizationHandler<DenyAnonymousAuthorizationRequirement>, IAuthorizationRequirement
 	{
 		protected override Task HandleRequirementAsync(AuthorizationHandlerContext context, DenyAnonymousAuthorizationRequirement requirement)
+		{
+			throw null;
+		}
+
+		public override string ToString()
+		{
+			throw null;
+		}
+
+		public DenyAnonymousAuthorizationRequirement()
 		{
 			throw null;
 		}
@@ -3794,9 +4169,15 @@ namespace Microsoft.AspNetCore.Authorization.Infrastructure
 
 		public NameAuthorizationRequirement(string requiredName)
 		{
+			throw null;
 		}
 
 		protected override Task HandleRequirementAsync(AuthorizationHandlerContext context, NameAuthorizationRequirement requirement)
+		{
+			throw null;
+		}
+
+		public override string ToString()
 		{
 			throw null;
 		}
@@ -3821,7 +4202,18 @@ namespace Microsoft.AspNetCore.Authorization.Infrastructure
 			[CompilerGenerated]
 			set
 			{
+				throw null;
 			}
+		}
+
+		public override string ToString()
+		{
+			throw null;
+		}
+
+		public OperationAuthorizationRequirement()
+		{
+			throw null;
 		}
 	}
 }
@@ -3829,14 +4221,21 @@ namespace Microsoft.AspNetCore.Authorization.Infrastructure
 
 // Microsoft.AspNetCore.Authorization\Microsoft.AspNetCore.Authorization.Infrastructure\PassThroughAuthorizationHandler.cs
 using System.Diagnostics;
+using System.Runtime.CompilerServices;
 using System.Threading.Tasks;
 
 namespace Microsoft.AspNetCore.Authorization.Infrastructure
 {
 	public class PassThroughAuthorizationHandler : IAuthorizationHandler
 	{
+		[AsyncStateMachine(typeof(_003CHandleAsync_003Ed__0))]
 		[DebuggerStepThrough]
 		public Task HandleAsync(AuthorizationHandlerContext context)
+		{
+			throw null;
+		}
+
+		public PassThroughAuthorizationHandler()
 		{
 			throw null;
 		}
@@ -3864,9 +4263,15 @@ namespace Microsoft.AspNetCore.Authorization.Infrastructure
 
 		public RolesAuthorizationRequirement(IEnumerable<string> allowedRoles)
 		{
+			throw null;
 		}
 
 		protected override Task HandleRequirementAsync(AuthorizationHandlerContext context, RolesAuthorizationRequirement requirement)
+		{
+			throw null;
+		}
+
+		public override string ToString()
 		{
 			throw null;
 		}
@@ -3898,6 +4303,7 @@ namespace Microsoft.Extensions.DependencyInjection
 // Microsoft.AspNetCore.Authorization.Policy\Microsoft.AspNetCore.Authorization\AuthorizationMiddleware.cs
 using Microsoft.AspNetCore.Http;
 using System.Diagnostics;
+using System.Runtime.CompilerServices;
 using System.Threading.Tasks;
 
 namespace Microsoft.AspNetCore.Authorization
@@ -3906,10 +4312,51 @@ namespace Microsoft.AspNetCore.Authorization
 	{
 		public AuthorizationMiddleware(RequestDelegate next, IAuthorizationPolicyProvider policyProvider)
 		{
+			throw null;
 		}
 
+		[AsyncStateMachine(typeof(_003CInvoke_003Ed__6))]
 		[DebuggerStepThrough]
 		public Task Invoke(HttpContext context)
+		{
+			throw null;
+		}
+	}
+}
+
+
+// Microsoft.AspNetCore.Authorization.Policy\Microsoft.AspNetCore.Authorization\IAuthorizationMiddlewareResultHandler.cs
+using Microsoft.AspNetCore.Authorization.Policy;
+using Microsoft.AspNetCore.Http;
+using System.Threading.Tasks;
+
+namespace Microsoft.AspNetCore.Authorization
+{
+	public interface IAuthorizationMiddlewareResultHandler
+	{
+		Task HandleAsync(RequestDelegate next, HttpContext context, AuthorizationPolicy policy, PolicyAuthorizationResult authorizeResult);
+	}
+}
+
+
+// Microsoft.AspNetCore.Authorization.Policy\Microsoft.AspNetCore.Authorization.Policy\AuthorizationMiddlewareResultHandler.cs
+using Microsoft.AspNetCore.Http;
+using System.Diagnostics;
+using System.Runtime.CompilerServices;
+using System.Threading.Tasks;
+
+namespace Microsoft.AspNetCore.Authorization.Policy
+{
+	public class AuthorizationMiddlewareResultHandler : IAuthorizationMiddlewareResultHandler
+	{
+		[AsyncStateMachine(typeof(_003CHandleAsync_003Ed__0))]
+		[DebuggerStepThrough]
+		public Task HandleAsync(RequestDelegate next, HttpContext context, AuthorizationPolicy policy, PolicyAuthorizationResult authorizeResult)
+		{
+			throw null;
+		}
+
+		public AuthorizationMiddlewareResultHandler()
 		{
 			throw null;
 		}
@@ -3928,7 +4375,7 @@ namespace Microsoft.AspNetCore.Authorization.Policy
 	{
 		Task<AuthenticateResult> AuthenticateAsync(AuthorizationPolicy policy, HttpContext context);
 
-		Task<PolicyAuthorizationResult> AuthorizeAsync(AuthorizationPolicy policy, AuthenticateResult authenticationResult, HttpContext context, object resource);
+		Task<PolicyAuthorizationResult> AuthorizeAsync(AuthorizationPolicy policy, AuthenticateResult authenticationResult, HttpContext context, object? resource);
 	}
 }
 
@@ -3967,8 +4414,14 @@ namespace Microsoft.AspNetCore.Authorization.Policy
 			}
 		}
 
-		internal PolicyAuthorizationResult()
+		public AuthorizationFailure? AuthorizationFailure
 		{
+			[System.Runtime.CompilerServices.NullableContext(2)]
+			[CompilerGenerated]
+			get
+			{
+				throw null;
+			}
 		}
 
 		public static PolicyAuthorizationResult Challenge()
@@ -3977,6 +4430,11 @@ namespace Microsoft.AspNetCore.Authorization.Policy
 		}
 
 		public static PolicyAuthorizationResult Forbid()
+		{
+			throw null;
+		}
+
+		public static PolicyAuthorizationResult Forbid(AuthorizationFailure? authorizationFailure)
 		{
 			throw null;
 		}
@@ -3993,6 +4451,7 @@ namespace Microsoft.AspNetCore.Authorization.Policy
 using Microsoft.AspNetCore.Authentication;
 using Microsoft.AspNetCore.Http;
 using System.Diagnostics;
+using System.Runtime.CompilerServices;
 using System.Threading.Tasks;
 
 namespace Microsoft.AspNetCore.Authorization.Policy
@@ -4001,16 +4460,19 @@ namespace Microsoft.AspNetCore.Authorization.Policy
 	{
 		public PolicyEvaluator(IAuthorizationService authorization)
 		{
+			throw null;
 		}
 
+		[AsyncStateMachine(typeof(_003CAuthenticateAsync_003Ed__2))]
 		[DebuggerStepThrough]
 		public virtual Task<AuthenticateResult> AuthenticateAsync(AuthorizationPolicy policy, HttpContext context)
 		{
 			throw null;
 		}
 
+		[AsyncStateMachine(typeof(_003CAuthorizeAsync_003Ed__3))]
 		[DebuggerStepThrough]
-		public virtual Task<PolicyAuthorizationResult> AuthorizeAsync(AuthorizationPolicy policy, AuthenticateResult authenticationResult, HttpContext context, object resource)
+		public virtual Task<PolicyAuthorizationResult> AuthorizeAsync(AuthorizationPolicy policy, AuthenticateResult authenticationResult, HttpContext context, object? resource)
 		{
 			throw null;
 		}
@@ -4043,12 +4505,17 @@ namespace Microsoft.AspNetCore.Builder
 			throw null;
 		}
 
+		public static TBuilder RequireAuthorization<TBuilder>(this TBuilder builder, params string[] policyNames) where TBuilder : IEndpointConventionBuilder
+		{
+			throw null;
+		}
+
 		public static TBuilder RequireAuthorization<TBuilder>(this TBuilder builder, params IAuthorizeData[] authorizeData) where TBuilder : IEndpointConventionBuilder
 		{
 			throw null;
 		}
 
-		public static TBuilder RequireAuthorization<TBuilder>(this TBuilder builder, params string[] policyNames) where TBuilder : IEndpointConventionBuilder
+		public static TBuilder AllowAnonymous<TBuilder>(this TBuilder builder) where TBuilder : IEndpointConventionBuilder
 		{
 			throw null;
 		}
@@ -4064,248 +4531,17 @@ namespace Microsoft.Extensions.DependencyInjection
 {
 	public static class PolicyServiceCollectionExtensions
 	{
+		public static IServiceCollection AddAuthorizationPolicyEvaluator(this IServiceCollection services)
+		{
+			throw null;
+		}
+
 		public static IServiceCollection AddAuthorization(this IServiceCollection services)
 		{
 			throw null;
 		}
 
 		public static IServiceCollection AddAuthorization(this IServiceCollection services, Action<AuthorizationOptions> configure)
-		{
-			throw null;
-		}
-
-		public static IServiceCollection AddAuthorizationPolicyEvaluator(this IServiceCollection services)
-		{
-			throw null;
-		}
-	}
-}
-
-
-// Microsoft.AspNetCore.Components\Microsoft.AspNetCore.Components\BindConverter.cs
-using System;
-using System.Globalization;
-
-namespace Microsoft.AspNetCore.Components
-{
-	public static class BindConverter
-	{
-		public static bool FormatValue(bool value, CultureInfo culture = null)
-		{
-			throw null;
-		}
-
-		public static string FormatValue(DateTime value, CultureInfo culture = null)
-		{
-			throw null;
-		}
-
-		public static string FormatValue(DateTime value, string format, CultureInfo culture = null)
-		{
-			throw null;
-		}
-
-		public static string FormatValue(DateTimeOffset value, CultureInfo culture = null)
-		{
-			throw null;
-		}
-
-		public static string FormatValue(DateTimeOffset value, string format, CultureInfo culture = null)
-		{
-			throw null;
-		}
-
-		public static string FormatValue(decimal value, CultureInfo culture = null)
-		{
-			throw null;
-		}
-
-		public static string FormatValue(double value, CultureInfo culture = null)
-		{
-			throw null;
-		}
-
-		public static string FormatValue(int value, CultureInfo culture = null)
-		{
-			throw null;
-		}
-
-		public static string FormatValue(long value, CultureInfo culture = null)
-		{
-			throw null;
-		}
-
-		public static bool? FormatValue(bool? value, CultureInfo culture = null)
-		{
-			throw null;
-		}
-
-		public static string FormatValue(DateTimeOffset? value, CultureInfo culture = null)
-		{
-			throw null;
-		}
-
-		public static string FormatValue(DateTimeOffset? value, string format, CultureInfo culture = null)
-		{
-			throw null;
-		}
-
-		public static string FormatValue(DateTime? value, CultureInfo culture = null)
-		{
-			throw null;
-		}
-
-		public static string FormatValue(DateTime? value, string format, CultureInfo culture = null)
-		{
-			throw null;
-		}
-
-		public static string FormatValue(decimal? value, CultureInfo culture = null)
-		{
-			throw null;
-		}
-
-		public static string FormatValue(double? value, CultureInfo culture = null)
-		{
-			throw null;
-		}
-
-		public static string FormatValue(int? value, CultureInfo culture = null)
-		{
-			throw null;
-		}
-
-		public static string FormatValue(long? value, CultureInfo culture = null)
-		{
-			throw null;
-		}
-
-		public static string FormatValue(float? value, CultureInfo culture = null)
-		{
-			throw null;
-		}
-
-		public static string FormatValue(float value, CultureInfo culture = null)
-		{
-			throw null;
-		}
-
-		public static string FormatValue(string value, CultureInfo culture = null)
-		{
-			throw null;
-		}
-
-		public static object FormatValue<T>(T value, CultureInfo culture = null)
-		{
-			throw null;
-		}
-
-		public static bool TryConvertToBool(object obj, CultureInfo culture, out bool value)
-		{
-			throw null;
-		}
-
-		public static bool TryConvertToDateTime(object obj, CultureInfo culture, out DateTime value)
-		{
-			throw null;
-		}
-
-		public static bool TryConvertToDateTime(object obj, CultureInfo culture, string format, out DateTime value)
-		{
-			throw null;
-		}
-
-		public static bool TryConvertToDateTimeOffset(object obj, CultureInfo culture, out DateTimeOffset value)
-		{
-			throw null;
-		}
-
-		public static bool TryConvertToDateTimeOffset(object obj, CultureInfo culture, string format, out DateTimeOffset value)
-		{
-			throw null;
-		}
-
-		public static bool TryConvertToDecimal(object obj, CultureInfo culture, out decimal value)
-		{
-			throw null;
-		}
-
-		public static bool TryConvertToDouble(object obj, CultureInfo culture, out double value)
-		{
-			throw null;
-		}
-
-		public static bool TryConvertToFloat(object obj, CultureInfo culture, out float value)
-		{
-			throw null;
-		}
-
-		public static bool TryConvertToInt(object obj, CultureInfo culture, out int value)
-		{
-			throw null;
-		}
-
-		public static bool TryConvertToLong(object obj, CultureInfo culture, out long value)
-		{
-			throw null;
-		}
-
-		public static bool TryConvertToNullableBool(object obj, CultureInfo culture, out bool? value)
-		{
-			throw null;
-		}
-
-		public static bool TryConvertToNullableDateTime(object obj, CultureInfo culture, out DateTime? value)
-		{
-			throw null;
-		}
-
-		public static bool TryConvertToNullableDateTime(object obj, CultureInfo culture, string format, out DateTime? value)
-		{
-			throw null;
-		}
-
-		public static bool TryConvertToNullableDateTimeOffset(object obj, CultureInfo culture, out DateTimeOffset? value)
-		{
-			throw null;
-		}
-
-		public static bool TryConvertToNullableDateTimeOffset(object obj, CultureInfo culture, string format, out DateTimeOffset? value)
-		{
-			throw null;
-		}
-
-		public static bool TryConvertToNullableDecimal(object obj, CultureInfo culture, out decimal? value)
-		{
-			throw null;
-		}
-
-		public static bool TryConvertToNullableDouble(object obj, CultureInfo culture, out double? value)
-		{
-			throw null;
-		}
-
-		public static bool TryConvertToNullableFloat(object obj, CultureInfo culture, out float? value)
-		{
-			throw null;
-		}
-
-		public static bool TryConvertToNullableInt(object obj, CultureInfo culture, out int? value)
-		{
-			throw null;
-		}
-
-		public static bool TryConvertToNullableLong(object obj, CultureInfo culture, out long? value)
-		{
-			throw null;
-		}
-
-		public static bool TryConvertToString(object obj, CultureInfo culture, out string value)
-		{
-			throw null;
-		}
-
-		public static bool TryConvertTo<T>(object obj, CultureInfo culture, out T value)
 		{
 			throw null;
 		}
@@ -4322,15 +4558,6 @@ namespace Microsoft.AspNetCore.Components
 	[AttributeUsage(AttributeTargets.Class, AllowMultiple = true, Inherited = true)]
 	public sealed class BindElementAttribute : Attribute
 	{
-		public string ChangeAttribute
-		{
-			[CompilerGenerated]
-			get
-			{
-				throw null;
-			}
-		}
-
 		public string Element
 		{
 			[CompilerGenerated]
@@ -4340,8 +4567,9 @@ namespace Microsoft.AspNetCore.Components
 			}
 		}
 
-		public string Suffix
+		public string? Suffix
 		{
+			[System.Runtime.CompilerServices.NullableContext(2)]
 			[CompilerGenerated]
 			get
 			{
@@ -4358,8 +4586,18 @@ namespace Microsoft.AspNetCore.Components
 			}
 		}
 
-		public BindElementAttribute(string element, string suffix, string valueAttribute, string changeAttribute)
+		public string ChangeAttribute
 		{
+			[CompilerGenerated]
+			get
+			{
+				throw null;
+			}
+		}
+
+		public BindElementAttribute(string element, string? suffix, string valueAttribute, string changeAttribute)
+		{
+			throw null;
 		}
 	}
 }
@@ -4374,7 +4612,7 @@ namespace Microsoft.AspNetCore.Components
 	[AttributeUsage(AttributeTargets.Property, AllowMultiple = false, Inherited = true)]
 	public sealed class CascadingParameterAttribute : Attribute
 	{
-		public string Name
+		public string? Name
 		{
 			[CompilerGenerated]
 			get
@@ -4384,7 +4622,13 @@ namespace Microsoft.AspNetCore.Components
 			[CompilerGenerated]
 			set
 			{
+				throw null;
 			}
+		}
+
+		public CascadingParameterAttribute()
+		{
+			throw null;
 		}
 	}
 }
@@ -4392,6 +4636,8 @@ namespace Microsoft.AspNetCore.Components
 
 // Microsoft.AspNetCore.Components\Microsoft.AspNetCore.Components\CascadingParameterState.cs
 using Microsoft.AspNetCore.Components.Rendering;
+using System;
+using System.Collections.Concurrent;
 using System.Collections.Generic;
 using System.Runtime.CompilerServices;
 
@@ -4399,7 +4645,43 @@ namespace Microsoft.AspNetCore.Components
 {
 	internal readonly struct CascadingParameterState
 	{
-		private readonly object _dummy;
+		private readonly struct ReflectedCascadingParameterInfo
+		{
+			public string ConsumerValueName
+			{
+				[CompilerGenerated]
+				get
+				{
+					throw null;
+				}
+			}
+
+			public string? SupplierValueName
+			{
+				[System.Runtime.CompilerServices.NullableContext(2)]
+				[CompilerGenerated]
+				get
+				{
+					throw null;
+				}
+			}
+
+			public Type ValueType
+			{
+				[CompilerGenerated]
+				get
+				{
+					throw null;
+				}
+			}
+
+			public ReflectedCascadingParameterInfo(string consumerValueName, Type valueType, string? supplierValueName)
+			{
+				throw null;
+			}
+		}
+
+		private static readonly ConcurrentDictionary<Type, ReflectedCascadingParameterInfo[]> _cachedInfos;
 
 		public string LocalValueName
 		{
@@ -4433,12 +4715,14 @@ namespace Microsoft.AspNetCore.Components
 
 
 // Microsoft.AspNetCore.Components\Microsoft.AspNetCore.Components\CascadingValue.cs
+using Microsoft.AspNetCore.Components.Rendering;
+using System;
 using System.Runtime.CompilerServices;
 using System.Threading.Tasks;
 
 namespace Microsoft.AspNetCore.Components
 {
-	public class CascadingValue<TValue> : IComponent
+	public class CascadingValue<TValue> : ICascadingValueComponent, IComponent
 	{
 		[Parameter]
 		public RenderFragment ChildContent
@@ -4451,34 +4735,7 @@ namespace Microsoft.AspNetCore.Components
 			[CompilerGenerated]
 			set
 			{
-			}
-		}
-
-		[Parameter]
-		public bool IsFixed
-		{
-			[CompilerGenerated]
-			get
-			{
 				throw null;
-			}
-			[CompilerGenerated]
-			set
-			{
-			}
-		}
-
-		[Parameter]
-		public string Name
-		{
-			[CompilerGenerated]
-			get
-			{
-				throw null;
-			}
-			[CompilerGenerated]
-			set
-			{
 			}
 		}
 
@@ -4493,14 +4750,84 @@ namespace Microsoft.AspNetCore.Components
 			[CompilerGenerated]
 			set
 			{
+				throw null;
+			}
+		}
+
+		[Parameter]
+		public string? Name
+		{
+			[System.Runtime.CompilerServices.NullableContext(2)]
+			[CompilerGenerated]
+			get
+			{
+				throw null;
+			}
+			[System.Runtime.CompilerServices.NullableContext(2)]
+			[CompilerGenerated]
+			set
+			{
+				throw null;
+			}
+		}
+
+		[Parameter]
+		public bool IsFixed
+		{
+			[CompilerGenerated]
+			get
+			{
+				throw null;
+			}
+			[CompilerGenerated]
+			set
+			{
+				throw null;
+			}
+		}
+
+		object ICascadingValueComponent.CurrentValue
+		{
+			get
+			{
+				throw null;
+			}
+		}
+
+		bool ICascadingValueComponent.CurrentValueIsFixed
+		{
+			get
+			{
+				throw null;
 			}
 		}
 
 		public void Attach(RenderHandle renderHandle)
 		{
+			throw null;
 		}
 
 		public Task SetParametersAsync(ParameterView parameters)
+		{
+			throw null;
+		}
+
+		bool ICascadingValueComponent.CanSupplyValue(Type requestedType, string requestedName)
+		{
+			throw null;
+		}
+
+		void ICascadingValueComponent.Subscribe(ComponentState subscriber)
+		{
+			throw null;
+		}
+
+		void ICascadingValueComponent.Unsubscribe(ComponentState subscriber)
+		{
+			throw null;
+		}
+
+		public CascadingValue()
 		{
 			throw null;
 		}
@@ -4516,7 +4843,7 @@ namespace Microsoft.AspNetCore.Components
 {
 	public class ChangeEventArgs : EventArgs
 	{
-		public object Value
+		public object? Value
 		{
 			[CompilerGenerated]
 			get
@@ -4526,7 +4853,13 @@ namespace Microsoft.AspNetCore.Components
 			[CompilerGenerated]
 			set
 			{
+				throw null;
 			}
+		}
+
+		public ChangeEventArgs()
+		{
+			throw null;
 		}
 	}
 }
@@ -4539,14 +4872,56 @@ using System.Threading.Tasks;
 
 namespace Microsoft.AspNetCore.Components
 {
-	public abstract class ComponentBase : IComponent, IHandleAfterRender, IHandleEvent
+	public abstract class ComponentBase : IComponent, IHandleEvent, IHandleAfterRender
 	{
 		public ComponentBase()
 		{
+			throw null;
 		}
 
 		protected virtual void BuildRenderTree(RenderTreeBuilder builder)
 		{
+			throw null;
+		}
+
+		protected virtual void OnInitialized()
+		{
+			throw null;
+		}
+
+		protected virtual Task OnInitializedAsync()
+		{
+			throw null;
+		}
+
+		protected virtual void OnParametersSet()
+		{
+			throw null;
+		}
+
+		protected virtual Task OnParametersSetAsync()
+		{
+			throw null;
+		}
+
+		protected void StateHasChanged()
+		{
+			throw null;
+		}
+
+		protected virtual bool ShouldRender()
+		{
+			throw null;
+		}
+
+		protected virtual void OnAfterRender(bool firstRender)
+		{
+			throw null;
+		}
+
+		protected virtual Task OnAfterRenderAsync(bool firstRender)
+		{
+			throw null;
 		}
 
 		protected Task InvokeAsync(Action workItem)
@@ -4561,42 +4936,6 @@ namespace Microsoft.AspNetCore.Components
 
 		void IComponent.Attach(RenderHandle renderHandle)
 		{
-		}
-
-		Task IHandleAfterRender.OnAfterRenderAsync()
-		{
-			throw null;
-		}
-
-		Task IHandleEvent.HandleEventAsync(EventCallbackWorkItem callback, object arg)
-		{
-			throw null;
-		}
-
-		protected virtual void OnAfterRender(bool firstRender)
-		{
-		}
-
-		protected virtual Task OnAfterRenderAsync(bool firstRender)
-		{
-			throw null;
-		}
-
-		protected virtual void OnInitialized()
-		{
-		}
-
-		protected virtual Task OnInitializedAsync()
-		{
-			throw null;
-		}
-
-		protected virtual void OnParametersSet()
-		{
-		}
-
-		protected virtual Task OnParametersSetAsync()
-		{
 			throw null;
 		}
 
@@ -4605,13 +4944,14 @@ namespace Microsoft.AspNetCore.Components
 			throw null;
 		}
 
-		protected virtual bool ShouldRender()
+		Task IHandleEvent.HandleEventAsync(EventCallbackWorkItem callback, object? arg)
 		{
 			throw null;
 		}
 
-		protected void StateHasChanged()
+		Task IHandleAfterRender.OnAfterRenderAsync()
 		{
+			throw null;
 		}
 	}
 }
@@ -4619,33 +4959,57 @@ namespace Microsoft.AspNetCore.Components
 
 // Microsoft.AspNetCore.Components\Microsoft.AspNetCore.Components\Dispatcher.cs
 using System;
+using System.Runtime.CompilerServices;
 using System.Threading.Tasks;
 
 namespace Microsoft.AspNetCore.Components
 {
 	public abstract class Dispatcher
 	{
-		public void AssertAccess()
+		internal event UnhandledExceptionEventHandler? UnhandledException
 		{
+			[System.Runtime.CompilerServices.NullableContext(2)]
+			[CompilerGenerated]
+			add
+			{
+				throw null;
+			}
+			[System.Runtime.CompilerServices.NullableContext(2)]
+			[CompilerGenerated]
+			remove
+			{
+				throw null;
+			}
 		}
-
-		public abstract bool CheckAccess();
 
 		public static Dispatcher CreateDefault()
 		{
 			throw null;
 		}
 
+		public void AssertAccess()
+		{
+			throw null;
+		}
+
+		public abstract bool CheckAccess();
+
 		public abstract Task InvokeAsync(Action workItem);
 
 		public abstract Task InvokeAsync(Func<Task> workItem);
 
-		public abstract Task<TResult> InvokeAsync<TResult>(Func<Task<TResult>> workItem);
-
 		public abstract Task<TResult> InvokeAsync<TResult>(Func<TResult> workItem);
+
+		public abstract Task<TResult> InvokeAsync<TResult>(Func<Task<TResult>> workItem);
 
 		protected void OnUnhandledException(UnhandledExceptionEventArgs e)
 		{
+			throw null;
+		}
+
+		protected Dispatcher()
+		{
+			throw null;
 		}
 	}
 }
@@ -4658,7 +5022,7 @@ namespace Microsoft.AspNetCore.Components
 {
 	public readonly struct ElementReference
 	{
-		private readonly object _dummy;
+		private static long _nextIdForWebAssemblyOnly;
 
 		public string Id
 		{
@@ -4669,12 +5033,40 @@ namespace Microsoft.AspNetCore.Components
 			}
 		}
 
+		public ElementReferenceContext? Context
+		{
+			[System.Runtime.CompilerServices.NullableContext(2)]
+			[CompilerGenerated]
+			get
+			{
+				throw null;
+			}
+		}
+
+		public ElementReference(string id, ElementReferenceContext? context)
+		{
+			throw null;
+		}
+
 		public ElementReference(string id)
 		{
 			throw null;
 		}
 
-		internal static ElementReference CreateWithUniqueId()
+		internal static ElementReference CreateWithUniqueId(ElementReferenceContext? context)
+		{
+			throw null;
+		}
+	}
+}
+
+
+// Microsoft.AspNetCore.Components\Microsoft.AspNetCore.Components\ElementReferenceContext.cs
+namespace Microsoft.AspNetCore.Components
+{
+	public abstract class ElementReferenceContext
+	{
+		protected ElementReferenceContext()
 		{
 			throw null;
 		}
@@ -4690,13 +5082,13 @@ namespace Microsoft.AspNetCore.Components
 {
 	public readonly struct EventCallback : IEventCallback
 	{
-		public static readonly EventCallback Empty;
-
 		public static readonly EventCallbackFactory Factory;
 
-		internal readonly MulticastDelegate Delegate;
+		public static readonly EventCallback Empty;
 
-		internal readonly IHandleEvent Receiver;
+		internal readonly MulticastDelegate? Delegate;
+
+		internal readonly IHandleEvent? Receiver;
 
 		public bool HasDelegate
 		{
@@ -4714,7 +5106,7 @@ namespace Microsoft.AspNetCore.Components
 			}
 		}
 
-		public EventCallback(IHandleEvent receiver, MulticastDelegate @delegate)
+		public EventCallback(IHandleEvent? receiver, MulticastDelegate? @delegate)
 		{
 			throw null;
 		}
@@ -4724,7 +5116,12 @@ namespace Microsoft.AspNetCore.Components
 			throw null;
 		}
 
-		object IEventCallback.UnpackForRenderTree()
+		public Task InvokeAsync()
+		{
+			throw null;
+		}
+
+		object? IEventCallback.UnpackForRenderTree()
 		{
 			throw null;
 		}
@@ -4733,9 +5130,9 @@ namespace Microsoft.AspNetCore.Components
 	{
 		public static readonly EventCallback<TValue> Empty;
 
-		internal readonly MulticastDelegate Delegate;
+		internal readonly MulticastDelegate? Delegate;
 
-		internal readonly IHandleEvent Receiver;
+		internal readonly IHandleEvent? Receiver;
 
 		public bool HasDelegate
 		{
@@ -4753,12 +5150,7 @@ namespace Microsoft.AspNetCore.Components
 			}
 		}
 
-		public EventCallback(IHandleEvent receiver, MulticastDelegate @delegate)
-		{
-			throw null;
-		}
-
-		internal EventCallback AsUntyped()
+		public EventCallback(IHandleEvent? receiver, MulticastDelegate? @delegate)
 		{
 			throw null;
 		}
@@ -4768,7 +5160,17 @@ namespace Microsoft.AspNetCore.Components
 			throw null;
 		}
 
-		object IEventCallback.UnpackForRenderTree()
+		public Task InvokeAsync()
+		{
+			throw null;
+		}
+
+		internal EventCallback AsUntyped()
+		{
+			throw null;
+		}
+
+		object? IEventCallback.UnpackForRenderTree()
 		{
 			throw null;
 		}
@@ -4801,24 +5203,12 @@ namespace Microsoft.AspNetCore.Components
 			throw null;
 		}
 
-		public EventCallback Create(object receiver, Func<object, Task> callback)
-		{
-			throw null;
-		}
-
 		public EventCallback Create(object receiver, Func<Task> callback)
 		{
 			throw null;
 		}
 
-		[EditorBrowsable(EditorBrowsableState.Never)]
-		public EventCallback<TValue> CreateInferred<TValue>(object receiver, Action<TValue> callback, TValue value)
-		{
-			throw null;
-		}
-
-		[EditorBrowsable(EditorBrowsableState.Never)]
-		public EventCallback<TValue> CreateInferred<TValue>(object receiver, Func<TValue, Task> callback, TValue value)
+		public EventCallback Create(object receiver, Func<object, Task> callback)
 		{
 			throw null;
 		}
@@ -4854,6 +5244,23 @@ namespace Microsoft.AspNetCore.Components
 		{
 			throw null;
 		}
+
+		[EditorBrowsable(EditorBrowsableState.Never)]
+		public EventCallback<TValue> CreateInferred<TValue>(object receiver, Action<TValue> callback, TValue value)
+		{
+			throw null;
+		}
+
+		[EditorBrowsable(EditorBrowsableState.Never)]
+		public EventCallback<TValue> CreateInferred<TValue>(object receiver, Func<TValue, Task> callback, TValue value)
+		{
+			throw null;
+		}
+
+		public EventCallbackFactory()
+		{
+			throw null;
+		}
 	}
 }
 
@@ -4866,112 +5273,122 @@ namespace Microsoft.AspNetCore.Components
 {
 	public static class EventCallbackFactoryBinderExtensions
 	{
-		public static EventCallback<ChangeEventArgs> CreateBinder(this EventCallbackFactory factory, object receiver, Action<bool> setter, bool existingValue, CultureInfo culture = null)
+		public static EventCallback<ChangeEventArgs> CreateBinder(this EventCallbackFactory factory, object receiver, Action<string?> setter, string existingValue, CultureInfo? culture = null)
 		{
 			throw null;
 		}
 
-		public static EventCallback<ChangeEventArgs> CreateBinder(this EventCallbackFactory factory, object receiver, Action<DateTimeOffset> setter, DateTimeOffset existingValue, CultureInfo culture = null)
+		public static EventCallback<ChangeEventArgs> CreateBinder(this EventCallbackFactory factory, object receiver, Action<bool> setter, bool existingValue, CultureInfo? culture = null)
 		{
 			throw null;
 		}
 
-		public static EventCallback<ChangeEventArgs> CreateBinder(this EventCallbackFactory factory, object receiver, Action<DateTimeOffset> setter, DateTimeOffset existingValue, string format, CultureInfo culture = null)
+		public static EventCallback<ChangeEventArgs> CreateBinder(this EventCallbackFactory factory, object receiver, Action<bool?> setter, bool? existingValue, CultureInfo? culture = null)
 		{
 			throw null;
 		}
 
-		public static EventCallback<ChangeEventArgs> CreateBinder(this EventCallbackFactory factory, object receiver, Action<DateTime> setter, DateTime existingValue, CultureInfo culture = null)
+		public static EventCallback<ChangeEventArgs> CreateBinder(this EventCallbackFactory factory, object receiver, Action<int> setter, int existingValue, CultureInfo? culture = null)
 		{
 			throw null;
 		}
 
-		public static EventCallback<ChangeEventArgs> CreateBinder(this EventCallbackFactory factory, object receiver, Action<DateTime> setter, DateTime existingValue, string format, CultureInfo culture = null)
+		public static EventCallback<ChangeEventArgs> CreateBinder(this EventCallbackFactory factory, object receiver, Action<int?> setter, int? existingValue, CultureInfo? culture = null)
 		{
 			throw null;
 		}
 
-		public static EventCallback<ChangeEventArgs> CreateBinder(this EventCallbackFactory factory, object receiver, Action<decimal> setter, decimal existingValue, CultureInfo culture = null)
+		public static EventCallback<ChangeEventArgs> CreateBinder(this EventCallbackFactory factory, object receiver, Action<long> setter, long existingValue, CultureInfo? culture = null)
 		{
 			throw null;
 		}
 
-		public static EventCallback<ChangeEventArgs> CreateBinder(this EventCallbackFactory factory, object receiver, Action<double> setter, double existingValue, CultureInfo culture = null)
+		public static EventCallback<ChangeEventArgs> CreateBinder(this EventCallbackFactory factory, object receiver, Action<short> setter, short existingValue, CultureInfo? culture = null)
 		{
 			throw null;
 		}
 
-		public static EventCallback<ChangeEventArgs> CreateBinder(this EventCallbackFactory factory, object receiver, Action<int> setter, int existingValue, CultureInfo culture = null)
+		public static EventCallback<ChangeEventArgs> CreateBinder(this EventCallbackFactory factory, object receiver, Action<long?> setter, long? existingValue, CultureInfo? culture = null)
 		{
 			throw null;
 		}
 
-		public static EventCallback<ChangeEventArgs> CreateBinder(this EventCallbackFactory factory, object receiver, Action<long> setter, long existingValue, CultureInfo culture = null)
+		public static EventCallback<ChangeEventArgs> CreateBinder(this EventCallbackFactory factory, object receiver, Action<short?> setter, short? existingValue, CultureInfo? culture = null)
 		{
 			throw null;
 		}
 
-		public static EventCallback<ChangeEventArgs> CreateBinder(this EventCallbackFactory factory, object receiver, Action<bool?> setter, bool? existingValue, CultureInfo culture = null)
+		public static EventCallback<ChangeEventArgs> CreateBinder(this EventCallbackFactory factory, object receiver, Action<float> setter, float existingValue, CultureInfo? culture = null)
 		{
 			throw null;
 		}
 
-		public static EventCallback<ChangeEventArgs> CreateBinder(this EventCallbackFactory factory, object receiver, Action<DateTimeOffset?> setter, DateTimeOffset? existingValue, CultureInfo culture = null)
+		public static EventCallback<ChangeEventArgs> CreateBinder(this EventCallbackFactory factory, object receiver, Action<float?> setter, float? existingValue, CultureInfo? culture = null)
 		{
 			throw null;
 		}
 
-		public static EventCallback<ChangeEventArgs> CreateBinder(this EventCallbackFactory factory, object receiver, Action<DateTimeOffset?> setter, DateTimeOffset? existingValue, string format, CultureInfo culture = null)
+		public static EventCallback<ChangeEventArgs> CreateBinder(this EventCallbackFactory factory, object receiver, Action<double> setter, double existingValue, CultureInfo? culture = null)
 		{
 			throw null;
 		}
 
-		public static EventCallback<ChangeEventArgs> CreateBinder(this EventCallbackFactory factory, object receiver, Action<DateTime?> setter, DateTime? existingValue, CultureInfo culture = null)
+		public static EventCallback<ChangeEventArgs> CreateBinder(this EventCallbackFactory factory, object receiver, Action<double?> setter, double? existingValue, CultureInfo? culture = null)
 		{
 			throw null;
 		}
 
-		public static EventCallback<ChangeEventArgs> CreateBinder(this EventCallbackFactory factory, object receiver, Action<DateTime?> setter, DateTime? existingValue, string format, CultureInfo culture = null)
+		public static EventCallback<ChangeEventArgs> CreateBinder(this EventCallbackFactory factory, object receiver, Action<decimal> setter, decimal existingValue, CultureInfo? culture = null)
 		{
 			throw null;
 		}
 
-		public static EventCallback<ChangeEventArgs> CreateBinder(this EventCallbackFactory factory, object receiver, Action<decimal?> setter, decimal? existingValue, CultureInfo culture = null)
+		public static EventCallback<ChangeEventArgs> CreateBinder(this EventCallbackFactory factory, object receiver, Action<decimal?> setter, decimal? existingValue, CultureInfo? culture = null)
 		{
 			throw null;
 		}
 
-		public static EventCallback<ChangeEventArgs> CreateBinder(this EventCallbackFactory factory, object receiver, Action<double?> setter, double? existingValue, CultureInfo culture = null)
+		public static EventCallback<ChangeEventArgs> CreateBinder(this EventCallbackFactory factory, object receiver, Action<DateTime> setter, DateTime existingValue, CultureInfo? culture = null)
 		{
 			throw null;
 		}
 
-		public static EventCallback<ChangeEventArgs> CreateBinder(this EventCallbackFactory factory, object receiver, Action<int?> setter, int? existingValue, CultureInfo culture = null)
+		public static EventCallback<ChangeEventArgs> CreateBinder(this EventCallbackFactory factory, object receiver, Action<DateTime> setter, DateTime existingValue, string format, CultureInfo? culture = null)
 		{
 			throw null;
 		}
 
-		public static EventCallback<ChangeEventArgs> CreateBinder(this EventCallbackFactory factory, object receiver, Action<long?> setter, long? existingValue, CultureInfo culture = null)
+		public static EventCallback<ChangeEventArgs> CreateBinder(this EventCallbackFactory factory, object receiver, Action<DateTime?> setter, DateTime? existingValue, CultureInfo? culture = null)
 		{
 			throw null;
 		}
 
-		public static EventCallback<ChangeEventArgs> CreateBinder(this EventCallbackFactory factory, object receiver, Action<float?> setter, float? existingValue, CultureInfo culture = null)
+		public static EventCallback<ChangeEventArgs> CreateBinder(this EventCallbackFactory factory, object receiver, Action<DateTime?> setter, DateTime? existingValue, string format, CultureInfo? culture = null)
 		{
 			throw null;
 		}
 
-		public static EventCallback<ChangeEventArgs> CreateBinder(this EventCallbackFactory factory, object receiver, Action<float> setter, float existingValue, CultureInfo culture = null)
+		public static EventCallback<ChangeEventArgs> CreateBinder(this EventCallbackFactory factory, object receiver, Action<DateTimeOffset> setter, DateTimeOffset existingValue, CultureInfo? culture = null)
 		{
 			throw null;
 		}
 
-		public static EventCallback<ChangeEventArgs> CreateBinder(this EventCallbackFactory factory, object receiver, Action<string> setter, string existingValue, CultureInfo culture = null)
+		public static EventCallback<ChangeEventArgs> CreateBinder(this EventCallbackFactory factory, object receiver, Action<DateTimeOffset> setter, DateTimeOffset existingValue, string format, CultureInfo? culture = null)
 		{
 			throw null;
 		}
 
-		public static EventCallback<ChangeEventArgs> CreateBinder<T>(this EventCallbackFactory factory, object receiver, Action<T> setter, T existingValue, CultureInfo culture = null)
+		public static EventCallback<ChangeEventArgs> CreateBinder(this EventCallbackFactory factory, object receiver, Action<DateTimeOffset?> setter, DateTimeOffset? existingValue, CultureInfo? culture = null)
+		{
+			throw null;
+		}
+
+		public static EventCallback<ChangeEventArgs> CreateBinder(this EventCallbackFactory factory, object receiver, Action<DateTimeOffset?> setter, DateTimeOffset? existingValue, string format, CultureInfo? culture = null)
+		{
+			throw null;
+		}
+
+		public static EventCallback<ChangeEventArgs> CreateBinder<T>(this EventCallbackFactory factory, object receiver, Action<T> setter, T existingValue, CultureInfo? culture = null)
 		{
 			throw null;
 		}
@@ -4987,22 +5404,22 @@ namespace Microsoft.AspNetCore.Components
 {
 	public static class EventCallbackFactoryEventArgsExtensions
 	{
-		public static EventCallback<ChangeEventArgs> Create(this EventCallbackFactory factory, object receiver, Action<ChangeEventArgs> callback)
-		{
-			throw null;
-		}
-
 		public static EventCallback<EventArgs> Create(this EventCallbackFactory factory, object receiver, Action<EventArgs> callback)
 		{
 			throw null;
 		}
 
-		public static EventCallback<ChangeEventArgs> Create(this EventCallbackFactory factory, object receiver, Func<ChangeEventArgs, Task> callback)
+		public static EventCallback<EventArgs> Create(this EventCallbackFactory factory, object receiver, Func<EventArgs, Task> callback)
 		{
 			throw null;
 		}
 
-		public static EventCallback<EventArgs> Create(this EventCallbackFactory factory, object receiver, Func<EventArgs, Task> callback)
+		public static EventCallback<ChangeEventArgs> Create(this EventCallbackFactory factory, object receiver, Action<ChangeEventArgs> callback)
+		{
+			throw null;
+		}
+
+		public static EventCallback<ChangeEventArgs> Create(this EventCallbackFactory factory, object receiver, Func<ChangeEventArgs, Task> callback)
 		{
 			throw null;
 		}
@@ -5012,22 +5429,29 @@ namespace Microsoft.AspNetCore.Components
 
 // Microsoft.AspNetCore.Components\Microsoft.AspNetCore.Components\EventCallbackWorkItem.cs
 using System;
+using System.Runtime.CompilerServices;
 using System.Threading.Tasks;
 
 namespace Microsoft.AspNetCore.Components
 {
 	public readonly struct EventCallbackWorkItem
 	{
-		private readonly object _dummy;
-
 		public static readonly EventCallbackWorkItem Empty;
 
-		public EventCallbackWorkItem(MulticastDelegate @delegate)
+		private readonly MulticastDelegate? _delegate;
+
+		[System.Runtime.CompilerServices.NullableContext(2)]
+		public EventCallbackWorkItem(MulticastDelegate? @delegate)
 		{
 			throw null;
 		}
 
-		public Task InvokeAsync(object arg)
+		public Task InvokeAsync(object? arg)
+		{
+			throw null;
+		}
+
+		internal static Task InvokeAsync<T>(MulticastDelegate? @delegate, T arg)
 		{
 			throw null;
 		}
@@ -5053,7 +5477,7 @@ namespace Microsoft.AspNetCore.Components
 			}
 		}
 
-		public bool EnablePreventDefault
+		public Type EventArgsType
 		{
 			[CompilerGenerated]
 			get
@@ -5071,7 +5495,7 @@ namespace Microsoft.AspNetCore.Components
 			}
 		}
 
-		public Type EventArgsType
+		public bool EnablePreventDefault
 		{
 			[CompilerGenerated]
 			get
@@ -5082,10 +5506,12 @@ namespace Microsoft.AspNetCore.Components
 
 		public EventHandlerAttribute(string attributeName, Type eventArgsType)
 		{
+			throw null;
 		}
 
 		public EventHandlerAttribute(string attributeName, Type eventArgsType, bool enableStopPropagation, bool enablePreventDefault)
 		{
+			throw null;
 		}
 	}
 }
@@ -5094,13 +5520,15 @@ namespace Microsoft.AspNetCore.Components
 // Microsoft.AspNetCore.Components\Microsoft.AspNetCore.Components\ICascadingValueComponent.cs
 using Microsoft.AspNetCore.Components.Rendering;
 using System;
+using System.Runtime.CompilerServices;
 
 namespace Microsoft.AspNetCore.Components
 {
 	internal interface ICascadingValueComponent
 	{
-		object CurrentValue
+		object? CurrentValue
 		{
+			[System.Runtime.CompilerServices.NullableContext(2)]
 			get;
 		}
 
@@ -5109,7 +5537,7 @@ namespace Microsoft.AspNetCore.Components
 			get;
 		}
 
-		bool CanSupplyValue(Type valueType, string valueName);
+		bool CanSupplyValue(Type valueType, string? valueName);
 
 		void Subscribe(ComponentState subscriber);
 
@@ -5132,6 +5560,18 @@ namespace Microsoft.AspNetCore.Components
 }
 
 
+// Microsoft.AspNetCore.Components\Microsoft.AspNetCore.Components\IComponentActivator.cs
+using System;
+
+namespace Microsoft.AspNetCore.Components
+{
+	public interface IComponentActivator
+	{
+		IComponent CreateInstance(Type componentType);
+	}
+}
+
+
 // Microsoft.AspNetCore.Components\Microsoft.AspNetCore.Components\IEventCallback.cs
 namespace Microsoft.AspNetCore.Components
 {
@@ -5142,7 +5582,7 @@ namespace Microsoft.AspNetCore.Components
 			get;
 		}
 
-		object UnpackForRenderTree();
+		object? UnpackForRenderTree();
 	}
 }
 
@@ -5166,7 +5606,7 @@ namespace Microsoft.AspNetCore.Components
 {
 	public interface IHandleEvent
 	{
-		Task HandleEventAsync(EventCallbackWorkItem item, object arg);
+		Task HandleEventAsync(EventCallbackWorkItem item, object? arg);
 	}
 }
 
@@ -5179,6 +5619,10 @@ namespace Microsoft.AspNetCore.Components
 	[AttributeUsage(AttributeTargets.Property, AllowMultiple = false, Inherited = true)]
 	public sealed class InjectAttribute : Attribute
 	{
+		public InjectAttribute()
+		{
+			throw null;
+		}
 	}
 }
 
@@ -5203,6 +5647,7 @@ namespace Microsoft.AspNetCore.Components
 
 		public LayoutAttribute(Type layoutType)
 		{
+			throw null;
 		}
 	}
 }
@@ -5215,8 +5660,10 @@ namespace Microsoft.AspNetCore.Components
 {
 	public abstract class LayoutComponentBase : ComponentBase
 	{
+		internal const string BodyPropertyName = "Body";
+
 		[Parameter]
-		public RenderFragment Body
+		public RenderFragment? Body
 		{
 			[CompilerGenerated]
 			get
@@ -5226,7 +5673,13 @@ namespace Microsoft.AspNetCore.Components
 			[CompilerGenerated]
 			set
 			{
+				throw null;
 			}
+		}
+
+		protected LayoutComponentBase()
+		{
+			throw null;
 		}
 	}
 }
@@ -5252,6 +5705,7 @@ namespace Microsoft.AspNetCore.Components
 			[CompilerGenerated]
 			set
 			{
+				throw null;
 			}
 		}
 
@@ -5266,14 +5720,21 @@ namespace Microsoft.AspNetCore.Components
 			[CompilerGenerated]
 			set
 			{
+				throw null;
 			}
 		}
 
 		public void Attach(RenderHandle renderHandle)
 		{
+			throw null;
 		}
 
 		public Task SetParametersAsync(ParameterView parameters)
+		{
+			throw null;
+		}
+
+		public LayoutView()
 		{
 			throw null;
 		}
@@ -5283,13 +5744,16 @@ namespace Microsoft.AspNetCore.Components
 
 // Microsoft.AspNetCore.Components\Microsoft.AspNetCore.Components\LocationChangeException.cs
 using System;
+using System.Runtime.CompilerServices;
 
 namespace Microsoft.AspNetCore.Components
 {
 	public sealed class LocationChangeException : Exception
 	{
+		[System.Runtime.CompilerServices.NullableContext(1)]
 		public LocationChangeException(string message, Exception innerException)
 		{
+			throw null;
 		}
 	}
 }
@@ -5302,8 +5766,6 @@ namespace Microsoft.AspNetCore.Components
 {
 	public readonly struct MarkupString
 	{
-		private readonly object _dummy;
-
 		public string Value
 		{
 			[CompilerGenerated]
@@ -5350,6 +5812,7 @@ namespace Microsoft.AspNetCore.Components
 
 		public NavigationException(string uri)
 		{
+			throw null;
 		}
 	}
 }
@@ -5371,6 +5834,7 @@ namespace Microsoft.AspNetCore.Components
 			}
 			protected set
 			{
+				throw null;
 			}
 		}
 
@@ -5382,6 +5846,7 @@ namespace Microsoft.AspNetCore.Components
 			}
 			protected set
 			{
+				throw null;
 			}
 		}
 
@@ -5389,28 +5854,29 @@ namespace Microsoft.AspNetCore.Components
 		{
 			add
 			{
+				throw null;
 			}
 			remove
 			{
+				throw null;
 			}
-		}
-
-		protected virtual void EnsureInitialized()
-		{
-		}
-
-		protected void Initialize(string baseUri, string uri)
-		{
 		}
 
 		public void NavigateTo(string uri, bool forceLoad = false)
 		{
+			throw null;
 		}
 
 		protected abstract void NavigateToCore(string uri, bool forceLoad);
 
-		protected void NotifyLocationChanged(bool isInterceptedLink)
+		protected void Initialize(string baseUri, string uri)
 		{
+			throw null;
+		}
+
+		protected virtual void EnsureInitialized()
+		{
+			throw null;
 		}
 
 		public Uri ToAbsoluteUri(string relativeUri)
@@ -5424,6 +5890,16 @@ namespace Microsoft.AspNetCore.Components
 		}
 
 		internal static string NormalizeBaseUri(string baseUri)
+		{
+			throw null;
+		}
+
+		protected void NotifyLocationChanged(bool isInterceptedLink)
+		{
+			throw null;
+		}
+
+		protected NavigationManager()
 		{
 			throw null;
 		}
@@ -5456,15 +5932,22 @@ namespace Microsoft.AspNetCore.Components
 			}
 		}
 
-		protected virtual void Dispose(bool disposing)
-		{
-		}
-
 		void IDisposable.Dispose()
 		{
+			throw null;
+		}
+
+		protected virtual void Dispose(bool disposing)
+		{
+			throw null;
+		}
+
+		protected OwningComponentBase()
+		{
+			throw null;
 		}
 	}
-	public abstract class OwningComponentBase<TService> : OwningComponentBase, IDisposable
+	public abstract class OwningComponentBase<TService> : OwningComponentBase, IDisposable where TService : notnull
 	{
 		protected TService Service
 		{
@@ -5472,6 +5955,11 @@ namespace Microsoft.AspNetCore.Components
 			{
 				throw null;
 			}
+		}
+
+		protected OwningComponentBase()
+		{
+			throw null;
 		}
 	}
 }
@@ -5496,7 +5984,13 @@ namespace Microsoft.AspNetCore.Components
 			[CompilerGenerated]
 			set
 			{
+				throw null;
 			}
+		}
+
+		public ParameterAttribute()
+		{
+			throw null;
 		}
 	}
 }
@@ -5509,19 +6003,6 @@ namespace Microsoft.AspNetCore.Components
 {
 	public readonly struct ParameterValue
 	{
-		private readonly object _dummy;
-
-		private readonly int _dummyPrimitive;
-
-		public bool Cascading
-		{
-			[CompilerGenerated]
-			get
-			{
-				throw null;
-			}
-		}
-
 		public string Name
 		{
 			[CompilerGenerated]
@@ -5539,6 +6020,20 @@ namespace Microsoft.AspNetCore.Components
 				throw null;
 			}
 		}
+
+		public bool Cascading
+		{
+			[CompilerGenerated]
+			get
+			{
+				throw null;
+			}
+		}
+
+		internal ParameterValue(string name, object value, bool cascading)
+		{
+			throw null;
+		}
 	}
 }
 
@@ -5547,6 +6042,8 @@ namespace Microsoft.AspNetCore.Components
 using Microsoft.AspNetCore.Components.Rendering;
 using Microsoft.AspNetCore.Components.RenderTree;
 using System.Collections.Generic;
+using System.Diagnostics.CodeAnalysis;
+using System.Runtime.CompilerServices;
 
 namespace Microsoft.AspNetCore.Components
 {
@@ -5554,9 +6051,11 @@ namespace Microsoft.AspNetCore.Components
 	{
 		public struct Enumerator
 		{
-			private object _dummy;
+			private RenderTreeFrameParameterEnumerator _directParamsEnumerator;
 
-			private int _dummyPrimitive;
+			private CascadingParameterEnumerator _cascadingParameterEnumerator;
+
+			private bool _isEnumeratingDirectParams;
 
 			public ParameterValue Current
 			{
@@ -5566,15 +6065,89 @@ namespace Microsoft.AspNetCore.Components
 				}
 			}
 
+			[System.Runtime.CompilerServices.NullableContext(1)]
+			internal Enumerator(RenderTreeFrame[] frames, int ownerIndex, IReadOnlyList<CascadingParameterState> cascadingParameters)
+			{
+				throw null;
+			}
+
 			public bool MoveNext()
 			{
 				throw null;
 			}
 		}
 
-		private readonly object _dummy;
+		private struct RenderTreeFrameParameterEnumerator
+		{
+			private readonly RenderTreeFrame[] _frames;
 
-		private readonly int _dummyPrimitive;
+			private readonly int _ownerIndex;
+
+			private readonly int _ownerDescendantsEndIndexExcl;
+
+			private int _currentIndex;
+
+			private ParameterValue _current;
+
+			public ParameterValue Current
+			{
+				get
+				{
+					throw null;
+				}
+			}
+
+			internal RenderTreeFrameParameterEnumerator(RenderTreeFrame[] frames, int ownerIndex)
+			{
+				throw null;
+			}
+
+			public bool MoveNext()
+			{
+				throw null;
+			}
+		}
+
+		private struct CascadingParameterEnumerator
+		{
+			private readonly IReadOnlyList<CascadingParameterState> _cascadingParameters;
+
+			private int _currentIndex;
+
+			private ParameterValue _current;
+
+			public ParameterValue Current
+			{
+				get
+				{
+					throw null;
+				}
+			}
+
+			public CascadingParameterEnumerator(IReadOnlyList<CascadingParameterState> cascadingParameters)
+			{
+				throw null;
+			}
+
+			public bool MoveNext()
+			{
+				throw null;
+			}
+		}
+
+		private const string GeneratedParameterViewElementName = "__ARTIFICIAL_PARAMETER_VIEW";
+
+		private static readonly RenderTreeFrame[] _emptyFrames;
+
+		private static readonly ParameterView _empty;
+
+		private readonly ParameterViewLifetime _lifetime;
+
+		private readonly RenderTreeFrame[] _frames;
+
+		private readonly int _ownerIndex;
+
+		private readonly IReadOnlyList<CascadingParameterState> _cascadingParameters;
 
 		public static ParameterView Empty
 		{
@@ -5592,7 +6165,7 @@ namespace Microsoft.AspNetCore.Components
 			}
 		}
 
-		public static ParameterView FromDictionary(IDictionary<string, object> parameters)
+		internal ParameterView(in ParameterViewLifetime lifetime, RenderTreeFrame[] frames, int ownerIndex)
 		{
 			throw null;
 		}
@@ -5602,6 +6175,12 @@ namespace Microsoft.AspNetCore.Components
 			throw null;
 		}
 
+		public bool TryGetValue<TValue>(string parameterName, [MaybeNullWhen(false)] out TValue result)
+		{
+			throw null;
+		}
+
+		[return: MaybeNull]
 		public TValue GetValueOrDefault<TValue>(string parameterName)
 		{
 			throw null;
@@ -5612,27 +6191,14 @@ namespace Microsoft.AspNetCore.Components
 			throw null;
 		}
 
-		public void SetParameterProperties(object target)
-		{
-		}
-
 		public IReadOnlyDictionary<string, object> ToDictionary()
 		{
 			throw null;
 		}
 
-		public bool TryGetValue<TValue>(string parameterName, out TValue result)
+		internal ParameterView WithCascadingParameters(IReadOnlyList<CascadingParameterState> cascadingParameters)
 		{
 			throw null;
-		}
-
-		internal ParameterView(in ParameterViewLifetime lifetime, RenderTreeFrame[] frames, int ownerIndex)
-		{
-			throw null;
-		}
-
-		internal void CaptureSnapshot(ArrayBuilder<RenderTreeFrame> builder)
-		{
 		}
 
 		internal bool DefinitelyEquals(ParameterView oldParameters)
@@ -5640,7 +6206,17 @@ namespace Microsoft.AspNetCore.Components
 			throw null;
 		}
 
-		internal ParameterView WithCascadingParameters(IReadOnlyList<CascadingParameterState> cascadingParameters)
+		internal void CaptureSnapshot(ArrayBuilder<RenderTreeFrame> builder)
+		{
+			throw null;
+		}
+
+		public static ParameterView FromDictionary(IDictionary<string, object> parameters)
+		{
+			throw null;
+		}
+
+		public void SetParameterProperties(object target)
 		{
 			throw null;
 		}
@@ -5665,9 +6241,9 @@ namespace Microsoft.AspNetCore.Components
 {
 	public readonly struct RenderHandle
 	{
-		private readonly object _dummy;
+		private readonly Renderer _renderer;
 
-		private readonly int _dummyPrimitive;
+		private readonly int _componentId;
 
 		public Dispatcher Dispatcher
 		{
@@ -5685,11 +6261,12 @@ namespace Microsoft.AspNetCore.Components
 			}
 		}
 
-		public void Render(RenderFragment renderFragment)
+		internal RenderHandle(Renderer renderer, int componentId)
 		{
+			throw null;
 		}
 
-		internal RenderHandle(Renderer renderer, int componentId)
+		public void Render(RenderFragment renderFragment)
 		{
 			throw null;
 		}
@@ -5717,6 +6294,7 @@ namespace Microsoft.AspNetCore.Components
 
 		public RouteAttribute(string template)
 		{
+			throw null;
 		}
 	}
 }
@@ -5751,6 +6329,7 @@ namespace Microsoft.AspNetCore.Components
 
 		public RouteData(Type pageType, IReadOnlyDictionary<string, object> routeValues)
 		{
+			throw null;
 		}
 	}
 }
@@ -5767,20 +6346,6 @@ namespace Microsoft.AspNetCore.Components
 	public class RouteView : IComponent
 	{
 		[Parameter]
-		public Type DefaultLayout
-		{
-			[CompilerGenerated]
-			get
-			{
-				throw null;
-			}
-			[CompilerGenerated]
-			set
-			{
-			}
-		}
-
-		[Parameter]
 		public RouteData RouteData
 		{
 			[CompilerGenerated]
@@ -5791,18 +6356,41 @@ namespace Microsoft.AspNetCore.Components
 			[CompilerGenerated]
 			set
 			{
+				throw null;
 			}
+		}
+
+		[Parameter]
+		public Type DefaultLayout
+		{
+			[CompilerGenerated]
+			get
+			{
+				throw null;
+			}
+			[CompilerGenerated]
+			set
+			{
+				throw null;
+			}
+		}
+
+		public RouteView()
+		{
+			throw null;
 		}
 
 		public void Attach(RenderHandle renderHandle)
 		{
-		}
-
-		protected virtual void Render(RenderTreeBuilder builder)
-		{
+			throw null;
 		}
 
 		public Task SetParametersAsync(ParameterView parameters)
+		{
+			throw null;
+		}
+
+		protected virtual void Render(RenderTreeBuilder builder)
 		{
 			throw null;
 		}
@@ -5818,6 +6406,11 @@ namespace Microsoft.AspNetCore.Components.CompilerServices
 {
 	public static class RuntimeHelpers
 	{
+		public static T TypeCheck<T>(T value)
+		{
+			throw null;
+		}
+
 		public static EventCallback<T> CreateInferredEventCallback<T>(object receiver, Action<T> callback, T value)
 		{
 			throw null;
@@ -5827,11 +6420,21 @@ namespace Microsoft.AspNetCore.Components.CompilerServices
 		{
 			throw null;
 		}
+	}
+}
 
-		public static T TypeCheck<T>(T value)
+
+// Microsoft.AspNetCore.Components\Microsoft.AspNetCore.Components.Reflection\IPropertySetter.cs
+namespace Microsoft.AspNetCore.Components.Reflection
+{
+	internal interface IPropertySetter
+	{
+		bool Cascading
 		{
-			throw null;
+			get;
 		}
+
+		void SetValue(object target, object value);
 	}
 }
 
@@ -5854,12 +6457,12 @@ namespace Microsoft.AspNetCore.Components.Rendering
 			throw null;
 		}
 
-		public KeyedItemInfo WithNewSiblingIndex(int newSiblingIndex)
+		public KeyedItemInfo WithOldSiblingIndex(int oldSiblingIndex)
 		{
 			throw null;
 		}
 
-		public KeyedItemInfo WithOldSiblingIndex(int oldSiblingIndex)
+		public KeyedItemInfo WithNewSiblingIndex(int newSiblingIndex)
 		{
 			throw null;
 		}
@@ -5872,11 +6475,11 @@ namespace Microsoft.AspNetCore.Components.Rendering
 {
 	internal readonly struct ParameterViewLifetime
 	{
+		private readonly RenderBatchBuilder _owner;
+
+		private readonly int _stamp;
+
 		public static readonly ParameterViewLifetime Unbound;
-
-		private readonly object _dummy;
-
-		private readonly int _dummyPrimitive;
 
 		public ParameterViewLifetime(RenderBatchBuilder owner)
 		{
@@ -5885,6 +6488,7 @@ namespace Microsoft.AspNetCore.Components.Rendering
 
 		public void AssertNotExpired()
 		{
+			throw null;
 		}
 	}
 }
@@ -5916,84 +6520,144 @@ namespace Microsoft.AspNetCore.Components.Rendering
 {
 	public sealed class RenderTreeBuilder : IDisposable
 	{
-		public void AddAttribute(int sequence, in RenderTreeFrame frame)
+		public void OpenElement(int sequence, string elementName)
 		{
-		}
-
-		public void AddAttribute(int sequence, string name, EventCallback value)
-		{
-		}
-
-		public void AddAttribute(int sequence, string name, bool value)
-		{
-		}
-
-		public void AddAttribute(int sequence, string name, MulticastDelegate value)
-		{
-		}
-
-		public void AddAttribute(int sequence, string name, object value)
-		{
-		}
-
-		public void AddAttribute(int sequence, string name, string value)
-		{
-		}
-
-		public void AddAttribute<TArgument>(int sequence, string name, EventCallback<TArgument> value)
-		{
-		}
-
-		public void AddComponentReferenceCapture(int sequence, Action<object> componentReferenceCaptureAction)
-		{
-		}
-
-		public void AddContent(int sequence, MarkupString markupContent)
-		{
-		}
-
-		public void AddContent(int sequence, RenderFragment fragment)
-		{
-		}
-
-		public void AddContent(int sequence, object textContent)
-		{
-		}
-
-		public void AddContent(int sequence, string textContent)
-		{
-		}
-
-		public void AddContent<TValue>(int sequence, RenderFragment<TValue> fragment, TValue value)
-		{
-		}
-
-		public void AddElementReferenceCapture(int sequence, Action<ElementReference> elementReferenceCaptureAction)
-		{
-		}
-
-		public void AddMarkupContent(int sequence, string markupContent)
-		{
-		}
-
-		public void AddMultipleAttributes(int sequence, IEnumerable<KeyValuePair<string, object>> attributes)
-		{
-		}
-
-		public void Clear()
-		{
-		}
-
-		public void CloseComponent()
-		{
+			throw null;
 		}
 
 		public void CloseElement()
 		{
+			throw null;
+		}
+
+		public void AddMarkupContent(int sequence, string? markupContent)
+		{
+			throw null;
+		}
+
+		public void AddContent(int sequence, string? textContent)
+		{
+			throw null;
+		}
+
+		public void AddContent(int sequence, RenderFragment? fragment)
+		{
+			throw null;
+		}
+
+		public void AddContent<TValue>(int sequence, RenderFragment<TValue>? fragment, TValue value)
+		{
+			throw null;
+		}
+
+		public void AddContent(int sequence, MarkupString markupContent)
+		{
+			throw null;
+		}
+
+		public void AddContent(int sequence, object? textContent)
+		{
+			throw null;
+		}
+
+		public void AddAttribute(int sequence, string name)
+		{
+			throw null;
+		}
+
+		public void AddAttribute(int sequence, string name, bool value)
+		{
+			throw null;
+		}
+
+		public void AddAttribute(int sequence, string name, string? value)
+		{
+			throw null;
+		}
+
+		public void AddAttribute(int sequence, string name, MulticastDelegate? value)
+		{
+			throw null;
+		}
+
+		public void AddAttribute(int sequence, string name, EventCallback value)
+		{
+			throw null;
+		}
+
+		public void AddAttribute<TArgument>(int sequence, string name, EventCallback<TArgument> value)
+		{
+			throw null;
+		}
+
+		public void AddAttribute(int sequence, string name, object? value)
+		{
+			throw null;
+		}
+
+		public void AddAttribute(int sequence, RenderTreeFrame frame)
+		{
+			throw null;
+		}
+
+		public void AddMultipleAttributes(int sequence, IEnumerable<KeyValuePair<string, object>>? attributes)
+		{
+			throw null;
+		}
+
+		public void SetUpdatesAttributeName(string updatesAttributeName)
+		{
+			throw null;
+		}
+
+		public void OpenComponent<TComponent>(int sequence) where TComponent : notnull, IComponent
+		{
+			throw null;
+		}
+
+		public void OpenComponent(int sequence, Type componentType)
+		{
+			throw null;
+		}
+
+		public void SetKey(object? value)
+		{
+			throw null;
+		}
+
+		public void CloseComponent()
+		{
+			throw null;
+		}
+
+		public void AddElementReferenceCapture(int sequence, Action<ElementReference> elementReferenceCaptureAction)
+		{
+			throw null;
+		}
+
+		public void AddComponentReferenceCapture(int sequence, Action<object> componentReferenceCaptureAction)
+		{
+			throw null;
+		}
+
+		public void OpenRegion(int sequence)
+		{
+			throw null;
 		}
 
 		public void CloseRegion()
 		{
+			throw null;
+		}
+
+		public void Clear()
+		{
+			throw null;
+		}
+
+		internal void InsertAttributeExpensive(int insertAtIndex, int sequence, string attributeName, object? attributeValue)
+		{
+			throw null;
 		}
 
 		public ArrayRange<RenderTreeFrame> GetFrames()
@@ -6001,32 +6665,29 @@ namespace Microsoft.AspNetCore.Components.Rendering
 			throw null;
 		}
 
-		public void OpenComponent(int sequence, Type componentType)
+		internal void AssertTreeIsValid(IComponent component)
 		{
+			throw null;
 		}
 
-		public void OpenComponent<TComponent>(int sequence) where TComponent : IComponent
+		internal void ProcessDuplicateAttributes(int first)
 		{
+			throw null;
 		}
 
-		public void OpenElement(int sequence, string elementName)
+		internal void TrackAttributeName(string name)
 		{
-		}
-
-		public void OpenRegion(int sequence)
-		{
-		}
-
-		public void SetKey(object value)
-		{
-		}
-
-		public void SetUpdatesAttributeName(string updatesAttributeName)
-		{
+			throw null;
 		}
 
 		void IDisposable.Dispose()
 		{
+			throw null;
+		}
+
+		public RenderTreeBuilder()
+		{
+			throw null;
 		}
 	}
 }
@@ -6040,11 +6701,21 @@ namespace Microsoft.AspNetCore.Components.RenderTree
 {
 	public readonly struct ArrayBuilderSegment<T> : IEnumerable<T>, IEnumerable
 	{
-		private readonly object _dummy;
+		private readonly ArrayBuilder<T>? _builder;
 
-		private readonly int _dummyPrimitive;
+		private readonly int _offset;
+
+		private readonly int _count;
 
 		public T[] Array
+		{
+			get
+			{
+				throw null;
+			}
+		}
+
+		public int Offset
 		{
 			get
 			{
@@ -6068,12 +6739,9 @@ namespace Microsoft.AspNetCore.Components.RenderTree
 			}
 		}
 
-		public int Offset
+		internal ArrayBuilderSegment(ArrayBuilder<T> builder, int offset, int count)
 		{
-			get
-			{
-				throw null;
-			}
+			throw null;
 		}
 
 		IEnumerator<T> IEnumerable<T>.GetEnumerator()
@@ -6128,6 +6796,7 @@ namespace Microsoft.AspNetCore.Components.RenderTree
 			[CompilerGenerated]
 			set
 			{
+				throw null;
 			}
 		}
 
@@ -6141,7 +6810,13 @@ namespace Microsoft.AspNetCore.Components.RenderTree
 			[CompilerGenerated]
 			set
 			{
+				throw null;
 			}
+		}
+
+		public EventFieldInfo()
+		{
+			throw null;
 		}
 	}
 }
@@ -6154,7 +6829,23 @@ namespace Microsoft.AspNetCore.Components.RenderTree
 {
 	public readonly struct RenderBatch
 	{
-		private readonly object _dummy;
+		public ArrayRange<RenderTreeDiff> UpdatedComponents
+		{
+			[CompilerGenerated]
+			get
+			{
+				throw null;
+			}
+		}
+
+		public ArrayRange<RenderTreeFrame> ReferenceFrames
+		{
+			[CompilerGenerated]
+			get
+			{
+				throw null;
+			}
+		}
 
 		public ArrayRange<int> DisposedComponentIDs
 		{
@@ -6174,107 +6865,10 @@ namespace Microsoft.AspNetCore.Components.RenderTree
 			}
 		}
 
-		public ArrayRange<RenderTreeFrame> ReferenceFrames
-		{
-			[CompilerGenerated]
-			get
-			{
-				throw null;
-			}
-		}
-
-		public ArrayRange<RenderTreeDiff> UpdatedComponents
-		{
-			[CompilerGenerated]
-			get
-			{
-				throw null;
-			}
-		}
-
 		internal RenderBatch(ArrayRange<RenderTreeDiff> updatedComponents, ArrayRange<RenderTreeFrame> referenceFrames, ArrayRange<int> disposedComponentIDs, ArrayRange<ulong> disposedEventHandlerIDs)
 		{
 			throw null;
 		}
-	}
-}
-
-
-// Microsoft.AspNetCore.Components\Microsoft.AspNetCore.Components.RenderTree\Renderer.cs
-using Microsoft.Extensions.Logging;
-using System;
-using System.Diagnostics;
-using System.Threading.Tasks;
-
-namespace Microsoft.AspNetCore.Components.RenderTree
-{
-	public abstract class Renderer : IDisposable
-	{
-		public abstract Dispatcher Dispatcher
-		{
-			get;
-		}
-
-		public event UnhandledExceptionEventHandler UnhandledSynchronizationException
-		{
-			add
-			{
-			}
-			remove
-			{
-			}
-		}
-
-		public Renderer(IServiceProvider serviceProvider, ILoggerFactory loggerFactory)
-		{
-		}
-
-		protected internal int AssignRootComponentId(IComponent component)
-		{
-			throw null;
-		}
-
-		public virtual Task DispatchEventAsync(ulong eventHandlerId, EventFieldInfo fieldInfo, EventArgs eventArgs)
-		{
-			throw null;
-		}
-
-		public void Dispose()
-		{
-		}
-
-		protected virtual void Dispose(bool disposing)
-		{
-		}
-
-		protected ArrayRange<RenderTreeFrame> GetCurrentRenderTreeFrames(int componentId)
-		{
-			throw null;
-		}
-
-		protected abstract void HandleException(Exception exception);
-
-		protected IComponent InstantiateComponent(Type componentType)
-		{
-			throw null;
-		}
-
-		protected virtual void ProcessPendingRender()
-		{
-		}
-
-		protected Task RenderRootComponentAsync(int componentId)
-		{
-			throw null;
-		}
-
-		[DebuggerStepThrough]
-		protected Task RenderRootComponentAsync(int componentId, ParameterView initialParameters)
-		{
-			throw null;
-		}
-
-		protected abstract Task UpdateDisplayAsync(in RenderBatch renderBatch);
 	}
 }
 
@@ -6304,27 +6898,22 @@ namespace Microsoft.AspNetCore.Components.RenderTree
 	[StructLayout(LayoutKind.Explicit)]
 	public readonly struct RenderTreeEdit
 	{
-		[FieldOffset(8)]
-		public readonly int MoveToSiblingIndex;
-
-		[FieldOffset(8)]
-		public readonly int ReferenceFrameIndex;
-
-		[FieldOffset(16)]
-		public readonly string RemovedAttributeName;
+		[FieldOffset(0)]
+		public readonly RenderTreeEditType Type;
 
 		[FieldOffset(4)]
 		public readonly int SiblingIndex;
 
-		[FieldOffset(0)]
-		public readonly RenderTreeEditType Type;
+		[FieldOffset(8)]
+		public readonly int ReferenceFrameIndex;
 
-		internal static RenderTreeEdit PermutationListEnd()
-		{
-			throw null;
-		}
+		[FieldOffset(8)]
+		public readonly int MoveToSiblingIndex;
 
-		internal static RenderTreeEdit PermutationListEntry(int fromSiblingIndex, int toSiblingIndex)
+		[FieldOffset(16)]
+		public readonly string RemovedAttributeName;
+
+		internal static RenderTreeEdit RemoveFrame(int siblingIndex)
 		{
 			throw null;
 		}
@@ -6334,17 +6923,22 @@ namespace Microsoft.AspNetCore.Components.RenderTree
 			throw null;
 		}
 
-		internal static RenderTreeEdit RemoveAttribute(int siblingIndex, string name)
+		internal static RenderTreeEdit UpdateText(int siblingIndex, int referenceFrameIndex)
 		{
 			throw null;
 		}
 
-		internal static RenderTreeEdit RemoveFrame(int siblingIndex)
+		internal static RenderTreeEdit UpdateMarkup(int siblingIndex, int referenceFrameIndex)
 		{
 			throw null;
 		}
 
 		internal static RenderTreeEdit SetAttribute(int siblingIndex, int referenceFrameIndex)
+		{
+			throw null;
+		}
+
+		internal static RenderTreeEdit RemoveAttribute(int siblingIndex, string name)
 		{
 			throw null;
 		}
@@ -6359,12 +6953,12 @@ namespace Microsoft.AspNetCore.Components.RenderTree
 			throw null;
 		}
 
-		internal static RenderTreeEdit UpdateMarkup(int siblingIndex, int referenceFrameIndex)
+		internal static RenderTreeEdit PermutationListEntry(int fromSiblingIndex, int toSiblingIndex)
 		{
 			throw null;
 		}
 
-		internal static RenderTreeEdit UpdateText(int siblingIndex, int referenceFrameIndex)
+		internal static RenderTreeEdit PermutationListEnd()
 		{
 			throw null;
 		}
@@ -6399,73 +6993,245 @@ using System.Runtime.InteropServices;
 namespace Microsoft.AspNetCore.Components.RenderTree
 {
 	[StructLayout(LayoutKind.Explicit, Pack = 4)]
-	public readonly struct RenderTreeFrame
+	public struct RenderTreeFrame
 	{
 		[FieldOffset(0)]
-		public readonly int Sequence;
+		internal int SequenceField;
 
 		[FieldOffset(4)]
-		public readonly RenderTreeFrameType FrameType;
+		internal RenderTreeFrameType FrameTypeField;
 
 		[FieldOffset(8)]
-		public readonly int ElementSubtreeLength;
+		internal int ElementSubtreeLengthField;
 
 		[FieldOffset(16)]
-		public readonly string ElementName;
+		internal string ElementNameField;
 
 		[FieldOffset(24)]
-		public readonly object ElementKey;
+		internal object ElementKeyField;
 
 		[FieldOffset(16)]
-		public readonly string TextContent;
+		internal string TextContentField;
 
 		[FieldOffset(8)]
-		public readonly ulong AttributeEventHandlerId;
+		internal ulong AttributeEventHandlerIdField;
 
 		[FieldOffset(16)]
-		public readonly string AttributeName;
+		internal string AttributeNameField;
 
 		[FieldOffset(24)]
-		public readonly object AttributeValue;
+		internal object AttributeValueField;
 
 		[FieldOffset(32)]
-		public readonly string AttributeEventUpdatesAttributeName;
+		internal string AttributeEventUpdatesAttributeNameField;
 
 		[FieldOffset(8)]
-		public readonly int ComponentSubtreeLength;
+		internal int ComponentSubtreeLengthField;
 
 		[FieldOffset(12)]
-		public readonly int ComponentId;
+		internal int ComponentIdField;
 
 		[FieldOffset(16)]
-		public readonly Type ComponentType;
-
-		[FieldOffset(32)]
-		public readonly object ComponentKey;
-
-		[FieldOffset(8)]
-		public readonly int RegionSubtreeLength;
-
-		[FieldOffset(16)]
-		public readonly string ElementReferenceCaptureId;
+		internal Type ComponentTypeField;
 
 		[FieldOffset(24)]
-		public readonly Action<ElementReference> ElementReferenceCaptureAction;
+		internal ComponentState ComponentStateField;
+
+		[FieldOffset(32)]
+		internal object ComponentKeyField;
 
 		[FieldOffset(8)]
-		public readonly int ComponentReferenceCaptureParentFrameIndex;
+		internal int RegionSubtreeLengthField;
 
 		[FieldOffset(16)]
-		public readonly Action<object> ComponentReferenceCaptureAction;
+		internal string ElementReferenceCaptureIdField;
+
+		[FieldOffset(24)]
+		internal Action<ElementReference> ElementReferenceCaptureActionField;
+
+		[FieldOffset(8)]
+		internal int ComponentReferenceCaptureParentFrameIndexField;
 
 		[FieldOffset(16)]
-		public readonly string MarkupContent;
+		internal Action<object> ComponentReferenceCaptureActionField;
 
-		public IComponent Component => null;
+		[FieldOffset(16)]
+		internal string MarkupContentField;
 
-		public override string ToString()
+		public int Sequence
 		{
-			return null;
+			get
+			{
+				throw null;
+			}
+		}
+
+		public RenderTreeFrameType FrameType
+		{
+			get
+			{
+				throw null;
+			}
+		}
+
+		public int ElementSubtreeLength
+		{
+			get
+			{
+				throw null;
+			}
+		}
+
+		public string ElementName
+		{
+			get
+			{
+				throw null;
+			}
+		}
+
+		public object ElementKey
+		{
+			get
+			{
+				throw null;
+			}
+		}
+
+		public string TextContent
+		{
+			get
+			{
+				throw null;
+			}
+		}
+
+		public ulong AttributeEventHandlerId
+		{
+			get
+			{
+				throw null;
+			}
+		}
+
+		public string AttributeName
+		{
+			get
+			{
+				throw null;
+			}
+		}
+
+		public object AttributeValue
+		{
+			get
+			{
+				throw null;
+			}
+		}
+
+		public string AttributeEventUpdatesAttributeName
+		{
+			get
+			{
+				throw null;
+			}
+		}
+
+		public int ComponentSubtreeLength
+		{
+			get
+			{
+				throw null;
+			}
+		}
+
+		public int ComponentId
+		{
+			get
+			{
+				throw null;
+			}
+		}
+
+		public Type ComponentType
+		{
+			get
+			{
+				throw null;
+			}
+		}
+
+		internal ComponentState ComponentState
+		{
+			get
+			{
+				throw null;
+			}
+		}
+
+		public object ComponentKey
+		{
+			get
+			{
+				throw null;
+			}
+		}
+
+		public IComponent Component
+		{
+			get
+			{
+				throw null;
+			}
+		}
+
+		public int RegionSubtreeLength
+		{
+			get
+			{
+				throw null;
+			}
+		}
+
+		public string ElementReferenceCaptureId
+		{
+			get
+			{
+				throw null;
+			}
+		}
+
+		public Action<ElementReference> ElementReferenceCaptureAction
+		{
+			get
+			{
+				throw null;
+			}
+		}
+
+		public int ComponentReferenceCaptureParentFrameIndex
+		{
+			get
+			{
+				throw null;
+			}
+		}
+
+		public Action<object> ComponentReferenceCaptureAction
+		{
+			get
+			{
+				throw null;
+			}
+		}
+
+		public string MarkupContent
+		{
+			get
+			{
+				throw null;
+			}
 		}
 
 		internal static RenderTreeFrame Element(int sequence, string elementName)
@@ -6567,6 +7333,11 @@ namespace Microsoft.AspNetCore.Components.RenderTree
 		{
 			throw null;
 		}
+
+		public override string ToString()
+		{
+			throw null;
+		}
 	}
 }
 
@@ -6619,7 +7390,7 @@ namespace Microsoft.AspNetCore.Components.Routing
 {
 	public class LocationChangedEventArgs : EventArgs
 	{
-		public bool IsNavigationIntercepted
+		public string Location
 		{
 			[CompilerGenerated]
 			get
@@ -6628,7 +7399,7 @@ namespace Microsoft.AspNetCore.Components.Routing
 			}
 		}
 
-		public string Location
+		public bool IsNavigationIntercepted
 		{
 			[CompilerGenerated]
 			get
@@ -6639,6 +7410,41 @@ namespace Microsoft.AspNetCore.Components.Routing
 
 		public LocationChangedEventArgs(string location, bool isNavigationIntercepted)
 		{
+			throw null;
+		}
+	}
+}
+
+
+// Microsoft.AspNetCore.Components\Microsoft.AspNetCore.Components.Routing\NavigationContext.cs
+using System.Runtime.CompilerServices;
+using System.Threading;
+
+namespace Microsoft.AspNetCore.Components.Routing
+{
+	public sealed class NavigationContext
+	{
+		public string Path
+		{
+			[CompilerGenerated]
+			get
+			{
+				throw null;
+			}
+		}
+
+		public CancellationToken CancellationToken
+		{
+			[CompilerGenerated]
+			get
+			{
+				throw null;
+			}
+		}
+
+		internal NavigationContext(string path, CancellationToken cancellationToken)
+		{
+			throw null;
 		}
 	}
 }
@@ -6649,9 +7455,14 @@ namespace Microsoft.AspNetCore.Components.Routing
 {
 	internal abstract class RouteConstraint
 	{
-		public abstract bool Match(string pathSegment, out object convertedValue);
+		public abstract bool Match(string pathSegment, out object? convertedValue);
 
 		public static RouteConstraint Parse(string template, string segment, string constraint)
+		{
+			throw null;
+		}
+
+		protected RouteConstraint()
 		{
 			throw null;
 		}
@@ -6660,8 +7471,10 @@ namespace Microsoft.AspNetCore.Components.Routing
 
 
 // Microsoft.AspNetCore.Components\Microsoft.AspNetCore.Components.Routing\Router.cs
+using Microsoft.Extensions.Logging;
 using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.Reflection;
 using System.Runtime.CompilerServices;
 using System.Threading.Tasks;
@@ -6670,17 +7483,21 @@ namespace Microsoft.AspNetCore.Components.Routing
 {
 	public class Router : IComponent, IHandleAfterRender, IDisposable
 	{
-		[Parameter]
-		public IEnumerable<Assembly> AdditionalAssemblies
+		private static class Log
 		{
-			[CompilerGenerated]
-			get
+			internal static void DisplayingNotFound(ILogger logger, string path, string baseUri)
 			{
 				throw null;
 			}
-			[CompilerGenerated]
-			set
+
+			internal static void NavigatingToComponent(ILogger logger, Type componentType, string path, string baseUri)
 			{
+				throw null;
+			}
+
+			internal static void NavigatingToExternalUri(ILogger logger, string externalUri, string path, string baseUri)
+			{
+				throw null;
 			}
 		}
 
@@ -6695,11 +7512,12 @@ namespace Microsoft.AspNetCore.Components.Routing
 			[CompilerGenerated]
 			set
 			{
+				throw null;
 			}
 		}
 
 		[Parameter]
-		public RenderFragment<RouteData> Found
+		public IEnumerable<Assembly> AdditionalAssemblies
 		{
 			[CompilerGenerated]
 			get
@@ -6709,6 +7527,7 @@ namespace Microsoft.AspNetCore.Components.Routing
 			[CompilerGenerated]
 			set
 			{
+				throw null;
 			}
 		}
 
@@ -6723,15 +7542,84 @@ namespace Microsoft.AspNetCore.Components.Routing
 			[CompilerGenerated]
 			set
 			{
+				throw null;
+			}
+		}
+
+		[Parameter]
+		public RenderFragment<RouteData> Found
+		{
+			[CompilerGenerated]
+			get
+			{
+				throw null;
+			}
+			[CompilerGenerated]
+			set
+			{
+				throw null;
+			}
+		}
+
+		[Parameter]
+		public RenderFragment? Navigating
+		{
+			[System.Runtime.CompilerServices.NullableContext(2)]
+			[CompilerGenerated]
+			get
+			{
+				throw null;
+			}
+			[System.Runtime.CompilerServices.NullableContext(2)]
+			[CompilerGenerated]
+			set
+			{
+				throw null;
+			}
+		}
+
+		[Parameter]
+		public Func<NavigationContext, Task>? OnNavigateAsync
+		{
+			[CompilerGenerated]
+			get
+			{
+				throw null;
+			}
+			[CompilerGenerated]
+			set
+			{
+				throw null;
 			}
 		}
 
 		public void Attach(RenderHandle renderHandle)
 		{
+			throw null;
+		}
+
+		[AsyncStateMachine(typeof(_003CSetParametersAsync_003Ed__52))]
+		[DebuggerStepThrough]
+		public Task SetParametersAsync(ParameterView parameters)
+		{
+			throw null;
 		}
 
 		public void Dispose()
 		{
+			throw null;
+		}
+
+		internal virtual void Refresh(bool isNavigationIntercepted)
+		{
+			throw null;
+		}
+
+		[AsyncStateMachine(typeof(_003CRunOnNavigateWithRefreshAsync_003Ed__58))]
+		[DebuggerStepThrough]
+		internal Task RunOnNavigateWithRefreshAsync(string path, bool isNavigationIntercepted)
+		{
+			throw null;
 		}
 
 		Task IHandleAfterRender.OnAfterRenderAsync()
@@ -6739,94 +7627,9 @@ namespace Microsoft.AspNetCore.Components.Routing
 			throw null;
 		}
 
-		public Task SetParametersAsync(ParameterView parameters)
+		public Router()
 		{
 			throw null;
-		}
-	}
-}
-
-
-// Microsoft.AspNetCore.Components\Microsoft.Extensions.Internal\HashCodeCombiner.cs
-using System.Collections;
-using System.Collections.Generic;
-using System.Runtime.CompilerServices;
-
-namespace Microsoft.Extensions.Internal
-{
-	internal struct HashCodeCombiner
-	{
-		private long _combinedHash64;
-
-		public int CombinedHash
-		{
-			[MethodImpl(MethodImplOptions.AggressiveInlining)]
-			get
-			{
-				return _combinedHash64.GetHashCode();
-			}
-		}
-
-		[MethodImpl(MethodImplOptions.AggressiveInlining)]
-		private HashCodeCombiner(long seed)
-		{
-			_combinedHash64 = seed;
-		}
-
-		[MethodImpl(MethodImplOptions.AggressiveInlining)]
-		public void Add(IEnumerable e)
-		{
-			if (e == null)
-			{
-				Add(0);
-				return;
-			}
-			int num = 0;
-			foreach (object? item in e)
-			{
-				Add(item);
-				num++;
-			}
-			Add(num);
-		}
-
-		[MethodImpl(MethodImplOptions.AggressiveInlining)]
-		public static implicit operator int(HashCodeCombiner self)
-		{
-			return self.CombinedHash;
-		}
-
-		[MethodImpl(MethodImplOptions.AggressiveInlining)]
-		public void Add(int i)
-		{
-			_combinedHash64 = (((_combinedHash64 << 5) + _combinedHash64) ^ i);
-		}
-
-		[MethodImpl(MethodImplOptions.AggressiveInlining)]
-		public void Add(string s)
-		{
-			int i = s?.GetHashCode() ?? 0;
-			Add(i);
-		}
-
-		[MethodImpl(MethodImplOptions.AggressiveInlining)]
-		public void Add(object o)
-		{
-			int i = o?.GetHashCode() ?? 0;
-			Add(i);
-		}
-
-		[MethodImpl(MethodImplOptions.AggressiveInlining)]
-		public void Add<TValue>(TValue value, IEqualityComparer<TValue> comparer)
-		{
-			int i = (value != null) ? comparer.GetHashCode(value) : 0;
-			Add(i);
-		}
-
-		[MethodImpl(MethodImplOptions.AggressiveInlining)]
-		public static HashCodeCombiner Start()
-		{
-			return new HashCodeCombiner(5381L);
 		}
 	}
 }
@@ -6851,6 +7654,7 @@ namespace Microsoft.AspNetCore.Components.Authorization
 
 		public AuthenticationState(ClaimsPrincipal user)
 		{
+			throw null;
 		}
 	}
 }
@@ -6866,6 +7670,7 @@ namespace Microsoft.AspNetCore.Components.Authorization
 
 
 // Microsoft.AspNetCore.Components.Authorization\Microsoft.AspNetCore.Components.Authorization\AuthenticationStateProvider.cs
+using System.Runtime.CompilerServices;
 using System.Threading.Tasks;
 
 namespace Microsoft.AspNetCore.Components.Authorization
@@ -6874,11 +7679,15 @@ namespace Microsoft.AspNetCore.Components.Authorization
 	{
 		public event AuthenticationStateChangedHandler AuthenticationStateChanged
 		{
+			[CompilerGenerated]
 			add
 			{
+				throw null;
 			}
+			[CompilerGenerated]
 			remove
 			{
+				throw null;
 			}
 		}
 
@@ -6886,12 +7695,19 @@ namespace Microsoft.AspNetCore.Components.Authorization
 
 		protected void NotifyAuthenticationStateChanged(Task<AuthenticationState> task)
 		{
+			throw null;
+		}
+
+		protected AuthenticationStateProvider()
+		{
+			throw null;
 		}
 	}
 }
 
 
 // Microsoft.AspNetCore.Components.Authorization\Microsoft.AspNetCore.Components.Authorization\AuthorizeRouteView.cs
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Components.Rendering;
 using System.Runtime.CompilerServices;
 
@@ -6899,17 +7715,31 @@ namespace Microsoft.AspNetCore.Components.Authorization
 {
 	public sealed class AuthorizeRouteView : RouteView
 	{
-		[Parameter]
-		public RenderFragment Authorizing
+		private class AuthorizeRouteViewCore : AuthorizeViewCore
 		{
-			[CompilerGenerated]
-			get
+			[Parameter]
+			public RouteData RouteData
+			{
+				[CompilerGenerated]
+				get
+				{
+					throw null;
+				}
+				[CompilerGenerated]
+				set
+				{
+					throw null;
+				}
+			}
+
+			protected override IAuthorizeData[] GetAuthorizeData()
 			{
 				throw null;
 			}
-			[CompilerGenerated]
-			set
+
+			public AuthorizeRouteViewCore()
 			{
+				throw null;
 			}
 		}
 
@@ -6924,11 +7754,48 @@ namespace Microsoft.AspNetCore.Components.Authorization
 			[CompilerGenerated]
 			set
 			{
+				throw null;
 			}
+		}
+
+		[Parameter]
+		public RenderFragment Authorizing
+		{
+			[CompilerGenerated]
+			get
+			{
+				throw null;
+			}
+			[CompilerGenerated]
+			set
+			{
+				throw null;
+			}
+		}
+
+		[Parameter]
+		public object Resource
+		{
+			[CompilerGenerated]
+			get
+			{
+				throw null;
+			}
+			[CompilerGenerated]
+			set
+			{
+				throw null;
+			}
+		}
+
+		public AuthorizeRouteView()
+		{
+			throw null;
 		}
 
 		protected override void Render(RenderTreeBuilder builder)
 		{
+			throw null;
 		}
 	}
 }
@@ -6953,6 +7820,7 @@ namespace Microsoft.AspNetCore.Components.Authorization
 			[CompilerGenerated]
 			set
 			{
+				throw null;
 			}
 		}
 
@@ -6967,11 +7835,13 @@ namespace Microsoft.AspNetCore.Components.Authorization
 			[CompilerGenerated]
 			set
 			{
+				throw null;
 			}
 		}
 
 		public AuthorizeView()
 		{
+			throw null;
 		}
 
 		protected override IAuthorizeData[] GetAuthorizeData()
@@ -6994,34 +7864,6 @@ namespace Microsoft.AspNetCore.Components.Authorization
 	public abstract class AuthorizeViewCore : ComponentBase
 	{
 		[Parameter]
-		public RenderFragment<AuthenticationState> Authorized
-		{
-			[CompilerGenerated]
-			get
-			{
-				throw null;
-			}
-			[CompilerGenerated]
-			set
-			{
-			}
-		}
-
-		[Parameter]
-		public RenderFragment Authorizing
-		{
-			[CompilerGenerated]
-			get
-			{
-				throw null;
-			}
-			[CompilerGenerated]
-			set
-			{
-			}
-		}
-
-		[Parameter]
 		public RenderFragment<AuthenticationState> ChildContent
 		{
 			[CompilerGenerated]
@@ -7032,6 +7874,7 @@ namespace Microsoft.AspNetCore.Components.Authorization
 			[CompilerGenerated]
 			set
 			{
+				throw null;
 			}
 		}
 
@@ -7046,6 +7889,37 @@ namespace Microsoft.AspNetCore.Components.Authorization
 			[CompilerGenerated]
 			set
 			{
+				throw null;
+			}
+		}
+
+		[Parameter]
+		public RenderFragment<AuthenticationState> Authorized
+		{
+			[CompilerGenerated]
+			get
+			{
+				throw null;
+			}
+			[CompilerGenerated]
+			set
+			{
+				throw null;
+			}
+		}
+
+		[Parameter]
+		public RenderFragment Authorizing
+		{
+			[CompilerGenerated]
+			get
+			{
+				throw null;
+			}
+			[CompilerGenerated]
+			set
+			{
+				throw null;
 			}
 		}
 
@@ -7060,17 +7934,25 @@ namespace Microsoft.AspNetCore.Components.Authorization
 			[CompilerGenerated]
 			set
 			{
+				throw null;
 			}
 		}
 
 		protected override void BuildRenderTree(RenderTreeBuilder builder)
 		{
+			throw null;
+		}
+
+		[AsyncStateMachine(typeof(_003COnParametersSetAsync_003Ed__35))]
+		[DebuggerStepThrough]
+		protected override Task OnParametersSetAsync()
+		{
+			throw null;
 		}
 
 		protected abstract IAuthorizeData[] GetAuthorizeData();
 
-		[DebuggerStepThrough]
-		protected override Task OnParametersSetAsync()
+		protected AuthorizeViewCore()
 		{
 			throw null;
 		}
@@ -7098,19 +7980,28 @@ namespace Microsoft.AspNetCore.Components.Authorization
 			[CompilerGenerated]
 			set
 			{
+				throw null;
 			}
 		}
 
 		protected override void BuildRenderTree(RenderTreeBuilder __builder)
 		{
+			throw null;
 		}
 
 		protected override void OnInitialized()
 		{
+			throw null;
 		}
 
 		void IDisposable.Dispose()
 		{
+			throw null;
+		}
+
+		public CascadingAuthenticationState()
+		{
+			throw null;
 		}
 	}
 }
@@ -7135,6 +8026,12 @@ namespace Microsoft.AspNetCore.Components.Forms
 	{
 		protected override void OnInitialized()
 		{
+			throw null;
+		}
+
+		public DataAnnotationsValidator()
+		{
+			throw null;
 		}
 	}
 }
@@ -7159,38 +8056,51 @@ namespace Microsoft.AspNetCore.Components.Forms
 			}
 		}
 
-		public event EventHandler<FieldChangedEventArgs> OnFieldChanged
+		public event EventHandler<FieldChangedEventArgs>? OnFieldChanged
 		{
+			[CompilerGenerated]
 			add
 			{
+				throw null;
 			}
+			[CompilerGenerated]
 			remove
 			{
+				throw null;
 			}
 		}
 
-		public event EventHandler<ValidationRequestedEventArgs> OnValidationRequested
+		public event EventHandler<ValidationRequestedEventArgs>? OnValidationRequested
 		{
+			[CompilerGenerated]
 			add
 			{
+				throw null;
 			}
+			[CompilerGenerated]
 			remove
 			{
+				throw null;
 			}
 		}
 
-		public event EventHandler<ValidationStateChangedEventArgs> OnValidationStateChanged
+		public event EventHandler<ValidationStateChangedEventArgs>? OnValidationStateChanged
 		{
+			[CompilerGenerated]
 			add
 			{
+				throw null;
 			}
+			[CompilerGenerated]
 			remove
 			{
+				throw null;
 			}
 		}
 
 		public EditContext(object model)
 		{
+			throw null;
 		}
 
 		public FieldIdentifier Field(string fieldName)
@@ -7198,22 +8108,44 @@ namespace Microsoft.AspNetCore.Components.Forms
 			throw null;
 		}
 
+		public void NotifyFieldChanged(in FieldIdentifier fieldIdentifier)
+		{
+			throw null;
+		}
+
+		public void NotifyValidationStateChanged()
+		{
+			throw null;
+		}
+
+		public void MarkAsUnmodified(in FieldIdentifier fieldIdentifier)
+		{
+			throw null;
+		}
+
+		public void MarkAsUnmodified()
+		{
+			throw null;
+		}
+
+		public bool IsModified()
+		{
+			throw null;
+		}
+
+		[IteratorStateMachine(typeof(_003CGetValidationMessages_003Ed__20))]
 		public IEnumerable<string> GetValidationMessages()
 		{
 			throw null;
 		}
 
+		[IteratorStateMachine(typeof(_003CGetValidationMessages_003Ed__21))]
 		public IEnumerable<string> GetValidationMessages(FieldIdentifier fieldIdentifier)
 		{
 			throw null;
 		}
 
 		public IEnumerable<string> GetValidationMessages(Expression<Func<object>> accessor)
-		{
-			throw null;
-		}
-
-		public bool IsModified()
 		{
 			throw null;
 		}
@@ -7226,22 +8158,6 @@ namespace Microsoft.AspNetCore.Components.Forms
 		public bool IsModified(Expression<Func<object>> accessor)
 		{
 			throw null;
-		}
-
-		public void MarkAsUnmodified()
-		{
-		}
-
-		public void MarkAsUnmodified(in FieldIdentifier fieldIdentifier)
-		{
-		}
-
-		public void NotifyFieldChanged(in FieldIdentifier fieldIdentifier)
-		{
-		}
-
-		public void NotifyValidationStateChanged()
-		{
 		}
 
 		public bool Validate()
@@ -7284,6 +8200,7 @@ namespace Microsoft.AspNetCore.Components.Forms
 
 		public FieldChangedEventArgs(in FieldIdentifier fieldIdentifier)
 		{
+			throw null;
 		}
 	}
 }
@@ -7298,7 +8215,14 @@ namespace Microsoft.AspNetCore.Components.Forms
 {
 	public readonly struct FieldIdentifier : IEquatable<FieldIdentifier>
 	{
-		private readonly object _dummy;
+		public object Model
+		{
+			[CompilerGenerated]
+			get
+			{
+				throw null;
+			}
+		}
 
 		public string FieldName
 		{
@@ -7309,13 +8233,9 @@ namespace Microsoft.AspNetCore.Components.Forms
 			}
 		}
 
-		public object Model
+		public static FieldIdentifier Create<TField>(Expression<Func<TField>> accessor)
 		{
-			[CompilerGenerated]
-			get
-			{
-				throw null;
-			}
+			throw null;
 		}
 
 		public FieldIdentifier(object model, string fieldName)
@@ -7323,22 +8243,17 @@ namespace Microsoft.AspNetCore.Components.Forms
 			throw null;
 		}
 
-		public static FieldIdentifier Create<TField>(Expression<Func<TField>> accessor)
+		public override int GetHashCode()
+		{
+			throw null;
+		}
+
+		public override bool Equals(object? obj)
 		{
 			throw null;
 		}
 
 		public bool Equals(FieldIdentifier otherIdentifier)
-		{
-			throw null;
-		}
-
-		public override bool Equals(object obj)
-		{
-			throw null;
-		}
-
-		public override int GetHashCode()
 		{
 			throw null;
 		}
@@ -7373,34 +8288,42 @@ namespace Microsoft.AspNetCore.Components.Forms
 
 		public ValidationMessageStore(EditContext editContext)
 		{
-		}
-
-		public void Add(in FieldIdentifier fieldIdentifier, IEnumerable<string> messages)
-		{
+			throw null;
 		}
 
 		public void Add(in FieldIdentifier fieldIdentifier, string message)
 		{
-		}
-
-		public void Add(Expression<Func<object>> accessor, IEnumerable<string> messages)
-		{
+			throw null;
 		}
 
 		public void Add(Expression<Func<object>> accessor, string message)
 		{
+			throw null;
+		}
+
+		public void Add(in FieldIdentifier fieldIdentifier, IEnumerable<string> messages)
+		{
+			throw null;
+		}
+
+		public void Add(Expression<Func<object>> accessor, IEnumerable<string> messages)
+		{
+			throw null;
 		}
 
 		public void Clear()
 		{
-		}
-
-		public void Clear(in FieldIdentifier fieldIdentifier)
-		{
+			throw null;
 		}
 
 		public void Clear(Expression<Func<object>> accessor)
 		{
+			throw null;
+		}
+
+		public void Clear(in FieldIdentifier fieldIdentifier)
+		{
+			throw null;
 		}
 	}
 }
@@ -7417,6 +8340,7 @@ namespace Microsoft.AspNetCore.Components.Forms
 
 		public ValidationRequestedEventArgs()
 		{
+			throw null;
 		}
 	}
 }
@@ -7433,6 +8357,833 @@ namespace Microsoft.AspNetCore.Components.Forms
 
 		public ValidationStateChangedEventArgs()
 		{
+			throw null;
+		}
+	}
+}
+
+
+// Microsoft.AspNetCore.Components.Server\MessagePack\BufferWriter.cs
+using System;
+using System.Buffers;
+using System.Runtime.CompilerServices;
+
+namespace MessagePack
+{
+	internal ref struct BufferWriter
+	{
+		private IBufferWriter<byte> _output;
+
+		private Span<byte> _span;
+
+		private ArraySegment<byte> _segment;
+
+		private int _buffered;
+
+		private long _bytesCommitted;
+
+		private SequencePool _sequencePool;
+
+		private SequencePool.Rental _rental;
+
+		public Span<byte> Span
+		{
+			get
+			{
+				throw null;
+			}
+		}
+
+		public long BytesCommitted
+		{
+			get
+			{
+				throw null;
+			}
+		}
+
+		internal IBufferWriter<byte> UnderlyingWriter
+		{
+			get
+			{
+				throw null;
+			}
+		}
+
+		internal SequencePool.Rental SequenceRental
+		{
+			get
+			{
+				throw null;
+			}
+		}
+
+		[MethodImpl(MethodImplOptions.AggressiveInlining)]
+		public BufferWriter(IBufferWriter<byte> output)
+		{
+			throw null;
+		}
+
+		[MethodImpl(MethodImplOptions.AggressiveInlining)]
+		internal BufferWriter(SequencePool sequencePool, byte[] array)
+		{
+			throw null;
+		}
+
+		public Span<byte> GetSpan(int sizeHint)
+		{
+			throw null;
+		}
+
+		[MethodImpl(MethodImplOptions.AggressiveInlining)]
+		public ref byte GetPointer(int sizeHint)
+		{
+			throw null;
+		}
+
+		[MethodImpl(MethodImplOptions.AggressiveInlining)]
+		public void Commit()
+		{
+			throw null;
+		}
+
+		[MethodImpl(MethodImplOptions.AggressiveInlining)]
+		public void Advance(int count)
+		{
+			throw null;
+		}
+
+		[MethodImpl(MethodImplOptions.AggressiveInlining)]
+		public void Write(ReadOnlySpan<byte> source)
+		{
+			throw null;
+		}
+
+		[MethodImpl(MethodImplOptions.AggressiveInlining)]
+		public void Ensure(int count = 1)
+		{
+			throw null;
+		}
+
+		internal bool TryGetUncommittedSpan(out ReadOnlySpan<byte> span)
+		{
+			throw null;
+		}
+	}
+}
+
+
+// Microsoft.AspNetCore.Components.Server\MessagePack\ExtensionHeader.cs
+using System;
+using System.Runtime.CompilerServices;
+
+namespace MessagePack
+{
+	internal struct ExtensionHeader : IEquatable<ExtensionHeader>
+	{
+		public sbyte TypeCode
+		{
+			[CompilerGenerated]
+			readonly get
+			{
+				throw null;
+			}
+		}
+
+		public uint Length
+		{
+			[CompilerGenerated]
+			readonly get
+			{
+				throw null;
+			}
+		}
+
+		public ExtensionHeader(sbyte typeCode, uint length)
+		{
+			throw null;
+		}
+
+		public ExtensionHeader(sbyte typeCode, int length)
+		{
+			throw null;
+		}
+
+		public bool Equals(ExtensionHeader other)
+		{
+			throw null;
+		}
+	}
+}
+
+
+// Microsoft.AspNetCore.Components.Server\MessagePack\ExtensionResult.cs
+using System;
+using System.Buffers;
+using System.Runtime.CompilerServices;
+
+namespace MessagePack
+{
+	internal struct ExtensionResult
+	{
+		public sbyte TypeCode
+		{
+			[CompilerGenerated]
+			readonly get
+			{
+				throw null;
+			}
+		}
+
+		public ReadOnlySequence<byte> Data
+		{
+			[CompilerGenerated]
+			readonly get
+			{
+				throw null;
+			}
+		}
+
+		public ExtensionHeader Header
+		{
+			get
+			{
+				throw null;
+			}
+		}
+
+		public ExtensionResult(sbyte typeCode, Memory<byte> data)
+		{
+			throw null;
+		}
+
+		public ExtensionResult(sbyte typeCode, ReadOnlySequence<byte> data)
+		{
+			throw null;
+		}
+	}
+}
+
+
+// Microsoft.AspNetCore.Components.Server\MessagePack\MessagePackReader.cs
+using System;
+using System.Buffers;
+using System.Runtime.CompilerServices;
+using System.Threading;
+
+namespace MessagePack
+{
+	internal ref struct MessagePackReader
+	{
+		private SequenceReader<byte> reader;
+
+		public CancellationToken CancellationToken
+		{
+			[CompilerGenerated]
+			readonly get
+			{
+				throw null;
+			}
+			[CompilerGenerated]
+			set
+			{
+				throw null;
+			}
+		}
+
+		public int Depth
+		{
+			[CompilerGenerated]
+			readonly get
+			{
+				throw null;
+			}
+			[CompilerGenerated]
+			set
+			{
+				throw null;
+			}
+		}
+
+		public ReadOnlySequence<byte> Sequence
+		{
+			get
+			{
+				throw null;
+			}
+		}
+
+		public SequencePosition Position
+		{
+			get
+			{
+				throw null;
+			}
+		}
+
+		public long Consumed
+		{
+			get
+			{
+				throw null;
+			}
+		}
+
+		public bool End
+		{
+			get
+			{
+				throw null;
+			}
+		}
+
+		public bool IsNil
+		{
+			get
+			{
+				throw null;
+			}
+		}
+
+		public MessagePackType NextMessagePackType
+		{
+			get
+			{
+				throw null;
+			}
+		}
+
+		public byte NextCode
+		{
+			get
+			{
+				throw null;
+			}
+		}
+
+		public MessagePackReader(ReadOnlyMemory<byte> memory)
+		{
+			throw null;
+		}
+
+		public MessagePackReader(in ReadOnlySequence<byte> readOnlySequence)
+		{
+			throw null;
+		}
+
+		public MessagePackReader Clone(in ReadOnlySequence<byte> readOnlySequence)
+		{
+			throw null;
+		}
+
+		public MessagePackReader CreatePeekReader()
+		{
+			throw null;
+		}
+
+		public void Skip()
+		{
+			throw null;
+		}
+
+		internal bool TrySkip()
+		{
+			throw null;
+		}
+
+		public Nil ReadNil()
+		{
+			throw null;
+		}
+
+		[MethodImpl(MethodImplOptions.AggressiveInlining)]
+		public bool TryReadNil()
+		{
+			throw null;
+		}
+
+		public ReadOnlySequence<byte> ReadRaw(long length)
+		{
+			throw null;
+		}
+
+		public ReadOnlySequence<byte> ReadRaw()
+		{
+			throw null;
+		}
+
+		public int ReadArrayHeader()
+		{
+			throw null;
+		}
+
+		[MethodImpl(MethodImplOptions.AggressiveInlining)]
+		public bool TryReadArrayHeader(out int count)
+		{
+			throw null;
+		}
+
+		public int ReadMapHeader()
+		{
+			throw null;
+		}
+
+		public bool TryReadMapHeader(out int count)
+		{
+			throw null;
+		}
+
+		public bool ReadBoolean()
+		{
+			throw null;
+		}
+
+		public char ReadChar()
+		{
+			throw null;
+		}
+
+		public float ReadSingle()
+		{
+			throw null;
+		}
+
+		public double ReadDouble()
+		{
+			throw null;
+		}
+
+		public DateTime ReadDateTime()
+		{
+			throw null;
+		}
+
+		public DateTime ReadDateTime(ExtensionHeader header)
+		{
+			throw null;
+		}
+
+		public ReadOnlySequence<byte>? ReadBytes()
+		{
+			throw null;
+		}
+
+		public ReadOnlySequence<byte>? ReadStringSequence()
+		{
+			throw null;
+		}
+
+		public bool TryReadStringSpan(out ReadOnlySpan<byte> span)
+		{
+			throw null;
+		}
+
+		[MethodImpl(MethodImplOptions.AggressiveInlining)]
+		public string ReadString()
+		{
+			throw null;
+		}
+
+		public ExtensionHeader ReadExtensionFormatHeader()
+		{
+			throw null;
+		}
+
+		public bool TryReadExtensionFormatHeader(out ExtensionHeader extensionHeader)
+		{
+			throw null;
+		}
+
+		public ExtensionResult ReadExtensionFormat()
+		{
+			throw null;
+		}
+
+		public byte ReadByte()
+		{
+			throw null;
+		}
+
+		public ushort ReadUInt16()
+		{
+			throw null;
+		}
+
+		public uint ReadUInt32()
+		{
+			throw null;
+		}
+
+		public ulong ReadUInt64()
+		{
+			throw null;
+		}
+
+		public sbyte ReadSByte()
+		{
+			throw null;
+		}
+
+		public short ReadInt16()
+		{
+			throw null;
+		}
+
+		public int ReadInt32()
+		{
+			throw null;
+		}
+
+		public long ReadInt64()
+		{
+			throw null;
+		}
+	}
+}
+
+
+// Microsoft.AspNetCore.Components.Server\MessagePack\MessagePackType.cs
+namespace MessagePack
+{
+	internal enum MessagePackType : byte
+	{
+		Unknown,
+		Integer,
+		Nil,
+		Boolean,
+		Float,
+		String,
+		Binary,
+		Array,
+		Map,
+		Extension
+	}
+}
+
+
+// Microsoft.AspNetCore.Components.Server\MessagePack\MessagePackWriter.cs
+using System;
+using System.Buffers;
+using System.Runtime.CompilerServices;
+using System.Threading;
+
+namespace MessagePack
+{
+	internal ref struct MessagePackWriter
+	{
+		private BufferWriter writer;
+
+		public CancellationToken CancellationToken
+		{
+			[CompilerGenerated]
+			readonly get
+			{
+				throw null;
+			}
+			[CompilerGenerated]
+			set
+			{
+				throw null;
+			}
+		}
+
+		public bool OldSpec
+		{
+			[CompilerGenerated]
+			readonly get
+			{
+				throw null;
+			}
+			[CompilerGenerated]
+			set
+			{
+				throw null;
+			}
+		}
+
+		[System.Runtime.CompilerServices.NullableContext(1)]
+		public MessagePackWriter(IBufferWriter<byte> writer)
+		{
+			throw null;
+		}
+
+		[System.Runtime.CompilerServices.NullableContext(1)]
+		internal MessagePackWriter(SequencePool sequencePool, byte[] array)
+		{
+			throw null;
+		}
+
+		public MessagePackWriter Clone(IBufferWriter<byte> writer)
+		{
+			throw null;
+		}
+
+		public void Flush()
+		{
+			throw null;
+		}
+
+		public void WriteNil()
+		{
+			throw null;
+		}
+
+		public void WriteRaw(ReadOnlySpan<byte> rawMessagePackBlock)
+		{
+			throw null;
+		}
+
+		public void WriteRaw(in ReadOnlySequence<byte> rawMessagePackBlock)
+		{
+			throw null;
+		}
+
+		public void WriteArrayHeader(int count)
+		{
+			throw null;
+		}
+
+		[MethodImpl(MethodImplOptions.AggressiveInlining)]
+		public void WriteArrayHeader(uint count)
+		{
+			throw null;
+		}
+
+		public void WriteMapHeader(int count)
+		{
+			throw null;
+		}
+
+		public void WriteMapHeader(uint count)
+		{
+			throw null;
+		}
+
+		public void Write(byte value)
+		{
+			throw null;
+		}
+
+		public void WriteUInt8(byte value)
+		{
+			throw null;
+		}
+
+		public void Write(sbyte value)
+		{
+			throw null;
+		}
+
+		public void WriteInt8(sbyte value)
+		{
+			throw null;
+		}
+
+		public void Write(ushort value)
+		{
+			throw null;
+		}
+
+		public void WriteUInt16(ushort value)
+		{
+			throw null;
+		}
+
+		public void Write(short value)
+		{
+			throw null;
+		}
+
+		public void WriteInt16(short value)
+		{
+			throw null;
+		}
+
+		[MethodImpl(MethodImplOptions.AggressiveInlining)]
+		public void Write(uint value)
+		{
+			throw null;
+		}
+
+		public void WriteUInt32(uint value)
+		{
+			throw null;
+		}
+
+		[MethodImpl(MethodImplOptions.AggressiveInlining)]
+		public void Write(int value)
+		{
+			throw null;
+		}
+
+		public void WriteInt32(int value)
+		{
+			throw null;
+		}
+
+		public void Write(ulong value)
+		{
+			throw null;
+		}
+
+		public void WriteUInt64(ulong value)
+		{
+			throw null;
+		}
+
+		public void Write(long value)
+		{
+			throw null;
+		}
+
+		public void WriteInt64(long value)
+		{
+			throw null;
+		}
+
+		public void Write(bool value)
+		{
+			throw null;
+		}
+
+		public void Write(char value)
+		{
+			throw null;
+		}
+
+		public void Write(float value)
+		{
+			throw null;
+		}
+
+		public void Write(double value)
+		{
+			throw null;
+		}
+
+		public void Write(DateTime dateTime)
+		{
+			throw null;
+		}
+
+		public void Write(byte[] src)
+		{
+			throw null;
+		}
+
+		public void Write(ReadOnlySpan<byte> src)
+		{
+			throw null;
+		}
+
+		public void Write(in ReadOnlySequence<byte> src)
+		{
+			throw null;
+		}
+
+		public void WriteBinHeader(int length)
+		{
+			throw null;
+		}
+
+		public void WriteString(in ReadOnlySequence<byte> utf8stringBytes)
+		{
+			throw null;
+		}
+
+		public void WriteString(ReadOnlySpan<byte> utf8stringBytes)
+		{
+			throw null;
+		}
+
+		public void WriteStringHeader(int byteCount)
+		{
+			throw null;
+		}
+
+		[MethodImpl(MethodImplOptions.AggressiveInlining)]
+		public void Write(string value)
+		{
+			throw null;
+		}
+
+		public void Write(ReadOnlySpan<char> value)
+		{
+			throw null;
+		}
+
+		public void WriteExtensionFormatHeader(ExtensionHeader extensionHeader)
+		{
+			throw null;
+		}
+
+		public void WriteExtensionFormat(ExtensionResult extensionData)
+		{
+			throw null;
+		}
+
+		public Span<byte> GetSpan(int length)
+		{
+			throw null;
+		}
+
+		public void Advance(int length)
+		{
+			throw null;
+		}
+
+		internal void WriteBigEndian(ushort value)
+		{
+			throw null;
+		}
+
+		internal void WriteBigEndian(uint value)
+		{
+			throw null;
+		}
+
+		internal void WriteBigEndian(ulong value)
+		{
+			throw null;
+		}
+
+		internal byte[] FlushAndGetArray()
+		{
+			throw null;
+		}
+	}
+}
+
+
+// Microsoft.AspNetCore.Components.Server\MessagePack\Nil.cs
+using System;
+using System.Runtime.InteropServices;
+
+namespace MessagePack
+{
+	[StructLayout(LayoutKind.Sequential, Size = 1)]
+	internal struct Nil : IEquatable<Nil>
+	{
+		public static readonly Nil Default;
+
+		public override bool Equals(object obj)
+		{
+			throw null;
+		}
+
+		public bool Equals(Nil other)
+		{
+			throw null;
+		}
+
+		public override int GetHashCode()
+		{
+			throw null;
+		}
+
+		public override string ToString()
+		{
+			throw null;
 		}
 	}
 }
@@ -7443,14 +9194,16 @@ using System;
 
 namespace Microsoft.AspNetCore.Builder
 {
-	public sealed class ComponentEndpointConventionBuilder : IEndpointConventionBuilder, IHubEndpointConventionBuilder
+	public sealed class ComponentEndpointConventionBuilder : IHubEndpointConventionBuilder, IEndpointConventionBuilder
 	{
-		internal ComponentEndpointConventionBuilder()
+		internal ComponentEndpointConventionBuilder(IEndpointConventionBuilder hubEndpoint, IEndpointConventionBuilder disconnectEndpoint)
 		{
+			throw null;
 		}
 
 		public void Add(Action<EndpointBuilder> convention)
 		{
+			throw null;
 		}
 	}
 }
@@ -7470,12 +9223,12 @@ namespace Microsoft.AspNetCore.Builder
 			throw null;
 		}
 
-		public static ComponentEndpointConventionBuilder MapBlazorHub(this IEndpointRouteBuilder endpoints, Action<HttpConnectionDispatcherOptions> configureOptions)
+		public static ComponentEndpointConventionBuilder MapBlazorHub(this IEndpointRouteBuilder endpoints, string path)
 		{
 			throw null;
 		}
 
-		public static ComponentEndpointConventionBuilder MapBlazorHub(this IEndpointRouteBuilder endpoints, string path)
+		public static ComponentEndpointConventionBuilder MapBlazorHub(this IEndpointRouteBuilder endpoints, Action<HttpConnectionDispatcherOptions> configureOptions)
 		{
 			throw null;
 		}
@@ -7496,44 +9249,45 @@ namespace Microsoft.AspNetCore.Components
 {
 	internal struct ComponentParameter
 	{
-		private object _dummy;
-
-		public string Assembly
-		{
-			[CompilerGenerated]
-			get
-			{
-				throw null;
-			}
-			[CompilerGenerated]
-			set
-			{
-			}
-		}
-
 		public string Name
 		{
 			[CompilerGenerated]
-			get
+			readonly get
 			{
 				throw null;
 			}
 			[CompilerGenerated]
 			set
 			{
+				throw null;
 			}
 		}
 
 		public string TypeName
 		{
 			[CompilerGenerated]
-			get
+			readonly get
 			{
 				throw null;
 			}
 			[CompilerGenerated]
 			set
 			{
+				throw null;
+			}
+		}
+
+		public string Assembly
+		{
+			[CompilerGenerated]
+			readonly get
+			{
+				throw null;
+			}
+			[CompilerGenerated]
+			set
+			{
+				throw null;
 			}
 		}
 
@@ -7554,85 +9308,87 @@ namespace Microsoft.AspNetCore.Components
 {
 	internal struct ServerComponent
 	{
-		private object _dummy;
-
-		private int _dummyPrimitive;
+		public int Sequence
+		{
+			[CompilerGenerated]
+			readonly get
+			{
+				throw null;
+			}
+			[CompilerGenerated]
+			set
+			{
+				throw null;
+			}
+		}
 
 		public string AssemblyName
 		{
 			[CompilerGenerated]
-			get
+			readonly get
 			{
 				throw null;
 			}
 			[CompilerGenerated]
 			set
 			{
-			}
-		}
-
-		public Guid InvocationId
-		{
-			[CompilerGenerated]
-			get
-			{
 				throw null;
-			}
-			[CompilerGenerated]
-			set
-			{
-			}
-		}
-
-		public IList<ComponentParameter> ParameterDefinitions
-		{
-			[CompilerGenerated]
-			get
-			{
-				throw null;
-			}
-			[CompilerGenerated]
-			set
-			{
-			}
-		}
-
-		public IList<object> ParameterValues
-		{
-			[CompilerGenerated]
-			get
-			{
-				throw null;
-			}
-			[CompilerGenerated]
-			set
-			{
-			}
-		}
-
-		public int Sequence
-		{
-			[CompilerGenerated]
-			get
-			{
-				throw null;
-			}
-			[CompilerGenerated]
-			set
-			{
 			}
 		}
 
 		public string TypeName
 		{
 			[CompilerGenerated]
-			get
+			readonly get
 			{
 				throw null;
 			}
 			[CompilerGenerated]
 			set
 			{
+				throw null;
+			}
+		}
+
+		public IList<ComponentParameter> ParameterDefinitions
+		{
+			[CompilerGenerated]
+			readonly get
+			{
+				throw null;
+			}
+			[CompilerGenerated]
+			set
+			{
+				throw null;
+			}
+		}
+
+		public IList<object> ParameterValues
+		{
+			[CompilerGenerated]
+			readonly get
+			{
+				throw null;
+			}
+			[CompilerGenerated]
+			set
+			{
+				throw null;
+			}
+		}
+
+		public Guid InvocationId
+		{
+			[CompilerGenerated]
+			readonly get
+			{
+				throw null;
+			}
+			[CompilerGenerated]
+			set
+			{
+				throw null;
 			}
 		}
 
@@ -7651,63 +9407,65 @@ namespace Microsoft.AspNetCore.Components
 {
 	internal struct ServerComponentMarker
 	{
-		private object _dummy;
-
-		private int _dummyPrimitive;
-
-		public string Descriptor
-		{
-			[CompilerGenerated]
-			get
-			{
-				throw null;
-			}
-			[CompilerGenerated]
-			set
-			{
-			}
-		}
-
-		public string PrerenderId
-		{
-			[CompilerGenerated]
-			get
-			{
-				throw null;
-			}
-			[CompilerGenerated]
-			set
-			{
-			}
-		}
+		public const string ServerMarkerType = "server";
 
 		public int? Sequence
 		{
 			[CompilerGenerated]
-			get
+			readonly get
 			{
 				throw null;
 			}
 			[CompilerGenerated]
 			set
 			{
+				throw null;
 			}
 		}
 
 		public string Type
 		{
 			[CompilerGenerated]
-			get
+			readonly get
 			{
 				throw null;
 			}
 			[CompilerGenerated]
 			set
 			{
+				throw null;
 			}
 		}
 
-		public ServerComponentMarker GetEndRecord()
+		public string PrerenderId
+		{
+			[CompilerGenerated]
+			readonly get
+			{
+				throw null;
+			}
+			[CompilerGenerated]
+			set
+			{
+				throw null;
+			}
+		}
+
+		public string Descriptor
+		{
+			[CompilerGenerated]
+			readonly get
+			{
+				throw null;
+			}
+			[CompilerGenerated]
+			set
+			{
+				throw null;
+			}
+		}
+
+		public static ServerComponentMarker Prerendered(int sequence, string descriptor)
 		{
 			throw null;
 		}
@@ -7717,7 +9475,7 @@ namespace Microsoft.AspNetCore.Components
 			throw null;
 		}
 
-		public static ServerComponentMarker Prerendered(int sequence, string descriptor)
+		public ServerComponentMarker GetEndRecord()
 		{
 			throw null;
 		}
@@ -7733,19 +9491,6 @@ namespace Microsoft.AspNetCore.Components.Server
 {
 	public sealed class CircuitOptions
 	{
-		public bool DetailedErrors
-		{
-			[CompilerGenerated]
-			get
-			{
-				throw null;
-			}
-			[CompilerGenerated]
-			set
-			{
-			}
-		}
-
 		public int DisconnectedCircuitMaxRetained
 		{
 			[CompilerGenerated]
@@ -7756,6 +9501,7 @@ namespace Microsoft.AspNetCore.Components.Server
 			[CompilerGenerated]
 			set
 			{
+				throw null;
 			}
 		}
 
@@ -7769,6 +9515,21 @@ namespace Microsoft.AspNetCore.Components.Server
 			[CompilerGenerated]
 			set
 			{
+				throw null;
+			}
+		}
+
+		public bool DetailedErrors
+		{
+			[CompilerGenerated]
+			get
+			{
+				throw null;
+			}
+			[CompilerGenerated]
+			set
+			{
+				throw null;
 			}
 		}
 
@@ -7782,6 +9543,7 @@ namespace Microsoft.AspNetCore.Components.Server
 			[CompilerGenerated]
 			set
 			{
+				throw null;
 			}
 		}
 
@@ -7795,7 +9557,13 @@ namespace Microsoft.AspNetCore.Components.Server
 			[CompilerGenerated]
 			set
 			{
+				throw null;
 			}
+		}
+
+		public CircuitOptions()
+		{
+			throw null;
 		}
 	}
 }
@@ -7819,17 +9587,20 @@ namespace Microsoft.AspNetCore.Components.Server
 
 		public RevalidatingServerAuthenticationStateProvider(ILoggerFactory loggerFactory)
 		{
+			throw null;
+		}
+
+		protected abstract Task<bool> ValidateAuthenticationStateAsync(AuthenticationState authenticationState, CancellationToken cancellationToken);
+
+		void IDisposable.Dispose()
+		{
+			throw null;
 		}
 
 		protected virtual void Dispose(bool disposing)
 		{
+			throw null;
 		}
-
-		void IDisposable.Dispose()
-		{
-		}
-
-		protected abstract Task<bool> ValidateAuthenticationStateAsync(AuthenticationState authenticationState, CancellationToken cancellationToken);
 	}
 }
 
@@ -7849,6 +9620,12 @@ namespace Microsoft.AspNetCore.Components.Server
 
 		public void SetAuthenticationState(Task<AuthenticationState> authenticationStateTask)
 		{
+			throw null;
+		}
+
+		public ServerAuthenticationStateProvider()
+		{
+			throw null;
 		}
 	}
 }
@@ -7867,8 +9644,9 @@ namespace Microsoft.AspNetCore.Components.Server.Circuits
 			}
 		}
 
-		internal Circuit()
+		internal Circuit(CircuitHost circuitHost)
 		{
+			throw null;
 		}
 	}
 }
@@ -7890,12 +9668,12 @@ namespace Microsoft.AspNetCore.Components.Server.Circuits
 			}
 		}
 
-		public virtual Task OnCircuitClosedAsync(Circuit circuit, CancellationToken cancellationToken)
+		public virtual Task OnCircuitOpenedAsync(Circuit circuit, CancellationToken cancellationToken)
 		{
 			throw null;
 		}
 
-		public virtual Task OnCircuitOpenedAsync(Circuit circuit, CancellationToken cancellationToken)
+		public virtual Task OnConnectionUpAsync(Circuit circuit, CancellationToken cancellationToken)
 		{
 			throw null;
 		}
@@ -7905,7 +9683,12 @@ namespace Microsoft.AspNetCore.Components.Server.Circuits
 			throw null;
 		}
 
-		public virtual Task OnConnectionUpAsync(Circuit circuit, CancellationToken cancellationToken)
+		public virtual Task OnCircuitClosedAsync(Circuit circuit, CancellationToken cancellationToken)
+		{
+			throw null;
+		}
+
+		protected CircuitHandler()
 		{
 			throw null;
 		}
@@ -7922,8 +9705,6 @@ namespace Microsoft.AspNetCore.Components.Server.Circuits
 {
 	internal readonly struct CircuitId : IEquatable<CircuitId>
 	{
-		private readonly object _dummy;
-
 		public string Id
 		{
 			[CompilerGenerated]
@@ -7970,15 +9751,120 @@ namespace Microsoft.AspNetCore.Components.Server.Circuits
 }
 
 
+// Microsoft.AspNetCore.Components.Server\Microsoft.AspNetCore.Components.Server.Circuits\ICircuitAccessor.cs
+namespace Microsoft.AspNetCore.Components.Server.Circuits
+{
+	internal interface ICircuitAccessor
+	{
+		Circuit Circuit
+		{
+			get;
+		}
+	}
+}
+
+
+// Microsoft.AspNetCore.Components.Server\Microsoft.AspNetCore.Components.Server.Circuits\PendingRender.cs
+using System.Runtime.CompilerServices;
+
+namespace Microsoft.AspNetCore.Components.Server.Circuits
+{
+	internal readonly struct PendingRender
+	{
+		public int ComponentId
+		{
+			[CompilerGenerated]
+			get
+			{
+				throw null;
+			}
+		}
+
+		public RenderFragment RenderFragment
+		{
+			[CompilerGenerated]
+			get
+			{
+				throw null;
+			}
+		}
+
+		public PendingRender(int componentId, RenderFragment renderFragment)
+		{
+			throw null;
+		}
+	}
+}
+
+
+// Microsoft.AspNetCore.Components.Server\Microsoft.AspNetCore.SignalR.Protocol\MessagePackHubProtocolWorker.cs
+using MessagePack;
+using System;
+using System.Buffers;
+
+namespace Microsoft.AspNetCore.SignalR.Protocol
+{
+	internal abstract class MessagePackHubProtocolWorker
+	{
+		public bool TryParseMessage(ref ReadOnlySequence<byte> input, IInvocationBinder binder, out HubMessage message)
+		{
+			throw null;
+		}
+
+		protected abstract object DeserializeObject(ref MessagePackReader reader, Type type, string field);
+
+		public void WriteMessage(HubMessage message, IBufferWriter<byte> output)
+		{
+			throw null;
+		}
+
+		public ReadOnlyMemory<byte> GetMessageBytes(HubMessage message)
+		{
+			throw null;
+		}
+
+		protected abstract void Serialize(ref MessagePackWriter writer, Type type, object value);
+
+		protected string ReadString(ref MessagePackReader reader, string field)
+		{
+			throw null;
+		}
+
+		protected MessagePackHubProtocolWorker()
+		{
+			throw null;
+		}
+	}
+}
+
+
 // Microsoft.AspNetCore.Components.Server\Microsoft.Extensions.DependencyInjection\ComponentServiceCollectionExtensions.cs
 using Microsoft.AspNetCore.Components.Server;
 using System;
+using System.Runtime.CompilerServices;
 
 namespace Microsoft.Extensions.DependencyInjection
 {
 	public static class ComponentServiceCollectionExtensions
 	{
-		public static IServerSideBlazorBuilder AddServerSideBlazor(this IServiceCollection services, Action<CircuitOptions> configure = null)
+		private class DefaultServerSideBlazorBuilder : IServerSideBlazorBuilder
+		{
+			public IServiceCollection Services
+			{
+				[CompilerGenerated]
+				get
+				{
+					throw null;
+				}
+			}
+
+			public DefaultServerSideBlazorBuilder(IServiceCollection services)
+			{
+				throw null;
+			}
+		}
+
+		public static IServerSideBlazorBuilder AddServerSideBlazor(this IServiceCollection services, Action<CircuitOptions>? configure = null)
 		{
 			throw null;
 		}
@@ -8028,7 +9914,9 @@ namespace Microsoft.Extensions.Internal
 {
 	internal struct ValueStopwatch
 	{
-		private int _dummyPrimitive;
+		private static readonly double TimestampToTicks;
+
+		private long _startTimestamp;
 
 		public bool IsActive
 		{
@@ -8038,12 +9926,177 @@ namespace Microsoft.Extensions.Internal
 			}
 		}
 
-		public TimeSpan GetElapsedTime()
+		public static ValueStopwatch StartNew()
 		{
 			throw null;
 		}
 
-		public static ValueStopwatch StartNew()
+		public TimeSpan GetElapsedTime()
+		{
+			throw null;
+		}
+	}
+}
+
+
+// Microsoft.AspNetCore.Components.Server\System.Buffers\SequenceReader.cs
+using System.Runtime.CompilerServices;
+
+namespace System.Buffers
+{
+	internal ref struct SequenceReader<T> where T : unmanaged, IEquatable<T>
+	{
+		private bool usingSequence;
+
+		private ReadOnlySequence<T> sequence;
+
+		private SequencePosition currentPosition;
+
+		private SequencePosition nextPosition;
+
+		private ReadOnlyMemory<T> memory;
+
+		private bool moreData;
+
+		private long length;
+
+		public bool End
+		{
+			get
+			{
+				throw null;
+			}
+		}
+
+		public ReadOnlySequence<T> Sequence
+		{
+			get
+			{
+				throw null;
+			}
+		}
+
+		public SequencePosition Position
+		{
+			get
+			{
+				throw null;
+			}
+		}
+
+		public ReadOnlySpan<T> CurrentSpan
+		{
+			[CompilerGenerated]
+			readonly get
+			{
+				throw null;
+			}
+		}
+
+		public int CurrentSpanIndex
+		{
+			[CompilerGenerated]
+			readonly get
+			{
+				throw null;
+			}
+		}
+
+		public ReadOnlySpan<T> UnreadSpan
+		{
+			[MethodImpl(MethodImplOptions.AggressiveInlining)]
+			get
+			{
+				throw null;
+			}
+		}
+
+		public long Consumed
+		{
+			[CompilerGenerated]
+			readonly get
+			{
+				throw null;
+			}
+		}
+
+		public long Remaining
+		{
+			get
+			{
+				throw null;
+			}
+		}
+
+		public long Length
+		{
+			[MethodImpl(MethodImplOptions.AggressiveInlining)]
+			get
+			{
+				throw null;
+			}
+		}
+
+		[MethodImpl(MethodImplOptions.AggressiveInlining)]
+		public SequenceReader(in ReadOnlySequence<T> sequence)
+		{
+			throw null;
+		}
+
+		[MethodImpl(MethodImplOptions.AggressiveInlining)]
+		public SequenceReader(ReadOnlyMemory<T> memory)
+		{
+			throw null;
+		}
+
+		[MethodImpl(MethodImplOptions.AggressiveInlining)]
+		public bool TryPeek(out T value)
+		{
+			throw null;
+		}
+
+		[MethodImpl(MethodImplOptions.AggressiveInlining)]
+		public bool TryRead(out T value)
+		{
+			throw null;
+		}
+
+		[MethodImpl(MethodImplOptions.AggressiveInlining)]
+		public void Rewind(long count)
+		{
+			throw null;
+		}
+
+		[MethodImpl(MethodImplOptions.AggressiveInlining)]
+		public void Advance(long count)
+		{
+			throw null;
+		}
+
+		[MethodImpl(MethodImplOptions.AggressiveInlining)]
+		internal void AdvanceCurrentSpan(long count)
+		{
+			throw null;
+		}
+
+		[MethodImpl(MethodImplOptions.AggressiveInlining)]
+		internal void AdvanceWithinSpan(long count)
+		{
+			throw null;
+		}
+
+		internal bool TryAdvance(long count)
+		{
+			throw null;
+		}
+
+		[MethodImpl(MethodImplOptions.AggressiveInlining)]
+		public bool TryCopyTo(Span<T> destination)
+		{
+			throw null;
+		}
+
+		internal bool TryCopyMultisegment(Span<T> destination)
 		{
 			throw null;
 		}
@@ -8060,7 +10113,7 @@ namespace Microsoft.AspNetCore.Components
 	[AttributeUsage(AttributeTargets.Class, AllowMultiple = true, Inherited = true)]
 	public sealed class BindInputElementAttribute : Attribute
 	{
-		public string ChangeAttribute
+		public string? Type
 		{
 			[CompilerGenerated]
 			get
@@ -8069,7 +10122,25 @@ namespace Microsoft.AspNetCore.Components
 			}
 		}
 
-		public string Format
+		public string? Suffix
+		{
+			[CompilerGenerated]
+			get
+			{
+				throw null;
+			}
+		}
+
+		public string? ValueAttribute
+		{
+			[CompilerGenerated]
+			get
+			{
+				throw null;
+			}
+		}
+
+		public string? ChangeAttribute
 		{
 			[CompilerGenerated]
 			get
@@ -8087,7 +10158,7 @@ namespace Microsoft.AspNetCore.Components
 			}
 		}
 
-		public string Suffix
+		public string? Format
 		{
 			[CompilerGenerated]
 			get
@@ -8096,7 +10167,44 @@ namespace Microsoft.AspNetCore.Components
 			}
 		}
 
-		public string Type
+		public BindInputElementAttribute(string? type, string? suffix, string? valueAttribute, string? changeAttribute, bool isInvariantCulture, string? format)
+		{
+			throw null;
+		}
+	}
+}
+
+
+// Microsoft.AspNetCore.Components.Web\Microsoft.AspNetCore.Components\ElementReferenceExtensions.cs
+using Microsoft.JSInterop;
+using System.Threading.Tasks;
+
+namespace Microsoft.AspNetCore.Components
+{
+	public static class ElementReferenceExtensions
+	{
+		public static ValueTask FocusAsync(this ElementReference elementReference)
+		{
+			throw null;
+		}
+
+		internal static IJSRuntime GetJSRuntime(this ElementReference elementReference)
+		{
+			throw null;
+		}
+	}
+}
+
+
+// Microsoft.AspNetCore.Components.Web\Microsoft.AspNetCore.Components\WebElementReferenceContext.cs
+using Microsoft.JSInterop;
+using System.Runtime.CompilerServices;
+
+namespace Microsoft.AspNetCore.Components
+{
+	public class WebElementReferenceContext : ElementReferenceContext
+	{
+		internal IJSRuntime JSRuntime
 		{
 			[CompilerGenerated]
 			get
@@ -8105,17 +10213,9 @@ namespace Microsoft.AspNetCore.Components
 			}
 		}
 
-		public string ValueAttribute
+		public WebElementReferenceContext(IJSRuntime jsRuntime)
 		{
-			[CompilerGenerated]
-			get
-			{
-				throw null;
-			}
-		}
-
-		public BindInputElementAttribute(string type, string suffix, string valueAttribute, string changeAttribute, bool isInvariantCulture, string format)
-		{
+			throw null;
 		}
 	}
 }
@@ -8129,12 +10229,12 @@ namespace Microsoft.AspNetCore.Components.Forms
 {
 	public static class EditContextFieldClassExtensions
 	{
-		public static string FieldCssClass(this EditContext editContext, in FieldIdentifier fieldIdentifier)
+		public static string FieldCssClass<TField>(this EditContext editContext, Expression<Func<TField>> accessor)
 		{
 			throw null;
 		}
 
-		public static string FieldCssClass<TField>(this EditContext editContext, Expression<Func<TField>> accessor)
+		public static string FieldCssClass(this EditContext editContext, in FieldIdentifier fieldIdentifier)
 		{
 			throw null;
 		}
@@ -8152,7 +10252,7 @@ namespace Microsoft.AspNetCore.Components.Forms
 	public class EditForm : ComponentBase
 	{
 		[Parameter(CaptureUnmatchedValues = true)]
-		public IReadOnlyDictionary<string, object> AdditionalAttributes
+		public IReadOnlyDictionary<string, object>? AdditionalAttributes
 		{
 			[CompilerGenerated]
 			get
@@ -8162,25 +10262,25 @@ namespace Microsoft.AspNetCore.Components.Forms
 			[CompilerGenerated]
 			set
 			{
+				throw null;
 			}
 		}
 
 		[Parameter]
-		public RenderFragment<EditContext> ChildContent
+		public EditContext? EditContext
 		{
-			[CompilerGenerated]
 			get
 			{
 				throw null;
 			}
-			[CompilerGenerated]
 			set
 			{
+				throw null;
 			}
 		}
 
 		[Parameter]
-		public EditContext EditContext
+		public object? Model
 		{
 			[CompilerGenerated]
 			get
@@ -8190,11 +10290,12 @@ namespace Microsoft.AspNetCore.Components.Forms
 			[CompilerGenerated]
 			set
 			{
+				throw null;
 			}
 		}
 
 		[Parameter]
-		public object Model
+		public RenderFragment<EditContext>? ChildContent
 		{
 			[CompilerGenerated]
 			get
@@ -8204,20 +10305,7 @@ namespace Microsoft.AspNetCore.Components.Forms
 			[CompilerGenerated]
 			set
 			{
-			}
-		}
-
-		[Parameter]
-		public EventCallback<EditContext> OnInvalidSubmit
-		{
-			[CompilerGenerated]
-			get
-			{
 				throw null;
-			}
-			[CompilerGenerated]
-			set
-			{
 			}
 		}
 
@@ -8232,6 +10320,7 @@ namespace Microsoft.AspNetCore.Components.Forms
 			[CompilerGenerated]
 			set
 			{
+				throw null;
 			}
 		}
 
@@ -8246,19 +10335,38 @@ namespace Microsoft.AspNetCore.Components.Forms
 			[CompilerGenerated]
 			set
 			{
+				throw null;
+			}
+		}
+
+		[Parameter]
+		public EventCallback<EditContext> OnInvalidSubmit
+		{
+			[CompilerGenerated]
+			get
+			{
+				throw null;
+			}
+			[CompilerGenerated]
+			set
+			{
+				throw null;
 			}
 		}
 
 		public EditForm()
 		{
-		}
-
-		protected override void BuildRenderTree(RenderTreeBuilder builder)
-		{
+			throw null;
 		}
 
 		protected override void OnParametersSet()
 		{
+			throw null;
+		}
+
+		protected override void BuildRenderTree(RenderTreeBuilder builder)
+		{
+			throw null;
 		}
 	}
 }
@@ -8267,6 +10375,7 @@ namespace Microsoft.AspNetCore.Components.Forms
 // Microsoft.AspNetCore.Components.Web\Microsoft.AspNetCore.Components.Forms\InputBase.cs
 using System;
 using System.Collections.Generic;
+using System.Diagnostics.CodeAnalysis;
 using System.Linq.Expressions;
 using System.Runtime.CompilerServices;
 using System.Threading.Tasks;
@@ -8276,7 +10385,7 @@ namespace Microsoft.AspNetCore.Components.Forms
 	public abstract class InputBase<TValue> : ComponentBase, IDisposable
 	{
 		[Parameter(CaptureUnmatchedValues = true)]
-		public IReadOnlyDictionary<string, object> AdditionalAttributes
+		public IReadOnlyDictionary<string, object>? AdditionalAttributes
 		{
 			[CompilerGenerated]
 			get
@@ -8286,62 +10395,7 @@ namespace Microsoft.AspNetCore.Components.Forms
 			[CompilerGenerated]
 			set
 			{
-			}
-		}
-
-		protected string CssClass
-		{
-			get
-			{
 				throw null;
-			}
-		}
-
-		protected TValue CurrentValue
-		{
-			get
-			{
-				throw null;
-			}
-			set
-			{
-			}
-		}
-
-		protected string CurrentValueAsString
-		{
-			get
-			{
-				throw null;
-			}
-			set
-			{
-			}
-		}
-
-		protected EditContext EditContext
-		{
-			[CompilerGenerated]
-			get
-			{
-				throw null;
-			}
-			[CompilerGenerated]
-			set
-			{
-			}
-		}
-
-		protected FieldIdentifier FieldIdentifier
-		{
-			[CompilerGenerated]
-			get
-			{
-				throw null;
-			}
-			[CompilerGenerated]
-			set
-			{
 			}
 		}
 
@@ -8349,13 +10403,16 @@ namespace Microsoft.AspNetCore.Components.Forms
 		public TValue Value
 		{
 			[CompilerGenerated]
+			[return: MaybeNull]
 			get
 			{
 				throw null;
 			}
 			[CompilerGenerated]
+			[param: AllowNull]
 			set
 			{
+				throw null;
 			}
 		}
 
@@ -8370,11 +10427,12 @@ namespace Microsoft.AspNetCore.Components.Forms
 			[CompilerGenerated]
 			set
 			{
+				throw null;
 			}
 		}
 
 		[Parameter]
-		public Expression<Func<TValue>> ValueExpression
+		public Expression<Func<TValue>>? ValueExpression
 		{
 			[CompilerGenerated]
 			get
@@ -8384,38 +10442,124 @@ namespace Microsoft.AspNetCore.Components.Forms
 			[CompilerGenerated]
 			set
 			{
+				throw null;
+			}
+		}
+
+		[Parameter]
+		public string? DisplayName
+		{
+			[System.Runtime.CompilerServices.NullableContext(2)]
+			[CompilerGenerated]
+			get
+			{
+				throw null;
+			}
+			[System.Runtime.CompilerServices.NullableContext(2)]
+			[CompilerGenerated]
+			set
+			{
+				throw null;
+			}
+		}
+
+		protected EditContext EditContext
+		{
+			[CompilerGenerated]
+			get
+			{
+				throw null;
+			}
+			[CompilerGenerated]
+			set
+			{
+				throw null;
+			}
+		}
+
+		protected internal FieldIdentifier FieldIdentifier
+		{
+			[CompilerGenerated]
+			get
+			{
+				throw null;
+			}
+			[CompilerGenerated]
+			set
+			{
+				throw null;
+			}
+		}
+
+		protected TValue CurrentValue
+		{
+			[return: MaybeNull]
+			get
+			{
+				throw null;
+			}
+			[param: AllowNull]
+			set
+			{
+				throw null;
+			}
+		}
+
+		protected string? CurrentValueAsString
+		{
+			[System.Runtime.CompilerServices.NullableContext(2)]
+			get
+			{
+				throw null;
+			}
+			[System.Runtime.CompilerServices.NullableContext(2)]
+			set
+			{
+				throw null;
+			}
+		}
+
+		protected string CssClass
+		{
+			get
+			{
+				throw null;
 			}
 		}
 
 		protected InputBase()
 		{
+			throw null;
 		}
 
-		protected virtual void Dispose(bool disposing)
-		{
-		}
-
-		protected virtual string FormatValueAsString(TValue value)
+		protected virtual string? FormatValueAsString([AllowNull] TValue value)
 		{
 			throw null;
 		}
+
+		protected abstract bool TryParseValueFromString(string? value, [MaybeNull] out TValue result, [NotNullWhen(false)] out string? validationErrorMessage);
 
 		public override Task SetParametersAsync(ParameterView parameters)
 		{
 			throw null;
 		}
 
-		void IDisposable.Dispose()
+		protected virtual void Dispose(bool disposing)
 		{
+			throw null;
 		}
 
-		protected abstract bool TryParseValueFromString(string value, out TValue result, out string validationErrorMessage);
+		void IDisposable.Dispose()
+		{
+			throw null;
+		}
 	}
 }
 
 
 // Microsoft.AspNetCore.Components.Web\Microsoft.AspNetCore.Components.Forms\InputCheckbox.cs
 using Microsoft.AspNetCore.Components.Rendering;
+using System.Diagnostics.CodeAnalysis;
 
 namespace Microsoft.AspNetCore.Components.Forms
 {
@@ -8423,9 +10567,15 @@ namespace Microsoft.AspNetCore.Components.Forms
 	{
 		protected override void BuildRenderTree(RenderTreeBuilder builder)
 		{
+			throw null;
 		}
 
-		protected override bool TryParseValueFromString(string value, out bool result, out string validationErrorMessage)
+		protected override bool TryParseValueFromString(string? value, out bool result, [NotNullWhen(false)] out string? validationErrorMessage)
+		{
+			throw null;
+		}
+
+		public InputCheckbox()
 		{
 			throw null;
 		}
@@ -8435,6 +10585,7 @@ namespace Microsoft.AspNetCore.Components.Forms
 
 // Microsoft.AspNetCore.Components.Web\Microsoft.AspNetCore.Components.Forms\InputDate.cs
 using Microsoft.AspNetCore.Components.Rendering;
+using System.Diagnostics.CodeAnalysis;
 using System.Runtime.CompilerServices;
 
 namespace Microsoft.AspNetCore.Components.Forms
@@ -8452,19 +10603,26 @@ namespace Microsoft.AspNetCore.Components.Forms
 			[CompilerGenerated]
 			set
 			{
+				throw null;
 			}
 		}
 
 		protected override void BuildRenderTree(RenderTreeBuilder builder)
 		{
+			throw null;
 		}
 
-		protected override string FormatValueAsString(TValue value)
+		protected override string FormatValueAsString([AllowNull] TValue value)
 		{
 			throw null;
 		}
 
-		protected override bool TryParseValueFromString(string value, out TValue result, out string validationErrorMessage)
+		protected override bool TryParseValueFromString(string? value, [MaybeNull] out TValue result, [NotNullWhen(false)] out string? validationErrorMessage)
+		{
+			throw null;
+		}
+
+		public InputDate()
 		{
 			throw null;
 		}
@@ -8474,6 +10632,7 @@ namespace Microsoft.AspNetCore.Components.Forms
 
 // Microsoft.AspNetCore.Components.Web\Microsoft.AspNetCore.Components.Forms\InputNumber.cs
 using Microsoft.AspNetCore.Components.Rendering;
+using System.Diagnostics.CodeAnalysis;
 using System.Runtime.CompilerServices;
 
 namespace Microsoft.AspNetCore.Components.Forms
@@ -8491,19 +10650,26 @@ namespace Microsoft.AspNetCore.Components.Forms
 			[CompilerGenerated]
 			set
 			{
+				throw null;
 			}
 		}
 
 		protected override void BuildRenderTree(RenderTreeBuilder builder)
 		{
+			throw null;
 		}
 
-		protected override string FormatValueAsString(TValue value)
+		protected override bool TryParseValueFromString(string? value, [MaybeNull] out TValue result, [NotNullWhen(false)] out string? validationErrorMessage)
 		{
 			throw null;
 		}
 
-		protected override bool TryParseValueFromString(string value, out TValue result, out string validationErrorMessage)
+		protected override string? FormatValueAsString([AllowNull] TValue value)
+		{
+			throw null;
+		}
+
+		public InputNumber()
 		{
 			throw null;
 		}
@@ -8511,16 +10677,27 @@ namespace Microsoft.AspNetCore.Components.Forms
 }
 
 
-// Microsoft.AspNetCore.Components.Web\Microsoft.AspNetCore.Components.Forms\InputSelect.cs
+// Microsoft.AspNetCore.Components.Web\Microsoft.AspNetCore.Components.Forms\InputRadio.cs
 using Microsoft.AspNetCore.Components.Rendering;
+using System.Collections.Generic;
+using System.Diagnostics.CodeAnalysis;
 using System.Runtime.CompilerServices;
 
 namespace Microsoft.AspNetCore.Components.Forms
 {
-	public class InputSelect<TValue> : InputBase<TValue>
+	public class InputRadio<TValue> : ComponentBase
 	{
-		[Parameter]
-		public RenderFragment ChildContent
+		internal InputRadioContext? Context
+		{
+			[CompilerGenerated]
+			get
+			{
+				throw null;
+			}
+		}
+
+		[Parameter(CaptureUnmatchedValues = true)]
+		public IReadOnlyDictionary<string, object>? AdditionalAttributes
 		{
 			[CompilerGenerated]
 			get
@@ -8530,14 +10707,159 @@ namespace Microsoft.AspNetCore.Components.Forms
 			[CompilerGenerated]
 			set
 			{
+				throw null;
+			}
+		}
+
+		[Parameter]
+		public TValue Value
+		{
+			[System.Runtime.CompilerServices.NullableContext(1)]
+			[CompilerGenerated]
+			[return: MaybeNull]
+			get
+			{
+				throw null;
+			}
+			[System.Runtime.CompilerServices.NullableContext(1)]
+			[CompilerGenerated]
+			[param: AllowNull]
+			set
+			{
+				throw null;
+			}
+		}
+
+		[Parameter]
+		public string? Name
+		{
+			[CompilerGenerated]
+			get
+			{
+				throw null;
+			}
+			[CompilerGenerated]
+			set
+			{
+				throw null;
+			}
+		}
+
+		protected override void OnParametersSet()
+		{
+			throw null;
+		}
+
+		protected override void BuildRenderTree(RenderTreeBuilder builder)
+		{
+			throw null;
+		}
+
+		public InputRadio()
+		{
+			throw null;
+		}
+	}
+}
+
+
+// Microsoft.AspNetCore.Components.Web\Microsoft.AspNetCore.Components.Forms\InputRadioGroup.cs
+using Microsoft.AspNetCore.Components.Rendering;
+using System.Diagnostics.CodeAnalysis;
+using System.Runtime.CompilerServices;
+
+namespace Microsoft.AspNetCore.Components.Forms
+{
+	public class InputRadioGroup<TValue> : InputBase<TValue>
+	{
+		[Parameter]
+		public RenderFragment? ChildContent
+		{
+			[CompilerGenerated]
+			get
+			{
+				throw null;
+			}
+			[CompilerGenerated]
+			set
+			{
+				throw null;
+			}
+		}
+
+		[Parameter]
+		public string? Name
+		{
+			[CompilerGenerated]
+			get
+			{
+				throw null;
+			}
+			[CompilerGenerated]
+			set
+			{
+				throw null;
+			}
+		}
+
+		protected override void OnParametersSet()
+		{
+			throw null;
+		}
+
+		protected override void BuildRenderTree(RenderTreeBuilder builder)
+		{
+			throw null;
+		}
+
+		protected override bool TryParseValueFromString(string? value, [MaybeNull] out TValue result, [NotNullWhen(false)] out string? validationErrorMessage)
+		{
+			throw null;
+		}
+
+		public InputRadioGroup()
+		{
+			throw null;
+		}
+	}
+}
+
+
+// Microsoft.AspNetCore.Components.Web\Microsoft.AspNetCore.Components.Forms\InputSelect.cs
+using Microsoft.AspNetCore.Components.Rendering;
+using System.Diagnostics.CodeAnalysis;
+using System.Runtime.CompilerServices;
+
+namespace Microsoft.AspNetCore.Components.Forms
+{
+	public class InputSelect<TValue> : InputBase<TValue>
+	{
+		[Parameter]
+		public RenderFragment? ChildContent
+		{
+			[CompilerGenerated]
+			get
+			{
+				throw null;
+			}
+			[CompilerGenerated]
+			set
+			{
+				throw null;
 			}
 		}
 
 		protected override void BuildRenderTree(RenderTreeBuilder builder)
 		{
+			throw null;
 		}
 
-		protected override bool TryParseValueFromString(string value, out TValue result, out string validationErrorMessage)
+		protected override bool TryParseValueFromString(string? value, [MaybeNull] out TValue result, [NotNullWhen(false)] out string? validationErrorMessage)
+		{
+			throw null;
+		}
+
+		public InputSelect()
 		{
 			throw null;
 		}
@@ -8547,6 +10869,7 @@ namespace Microsoft.AspNetCore.Components.Forms
 
 // Microsoft.AspNetCore.Components.Web\Microsoft.AspNetCore.Components.Forms\InputText.cs
 using Microsoft.AspNetCore.Components.Rendering;
+using System.Diagnostics.CodeAnalysis;
 
 namespace Microsoft.AspNetCore.Components.Forms
 {
@@ -8554,9 +10877,15 @@ namespace Microsoft.AspNetCore.Components.Forms
 	{
 		protected override void BuildRenderTree(RenderTreeBuilder builder)
 		{
+			throw null;
 		}
 
-		protected override bool TryParseValueFromString(string value, out string result, out string validationErrorMessage)
+		protected override bool TryParseValueFromString(string? value, out string? result, [NotNullWhen(false)] out string? validationErrorMessage)
+		{
+			throw null;
+		}
+
+		public InputText()
 		{
 			throw null;
 		}
@@ -8566,6 +10895,7 @@ namespace Microsoft.AspNetCore.Components.Forms
 
 // Microsoft.AspNetCore.Components.Web\Microsoft.AspNetCore.Components.Forms\InputTextArea.cs
 using Microsoft.AspNetCore.Components.Rendering;
+using System.Diagnostics.CodeAnalysis;
 
 namespace Microsoft.AspNetCore.Components.Forms
 {
@@ -8573,9 +10903,15 @@ namespace Microsoft.AspNetCore.Components.Forms
 	{
 		protected override void BuildRenderTree(RenderTreeBuilder builder)
 		{
+			throw null;
 		}
 
-		protected override bool TryParseValueFromString(string value, out string result, out string validationErrorMessage)
+		protected override bool TryParseValueFromString(string? value, out string? result, [NotNullWhen(false)] out string? validationErrorMessage)
+		{
+			throw null;
+		}
+
+		public InputTextArea()
 		{
 			throw null;
 		}
@@ -8595,7 +10931,7 @@ namespace Microsoft.AspNetCore.Components.Forms
 	public class ValidationMessage<TValue> : ComponentBase, IDisposable
 	{
 		[Parameter(CaptureUnmatchedValues = true)]
-		public IReadOnlyDictionary<string, object> AdditionalAttributes
+		public IReadOnlyDictionary<string, object>? AdditionalAttributes
 		{
 			[CompilerGenerated]
 			get
@@ -8605,11 +10941,12 @@ namespace Microsoft.AspNetCore.Components.Forms
 			[CompilerGenerated]
 			set
 			{
+				throw null;
 			}
 		}
 
 		[Parameter]
-		public Expression<Func<TValue>> For
+		public Expression<Func<TValue>>? For
 		{
 			[CompilerGenerated]
 			get
@@ -8619,27 +10956,33 @@ namespace Microsoft.AspNetCore.Components.Forms
 			[CompilerGenerated]
 			set
 			{
+				throw null;
 			}
 		}
 
 		public ValidationMessage()
 		{
-		}
-
-		protected override void BuildRenderTree(RenderTreeBuilder builder)
-		{
-		}
-
-		protected virtual void Dispose(bool disposing)
-		{
+			throw null;
 		}
 
 		protected override void OnParametersSet()
 		{
+			throw null;
+		}
+
+		protected override void BuildRenderTree(RenderTreeBuilder builder)
+		{
+			throw null;
+		}
+
+		protected virtual void Dispose(bool disposing)
+		{
+			throw null;
 		}
 
 		void IDisposable.Dispose()
 		{
+			throw null;
 		}
 	}
 }
@@ -8655,22 +10998,25 @@ namespace Microsoft.AspNetCore.Components.Forms
 {
 	public class ValidationSummary : ComponentBase, IDisposable
 	{
-		[Parameter(CaptureUnmatchedValues = true)]
-		public IReadOnlyDictionary<string, object> AdditionalAttributes
+		[Parameter]
+		public object? Model
 		{
+			[System.Runtime.CompilerServices.NullableContext(2)]
 			[CompilerGenerated]
 			get
 			{
 				throw null;
 			}
+			[System.Runtime.CompilerServices.NullableContext(2)]
 			[CompilerGenerated]
 			set
 			{
+				throw null;
 			}
 		}
 
-		[Parameter]
-		public object Model
+		[Parameter(CaptureUnmatchedValues = true)]
+		public IReadOnlyDictionary<string, object>? AdditionalAttributes
 		{
 			[CompilerGenerated]
 			get
@@ -8680,27 +11026,33 @@ namespace Microsoft.AspNetCore.Components.Forms
 			[CompilerGenerated]
 			set
 			{
+				throw null;
 			}
 		}
 
 		public ValidationSummary()
 		{
-		}
-
-		protected override void BuildRenderTree(RenderTreeBuilder builder)
-		{
-		}
-
-		protected virtual void Dispose(bool disposing)
-		{
+			throw null;
 		}
 
 		protected override void OnParametersSet()
 		{
+			throw null;
+		}
+
+		protected override void BuildRenderTree(RenderTreeBuilder builder)
+		{
+			throw null;
+		}
+
+		protected virtual void Dispose(bool disposing)
+		{
+			throw null;
 		}
 
 		void IDisposable.Dispose()
 		{
+			throw null;
 		}
 	}
 }
@@ -8723,32 +11075,7 @@ namespace Microsoft.AspNetCore.Components.RenderTree
 			[CompilerGenerated]
 			set
 			{
-			}
-		}
-
-		public string EventArgsType
-		{
-			[CompilerGenerated]
-			get
-			{
 				throw null;
-			}
-			[CompilerGenerated]
-			set
-			{
-			}
-		}
-
-		public EventFieldInfo EventFieldInfo
-		{
-			[CompilerGenerated]
-			get
-			{
-				throw null;
-			}
-			[CompilerGenerated]
-			set
-			{
 			}
 		}
 
@@ -8762,7 +11089,43 @@ namespace Microsoft.AspNetCore.Components.RenderTree
 			[CompilerGenerated]
 			set
 			{
+				throw null;
 			}
+		}
+
+		public string EventArgsType
+		{
+			[CompilerGenerated]
+			get
+			{
+				throw null;
+			}
+			[CompilerGenerated]
+			set
+			{
+				throw null;
+			}
+		}
+
+		public EventFieldInfo? EventFieldInfo
+		{
+			[System.Runtime.CompilerServices.NullableContext(2)]
+			[CompilerGenerated]
+			get
+			{
+				throw null;
+			}
+			[System.Runtime.CompilerServices.NullableContext(2)]
+			[CompilerGenerated]
+			set
+			{
+				throw null;
+			}
+		}
+
+		public WebEventDescriptor()
+		{
+			throw null;
 		}
 	}
 }
@@ -8779,7 +11142,7 @@ namespace Microsoft.AspNetCore.Components.Routing
 	public class NavLink : ComponentBase, IDisposable
 	{
 		[Parameter]
-		public string ActiveClass
+		public string? ActiveClass
 		{
 			[CompilerGenerated]
 			get
@@ -8789,11 +11152,12 @@ namespace Microsoft.AspNetCore.Components.Routing
 			[CompilerGenerated]
 			set
 			{
+				throw null;
 			}
 		}
 
 		[Parameter(CaptureUnmatchedValues = true)]
-		public IReadOnlyDictionary<string, object> AdditionalAttributes
+		public IReadOnlyDictionary<string, object>? AdditionalAttributes
 		{
 			[CompilerGenerated]
 			get
@@ -8803,11 +11167,26 @@ namespace Microsoft.AspNetCore.Components.Routing
 			[CompilerGenerated]
 			set
 			{
+				throw null;
+			}
+		}
+
+		protected string? CssClass
+		{
+			[CompilerGenerated]
+			get
+			{
+				throw null;
+			}
+			[CompilerGenerated]
+			set
+			{
+				throw null;
 			}
 		}
 
 		[Parameter]
-		public RenderFragment ChildContent
+		public RenderFragment? ChildContent
 		{
 			[CompilerGenerated]
 			get
@@ -8817,19 +11196,7 @@ namespace Microsoft.AspNetCore.Components.Routing
 			[CompilerGenerated]
 			set
 			{
-			}
-		}
-
-		protected string CssClass
-		{
-			[CompilerGenerated]
-			get
-			{
 				throw null;
-			}
-			[CompilerGenerated]
-			set
-			{
 			}
 		}
 
@@ -8844,23 +11211,33 @@ namespace Microsoft.AspNetCore.Components.Routing
 			[CompilerGenerated]
 			set
 			{
+				throw null;
 			}
-		}
-
-		protected override void BuildRenderTree(RenderTreeBuilder builder)
-		{
-		}
-
-		public void Dispose()
-		{
 		}
 
 		protected override void OnInitialized()
 		{
+			throw null;
 		}
 
 		protected override void OnParametersSet()
 		{
+			throw null;
+		}
+
+		public void Dispose()
+		{
+			throw null;
+		}
+
+		protected override void BuildRenderTree(RenderTreeBuilder builder)
+		{
+			throw null;
+		}
+
+		public NavLink()
+		{
+			throw null;
 		}
 	}
 }
@@ -8880,22 +11257,22 @@ namespace Microsoft.AspNetCore.Components.Routing
 // Microsoft.AspNetCore.Components.Web\Microsoft.AspNetCore.Components.Web\BindAttributes.cs
 namespace Microsoft.AspNetCore.Components.Web
 {
+	[BindInputElement(null, null, "value", "onchange", false, null)]
+	[BindInputElement(null, "value", "value", "onchange", false, null)]
+	[BindInputElement("checkbox", null, "checked", "onchange", false, null)]
+	[BindInputElement("text", null, "value", "onchange", false, null)]
+	[BindInputElement("number", null, "value", "onchange", true, null)]
+	[BindInputElement("number", "value", "value", "onchange", true, null)]
+	[BindInputElement("date", null, "value", "onchange", true, "yyyy-MM-dd")]
+	[BindInputElement("date", "value", "value", "onchange", true, "yyyy-MM-dd")]
+	[BindInputElement("datetime-local", null, "value", "onchange", true, "yyyy-MM-ddTHH:mm:ss")]
+	[BindInputElement("datetime-local", "value", "value", "onchange", true, "yyyy-MM-ddTHH:mm:ss")]
+	[BindInputElement("month", null, "value", "onchange", true, "yyyy-MM")]
+	[BindInputElement("month", "value", "value", "onchange", true, "yyyy-MM")]
+	[BindInputElement("time", null, "value", "onchange", true, "HH:mm:ss")]
+	[BindInputElement("time", "value", "value", "onchange", true, "HH:mm:ss")]
 	[BindElement("select", null, "value", "onchange")]
 	[BindElement("textarea", null, "value", "onchange")]
-	[BindInputElement("checkbox", null, "checked", "onchange", false, null)]
-	[BindInputElement("date", "value", "value", "onchange", true, "yyyy-MM-dd")]
-	[BindInputElement("date", null, "value", "onchange", true, "yyyy-MM-dd")]
-	[BindInputElement("datetime-local", "value", "value", "onchange", true, "yyyy-MM-ddTHH:mm:ss")]
-	[BindInputElement("datetime-local", null, "value", "onchange", true, "yyyy-MM-ddTHH:mm:ss")]
-	[BindInputElement("month", "value", "value", "onchange", true, "yyyy-MM")]
-	[BindInputElement("month", null, "value", "onchange", true, "yyyy-MM")]
-	[BindInputElement("number", "value", "value", "onchange", true, null)]
-	[BindInputElement("number", null, "value", "onchange", true, null)]
-	[BindInputElement("text", null, "value", "onchange", false, null)]
-	[BindInputElement("time", "value", "value", "onchange", true, "HH:mm:ss")]
-	[BindInputElement("time", null, "value", "onchange", true, "HH:mm:ss")]
-	[BindInputElement(null, "value", "value", "onchange", false, null)]
-	[BindInputElement(null, null, "value", "onchange", false, null)]
 	public static class BindAttributes
 	{
 	}
@@ -8920,7 +11297,13 @@ namespace Microsoft.AspNetCore.Components.Web
 			[CompilerGenerated]
 			set
 			{
+				throw null;
 			}
+		}
+
+		public ClipboardEventArgs()
+		{
+			throw null;
 		}
 	}
 }
@@ -8943,19 +11326,23 @@ namespace Microsoft.AspNetCore.Components.Web
 			[CompilerGenerated]
 			set
 			{
+				throw null;
 			}
 		}
 
-		public string EffectAllowed
+		public string? EffectAllowed
 		{
+			[System.Runtime.CompilerServices.NullableContext(2)]
 			[CompilerGenerated]
 			get
 			{
 				throw null;
 			}
+			[System.Runtime.CompilerServices.NullableContext(2)]
 			[CompilerGenerated]
 			set
 			{
+				throw null;
 			}
 		}
 
@@ -8969,6 +11356,7 @@ namespace Microsoft.AspNetCore.Components.Web
 			[CompilerGenerated]
 			set
 			{
+				throw null;
 			}
 		}
 
@@ -8982,6 +11370,7 @@ namespace Microsoft.AspNetCore.Components.Web
 			[CompilerGenerated]
 			set
 			{
+				throw null;
 			}
 		}
 
@@ -8995,7 +11384,13 @@ namespace Microsoft.AspNetCore.Components.Web
 			[CompilerGenerated]
 			set
 			{
+				throw null;
 			}
+		}
+
+		public DataTransfer()
+		{
+			throw null;
 		}
 	}
 }
@@ -9018,6 +11413,7 @@ namespace Microsoft.AspNetCore.Components.Web
 			[CompilerGenerated]
 			set
 			{
+				throw null;
 			}
 		}
 
@@ -9031,7 +11427,13 @@ namespace Microsoft.AspNetCore.Components.Web
 			[CompilerGenerated]
 			set
 			{
+				throw null;
 			}
+		}
+
+		public DataTransferItem()
+		{
+			throw null;
 		}
 	}
 }
@@ -9054,7 +11456,13 @@ namespace Microsoft.AspNetCore.Components.Web
 			[CompilerGenerated]
 			set
 			{
+				throw null;
 			}
+		}
+
+		public DragEventArgs()
+		{
+			throw null;
 		}
 	}
 }
@@ -9068,7 +11476,7 @@ namespace Microsoft.AspNetCore.Components.Web
 {
 	public class ErrorEventArgs : EventArgs
 	{
-		public int Colno
+		public string? Message
 		{
 			[CompilerGenerated]
 			get
@@ -9078,10 +11486,11 @@ namespace Microsoft.AspNetCore.Components.Web
 			[CompilerGenerated]
 			set
 			{
+				throw null;
 			}
 		}
 
-		public string Filename
+		public string? Filename
 		{
 			[CompilerGenerated]
 			get
@@ -9091,6 +11500,7 @@ namespace Microsoft.AspNetCore.Components.Web
 			[CompilerGenerated]
 			set
 			{
+				throw null;
 			}
 		}
 
@@ -9104,10 +11514,11 @@ namespace Microsoft.AspNetCore.Components.Web
 			[CompilerGenerated]
 			set
 			{
+				throw null;
 			}
 		}
 
-		public string Message
+		public int Colno
 		{
 			[CompilerGenerated]
 			get
@@ -9117,10 +11528,11 @@ namespace Microsoft.AspNetCore.Components.Web
 			[CompilerGenerated]
 			set
 			{
+				throw null;
 			}
 		}
 
-		public string Type
+		public string? Type
 		{
 			[CompilerGenerated]
 			get
@@ -9130,7 +11542,13 @@ namespace Microsoft.AspNetCore.Components.Web
 			[CompilerGenerated]
 			set
 			{
+				throw null;
 			}
+		}
+
+		public ErrorEventArgs()
+		{
+			throw null;
 		}
 	}
 }
@@ -9141,24 +11559,20 @@ using System;
 
 namespace Microsoft.AspNetCore.Components.Web
 {
-	[EventHandler("onabort", typeof(ProgressEventArgs), true, true)]
-	[EventHandler("onactivate", typeof(EventArgs), true, true)]
-	[EventHandler("onbeforeactivate", typeof(EventArgs), true, true)]
-	[EventHandler("onbeforecopy", typeof(EventArgs), true, true)]
-	[EventHandler("onbeforecut", typeof(EventArgs), true, true)]
-	[EventHandler("onbeforedeactivate", typeof(EventArgs), true, true)]
-	[EventHandler("onbeforepaste", typeof(EventArgs), true, true)]
+	[EventHandler("onfocus", typeof(FocusEventArgs), true, true)]
 	[EventHandler("onblur", typeof(FocusEventArgs), true, true)]
-	[EventHandler("oncanplay", typeof(EventArgs), true, true)]
-	[EventHandler("oncanplaythrough", typeof(EventArgs), true, true)]
-	[EventHandler("onchange", typeof(ChangeEventArgs), true, true)]
+	[EventHandler("onfocusin", typeof(FocusEventArgs), true, true)]
+	[EventHandler("onfocusout", typeof(FocusEventArgs), true, true)]
+	[EventHandler("onmouseover", typeof(MouseEventArgs), true, true)]
+	[EventHandler("onmouseout", typeof(MouseEventArgs), true, true)]
+	[EventHandler("onmousemove", typeof(MouseEventArgs), true, true)]
+	[EventHandler("onmousedown", typeof(MouseEventArgs), true, true)]
+	[EventHandler("onmouseup", typeof(MouseEventArgs), true, true)]
 	[EventHandler("onclick", typeof(MouseEventArgs), true, true)]
-	[EventHandler("oncontextmenu", typeof(MouseEventArgs), true, true)]
-	[EventHandler("oncopy", typeof(ClipboardEventArgs), true, true)]
-	[EventHandler("oncuechange", typeof(EventArgs), true, true)]
-	[EventHandler("oncut", typeof(ClipboardEventArgs), true, true)]
 	[EventHandler("ondblclick", typeof(MouseEventArgs), true, true)]
-	[EventHandler("ondeactivate", typeof(EventArgs), true, true)]
+	[EventHandler("onwheel", typeof(WheelEventArgs), true, true)]
+	[EventHandler("onmousewheel", typeof(WheelEventArgs), true, true)]
+	[EventHandler("oncontextmenu", typeof(MouseEventArgs), true, true)]
 	[EventHandler("ondrag", typeof(DragEventArgs), true, true)]
 	[EventHandler("ondragend", typeof(DragEventArgs), true, true)]
 	[EventHandler("ondragenter", typeof(DragEventArgs), true, true)]
@@ -9166,72 +11580,77 @@ namespace Microsoft.AspNetCore.Components.Web
 	[EventHandler("ondragover", typeof(DragEventArgs), true, true)]
 	[EventHandler("ondragstart", typeof(DragEventArgs), true, true)]
 	[EventHandler("ondrop", typeof(DragEventArgs), true, true)]
-	[EventHandler("ondurationchange", typeof(EventArgs), true, true)]
-	[EventHandler("onemptied", typeof(EventArgs), true, true)]
-	[EventHandler("onended", typeof(EventArgs), true, true)]
-	[EventHandler("onerror", typeof(ErrorEventArgs), true, true)]
-	[EventHandler("onfocus", typeof(FocusEventArgs), true, true)]
-	[EventHandler("onfocusin", typeof(FocusEventArgs), true, true)]
-	[EventHandler("onfocusout", typeof(FocusEventArgs), true, true)]
-	[EventHandler("onfullscreenchange", typeof(EventArgs), true, true)]
-	[EventHandler("onfullscreenerror", typeof(EventArgs), true, true)]
-	[EventHandler("ongotpointercapture", typeof(PointerEventArgs), true, true)]
+	[EventHandler("onkeydown", typeof(KeyboardEventArgs), true, true)]
+	[EventHandler("onkeyup", typeof(KeyboardEventArgs), true, true)]
+	[EventHandler("onkeypress", typeof(KeyboardEventArgs), true, true)]
+	[EventHandler("onchange", typeof(ChangeEventArgs), true, true)]
 	[EventHandler("oninput", typeof(ChangeEventArgs), true, true)]
 	[EventHandler("oninvalid", typeof(EventArgs), true, true)]
-	[EventHandler("onkeydown", typeof(KeyboardEventArgs), true, true)]
-	[EventHandler("onkeypress", typeof(KeyboardEventArgs), true, true)]
-	[EventHandler("onkeyup", typeof(KeyboardEventArgs), true, true)]
-	[EventHandler("onload", typeof(ProgressEventArgs), true, true)]
-	[EventHandler("onloadeddata", typeof(EventArgs), true, true)]
-	[EventHandler("onloadedmetadata", typeof(EventArgs), true, true)]
-	[EventHandler("onloadend", typeof(ProgressEventArgs), true, true)]
-	[EventHandler("onloadstart", typeof(ProgressEventArgs), true, true)]
-	[EventHandler("onlostpointercapture", typeof(PointerEventArgs), true, true)]
-	[EventHandler("onmousedown", typeof(MouseEventArgs), true, true)]
-	[EventHandler("onmousemove", typeof(MouseEventArgs), true, true)]
-	[EventHandler("onmouseout", typeof(MouseEventArgs), true, true)]
-	[EventHandler("onmouseover", typeof(MouseEventArgs), true, true)]
-	[EventHandler("onmouseup", typeof(MouseEventArgs), true, true)]
-	[EventHandler("onmousewheel", typeof(WheelEventArgs), true, true)]
+	[EventHandler("onreset", typeof(EventArgs), true, true)]
+	[EventHandler("onselect", typeof(EventArgs), true, true)]
+	[EventHandler("onselectstart", typeof(EventArgs), true, true)]
+	[EventHandler("onselectionchange", typeof(EventArgs), true, true)]
+	[EventHandler("onsubmit", typeof(EventArgs), true, true)]
+	[EventHandler("onbeforecopy", typeof(EventArgs), true, true)]
+	[EventHandler("onbeforecut", typeof(EventArgs), true, true)]
+	[EventHandler("onbeforepaste", typeof(EventArgs), true, true)]
+	[EventHandler("oncopy", typeof(ClipboardEventArgs), true, true)]
+	[EventHandler("oncut", typeof(ClipboardEventArgs), true, true)]
 	[EventHandler("onpaste", typeof(ClipboardEventArgs), true, true)]
-	[EventHandler("onpause", typeof(EventArgs), true, true)]
-	[EventHandler("onplay", typeof(EventArgs), true, true)]
-	[EventHandler("onplaying", typeof(EventArgs), true, true)]
+	[EventHandler("ontouchcancel", typeof(TouchEventArgs), true, true)]
+	[EventHandler("ontouchend", typeof(TouchEventArgs), true, true)]
+	[EventHandler("ontouchmove", typeof(TouchEventArgs), true, true)]
+	[EventHandler("ontouchstart", typeof(TouchEventArgs), true, true)]
+	[EventHandler("ontouchenter", typeof(TouchEventArgs), true, true)]
+	[EventHandler("ontouchleave", typeof(TouchEventArgs), true, true)]
+	[EventHandler("ongotpointercapture", typeof(PointerEventArgs), true, true)]
+	[EventHandler("onlostpointercapture", typeof(PointerEventArgs), true, true)]
 	[EventHandler("onpointercancel", typeof(PointerEventArgs), true, true)]
 	[EventHandler("onpointerdown", typeof(PointerEventArgs), true, true)]
 	[EventHandler("onpointerenter", typeof(PointerEventArgs), true, true)]
 	[EventHandler("onpointerleave", typeof(PointerEventArgs), true, true)]
-	[EventHandler("onpointerlockchange", typeof(EventArgs), true, true)]
-	[EventHandler("onpointerlockerror", typeof(EventArgs), true, true)]
 	[EventHandler("onpointermove", typeof(PointerEventArgs), true, true)]
 	[EventHandler("onpointerout", typeof(PointerEventArgs), true, true)]
 	[EventHandler("onpointerover", typeof(PointerEventArgs), true, true)]
 	[EventHandler("onpointerup", typeof(PointerEventArgs), true, true)]
-	[EventHandler("onprogress", typeof(ProgressEventArgs), true, true)]
+	[EventHandler("oncanplay", typeof(EventArgs), true, true)]
+	[EventHandler("oncanplaythrough", typeof(EventArgs), true, true)]
+	[EventHandler("oncuechange", typeof(EventArgs), true, true)]
+	[EventHandler("ondurationchange", typeof(EventArgs), true, true)]
+	[EventHandler("onemptied", typeof(EventArgs), true, true)]
+	[EventHandler("onpause", typeof(EventArgs), true, true)]
+	[EventHandler("onplay", typeof(EventArgs), true, true)]
+	[EventHandler("onplaying", typeof(EventArgs), true, true)]
 	[EventHandler("onratechange", typeof(EventArgs), true, true)]
-	[EventHandler("onreadystatechange", typeof(EventArgs), true, true)]
-	[EventHandler("onreset", typeof(EventArgs), true, true)]
-	[EventHandler("onscroll", typeof(EventArgs), true, true)]
 	[EventHandler("onseeked", typeof(EventArgs), true, true)]
 	[EventHandler("onseeking", typeof(EventArgs), true, true)]
-	[EventHandler("onselect", typeof(EventArgs), true, true)]
-	[EventHandler("onselectionchange", typeof(EventArgs), true, true)]
-	[EventHandler("onselectstart", typeof(EventArgs), true, true)]
 	[EventHandler("onstalled", typeof(EventArgs), true, true)]
 	[EventHandler("onstop", typeof(EventArgs), true, true)]
-	[EventHandler("onsubmit", typeof(EventArgs), true, true)]
 	[EventHandler("onsuspend", typeof(EventArgs), true, true)]
-	[EventHandler("ontimeout", typeof(ProgressEventArgs), true, true)]
 	[EventHandler("ontimeupdate", typeof(EventArgs), true, true)]
-	[EventHandler("ontouchcancel", typeof(TouchEventArgs), true, true)]
-	[EventHandler("ontouchend", typeof(TouchEventArgs), true, true)]
-	[EventHandler("ontouchenter", typeof(TouchEventArgs), true, true)]
-	[EventHandler("ontouchleave", typeof(TouchEventArgs), true, true)]
-	[EventHandler("ontouchmove", typeof(TouchEventArgs), true, true)]
-	[EventHandler("ontouchstart", typeof(TouchEventArgs), true, true)]
 	[EventHandler("onvolumechange", typeof(EventArgs), true, true)]
 	[EventHandler("onwaiting", typeof(EventArgs), true, true)]
-	[EventHandler("onwheel", typeof(WheelEventArgs), true, true)]
+	[EventHandler("onloadstart", typeof(ProgressEventArgs), true, true)]
+	[EventHandler("ontimeout", typeof(ProgressEventArgs), true, true)]
+	[EventHandler("onabort", typeof(ProgressEventArgs), true, true)]
+	[EventHandler("onload", typeof(ProgressEventArgs), true, true)]
+	[EventHandler("onloadend", typeof(ProgressEventArgs), true, true)]
+	[EventHandler("onprogress", typeof(ProgressEventArgs), true, true)]
+	[EventHandler("onerror", typeof(ErrorEventArgs), true, true)]
+	[EventHandler("onactivate", typeof(EventArgs), true, true)]
+	[EventHandler("onbeforeactivate", typeof(EventArgs), true, true)]
+	[EventHandler("onbeforedeactivate", typeof(EventArgs), true, true)]
+	[EventHandler("ondeactivate", typeof(EventArgs), true, true)]
+	[EventHandler("onended", typeof(EventArgs), true, true)]
+	[EventHandler("onfullscreenchange", typeof(EventArgs), true, true)]
+	[EventHandler("onfullscreenerror", typeof(EventArgs), true, true)]
+	[EventHandler("onloadeddata", typeof(EventArgs), true, true)]
+	[EventHandler("onloadedmetadata", typeof(EventArgs), true, true)]
+	[EventHandler("onpointerlockchange", typeof(EventArgs), true, true)]
+	[EventHandler("onpointerlockerror", typeof(EventArgs), true, true)]
+	[EventHandler("onreadystatechange", typeof(EventArgs), true, true)]
+	[EventHandler("onscroll", typeof(EventArgs), true, true)]
+	[EventHandler("ontoggle", typeof(EventArgs), true, true)]
 	public static class EventHandlers
 	{
 	}
@@ -9246,7 +11665,7 @@ namespace Microsoft.AspNetCore.Components.Web
 {
 	public class FocusEventArgs : EventArgs
 	{
-		public string Type
+		public string? Type
 		{
 			[CompilerGenerated]
 			get
@@ -9256,7 +11675,13 @@ namespace Microsoft.AspNetCore.Components.Web
 			[CompilerGenerated]
 			set
 			{
+				throw null;
 			}
+		}
+
+		public FocusEventArgs()
+		{
+			throw null;
 		}
 	}
 }
@@ -9270,7 +11695,7 @@ namespace Microsoft.AspNetCore.Components.Web
 {
 	public class KeyboardEventArgs : EventArgs
 	{
-		public bool AltKey
+		public string Key
 		{
 			[CompilerGenerated]
 			get
@@ -9280,6 +11705,7 @@ namespace Microsoft.AspNetCore.Components.Web
 			[CompilerGenerated]
 			set
 			{
+				throw null;
 			}
 		}
 
@@ -9293,32 +11719,7 @@ namespace Microsoft.AspNetCore.Components.Web
 			[CompilerGenerated]
 			set
 			{
-			}
-		}
-
-		public bool CtrlKey
-		{
-			[CompilerGenerated]
-			get
-			{
 				throw null;
-			}
-			[CompilerGenerated]
-			set
-			{
-			}
-		}
-
-		public string Key
-		{
-			[CompilerGenerated]
-			get
-			{
-				throw null;
-			}
-			[CompilerGenerated]
-			set
-			{
 			}
 		}
 
@@ -9332,19 +11733,7 @@ namespace Microsoft.AspNetCore.Components.Web
 			[CompilerGenerated]
 			set
 			{
-			}
-		}
-
-		public bool MetaKey
-		{
-			[CompilerGenerated]
-			get
-			{
 				throw null;
-			}
-			[CompilerGenerated]
-			set
-			{
 			}
 		}
 
@@ -9358,108 +11747,7 @@ namespace Microsoft.AspNetCore.Components.Web
 			[CompilerGenerated]
 			set
 			{
-			}
-		}
-
-		public bool ShiftKey
-		{
-			[CompilerGenerated]
-			get
-			{
 				throw null;
-			}
-			[CompilerGenerated]
-			set
-			{
-			}
-		}
-
-		public string Type
-		{
-			[CompilerGenerated]
-			get
-			{
-				throw null;
-			}
-			[CompilerGenerated]
-			set
-			{
-			}
-		}
-	}
-}
-
-
-// Microsoft.AspNetCore.Components.Web\Microsoft.AspNetCore.Components.Web\MouseEventArgs.cs
-using System;
-using System.Runtime.CompilerServices;
-
-namespace Microsoft.AspNetCore.Components.Web
-{
-	public class MouseEventArgs : EventArgs
-	{
-		public bool AltKey
-		{
-			[CompilerGenerated]
-			get
-			{
-				throw null;
-			}
-			[CompilerGenerated]
-			set
-			{
-			}
-		}
-
-		public long Button
-		{
-			[CompilerGenerated]
-			get
-			{
-				throw null;
-			}
-			[CompilerGenerated]
-			set
-			{
-			}
-		}
-
-		public long Buttons
-		{
-			[CompilerGenerated]
-			get
-			{
-				throw null;
-			}
-			[CompilerGenerated]
-			set
-			{
-			}
-		}
-
-		public double ClientX
-		{
-			[CompilerGenerated]
-			get
-			{
-				throw null;
-			}
-			[CompilerGenerated]
-			set
-			{
-			}
-		}
-
-		public double ClientY
-		{
-			[CompilerGenerated]
-			get
-			{
-				throw null;
-			}
-			[CompilerGenerated]
-			set
-			{
 			}
 		}
 
@@ -9473,58 +11761,7 @@ namespace Microsoft.AspNetCore.Components.Web
 			[CompilerGenerated]
 			set
 			{
-			}
-		}
-
-		public long Detail
-		{
-			[CompilerGenerated]
-			get
-			{
 				throw null;
-			}
-			[CompilerGenerated]
-			set
-			{
-			}
-		}
-
-		public bool MetaKey
-		{
-			[CompilerGenerated]
-			get
-			{
-				throw null;
-			}
-			[CompilerGenerated]
-			set
-			{
-			}
-		}
-
-		public double ScreenX
-		{
-			[CompilerGenerated]
-			get
-			{
-				throw null;
-			}
-			[CompilerGenerated]
-			set
-			{
-			}
-		}
-
-		public double ScreenY
-		{
-			[CompilerGenerated]
-			get
-			{
-				throw null;
-			}
-			[CompilerGenerated]
-			set
-			{
 			}
 		}
 
@@ -9538,6 +11775,35 @@ namespace Microsoft.AspNetCore.Components.Web
 			[CompilerGenerated]
 			set
 			{
+				throw null;
+			}
+		}
+
+		public bool AltKey
+		{
+			[CompilerGenerated]
+			get
+			{
+				throw null;
+			}
+			[CompilerGenerated]
+			set
+			{
+				throw null;
+			}
+		}
+
+		public bool MetaKey
+		{
+			[CompilerGenerated]
+			get
+			{
+				throw null;
+			}
+			[CompilerGenerated]
+			set
+			{
+				throw null;
 			}
 		}
 
@@ -9551,7 +11817,225 @@ namespace Microsoft.AspNetCore.Components.Web
 			[CompilerGenerated]
 			set
 			{
+				throw null;
 			}
+		}
+
+		public KeyboardEventArgs()
+		{
+			throw null;
+		}
+	}
+}
+
+
+// Microsoft.AspNetCore.Components.Web\Microsoft.AspNetCore.Components.Web\MouseEventArgs.cs
+using System;
+using System.Runtime.CompilerServices;
+
+namespace Microsoft.AspNetCore.Components.Web
+{
+	public class MouseEventArgs : EventArgs
+	{
+		public long Detail
+		{
+			[CompilerGenerated]
+			get
+			{
+				throw null;
+			}
+			[CompilerGenerated]
+			set
+			{
+				throw null;
+			}
+		}
+
+		public double ScreenX
+		{
+			[CompilerGenerated]
+			get
+			{
+				throw null;
+			}
+			[CompilerGenerated]
+			set
+			{
+				throw null;
+			}
+		}
+
+		public double ScreenY
+		{
+			[CompilerGenerated]
+			get
+			{
+				throw null;
+			}
+			[CompilerGenerated]
+			set
+			{
+				throw null;
+			}
+		}
+
+		public double ClientX
+		{
+			[CompilerGenerated]
+			get
+			{
+				throw null;
+			}
+			[CompilerGenerated]
+			set
+			{
+				throw null;
+			}
+		}
+
+		public double ClientY
+		{
+			[CompilerGenerated]
+			get
+			{
+				throw null;
+			}
+			[CompilerGenerated]
+			set
+			{
+				throw null;
+			}
+		}
+
+		public double OffsetX
+		{
+			[CompilerGenerated]
+			get
+			{
+				throw null;
+			}
+			[CompilerGenerated]
+			set
+			{
+				throw null;
+			}
+		}
+
+		public double OffsetY
+		{
+			[CompilerGenerated]
+			get
+			{
+				throw null;
+			}
+			[CompilerGenerated]
+			set
+			{
+				throw null;
+			}
+		}
+
+		public long Button
+		{
+			[CompilerGenerated]
+			get
+			{
+				throw null;
+			}
+			[CompilerGenerated]
+			set
+			{
+				throw null;
+			}
+		}
+
+		public long Buttons
+		{
+			[CompilerGenerated]
+			get
+			{
+				throw null;
+			}
+			[CompilerGenerated]
+			set
+			{
+				throw null;
+			}
+		}
+
+		public bool CtrlKey
+		{
+			[CompilerGenerated]
+			get
+			{
+				throw null;
+			}
+			[CompilerGenerated]
+			set
+			{
+				throw null;
+			}
+		}
+
+		public bool ShiftKey
+		{
+			[CompilerGenerated]
+			get
+			{
+				throw null;
+			}
+			[CompilerGenerated]
+			set
+			{
+				throw null;
+			}
+		}
+
+		public bool AltKey
+		{
+			[CompilerGenerated]
+			get
+			{
+				throw null;
+			}
+			[CompilerGenerated]
+			set
+			{
+				throw null;
+			}
+		}
+
+		public bool MetaKey
+		{
+			[CompilerGenerated]
+			get
+			{
+				throw null;
+			}
+			[CompilerGenerated]
+			set
+			{
+				throw null;
+			}
+		}
+
+		public string Type
+		{
+			[CompilerGenerated]
+			get
+			{
+				throw null;
+			}
+			[CompilerGenerated]
+			set
+			{
+				throw null;
+			}
+		}
+
+		public MouseEventArgs()
+		{
+			throw null;
 		}
 	}
 }
@@ -9564,32 +12048,6 @@ namespace Microsoft.AspNetCore.Components.Web
 {
 	public class PointerEventArgs : MouseEventArgs
 	{
-		public float Height
-		{
-			[CompilerGenerated]
-			get
-			{
-				throw null;
-			}
-			[CompilerGenerated]
-			set
-			{
-			}
-		}
-
-		public bool IsPrimary
-		{
-			[CompilerGenerated]
-			get
-			{
-				throw null;
-			}
-			[CompilerGenerated]
-			set
-			{
-			}
-		}
-
 		public long PointerId
 		{
 			[CompilerGenerated]
@@ -9600,58 +12058,7 @@ namespace Microsoft.AspNetCore.Components.Web
 			[CompilerGenerated]
 			set
 			{
-			}
-		}
-
-		public string PointerType
-		{
-			[CompilerGenerated]
-			get
-			{
 				throw null;
-			}
-			[CompilerGenerated]
-			set
-			{
-			}
-		}
-
-		public float Pressure
-		{
-			[CompilerGenerated]
-			get
-			{
-				throw null;
-			}
-			[CompilerGenerated]
-			set
-			{
-			}
-		}
-
-		public float TiltX
-		{
-			[CompilerGenerated]
-			get
-			{
-				throw null;
-			}
-			[CompilerGenerated]
-			set
-			{
-			}
-		}
-
-		public float TiltY
-		{
-			[CompilerGenerated]
-			get
-			{
-				throw null;
-			}
-			[CompilerGenerated]
-			set
-			{
 			}
 		}
 
@@ -9665,7 +12072,97 @@ namespace Microsoft.AspNetCore.Components.Web
 			[CompilerGenerated]
 			set
 			{
+				throw null;
 			}
+		}
+
+		public float Height
+		{
+			[CompilerGenerated]
+			get
+			{
+				throw null;
+			}
+			[CompilerGenerated]
+			set
+			{
+				throw null;
+			}
+		}
+
+		public float Pressure
+		{
+			[CompilerGenerated]
+			get
+			{
+				throw null;
+			}
+			[CompilerGenerated]
+			set
+			{
+				throw null;
+			}
+		}
+
+		public float TiltX
+		{
+			[CompilerGenerated]
+			get
+			{
+				throw null;
+			}
+			[CompilerGenerated]
+			set
+			{
+				throw null;
+			}
+		}
+
+		public float TiltY
+		{
+			[CompilerGenerated]
+			get
+			{
+				throw null;
+			}
+			[CompilerGenerated]
+			set
+			{
+				throw null;
+			}
+		}
+
+		public string PointerType
+		{
+			[CompilerGenerated]
+			get
+			{
+				throw null;
+			}
+			[CompilerGenerated]
+			set
+			{
+				throw null;
+			}
+		}
+
+		public bool IsPrimary
+		{
+			[CompilerGenerated]
+			get
+			{
+				throw null;
+			}
+			[CompilerGenerated]
+			set
+			{
+				throw null;
+			}
+		}
+
+		public PointerEventArgs()
+		{
+			throw null;
 		}
 	}
 }
@@ -9689,6 +12186,7 @@ namespace Microsoft.AspNetCore.Components.Web
 			[CompilerGenerated]
 			set
 			{
+				throw null;
 			}
 		}
 
@@ -9702,6 +12200,7 @@ namespace Microsoft.AspNetCore.Components.Web
 			[CompilerGenerated]
 			set
 			{
+				throw null;
 			}
 		}
 
@@ -9715,6 +12214,7 @@ namespace Microsoft.AspNetCore.Components.Web
 			[CompilerGenerated]
 			set
 			{
+				throw null;
 			}
 		}
 
@@ -9728,7 +12228,13 @@ namespace Microsoft.AspNetCore.Components.Web
 			[CompilerGenerated]
 			set
 			{
+				throw null;
 			}
+		}
+
+		public ProgressEventArgs()
+		{
+			throw null;
 		}
 	}
 }
@@ -9742,45 +12248,6 @@ namespace Microsoft.AspNetCore.Components.Web
 {
 	public class TouchEventArgs : EventArgs
 	{
-		public bool AltKey
-		{
-			[CompilerGenerated]
-			get
-			{
-				throw null;
-			}
-			[CompilerGenerated]
-			set
-			{
-			}
-		}
-
-		public TouchPoint[] ChangedTouches
-		{
-			[CompilerGenerated]
-			get
-			{
-				throw null;
-			}
-			[CompilerGenerated]
-			set
-			{
-			}
-		}
-
-		public bool CtrlKey
-		{
-			[CompilerGenerated]
-			get
-			{
-				throw null;
-			}
-			[CompilerGenerated]
-			set
-			{
-			}
-		}
-
 		public long Detail
 		{
 			[CompilerGenerated]
@@ -9791,45 +12258,7 @@ namespace Microsoft.AspNetCore.Components.Web
 			[CompilerGenerated]
 			set
 			{
-			}
-		}
-
-		public bool MetaKey
-		{
-			[CompilerGenerated]
-			get
-			{
 				throw null;
-			}
-			[CompilerGenerated]
-			set
-			{
-			}
-		}
-
-		public bool ShiftKey
-		{
-			[CompilerGenerated]
-			get
-			{
-				throw null;
-			}
-			[CompilerGenerated]
-			set
-			{
-			}
-		}
-
-		public TouchPoint[] TargetTouches
-		{
-			[CompilerGenerated]
-			get
-			{
-				throw null;
-			}
-			[CompilerGenerated]
-			set
-			{
 			}
 		}
 
@@ -9843,6 +12272,91 @@ namespace Microsoft.AspNetCore.Components.Web
 			[CompilerGenerated]
 			set
 			{
+				throw null;
+			}
+		}
+
+		public TouchPoint[] TargetTouches
+		{
+			[CompilerGenerated]
+			get
+			{
+				throw null;
+			}
+			[CompilerGenerated]
+			set
+			{
+				throw null;
+			}
+		}
+
+		public TouchPoint[] ChangedTouches
+		{
+			[CompilerGenerated]
+			get
+			{
+				throw null;
+			}
+			[CompilerGenerated]
+			set
+			{
+				throw null;
+			}
+		}
+
+		public bool CtrlKey
+		{
+			[CompilerGenerated]
+			get
+			{
+				throw null;
+			}
+			[CompilerGenerated]
+			set
+			{
+				throw null;
+			}
+		}
+
+		public bool ShiftKey
+		{
+			[CompilerGenerated]
+			get
+			{
+				throw null;
+			}
+			[CompilerGenerated]
+			set
+			{
+				throw null;
+			}
+		}
+
+		public bool AltKey
+		{
+			[CompilerGenerated]
+			get
+			{
+				throw null;
+			}
+			[CompilerGenerated]
+			set
+			{
+				throw null;
+			}
+		}
+
+		public bool MetaKey
+		{
+			[CompilerGenerated]
+			get
+			{
+				throw null;
+			}
+			[CompilerGenerated]
+			set
+			{
+				throw null;
 			}
 		}
 
@@ -9856,7 +12370,13 @@ namespace Microsoft.AspNetCore.Components.Web
 			[CompilerGenerated]
 			set
 			{
+				throw null;
 			}
+		}
+
+		public TouchEventArgs()
+		{
+			throw null;
 		}
 	}
 }
@@ -9869,32 +12389,6 @@ namespace Microsoft.AspNetCore.Components.Web
 {
 	public class TouchPoint
 	{
-		public double ClientX
-		{
-			[CompilerGenerated]
-			get
-			{
-				throw null;
-			}
-			[CompilerGenerated]
-			set
-			{
-			}
-		}
-
-		public double ClientY
-		{
-			[CompilerGenerated]
-			get
-			{
-				throw null;
-			}
-			[CompilerGenerated]
-			set
-			{
-			}
-		}
-
 		public long Identifier
 		{
 			[CompilerGenerated]
@@ -9905,32 +12399,7 @@ namespace Microsoft.AspNetCore.Components.Web
 			[CompilerGenerated]
 			set
 			{
-			}
-		}
-
-		public double PageX
-		{
-			[CompilerGenerated]
-			get
-			{
 				throw null;
-			}
-			[CompilerGenerated]
-			set
-			{
-			}
-		}
-
-		public double PageY
-		{
-			[CompilerGenerated]
-			get
-			{
-				throw null;
-			}
-			[CompilerGenerated]
-			set
-			{
 			}
 		}
 
@@ -9944,6 +12413,7 @@ namespace Microsoft.AspNetCore.Components.Web
 			[CompilerGenerated]
 			set
 			{
+				throw null;
 			}
 		}
 
@@ -9957,7 +12427,69 @@ namespace Microsoft.AspNetCore.Components.Web
 			[CompilerGenerated]
 			set
 			{
+				throw null;
 			}
+		}
+
+		public double ClientX
+		{
+			[CompilerGenerated]
+			get
+			{
+				throw null;
+			}
+			[CompilerGenerated]
+			set
+			{
+				throw null;
+			}
+		}
+
+		public double ClientY
+		{
+			[CompilerGenerated]
+			get
+			{
+				throw null;
+			}
+			[CompilerGenerated]
+			set
+			{
+				throw null;
+			}
+		}
+
+		public double PageX
+		{
+			[CompilerGenerated]
+			get
+			{
+				throw null;
+			}
+			[CompilerGenerated]
+			set
+			{
+				throw null;
+			}
+		}
+
+		public double PageY
+		{
+			[CompilerGenerated]
+			get
+			{
+				throw null;
+			}
+			[CompilerGenerated]
+			set
+			{
+				throw null;
+			}
+		}
+
+		public TouchPoint()
+		{
+			throw null;
 		}
 	}
 }
@@ -9976,52 +12508,12 @@ namespace Microsoft.AspNetCore.Components.Web
 			throw null;
 		}
 
-		public static EventCallback<DragEventArgs> Create(this EventCallbackFactory factory, object receiver, Action<DragEventArgs> callback)
-		{
-			throw null;
-		}
-
-		public static EventCallback<ErrorEventArgs> Create(this EventCallbackFactory factory, object receiver, Action<ErrorEventArgs> callback)
-		{
-			throw null;
-		}
-
-		public static EventCallback<FocusEventArgs> Create(this EventCallbackFactory factory, object receiver, Action<FocusEventArgs> callback)
-		{
-			throw null;
-		}
-
-		public static EventCallback<KeyboardEventArgs> Create(this EventCallbackFactory factory, object receiver, Action<KeyboardEventArgs> callback)
-		{
-			throw null;
-		}
-
-		public static EventCallback<MouseEventArgs> Create(this EventCallbackFactory factory, object receiver, Action<MouseEventArgs> callback)
-		{
-			throw null;
-		}
-
-		public static EventCallback<PointerEventArgs> Create(this EventCallbackFactory factory, object receiver, Action<PointerEventArgs> callback)
-		{
-			throw null;
-		}
-
-		public static EventCallback<ProgressEventArgs> Create(this EventCallbackFactory factory, object receiver, Action<ProgressEventArgs> callback)
-		{
-			throw null;
-		}
-
-		public static EventCallback<TouchEventArgs> Create(this EventCallbackFactory factory, object receiver, Action<TouchEventArgs> callback)
-		{
-			throw null;
-		}
-
-		public static EventCallback<WheelEventArgs> Create(this EventCallbackFactory factory, object receiver, Action<WheelEventArgs> callback)
-		{
-			throw null;
-		}
-
 		public static EventCallback<ClipboardEventArgs> Create(this EventCallbackFactory factory, object receiver, Func<ClipboardEventArgs, Task> callback)
+		{
+			throw null;
+		}
+
+		public static EventCallback<DragEventArgs> Create(this EventCallbackFactory factory, object receiver, Action<DragEventArgs> callback)
 		{
 			throw null;
 		}
@@ -10031,7 +12523,17 @@ namespace Microsoft.AspNetCore.Components.Web
 			throw null;
 		}
 
+		public static EventCallback<ErrorEventArgs> Create(this EventCallbackFactory factory, object receiver, Action<ErrorEventArgs> callback)
+		{
+			throw null;
+		}
+
 		public static EventCallback<ErrorEventArgs> Create(this EventCallbackFactory factory, object receiver, Func<ErrorEventArgs, Task> callback)
+		{
+			throw null;
+		}
+
+		public static EventCallback<FocusEventArgs> Create(this EventCallbackFactory factory, object receiver, Action<FocusEventArgs> callback)
 		{
 			throw null;
 		}
@@ -10041,7 +12543,17 @@ namespace Microsoft.AspNetCore.Components.Web
 			throw null;
 		}
 
+		public static EventCallback<KeyboardEventArgs> Create(this EventCallbackFactory factory, object receiver, Action<KeyboardEventArgs> callback)
+		{
+			throw null;
+		}
+
 		public static EventCallback<KeyboardEventArgs> Create(this EventCallbackFactory factory, object receiver, Func<KeyboardEventArgs, Task> callback)
+		{
+			throw null;
+		}
+
+		public static EventCallback<MouseEventArgs> Create(this EventCallbackFactory factory, object receiver, Action<MouseEventArgs> callback)
 		{
 			throw null;
 		}
@@ -10051,7 +12563,17 @@ namespace Microsoft.AspNetCore.Components.Web
 			throw null;
 		}
 
+		public static EventCallback<PointerEventArgs> Create(this EventCallbackFactory factory, object receiver, Action<PointerEventArgs> callback)
+		{
+			throw null;
+		}
+
 		public static EventCallback<PointerEventArgs> Create(this EventCallbackFactory factory, object receiver, Func<PointerEventArgs, Task> callback)
+		{
+			throw null;
+		}
+
+		public static EventCallback<ProgressEventArgs> Create(this EventCallbackFactory factory, object receiver, Action<ProgressEventArgs> callback)
 		{
 			throw null;
 		}
@@ -10061,7 +12583,17 @@ namespace Microsoft.AspNetCore.Components.Web
 			throw null;
 		}
 
+		public static EventCallback<TouchEventArgs> Create(this EventCallbackFactory factory, object receiver, Action<TouchEventArgs> callback)
+		{
+			throw null;
+		}
+
 		public static EventCallback<TouchEventArgs> Create(this EventCallbackFactory factory, object receiver, Func<TouchEventArgs, Task> callback)
+		{
+			throw null;
+		}
+
+		public static EventCallback<WheelEventArgs> Create(this EventCallbackFactory factory, object receiver, Action<WheelEventArgs> callback)
 		{
 			throw null;
 		}
@@ -10083,10 +12615,12 @@ namespace Microsoft.AspNetCore.Components.Web
 	{
 		public static void AddEventPreventDefaultAttribute(this RenderTreeBuilder builder, int sequence, string eventName, bool value)
 		{
+			throw null;
 		}
 
 		public static void AddEventStopPropagationAttribute(this RenderTreeBuilder builder, int sequence, string eventName, bool value)
 		{
+			throw null;
 		}
 	}
 }
@@ -10099,19 +12633,6 @@ namespace Microsoft.AspNetCore.Components.Web
 {
 	public class WheelEventArgs : MouseEventArgs
 	{
-		public long DeltaMode
-		{
-			[CompilerGenerated]
-			get
-			{
-				throw null;
-			}
-			[CompilerGenerated]
-			set
-			{
-			}
-		}
-
 		public double DeltaX
 		{
 			[CompilerGenerated]
@@ -10122,6 +12643,7 @@ namespace Microsoft.AspNetCore.Components.Web
 			[CompilerGenerated]
 			set
 			{
+				throw null;
 			}
 		}
 
@@ -10135,6 +12657,7 @@ namespace Microsoft.AspNetCore.Components.Web
 			[CompilerGenerated]
 			set
 			{
+				throw null;
 			}
 		}
 
@@ -10148,7 +12671,295 @@ namespace Microsoft.AspNetCore.Components.Web
 			[CompilerGenerated]
 			set
 			{
+				throw null;
 			}
+		}
+
+		public long DeltaMode
+		{
+			[CompilerGenerated]
+			get
+			{
+				throw null;
+			}
+			[CompilerGenerated]
+			set
+			{
+				throw null;
+			}
+		}
+
+		public WheelEventArgs()
+		{
+			throw null;
+		}
+	}
+}
+
+
+// Microsoft.AspNetCore.Components.Web\Microsoft.AspNetCore.Components.Web.Virtualization\ItemsProviderDelegate.cs
+using System.Threading.Tasks;
+
+namespace Microsoft.AspNetCore.Components.Web.Virtualization
+{
+	public delegate ValueTask<ItemsProviderResult<TItem>> ItemsProviderDelegate<TItem>(ItemsProviderRequest request);
+}
+
+
+// Microsoft.AspNetCore.Components.Web\Microsoft.AspNetCore.Components.Web.Virtualization\ItemsProviderRequest.cs
+using System.Runtime.CompilerServices;
+using System.Threading;
+
+namespace Microsoft.AspNetCore.Components.Web.Virtualization
+{
+	public readonly struct ItemsProviderRequest
+	{
+		public int StartIndex
+		{
+			[CompilerGenerated]
+			get
+			{
+				throw null;
+			}
+		}
+
+		public int Count
+		{
+			[CompilerGenerated]
+			get
+			{
+				throw null;
+			}
+		}
+
+		public CancellationToken CancellationToken
+		{
+			[CompilerGenerated]
+			get
+			{
+				throw null;
+			}
+		}
+
+		public ItemsProviderRequest(int startIndex, int count, CancellationToken cancellationToken)
+		{
+			throw null;
+		}
+	}
+}
+
+
+// Microsoft.AspNetCore.Components.Web\Microsoft.AspNetCore.Components.Web.Virtualization\ItemsProviderResult.cs
+using System.Collections.Generic;
+using System.Runtime.CompilerServices;
+
+namespace Microsoft.AspNetCore.Components.Web.Virtualization
+{
+	public readonly struct ItemsProviderResult<TItem>
+	{
+		public IEnumerable<TItem> Items
+		{
+			[CompilerGenerated]
+			get
+			{
+				throw null;
+			}
+		}
+
+		public int TotalItemCount
+		{
+			[CompilerGenerated]
+			get
+			{
+				throw null;
+			}
+		}
+
+		public ItemsProviderResult(IEnumerable<TItem> items, int totalItemCount)
+		{
+			throw null;
+		}
+	}
+}
+
+
+// Microsoft.AspNetCore.Components.Web\Microsoft.AspNetCore.Components.Web.Virtualization\IVirtualizeJsCallbacks.cs
+namespace Microsoft.AspNetCore.Components.Web.Virtualization
+{
+	internal interface IVirtualizeJsCallbacks
+	{
+		void OnBeforeSpacerVisible(float spacerSize, float containerSize);
+
+		void OnAfterSpacerVisible(float spacerSize, float containerSize);
+	}
+}
+
+
+// Microsoft.AspNetCore.Components.Web\Microsoft.AspNetCore.Components.Web.Virtualization\PlaceholderContext.cs
+using System.Runtime.CompilerServices;
+
+namespace Microsoft.AspNetCore.Components.Web.Virtualization
+{
+	public readonly struct PlaceholderContext
+	{
+		public int Index
+		{
+			[CompilerGenerated]
+			get
+			{
+				throw null;
+			}
+		}
+
+		public PlaceholderContext(int index)
+		{
+			throw null;
+		}
+	}
+}
+
+
+// Microsoft.AspNetCore.Components.Web\Microsoft.AspNetCore.Components.Web.Virtualization\Virtualize.cs
+using Microsoft.AspNetCore.Components.Rendering;
+using System;
+using System.Collections.Generic;
+using System.Diagnostics;
+using System.Runtime.CompilerServices;
+using System.Threading.Tasks;
+
+namespace Microsoft.AspNetCore.Components.Web.Virtualization
+{
+	public sealed class Virtualize<TItem> : ComponentBase, IVirtualizeJsCallbacks, IAsyncDisposable
+	{
+		[Parameter]
+		public RenderFragment<TItem>? ChildContent
+		{
+			[CompilerGenerated]
+			get
+			{
+				throw null;
+			}
+			[CompilerGenerated]
+			set
+			{
+				throw null;
+			}
+		}
+
+		[Parameter]
+		public RenderFragment<TItem>? ItemContent
+		{
+			[CompilerGenerated]
+			get
+			{
+				throw null;
+			}
+			[CompilerGenerated]
+			set
+			{
+				throw null;
+			}
+		}
+
+		[Parameter]
+		public RenderFragment<PlaceholderContext>? Placeholder
+		{
+			[System.Runtime.CompilerServices.NullableContext(2)]
+			[CompilerGenerated]
+			get
+			{
+				throw null;
+			}
+			[System.Runtime.CompilerServices.NullableContext(2)]
+			[CompilerGenerated]
+			set
+			{
+				throw null;
+			}
+		}
+
+		[Parameter]
+		public float ItemSize
+		{
+			[CompilerGenerated]
+			get
+			{
+				throw null;
+			}
+			[CompilerGenerated]
+			set
+			{
+				throw null;
+			}
+		}
+
+		[Parameter]
+		public ItemsProviderDelegate<TItem>? ItemsProvider
+		{
+			[CompilerGenerated]
+			get
+			{
+				throw null;
+			}
+			[CompilerGenerated]
+			set
+			{
+				throw null;
+			}
+		}
+
+		[Parameter]
+		public ICollection<TItem>? Items
+		{
+			[CompilerGenerated]
+			get
+			{
+				throw null;
+			}
+			[CompilerGenerated]
+			set
+			{
+				throw null;
+			}
+		}
+
+		protected override void OnParametersSet()
+		{
+			throw null;
+		}
+
+		[AsyncStateMachine(typeof(Virtualize<>._003COnAfterRenderAsync_003Ed__42))]
+		[DebuggerStepThrough]
+		protected override Task OnAfterRenderAsync(bool firstRender)
+		{
+			throw null;
+		}
+
+		protected override void BuildRenderTree(RenderTreeBuilder builder)
+		{
+			throw null;
+		}
+
+		void IVirtualizeJsCallbacks.OnBeforeSpacerVisible(float spacerSize, float containerSize)
+		{
+			throw null;
+		}
+
+		void IVirtualizeJsCallbacks.OnAfterSpacerVisible(float spacerSize, float containerSize)
+		{
+			throw null;
+		}
+
+		[AsyncStateMachine(typeof(Virtualize<>._003CDisposeAsync_003Ed__52))]
+		[DebuggerStepThrough]
+		public ValueTask DisposeAsync()
+		{
+			throw null;
+		}
+
+		public Virtualize()
+		{
+			throw null;
 		}
 	}
 }
@@ -10163,10 +12974,104 @@ namespace Microsoft.AspNetCore.Connections
 	{
 		public AddressInUseException(string message)
 		{
+			throw null;
 		}
 
 		public AddressInUseException(string message, Exception inner)
 		{
+			throw null;
+		}
+	}
+}
+
+
+// Microsoft.AspNetCore.Connections.Abstractions\Microsoft.AspNetCore.Connections\BaseConnectionContext.cs
+using Microsoft.AspNetCore.Http.Features;
+using System;
+using System.Collections.Generic;
+using System.Net;
+using System.Runtime.CompilerServices;
+using System.Threading;
+using System.Threading.Tasks;
+
+namespace Microsoft.AspNetCore.Connections
+{
+	public abstract class BaseConnectionContext : IAsyncDisposable
+	{
+		public abstract string ConnectionId
+		{
+			[System.Runtime.CompilerServices.NullableContext(1)]
+			get;
+			[System.Runtime.CompilerServices.NullableContext(1)]
+			set;
+		}
+
+		public abstract IFeatureCollection Features
+		{
+			[System.Runtime.CompilerServices.NullableContext(1)]
+			get;
+		}
+
+		public abstract IDictionary<object, object?> Items
+		{
+			get;
+			set;
+		}
+
+		public virtual CancellationToken ConnectionClosed
+		{
+			[CompilerGenerated]
+			get
+			{
+				throw null;
+			}
+			[CompilerGenerated]
+			set
+			{
+				throw null;
+			}
+		}
+
+		public virtual EndPoint? LocalEndPoint
+		{
+			[CompilerGenerated]
+			get
+			{
+				throw null;
+			}
+			[CompilerGenerated]
+			set
+			{
+				throw null;
+			}
+		}
+
+		public virtual EndPoint? RemoteEndPoint
+		{
+			[CompilerGenerated]
+			get
+			{
+				throw null;
+			}
+			[CompilerGenerated]
+			set
+			{
+				throw null;
+			}
+		}
+
+		public abstract void Abort();
+
+		public abstract void Abort(ConnectionAbortedException abortReason);
+
+		public virtual ValueTask DisposeAsync()
+		{
+			throw null;
+		}
+
+		protected BaseConnectionContext()
+		{
+			throw null;
 		}
 	}
 }
@@ -10181,14 +13086,17 @@ namespace Microsoft.AspNetCore.Connections
 	{
 		public ConnectionAbortedException()
 		{
+			throw null;
 		}
 
 		public ConnectionAbortedException(string message)
 		{
+			throw null;
 		}
 
 		public ConnectionAbortedException(string message, Exception inner)
 		{
+			throw null;
 		}
 	}
 }
@@ -10213,14 +13121,15 @@ namespace Microsoft.AspNetCore.Connections
 
 		public ConnectionBuilder(IServiceProvider applicationServices)
 		{
-		}
-
-		public ConnectionDelegate Build()
-		{
 			throw null;
 		}
 
 		public IConnectionBuilder Use(Func<ConnectionDelegate, ConnectionDelegate> middleware)
+		{
+			throw null;
+		}
+
+		public ConnectionDelegate Build()
 		{
 			throw null;
 		}
@@ -10230,13 +13139,14 @@ namespace Microsoft.AspNetCore.Connections
 
 // Microsoft.AspNetCore.Connections.Abstractions\Microsoft.AspNetCore.Connections\ConnectionBuilderExtensions.cs
 using System;
+using System.Diagnostics.CodeAnalysis;
 using System.Threading.Tasks;
 
 namespace Microsoft.AspNetCore.Connections
 {
 	public static class ConnectionBuilderExtensions
 	{
-		public static IConnectionBuilder Run(this IConnectionBuilder connectionBuilder, Func<ConnectionContext, Task> middleware)
+		public static IConnectionBuilder UseConnectionHandler<[DynamicallyAccessedMembers(DynamicallyAccessedMemberTypes.PublicConstructors)] TConnectionHandler>(this IConnectionBuilder connectionBuilder) where TConnectionHandler : ConnectionHandler
 		{
 			throw null;
 		}
@@ -10246,7 +13156,7 @@ namespace Microsoft.AspNetCore.Connections
 			throw null;
 		}
 
-		public static IConnectionBuilder UseConnectionHandler<TConnectionHandler>(this IConnectionBuilder connectionBuilder) where TConnectionHandler : ConnectionHandler
+		public static IConnectionBuilder Run(this IConnectionBuilder connectionBuilder, Func<ConnectionContext, Task> middleware)
 		{
 			throw null;
 		}
@@ -10255,90 +13165,30 @@ namespace Microsoft.AspNetCore.Connections
 
 
 // Microsoft.AspNetCore.Connections.Abstractions\Microsoft.AspNetCore.Connections\ConnectionContext.cs
-using Microsoft.AspNetCore.Http.Features;
 using System;
-using System.Collections.Generic;
 using System.IO.Pipelines;
-using System.Net;
-using System.Runtime.CompilerServices;
-using System.Threading;
-using System.Threading.Tasks;
 
 namespace Microsoft.AspNetCore.Connections
 {
-	public abstract class ConnectionContext : IAsyncDisposable
+	public abstract class ConnectionContext : BaseConnectionContext, IAsyncDisposable
 	{
-		public virtual CancellationToken ConnectionClosed
-		{
-			[CompilerGenerated]
-			get
-			{
-				throw null;
-			}
-			[CompilerGenerated]
-			set
-			{
-			}
-		}
-
-		public abstract string ConnectionId
-		{
-			get;
-			set;
-		}
-
-		public abstract IFeatureCollection Features
-		{
-			get;
-		}
-
-		public abstract IDictionary<object, object> Items
-		{
-			get;
-			set;
-		}
-
-		public virtual EndPoint LocalEndPoint
-		{
-			[CompilerGenerated]
-			get
-			{
-				throw null;
-			}
-			[CompilerGenerated]
-			set
-			{
-			}
-		}
-
-		public virtual EndPoint RemoteEndPoint
-		{
-			[CompilerGenerated]
-			get
-			{
-				throw null;
-			}
-			[CompilerGenerated]
-			set
-			{
-			}
-		}
-
 		public abstract IDuplexPipe Transport
 		{
 			get;
 			set;
 		}
 
-		public virtual void Abort()
+		public override void Abort(ConnectionAbortedException abortReason)
 		{
+			throw null;
 		}
 
-		public virtual void Abort(ConnectionAbortedException abortReason)
+		public override void Abort()
 		{
+			throw null;
 		}
 
-		public virtual ValueTask DisposeAsync()
+		protected ConnectionContext()
 		{
 			throw null;
 		}
@@ -10363,6 +13213,11 @@ namespace Microsoft.AspNetCore.Connections
 	public abstract class ConnectionHandler
 	{
 		public abstract Task OnConnectedAsync(ConnectionContext connection);
+
+		protected ConnectionHandler()
+		{
+			throw null;
+		}
 	}
 }
 
@@ -10374,11 +13229,39 @@ using System.Runtime.CompilerServices;
 
 namespace Microsoft.AspNetCore.Connections
 {
-	public class ConnectionItems : ICollection<KeyValuePair<object, object>>, IEnumerable<KeyValuePair<object, object>>, IEnumerable, IDictionary<object, object>
+	public class ConnectionItems : IDictionary<object, object?>, ICollection<KeyValuePair<object, object?>>, IEnumerable<KeyValuePair<object, object?>>, IEnumerable
 	{
-		public IDictionary<object, object> Items
+		public IDictionary<object, object?> Items
 		{
 			[CompilerGenerated]
+			get
+			{
+				throw null;
+			}
+		}
+
+		object? IDictionary<object, object>.this[object key]
+		{
+			get
+			{
+				throw null;
+			}
+			set
+			{
+				throw null;
+			}
+		}
+
+		ICollection<object> IDictionary<object, object>.Keys
+		{
+			get
+			{
+				throw null;
+			}
+		}
+
+		ICollection<object?> IDictionary<object, object>.Values
+		{
 			get
 			{
 				throw null;
@@ -10401,65 +13284,19 @@ namespace Microsoft.AspNetCore.Connections
 			}
 		}
 
-		object IDictionary<object, object>.this[object key]
-		{
-			get
-			{
-				throw null;
-			}
-			set
-			{
-			}
-		}
-
-		ICollection<object> IDictionary<object, object>.Keys
-		{
-			get
-			{
-				throw null;
-			}
-		}
-
-		ICollection<object> IDictionary<object, object>.Values
-		{
-			get
-			{
-				throw null;
-			}
-		}
-
 		public ConnectionItems()
 		{
+			throw null;
 		}
 
-		public ConnectionItems(IDictionary<object, object> items)
-		{
-		}
-
-		void ICollection<KeyValuePair<object, object>>.Add(KeyValuePair<object, object> item)
-		{
-		}
-
-		void ICollection<KeyValuePair<object, object>>.Clear()
-		{
-		}
-
-		bool ICollection<KeyValuePair<object, object>>.Contains(KeyValuePair<object, object> item)
+		public ConnectionItems(IDictionary<object, object?> items)
 		{
 			throw null;
 		}
 
-		void ICollection<KeyValuePair<object, object>>.CopyTo(KeyValuePair<object, object>[] array, int arrayIndex)
-		{
-		}
-
-		bool ICollection<KeyValuePair<object, object>>.Remove(KeyValuePair<object, object> item)
+		void IDictionary<object, object>.Add(object key, object? value)
 		{
 			throw null;
-		}
-
-		void IDictionary<object, object>.Add(object key, object value)
-		{
 		}
 
 		bool IDictionary<object, object>.ContainsKey(object key)
@@ -10472,12 +13309,37 @@ namespace Microsoft.AspNetCore.Connections
 			throw null;
 		}
 
-		bool IDictionary<object, object>.TryGetValue(object key, out object value)
+		bool IDictionary<object, object>.TryGetValue(object key, out object? value)
 		{
 			throw null;
 		}
 
-		IEnumerator<KeyValuePair<object, object>> IEnumerable<KeyValuePair<object, object>>.GetEnumerator()
+		void ICollection<KeyValuePair<object, object>>.Add(KeyValuePair<object, object?> item)
+		{
+			throw null;
+		}
+
+		void ICollection<KeyValuePair<object, object>>.Clear()
+		{
+			throw null;
+		}
+
+		bool ICollection<KeyValuePair<object, object>>.Contains(KeyValuePair<object, object?> item)
+		{
+			throw null;
+		}
+
+		void ICollection<KeyValuePair<object, object>>.CopyTo(KeyValuePair<object, object?>[] array, int arrayIndex)
+		{
+			throw null;
+		}
+
+		bool ICollection<KeyValuePair<object, object>>.Remove(KeyValuePair<object, object?> item)
+		{
+			throw null;
+		}
+
+		IEnumerator<KeyValuePair<object, object?>> IEnumerable<KeyValuePair<object, object>>.GetEnumerator()
 		{
 			throw null;
 		}
@@ -10500,10 +13362,12 @@ namespace Microsoft.AspNetCore.Connections
 	{
 		public ConnectionResetException(string message)
 		{
+			throw null;
 		}
 
 		public ConnectionResetException(string message, Exception inner)
 		{
+			throw null;
 		}
 	}
 }
@@ -10522,9 +13386,35 @@ using System.Threading.Tasks;
 
 namespace Microsoft.AspNetCore.Connections
 {
-	public class DefaultConnectionContext : ConnectionContext, IConnectionEndPointFeature, IConnectionIdFeature, IConnectionItemsFeature, IConnectionLifetimeFeature, IConnectionTransportFeature, IConnectionUserFeature
+	public class DefaultConnectionContext : ConnectionContext, IConnectionIdFeature, IConnectionItemsFeature, IConnectionTransportFeature, IConnectionUserFeature, IConnectionLifetimeFeature, IConnectionEndPointFeature
 	{
-		public IDuplexPipe Application
+		public override string ConnectionId
+		{
+			[System.Runtime.CompilerServices.NullableContext(1)]
+			[CompilerGenerated]
+			get
+			{
+				throw null;
+			}
+			[System.Runtime.CompilerServices.NullableContext(1)]
+			[CompilerGenerated]
+			set
+			{
+				throw null;
+			}
+		}
+
+		public override IFeatureCollection Features
+		{
+			[System.Runtime.CompilerServices.NullableContext(1)]
+			[CompilerGenerated]
+			get
+			{
+				throw null;
+			}
+		}
+
+		public ClaimsPrincipal? User
 		{
 			[CompilerGenerated]
 			get
@@ -10534,6 +13424,51 @@ namespace Microsoft.AspNetCore.Connections
 			[CompilerGenerated]
 			set
 			{
+				throw null;
+			}
+		}
+
+		public override IDictionary<object, object?> Items
+		{
+			[CompilerGenerated]
+			get
+			{
+				throw null;
+			}
+			[CompilerGenerated]
+			set
+			{
+				throw null;
+			}
+		}
+
+		public IDuplexPipe? Application
+		{
+			[CompilerGenerated]
+			get
+			{
+				throw null;
+			}
+			[CompilerGenerated]
+			set
+			{
+				throw null;
+			}
+		}
+
+		public override IDuplexPipe Transport
+		{
+			[System.Runtime.CompilerServices.NullableContext(1)]
+			[CompilerGenerated]
+			get
+			{
+				throw null;
+			}
+			[System.Runtime.CompilerServices.NullableContext(1)]
+			[CompilerGenerated]
+			set
+			{
+				throw null;
 			}
 		}
 
@@ -10547,10 +13482,11 @@ namespace Microsoft.AspNetCore.Connections
 			[CompilerGenerated]
 			set
 			{
+				throw null;
 			}
 		}
 
-		public override string ConnectionId
+		public override EndPoint? LocalEndPoint
 		{
 			[CompilerGenerated]
 			get
@@ -10560,19 +13496,11 @@ namespace Microsoft.AspNetCore.Connections
 			[CompilerGenerated]
 			set
 			{
-			}
-		}
-
-		public override IFeatureCollection Features
-		{
-			[CompilerGenerated]
-			get
-			{
 				throw null;
 			}
 		}
 
-		public override IDictionary<object, object> Items
+		public override EndPoint? RemoteEndPoint
 		{
 			[CompilerGenerated]
 			get
@@ -10582,75 +13510,30 @@ namespace Microsoft.AspNetCore.Connections
 			[CompilerGenerated]
 			set
 			{
-			}
-		}
-
-		public override EndPoint LocalEndPoint
-		{
-			[CompilerGenerated]
-			get
-			{
 				throw null;
-			}
-			[CompilerGenerated]
-			set
-			{
-			}
-		}
-
-		public override EndPoint RemoteEndPoint
-		{
-			[CompilerGenerated]
-			get
-			{
-				throw null;
-			}
-			[CompilerGenerated]
-			set
-			{
-			}
-		}
-
-		public override IDuplexPipe Transport
-		{
-			[CompilerGenerated]
-			get
-			{
-				throw null;
-			}
-			[CompilerGenerated]
-			set
-			{
-			}
-		}
-
-		public ClaimsPrincipal User
-		{
-			[CompilerGenerated]
-			get
-			{
-				throw null;
-			}
-			[CompilerGenerated]
-			set
-			{
 			}
 		}
 
 		public DefaultConnectionContext()
 		{
+			throw null;
 		}
 
+		[System.Runtime.CompilerServices.NullableContext(1)]
 		public DefaultConnectionContext(string id)
 		{
+			throw null;
 		}
 
+		[System.Runtime.CompilerServices.NullableContext(1)]
 		public DefaultConnectionContext(string id, IDuplexPipe transport, IDuplexPipe application)
 		{
+			throw null;
 		}
 
 		public override void Abort(ConnectionAbortedException abortReason)
 		{
+			throw null;
 		}
 
 		public override ValueTask DisposeAsync()
@@ -10689,6 +13572,7 @@ namespace Microsoft.AspNetCore.Connections
 
 		public FileHandleEndPoint(ulong fileHandle, FileHandleType fileHandleType)
 		{
+			throw null;
 		}
 	}
 }
@@ -10718,9 +13602,9 @@ namespace Microsoft.AspNetCore.Connections
 			get;
 		}
 
-		ConnectionDelegate Build();
-
 		IConnectionBuilder Use(Func<ConnectionDelegate, ConnectionDelegate> middleware);
+
+		ConnectionDelegate Build();
 	}
 }
 
@@ -10775,6 +13659,144 @@ namespace Microsoft.AspNetCore.Connections
 }
 
 
+// Microsoft.AspNetCore.Connections.Abstractions\Microsoft.AspNetCore.Connections\IMultiplexedConnectionBuilder.cs
+using System;
+
+namespace Microsoft.AspNetCore.Connections
+{
+	public interface IMultiplexedConnectionBuilder
+	{
+		IServiceProvider ApplicationServices
+		{
+			get;
+		}
+
+		IMultiplexedConnectionBuilder Use(Func<MultiplexedConnectionDelegate, MultiplexedConnectionDelegate> middleware);
+
+		MultiplexedConnectionDelegate Build();
+	}
+}
+
+
+// Microsoft.AspNetCore.Connections.Abstractions\Microsoft.AspNetCore.Connections\IMultiplexedConnectionFactory.cs
+using Microsoft.AspNetCore.Http.Features;
+using System.Net;
+using System.Threading;
+using System.Threading.Tasks;
+
+namespace Microsoft.AspNetCore.Connections
+{
+	public interface IMultiplexedConnectionFactory
+	{
+		ValueTask<MultiplexedConnectionContext> ConnectAsync(EndPoint endpoint, IFeatureCollection? features = null, CancellationToken cancellationToken = default(CancellationToken));
+	}
+}
+
+
+// Microsoft.AspNetCore.Connections.Abstractions\Microsoft.AspNetCore.Connections\IMultiplexedConnectionListener.cs
+using Microsoft.AspNetCore.Http.Features;
+using System;
+using System.Net;
+using System.Threading;
+using System.Threading.Tasks;
+
+namespace Microsoft.AspNetCore.Connections
+{
+	public interface IMultiplexedConnectionListener : IAsyncDisposable
+	{
+		EndPoint EndPoint
+		{
+			get;
+		}
+
+		ValueTask UnbindAsync(CancellationToken cancellationToken = default(CancellationToken));
+
+		ValueTask<MultiplexedConnectionContext> AcceptAsync(IFeatureCollection? features = null, CancellationToken cancellationToken = default(CancellationToken));
+	}
+}
+
+
+// Microsoft.AspNetCore.Connections.Abstractions\Microsoft.AspNetCore.Connections\IMultiplexedConnectionListenerFactory.cs
+using Microsoft.AspNetCore.Http.Features;
+using System.Net;
+using System.Threading;
+using System.Threading.Tasks;
+
+namespace Microsoft.AspNetCore.Connections
+{
+	public interface IMultiplexedConnectionListenerFactory
+	{
+		ValueTask<IMultiplexedConnectionListener> BindAsync(EndPoint endpoint, IFeatureCollection? features = null, CancellationToken cancellationToken = default(CancellationToken));
+	}
+}
+
+
+// Microsoft.AspNetCore.Connections.Abstractions\Microsoft.AspNetCore.Connections\MultiplexedConnectionBuilder.cs
+using System;
+using System.Runtime.CompilerServices;
+
+namespace Microsoft.AspNetCore.Connections
+{
+	public class MultiplexedConnectionBuilder : IMultiplexedConnectionBuilder
+	{
+		public IServiceProvider ApplicationServices
+		{
+			[CompilerGenerated]
+			get
+			{
+				throw null;
+			}
+		}
+
+		public MultiplexedConnectionBuilder(IServiceProvider applicationServices)
+		{
+			throw null;
+		}
+
+		public IMultiplexedConnectionBuilder Use(Func<MultiplexedConnectionDelegate, MultiplexedConnectionDelegate> middleware)
+		{
+			throw null;
+		}
+
+		public MultiplexedConnectionDelegate Build()
+		{
+			throw null;
+		}
+	}
+}
+
+
+// Microsoft.AspNetCore.Connections.Abstractions\Microsoft.AspNetCore.Connections\MultiplexedConnectionContext.cs
+using Microsoft.AspNetCore.Http.Features;
+using System;
+using System.Threading;
+using System.Threading.Tasks;
+
+namespace Microsoft.AspNetCore.Connections
+{
+	public abstract class MultiplexedConnectionContext : BaseConnectionContext, IAsyncDisposable
+	{
+		public abstract ValueTask<ConnectionContext> AcceptAsync(CancellationToken cancellationToken = default(CancellationToken));
+
+		public abstract ValueTask<ConnectionContext> ConnectAsync(IFeatureCollection? features = null, CancellationToken cancellationToken = default(CancellationToken));
+
+		protected MultiplexedConnectionContext()
+		{
+			throw null;
+		}
+	}
+}
+
+
+// Microsoft.AspNetCore.Connections.Abstractions\Microsoft.AspNetCore.Connections\MultiplexedConnectionDelegate.cs
+using System.Threading.Tasks;
+
+namespace Microsoft.AspNetCore.Connections
+{
+	public delegate Task MultiplexedConnectionDelegate(MultiplexedConnectionContext connection);
+}
+
+
 // Microsoft.AspNetCore.Connections.Abstractions\Microsoft.AspNetCore.Connections\TransferFormat.cs
 using System;
 
@@ -10809,6 +13831,12 @@ namespace Microsoft.AspNetCore.Connections
 
 		public UriEndPoint(Uri uri)
 		{
+			throw null;
+		}
+
+		public override string ToString()
+		{
+			throw null;
 		}
 	}
 }
@@ -10834,13 +13862,13 @@ namespace Microsoft.AspNetCore.Connections.Features
 {
 	public interface IConnectionEndPointFeature
 	{
-		EndPoint LocalEndPoint
+		EndPoint? LocalEndPoint
 		{
 			get;
 			set;
 		}
 
-		EndPoint RemoteEndPoint
+		EndPoint? RemoteEndPoint
 		{
 			get;
 			set;
@@ -10895,7 +13923,7 @@ namespace Microsoft.AspNetCore.Connections.Features
 {
 	public interface IConnectionItemsFeature
 	{
-		IDictionary<object, object> Items
+		IDictionary<object, object?> Items
 		{
 			get;
 			set;
@@ -10963,7 +13991,7 @@ namespace Microsoft.AspNetCore.Connections.Features
 {
 	public interface IConnectionUserFeature
 	{
-		ClaimsPrincipal User
+		ClaimsPrincipal? User
 		{
 			get;
 			set;
@@ -10987,6 +14015,51 @@ namespace Microsoft.AspNetCore.Connections.Features
 }
 
 
+// Microsoft.AspNetCore.Connections.Abstractions\Microsoft.AspNetCore.Connections.Features\IProtocolErrorCodeFeature.cs
+namespace Microsoft.AspNetCore.Connections.Features
+{
+	public interface IProtocolErrorCodeFeature
+	{
+		long Error
+		{
+			get;
+			set;
+		}
+	}
+}
+
+
+// Microsoft.AspNetCore.Connections.Abstractions\Microsoft.AspNetCore.Connections.Features\IStreamDirectionFeature.cs
+namespace Microsoft.AspNetCore.Connections.Features
+{
+	public interface IStreamDirectionFeature
+	{
+		bool CanRead
+		{
+			get;
+		}
+
+		bool CanWrite
+		{
+			get;
+		}
+	}
+}
+
+
+// Microsoft.AspNetCore.Connections.Abstractions\Microsoft.AspNetCore.Connections.Features\IStreamIdFeature.cs
+namespace Microsoft.AspNetCore.Connections.Features
+{
+	public interface IStreamIdFeature
+	{
+		long StreamId
+		{
+			get;
+		}
+	}
+}
+
+
 // Microsoft.AspNetCore.Connections.Abstractions\Microsoft.AspNetCore.Connections.Features\ITlsHandshakeFeature.cs
 using System.Security.Authentication;
 
@@ -10994,6 +14067,11 @@ namespace Microsoft.AspNetCore.Connections.Features
 {
 	public interface ITlsHandshakeFeature
 	{
+		SslProtocols Protocol
+		{
+			get;
+		}
+
 		CipherAlgorithmType CipherAlgorithm
 		{
 			get;
@@ -11023,11 +14101,6 @@ namespace Microsoft.AspNetCore.Connections.Features
 		{
 			get;
 		}
-
-		SslProtocols Protocol
-		{
-			get;
-		}
 	}
 }
 
@@ -11037,15 +14110,15 @@ namespace Microsoft.AspNetCore.Connections.Features
 {
 	public interface ITransferFormatFeature
 	{
+		TransferFormat SupportedFormats
+		{
+			get;
+		}
+
 		TransferFormat ActiveFormat
 		{
 			get;
 			set;
-		}
-
-		TransferFormat SupportedFormats
-		{
-			get;
 		}
 	}
 }
@@ -11088,7 +14161,7 @@ namespace Microsoft.AspNetCore.Builder
 {
 	public class CookiePolicyOptions
 	{
-		public Func<HttpContext, bool> CheckConsentNeeded
+		public SameSiteMode MinimumSameSitePolicy
 		{
 			[CompilerGenerated]
 			get
@@ -11098,19 +14171,7 @@ namespace Microsoft.AspNetCore.Builder
 			[CompilerGenerated]
 			set
 			{
-			}
-		}
-
-		public CookieBuilder ConsentCookie
-		{
-			[CompilerGenerated]
-			get
-			{
 				throw null;
-			}
-			[CompilerGenerated]
-			set
-			{
 			}
 		}
 
@@ -11124,45 +14185,7 @@ namespace Microsoft.AspNetCore.Builder
 			[CompilerGenerated]
 			set
 			{
-			}
-		}
-
-		public SameSiteMode MinimumSameSitePolicy
-		{
-			[CompilerGenerated]
-			get
-			{
 				throw null;
-			}
-			[CompilerGenerated]
-			set
-			{
-			}
-		}
-
-		public Action<AppendCookieContext> OnAppendCookie
-		{
-			[CompilerGenerated]
-			get
-			{
-				throw null;
-			}
-			[CompilerGenerated]
-			set
-			{
-			}
-		}
-
-		public Action<DeleteCookieContext> OnDeleteCookie
-		{
-			[CompilerGenerated]
-			get
-			{
-				throw null;
-			}
-			[CompilerGenerated]
-			set
-			{
 			}
 		}
 
@@ -11176,7 +14199,69 @@ namespace Microsoft.AspNetCore.Builder
 			[CompilerGenerated]
 			set
 			{
+				throw null;
 			}
+		}
+
+		public CookieBuilder ConsentCookie
+		{
+			[CompilerGenerated]
+			get
+			{
+				throw null;
+			}
+			[CompilerGenerated]
+			set
+			{
+				throw null;
+			}
+		}
+
+		public Func<HttpContext, bool> CheckConsentNeeded
+		{
+			[CompilerGenerated]
+			get
+			{
+				throw null;
+			}
+			[CompilerGenerated]
+			set
+			{
+				throw null;
+			}
+		}
+
+		public Action<AppendCookieContext> OnAppendCookie
+		{
+			[CompilerGenerated]
+			get
+			{
+				throw null;
+			}
+			[CompilerGenerated]
+			set
+			{
+				throw null;
+			}
+		}
+
+		public Action<DeleteCookieContext> OnDeleteCookie
+		{
+			[CompilerGenerated]
+			get
+			{
+				throw null;
+			}
+			[CompilerGenerated]
+			set
+			{
+				throw null;
+			}
+		}
+
+		public CookiePolicyOptions()
+		{
+			throw null;
 		}
 	}
 }
@@ -11199,6 +14284,15 @@ namespace Microsoft.AspNetCore.CookiePolicy
 			}
 		}
 
+		public CookieOptions CookieOptions
+		{
+			[CompilerGenerated]
+			get
+			{
+				throw null;
+			}
+		}
+
 		public string CookieName
 		{
 			[CompilerGenerated]
@@ -11208,14 +14302,6 @@ namespace Microsoft.AspNetCore.CookiePolicy
 			}
 			[CompilerGenerated]
 			set
-			{
-			}
-		}
-
-		public CookieOptions CookieOptions
-		{
-			[CompilerGenerated]
-			get
 			{
 				throw null;
 			}
@@ -11231,10 +14317,11 @@ namespace Microsoft.AspNetCore.CookiePolicy
 			[CompilerGenerated]
 			set
 			{
+				throw null;
 			}
 		}
 
-		public bool HasConsent
+		public bool IsConsentNeeded
 		{
 			[CompilerGenerated]
 			get
@@ -11243,7 +14330,7 @@ namespace Microsoft.AspNetCore.CookiePolicy
 			}
 		}
 
-		public bool IsConsentNeeded
+		public bool HasConsent
 		{
 			[CompilerGenerated]
 			get
@@ -11262,11 +14349,13 @@ namespace Microsoft.AspNetCore.CookiePolicy
 			[CompilerGenerated]
 			set
 			{
+				throw null;
 			}
 		}
 
 		public AppendCookieContext(HttpContext context, CookieOptions options, string name, string value)
 		{
+			throw null;
 		}
 	}
 }
@@ -11275,6 +14364,7 @@ namespace Microsoft.AspNetCore.CookiePolicy
 // Microsoft.AspNetCore.CookiePolicy\Microsoft.AspNetCore.CookiePolicy\CookiePolicyMiddleware.cs
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Http;
+using Microsoft.AspNetCore.Http.Features;
 using Microsoft.Extensions.Logging;
 using Microsoft.Extensions.Options;
 using System.Runtime.CompilerServices;
@@ -11284,6 +14374,23 @@ namespace Microsoft.AspNetCore.CookiePolicy
 {
 	public class CookiePolicyMiddleware
 	{
+		private class CookiesWrapperFeature : IResponseCookiesFeature
+		{
+			public IResponseCookies Cookies
+			{
+				[CompilerGenerated]
+				get
+				{
+					throw null;
+				}
+			}
+
+			public CookiesWrapperFeature(ResponseCookiesWrapper wrapper)
+			{
+				throw null;
+			}
+		}
+
 		public CookiePolicyOptions Options
 		{
 			[CompilerGenerated]
@@ -11294,15 +14401,18 @@ namespace Microsoft.AspNetCore.CookiePolicy
 			[CompilerGenerated]
 			set
 			{
+				throw null;
 			}
-		}
-
-		public CookiePolicyMiddleware(RequestDelegate next, IOptions<CookiePolicyOptions> options)
-		{
 		}
 
 		public CookiePolicyMiddleware(RequestDelegate next, IOptions<CookiePolicyOptions> options, ILoggerFactory factory)
 		{
+			throw null;
+		}
+
+		public CookiePolicyMiddleware(RequestDelegate next, IOptions<CookiePolicyOptions> options)
+		{
+			throw null;
 		}
 
 		public Task Invoke(HttpContext context)
@@ -11330,6 +14440,15 @@ namespace Microsoft.AspNetCore.CookiePolicy
 			}
 		}
 
+		public CookieOptions CookieOptions
+		{
+			[CompilerGenerated]
+			get
+			{
+				throw null;
+			}
+		}
+
 		public string CookieName
 		{
 			[CompilerGenerated]
@@ -11340,10 +14459,11 @@ namespace Microsoft.AspNetCore.CookiePolicy
 			[CompilerGenerated]
 			set
 			{
+				throw null;
 			}
 		}
 
-		public CookieOptions CookieOptions
+		public bool IsConsentNeeded
 		{
 			[CompilerGenerated]
 			get
@@ -11353,15 +14473,6 @@ namespace Microsoft.AspNetCore.CookiePolicy
 		}
 
 		public bool HasConsent
-		{
-			[CompilerGenerated]
-			get
-			{
-				throw null;
-			}
-		}
-
-		public bool IsConsentNeeded
 		{
 			[CompilerGenerated]
 			get
@@ -11380,11 +14491,13 @@ namespace Microsoft.AspNetCore.CookiePolicy
 			[CompilerGenerated]
 			set
 			{
+				throw null;
 			}
 		}
 
 		public DeleteCookieContext(HttpContext context, CookieOptions options, string name)
 		{
+			throw null;
 		}
 	}
 }
@@ -11401,6 +14514,27 @@ namespace Microsoft.AspNetCore.CookiePolicy
 }
 
 
+// Microsoft.AspNetCore.CookiePolicy\Microsoft.Extensions.DependencyInjection\CookiePolicyServiceCollectionExtensions.cs
+using Microsoft.AspNetCore.Builder;
+using System;
+
+namespace Microsoft.Extensions.DependencyInjection
+{
+	public static class CookiePolicyServiceCollectionExtensions
+	{
+		public static IServiceCollection AddCookiePolicy(this IServiceCollection services, Action<CookiePolicyOptions> configureOptions)
+		{
+			throw null;
+		}
+
+		public static IServiceCollection AddCookiePolicy<TService>(this IServiceCollection services, Action<CookiePolicyOptions, TService> configureOptions) where TService : class
+		{
+			throw null;
+		}
+	}
+}
+
+
 // Microsoft.AspNetCore.Cors\Microsoft.AspNetCore.Builder\CorsEndpointConventionBuilderExtensions.cs
 using Microsoft.AspNetCore.Cors.Infrastructure;
 using System;
@@ -11409,12 +14543,12 @@ namespace Microsoft.AspNetCore.Builder
 {
 	public static class CorsEndpointConventionBuilderExtensions
 	{
-		public static TBuilder RequireCors<TBuilder>(this TBuilder builder, Action<CorsPolicyBuilder> configurePolicy) where TBuilder : IEndpointConventionBuilder
+		public static TBuilder RequireCors<TBuilder>(this TBuilder builder, string policyName) where TBuilder : IEndpointConventionBuilder
 		{
 			throw null;
 		}
 
-		public static TBuilder RequireCors<TBuilder>(this TBuilder builder, string policyName) where TBuilder : IEndpointConventionBuilder
+		public static TBuilder RequireCors<TBuilder>(this TBuilder builder, Action<CorsPolicyBuilder> configurePolicy) where TBuilder : IEndpointConventionBuilder
 		{
 			throw null;
 		}
@@ -11435,12 +14569,12 @@ namespace Microsoft.AspNetCore.Builder
 			throw null;
 		}
 
-		public static IApplicationBuilder UseCors(this IApplicationBuilder app, Action<CorsPolicyBuilder> configurePolicy)
+		public static IApplicationBuilder UseCors(this IApplicationBuilder app, string policyName)
 		{
 			throw null;
 		}
 
-		public static IApplicationBuilder UseCors(this IApplicationBuilder app, string policyName)
+		public static IApplicationBuilder UseCors(this IApplicationBuilder app, Action<CorsPolicyBuilder> configurePolicy)
 		{
 			throw null;
 		}
@@ -11454,7 +14588,7 @@ using System.Runtime.CompilerServices;
 
 namespace Microsoft.AspNetCore.Cors
 {
-	public class CorsPolicyMetadata : ICorsMetadata, ICorsPolicyMetadata
+	public class CorsPolicyMetadata : ICorsPolicyMetadata, ICorsMetadata
 	{
 		public CorsPolicy Policy
 		{
@@ -11467,6 +14601,7 @@ namespace Microsoft.AspNetCore.Cors
 
 		public CorsPolicyMetadata(CorsPolicy policy)
 		{
+			throw null;
 		}
 	}
 }
@@ -11479,8 +14614,12 @@ using System;
 namespace Microsoft.AspNetCore.Cors
 {
 	[AttributeUsage(AttributeTargets.Class | AttributeTargets.Method, AllowMultiple = false, Inherited = false)]
-	public class DisableCorsAttribute : Attribute, ICorsMetadata, IDisableCorsAttribute
+	public class DisableCorsAttribute : Attribute, IDisableCorsAttribute, ICorsMetadata
 	{
+		public DisableCorsAttribute()
+		{
+			throw null;
+		}
 	}
 }
 
@@ -11493,7 +14632,7 @@ using System.Runtime.CompilerServices;
 namespace Microsoft.AspNetCore.Cors
 {
 	[AttributeUsage(AttributeTargets.Class | AttributeTargets.Method, AllowMultiple = false, Inherited = true)]
-	public class EnableCorsAttribute : Attribute, ICorsMetadata, IEnableCorsAttribute
+	public class EnableCorsAttribute : Attribute, IEnableCorsAttribute, ICorsMetadata
 	{
 		public string PolicyName
 		{
@@ -11505,15 +14644,18 @@ namespace Microsoft.AspNetCore.Cors
 			[CompilerGenerated]
 			set
 			{
+				throw null;
 			}
 		}
 
 		public EnableCorsAttribute()
 		{
+			throw null;
 		}
 
 		public EnableCorsAttribute(string policyName)
 		{
+			throw null;
 		}
 	}
 }
@@ -11524,27 +14666,27 @@ namespace Microsoft.AspNetCore.Cors.Infrastructure
 {
 	public static class CorsConstants
 	{
-		public static readonly string AccessControlAllowCredentials;
-
-		public static readonly string AccessControlAllowHeaders;
-
-		public static readonly string AccessControlAllowMethods;
-
-		public static readonly string AccessControlAllowOrigin;
-
-		public static readonly string AccessControlExposeHeaders;
-
-		public static readonly string AccessControlMaxAge;
-
-		public static readonly string AccessControlRequestHeaders;
-
-		public static readonly string AccessControlRequestMethod;
-
-		public static readonly string AnyOrigin;
+		public static readonly string PreflightHttpMethod;
 
 		public static readonly string Origin;
 
-		public static readonly string PreflightHttpMethod;
+		public static readonly string AnyOrigin;
+
+		public static readonly string AccessControlRequestMethod;
+
+		public static readonly string AccessControlRequestHeaders;
+
+		public static readonly string AccessControlAllowOrigin;
+
+		public static readonly string AccessControlAllowHeaders;
+
+		public static readonly string AccessControlExposeHeaders;
+
+		public static readonly string AccessControlAllowMethods;
+
+		public static readonly string AccessControlAllowCredentials;
+
+		public static readonly string AccessControlMaxAge;
 	}
 }
 
@@ -11558,16 +14700,19 @@ namespace Microsoft.AspNetCore.Cors.Infrastructure
 {
 	public class CorsMiddleware
 	{
-		public CorsMiddleware(RequestDelegate next, ICorsService corsService, CorsPolicy policy, ILoggerFactory loggerFactory)
-		{
-		}
-
 		public CorsMiddleware(RequestDelegate next, ICorsService corsService, ILoggerFactory loggerFactory)
 		{
+			throw null;
 		}
 
 		public CorsMiddleware(RequestDelegate next, ICorsService corsService, ILoggerFactory loggerFactory, string policyName)
 		{
+			throw null;
+		}
+
+		public CorsMiddleware(RequestDelegate next, ICorsService corsService, CorsPolicy policy, ILoggerFactory loggerFactory)
+		{
+			throw null;
 		}
 
 		public Task Invoke(HttpContext context, ICorsPolicyProvider corsPolicyProvider)
@@ -11580,11 +14725,23 @@ namespace Microsoft.AspNetCore.Cors.Infrastructure
 
 // Microsoft.AspNetCore.Cors\Microsoft.AspNetCore.Cors.Infrastructure\CorsOptions.cs
 using System;
+using System.Collections.Generic;
+using System.Runtime.CompilerServices;
+using System.Threading.Tasks;
 
 namespace Microsoft.AspNetCore.Cors.Infrastructure
 {
 	public class CorsOptions
 	{
+		internal IDictionary<string, (CorsPolicy policy, Task<CorsPolicy> policyTask)> PolicyMap
+		{
+			[CompilerGenerated]
+			get
+			{
+				throw null;
+			}
+		}
+
 		public string DefaultPolicyName
 		{
 			get
@@ -11593,26 +14750,36 @@ namespace Microsoft.AspNetCore.Cors.Infrastructure
 			}
 			set
 			{
+				throw null;
 			}
 		}
 
 		public void AddDefaultPolicy(CorsPolicy policy)
 		{
+			throw null;
 		}
 
 		public void AddDefaultPolicy(Action<CorsPolicyBuilder> configurePolicy)
 		{
+			throw null;
 		}
 
 		public void AddPolicy(string name, CorsPolicy policy)
 		{
+			throw null;
 		}
 
 		public void AddPolicy(string name, Action<CorsPolicyBuilder> configurePolicy)
 		{
+			throw null;
 		}
 
 		public CorsPolicy GetPolicy(string name)
+		{
+			throw null;
+		}
+
+		public CorsOptions()
 		{
 			throw null;
 		}
@@ -11653,6 +14820,20 @@ namespace Microsoft.AspNetCore.Cors.Infrastructure
 			}
 		}
 
+		public Func<string, bool> IsOriginAllowed
+		{
+			[CompilerGenerated]
+			get
+			{
+				throw null;
+			}
+			[CompilerGenerated]
+			set
+			{
+				throw null;
+			}
+		}
+
 		public IList<string> ExposedHeaders
 		{
 			[CompilerGenerated]
@@ -11668,19 +14849,6 @@ namespace Microsoft.AspNetCore.Cors.Infrastructure
 			get
 			{
 				throw null;
-			}
-		}
-
-		public Func<string, bool> IsOriginAllowed
-		{
-			[CompilerGenerated]
-			get
-			{
-				throw null;
-			}
-			[CompilerGenerated]
-			set
-			{
 			}
 		}
 
@@ -11710,6 +14878,7 @@ namespace Microsoft.AspNetCore.Cors.Infrastructure
 			}
 			set
 			{
+				throw null;
 			}
 		}
 
@@ -11723,11 +14892,13 @@ namespace Microsoft.AspNetCore.Cors.Infrastructure
 			[CompilerGenerated]
 			set
 			{
+				throw null;
 			}
 		}
 
 		public CorsPolicy()
 		{
+			throw null;
 		}
 
 		public override string ToString()
@@ -11745,25 +14916,37 @@ namespace Microsoft.AspNetCore.Cors.Infrastructure
 {
 	public class CorsPolicyBuilder
 	{
-		public CorsPolicyBuilder(CorsPolicy policy)
-		{
-		}
-
 		public CorsPolicyBuilder(params string[] origins)
 		{
+			throw null;
 		}
 
-		public CorsPolicyBuilder AllowAnyHeader()
+		public CorsPolicyBuilder(CorsPolicy policy)
 		{
 			throw null;
 		}
 
-		public CorsPolicyBuilder AllowAnyMethod()
+		public CorsPolicyBuilder WithOrigins(params string[] origins)
 		{
 			throw null;
 		}
 
-		public CorsPolicyBuilder AllowAnyOrigin()
+		internal static string GetNormalizedOrigin(string origin)
+		{
+			throw null;
+		}
+
+		public CorsPolicyBuilder WithHeaders(params string[] headers)
+		{
+			throw null;
+		}
+
+		public CorsPolicyBuilder WithExposedHeaders(params string[] exposedHeaders)
+		{
+			throw null;
+		}
+
+		public CorsPolicyBuilder WithMethods(params string[] methods)
 		{
 			throw null;
 		}
@@ -11773,12 +14956,27 @@ namespace Microsoft.AspNetCore.Cors.Infrastructure
 			throw null;
 		}
 
-		public CorsPolicy Build()
+		public CorsPolicyBuilder DisallowCredentials()
 		{
 			throw null;
 		}
 
-		public CorsPolicyBuilder DisallowCredentials()
+		public CorsPolicyBuilder AllowAnyOrigin()
+		{
+			throw null;
+		}
+
+		public CorsPolicyBuilder AllowAnyMethod()
+		{
+			throw null;
+		}
+
+		public CorsPolicyBuilder AllowAnyHeader()
+		{
+			throw null;
+		}
+
+		public CorsPolicyBuilder SetPreflightMaxAge(TimeSpan preflightMaxAge)
 		{
 			throw null;
 		}
@@ -11793,32 +14991,7 @@ namespace Microsoft.AspNetCore.Cors.Infrastructure
 			throw null;
 		}
 
-		public CorsPolicyBuilder SetPreflightMaxAge(TimeSpan preflightMaxAge)
-		{
-			throw null;
-		}
-
-		public CorsPolicyBuilder WithExposedHeaders(params string[] exposedHeaders)
-		{
-			throw null;
-		}
-
-		public CorsPolicyBuilder WithHeaders(params string[] headers)
-		{
-			throw null;
-		}
-
-		public CorsPolicyBuilder WithMethods(params string[] methods)
-		{
-			throw null;
-		}
-
-		public CorsPolicyBuilder WithOrigins(params string[] origins)
-		{
-			throw null;
-		}
-
-		internal static string GetNormalizedOrigin(string origin)
+		public CorsPolicy Build()
 		{
 			throw null;
 		}
@@ -11835,7 +15008,63 @@ namespace Microsoft.AspNetCore.Cors.Infrastructure
 {
 	public class CorsResult
 	{
-		public IList<string> AllowedExposedHeaders
+		public bool IsPreflightRequest
+		{
+			[CompilerGenerated]
+			get
+			{
+				throw null;
+			}
+			[CompilerGenerated]
+			set
+			{
+				throw null;
+			}
+		}
+
+		public string AllowedOrigin
+		{
+			[CompilerGenerated]
+			get
+			{
+				throw null;
+			}
+			[CompilerGenerated]
+			set
+			{
+				throw null;
+			}
+		}
+
+		public bool IsOriginAllowed
+		{
+			[CompilerGenerated]
+			get
+			{
+				throw null;
+			}
+			[CompilerGenerated]
+			set
+			{
+				throw null;
+			}
+		}
+
+		public bool SupportsCredentials
+		{
+			[CompilerGenerated]
+			get
+			{
+				throw null;
+			}
+			[CompilerGenerated]
+			set
+			{
+				throw null;
+			}
+		}
+
+		public IList<string> AllowedMethods
 		{
 			[CompilerGenerated]
 			get
@@ -11853,75 +15082,12 @@ namespace Microsoft.AspNetCore.Cors.Infrastructure
 			}
 		}
 
-		public IList<string> AllowedMethods
+		public IList<string> AllowedExposedHeaders
 		{
 			[CompilerGenerated]
 			get
 			{
 				throw null;
-			}
-		}
-
-		public string AllowedOrigin
-		{
-			[CompilerGenerated]
-			get
-			{
-				throw null;
-			}
-			[CompilerGenerated]
-			set
-			{
-			}
-		}
-
-		public bool IsOriginAllowed
-		{
-			[CompilerGenerated]
-			get
-			{
-				throw null;
-			}
-			[CompilerGenerated]
-			set
-			{
-			}
-		}
-
-		public bool IsPreflightRequest
-		{
-			[CompilerGenerated]
-			get
-			{
-				throw null;
-			}
-			[CompilerGenerated]
-			set
-			{
-			}
-		}
-
-		public TimeSpan? PreflightMaxAge
-		{
-			get
-			{
-				throw null;
-			}
-			set
-			{
-			}
-		}
-
-		public bool SupportsCredentials
-		{
-			[CompilerGenerated]
-			get
-			{
-				throw null;
-			}
-			[CompilerGenerated]
-			set
-			{
 			}
 		}
 
@@ -11935,10 +15101,28 @@ namespace Microsoft.AspNetCore.Cors.Infrastructure
 			[CompilerGenerated]
 			set
 			{
+				throw null;
+			}
+		}
+
+		public TimeSpan? PreflightMaxAge
+		{
+			get
+			{
+				throw null;
+			}
+			set
+			{
+				throw null;
 			}
 		}
 
 		public override string ToString()
+		{
+			throw null;
+		}
+
+		public CorsResult()
 		{
 			throw null;
 		}
@@ -11957,14 +15141,6 @@ namespace Microsoft.AspNetCore.Cors.Infrastructure
 	{
 		public CorsService(IOptions<CorsOptions> options, ILoggerFactory loggerFactory)
 		{
-		}
-
-		public virtual void ApplyResult(CorsResult result, HttpResponse response)
-		{
-		}
-
-		public CorsResult EvaluatePolicy(HttpContext context, CorsPolicy policy)
-		{
 			throw null;
 		}
 
@@ -11973,12 +15149,24 @@ namespace Microsoft.AspNetCore.Cors.Infrastructure
 			throw null;
 		}
 
-		public virtual void EvaluatePreflightRequest(HttpContext context, CorsPolicy policy, CorsResult result)
+		public CorsResult EvaluatePolicy(HttpContext context, CorsPolicy policy)
 		{
+			throw null;
 		}
 
 		public virtual void EvaluateRequest(HttpContext context, CorsPolicy policy, CorsResult result)
 		{
+			throw null;
+		}
+
+		public virtual void EvaluatePreflightRequest(HttpContext context, CorsPolicy policy, CorsResult result)
+		{
+			throw null;
+		}
+
+		public virtual void ApplyResult(CorsResult result, HttpResponse response)
+		{
+			throw null;
 		}
 	}
 }
@@ -11995,6 +15183,7 @@ namespace Microsoft.AspNetCore.Cors.Infrastructure
 	{
 		public DefaultCorsPolicyProvider(IOptions<CorsOptions> options)
 		{
+			throw null;
 		}
 
 		public Task<CorsPolicy> GetPolicyAsync(HttpContext context, string policyName)
@@ -12038,9 +15227,9 @@ namespace Microsoft.AspNetCore.Cors.Infrastructure
 {
 	public interface ICorsService
 	{
-		void ApplyResult(CorsResult result, HttpResponse response);
-
 		CorsResult EvaluatePolicy(HttpContext context, CorsPolicy policy);
+
+		void ApplyResult(CorsResult result, HttpResponse response);
 	}
 }
 
@@ -12124,6 +15313,8 @@ namespace Microsoft.AspNetCore.Cryptography.Cng
 {
 	internal struct BCryptBufferDesc
 	{
+		private const int BCRYPTBUFFER_VERSION = 0;
+
 		public uint ulVersion;
 
 		public uint cBuffers;
@@ -12133,6 +15324,7 @@ namespace Microsoft.AspNetCore.Cryptography.Cng
 		[MethodImpl(MethodImplOptions.AggressiveInlining)]
 		public static void Initialize(ref BCryptBufferDesc bufferDesc)
 		{
+			throw null;
 		}
 	}
 }
@@ -12243,6 +15435,7 @@ namespace Microsoft.AspNetCore.Cryptography.Cng
 
 		public void EnsureValidKeyLength(uint keyLengthInBits)
 		{
+			throw null;
 		}
 	}
 }
@@ -12273,8 +15466,8 @@ namespace Microsoft.AspNetCore.Cryptography.SafeHandles
 	internal abstract class BCryptHandle : SafeHandleZeroOrMinusOneIsInvalid
 	{
 		protected BCryptHandle()
-			: base(ownsHandle: false)
 		{
+			throw null;
 		}
 
 		protected unsafe uint GetProperty(string pszProperty, void* pbOutput, uint cbOutput)
@@ -12284,6 +15477,7 @@ namespace Microsoft.AspNetCore.Cryptography.SafeHandles
 
 		protected unsafe void SetProperty(string pszProperty, void* pbInput, uint cbInput)
 		{
+			throw null;
 		}
 	}
 }
@@ -12338,17 +15532,22 @@ namespace Microsoft.AspNetCore.DataProtection
 {
 	public static class DataProtectionBuilderExtensions
 	{
+		public static IDataProtectionBuilder SetApplicationName(this IDataProtectionBuilder builder, string applicationName)
+		{
+			throw null;
+		}
+
 		public static IDataProtectionBuilder AddKeyEscrowSink(this IDataProtectionBuilder builder, IKeyEscrowSink sink)
 		{
 			throw null;
 		}
 
-		public static IDataProtectionBuilder AddKeyEscrowSink(this IDataProtectionBuilder builder, Func<IServiceProvider, IKeyEscrowSink> factory)
+		public static IDataProtectionBuilder AddKeyEscrowSink<TImplementation>(this IDataProtectionBuilder builder) where TImplementation : class, IKeyEscrowSink
 		{
 			throw null;
 		}
 
-		public static IDataProtectionBuilder AddKeyEscrowSink<TImplementation>(this IDataProtectionBuilder builder) where TImplementation : class, IKeyEscrowSink
+		public static IDataProtectionBuilder AddKeyEscrowSink(this IDataProtectionBuilder builder, Func<IServiceProvider, IKeyEscrowSink> factory)
 		{
 			throw null;
 		}
@@ -12383,6 +15582,11 @@ namespace Microsoft.AspNetCore.DataProtection
 			throw null;
 		}
 
+		public static IDataProtectionBuilder UnprotectKeysWithAnyCertificate(this IDataProtectionBuilder builder, params X509Certificate2[] certificates)
+		{
+			throw null;
+		}
+
 		public static IDataProtectionBuilder ProtectKeysWithDpapi(this IDataProtectionBuilder builder)
 		{
 			throw null;
@@ -12403,17 +15607,7 @@ namespace Microsoft.AspNetCore.DataProtection
 			throw null;
 		}
 
-		public static IDataProtectionBuilder SetApplicationName(this IDataProtectionBuilder builder, string applicationName)
-		{
-			throw null;
-		}
-
 		public static IDataProtectionBuilder SetDefaultKeyLifetime(this IDataProtectionBuilder builder, TimeSpan lifetime)
-		{
-			throw null;
-		}
-
-		public static IDataProtectionBuilder UnprotectKeysWithAnyCertificate(this IDataProtectionBuilder builder, params X509Certificate2[] certificates)
 		{
 			throw null;
 		}
@@ -12466,7 +15660,13 @@ namespace Microsoft.AspNetCore.DataProtection
 			[CompilerGenerated]
 			set
 			{
+				throw null;
 			}
+		}
+
+		public DataProtectionOptions()
+		{
+			throw null;
 		}
 	}
 }
@@ -12490,18 +15690,61 @@ namespace Microsoft.AspNetCore.DataProtection
 
 
 // Microsoft.AspNetCore.DataProtection\Microsoft.AspNetCore.DataProtection\EphemeralDataProtectionProvider.cs
+using Microsoft.AspNetCore.DataProtection.AuthenticatedEncryption;
+using Microsoft.AspNetCore.DataProtection.AuthenticatedEncryption.ConfigurationModel;
+using Microsoft.AspNetCore.DataProtection.KeyManagement.Internal;
 using Microsoft.Extensions.Logging;
+using System;
+using System.Runtime.CompilerServices;
 
 namespace Microsoft.AspNetCore.DataProtection
 {
 	public sealed class EphemeralDataProtectionProvider : IDataProtectionProvider
 	{
+		private sealed class EphemeralKeyRing<T> : IKeyRing, IKeyRingProvider where T : AlgorithmConfiguration, new()
+		{
+			public IAuthenticatedEncryptor DefaultAuthenticatedEncryptor
+			{
+				[CompilerGenerated]
+				get
+				{
+					throw null;
+				}
+			}
+
+			public Guid DefaultKeyId
+			{
+				[CompilerGenerated]
+				get
+				{
+					throw null;
+				}
+			}
+
+			public EphemeralKeyRing(ILoggerFactory loggerFactory)
+			{
+				throw null;
+			}
+
+			public IAuthenticatedEncryptor GetAuthenticatedEncryptorByKeyId(Guid keyId, out bool isRevoked)
+			{
+				throw null;
+			}
+
+			public IKeyRing GetCurrentKeyRing()
+			{
+				throw null;
+			}
+		}
+
 		public EphemeralDataProtectionProvider()
 		{
+			throw null;
 		}
 
 		public EphemeralDataProtectionProvider(ILoggerFactory loggerFactory)
 		{
+			throw null;
 		}
 
 		public IDataProtector CreateProtector(string purpose)
@@ -12530,7 +15773,7 @@ namespace Microsoft.AspNetCore.DataProtection
 // Microsoft.AspNetCore.DataProtection\Microsoft.AspNetCore.DataProtection\IPersistedDataProtector.cs
 namespace Microsoft.AspNetCore.DataProtection
 {
-	public interface IPersistedDataProtector : IDataProtectionProvider, IDataProtector
+	public interface IPersistedDataProtector : IDataProtector, IDataProtectionProvider
 	{
 		byte[] DangerousUnprotect(byte[] protectedData, bool ignoreRevocationErrors, out bool requiresMigration, out bool wasRevoked);
 	}
@@ -12566,10 +15809,11 @@ namespace Microsoft.AspNetCore.DataProtection
 
 // Microsoft.AspNetCore.DataProtection\Microsoft.AspNetCore.DataProtection\Secret.cs
 using System;
+using System.Runtime.CompilerServices;
 
 namespace Microsoft.AspNetCore.DataProtection
 {
-	public sealed class Secret : ISecret, IDisposable
+	public sealed class Secret : IDisposable, ISecret
 	{
 		public int Length
 		{
@@ -12579,24 +15823,31 @@ namespace Microsoft.AspNetCore.DataProtection
 			}
 		}
 
-		public Secret(ISecret secret)
-		{
-		}
-
 		public Secret(ArraySegment<byte> value)
 		{
+			throw null;
+		}
+
+		[System.Runtime.CompilerServices.NullableContext(1)]
+		public Secret(byte[] value)
+		{
+			throw null;
 		}
 
 		public unsafe Secret(byte* secret, int secretLength)
 		{
+			throw null;
 		}
 
-		public Secret(byte[] value)
+		[System.Runtime.CompilerServices.NullableContext(1)]
+		public Secret(ISecret secret)
 		{
+			throw null;
 		}
 
 		public void Dispose()
 		{
+			throw null;
 		}
 
 		public static Secret Random(int numBytes)
@@ -12606,16 +15857,19 @@ namespace Microsoft.AspNetCore.DataProtection
 
 		public void WriteSecretIntoBuffer(ArraySegment<byte> buffer)
 		{
+			throw null;
 		}
 
 		public unsafe void WriteSecretIntoBuffer(byte* buffer, int bufferLength)
 		{
+			throw null;
 		}
 	}
 }
 
 
 // Microsoft.AspNetCore.DataProtection\Microsoft.AspNetCore.DataProtection.AuthenticatedEncryption\AuthenticatedEncryptorFactory.cs
+using Microsoft.AspNetCore.DataProtection.AuthenticatedEncryption.ConfigurationModel;
 using Microsoft.AspNetCore.DataProtection.KeyManagement;
 using Microsoft.Extensions.Logging;
 
@@ -12625,9 +15879,20 @@ namespace Microsoft.AspNetCore.DataProtection.AuthenticatedEncryption
 	{
 		public AuthenticatedEncryptorFactory(ILoggerFactory loggerFactory)
 		{
+			throw null;
 		}
 
 		public IAuthenticatedEncryptor CreateEncryptorInstance(IKey key)
+		{
+			throw null;
+		}
+
+		internal IAuthenticatedEncryptor CreateAuthenticatedEncryptorInstance(ISecret secret, AuthenticatedEncryptorConfiguration authenticatedConfiguration)
+		{
+			throw null;
+		}
+
+		internal static bool IsGcmAlgorithm(EncryptionAlgorithm algorithm)
 		{
 			throw null;
 		}
@@ -12636,6 +15901,8 @@ namespace Microsoft.AspNetCore.DataProtection.AuthenticatedEncryption
 
 
 // Microsoft.AspNetCore.DataProtection\Microsoft.AspNetCore.DataProtection.AuthenticatedEncryption\CngCbcAuthenticatedEncryptorFactory.cs
+using Microsoft.AspNetCore.DataProtection.AuthenticatedEncryption.ConfigurationModel;
+using Microsoft.AspNetCore.DataProtection.Cng;
 using Microsoft.AspNetCore.DataProtection.KeyManagement;
 using Microsoft.Extensions.Logging;
 
@@ -12645,9 +15912,15 @@ namespace Microsoft.AspNetCore.DataProtection.AuthenticatedEncryption
 	{
 		public CngCbcAuthenticatedEncryptorFactory(ILoggerFactory loggerFactory)
 		{
+			throw null;
 		}
 
 		public IAuthenticatedEncryptor CreateEncryptorInstance(IKey key)
+		{
+			throw null;
+		}
+
+		internal CbcAuthenticatedEncryptor CreateAuthenticatedEncryptorInstance(ISecret secret, CngCbcAuthenticatedEncryptorConfiguration configuration)
 		{
 			throw null;
 		}
@@ -12656,6 +15929,8 @@ namespace Microsoft.AspNetCore.DataProtection.AuthenticatedEncryption
 
 
 // Microsoft.AspNetCore.DataProtection\Microsoft.AspNetCore.DataProtection.AuthenticatedEncryption\CngGcmAuthenticatedEncryptorFactory.cs
+using Microsoft.AspNetCore.DataProtection.AuthenticatedEncryption.ConfigurationModel;
+using Microsoft.AspNetCore.DataProtection.Cng;
 using Microsoft.AspNetCore.DataProtection.KeyManagement;
 using Microsoft.Extensions.Logging;
 
@@ -12665,9 +15940,15 @@ namespace Microsoft.AspNetCore.DataProtection.AuthenticatedEncryption
 	{
 		public CngGcmAuthenticatedEncryptorFactory(ILoggerFactory loggerFactory)
 		{
+			throw null;
 		}
 
 		public IAuthenticatedEncryptor CreateEncryptorInstance(IKey key)
+		{
+			throw null;
+		}
+
+		internal GcmAuthenticatedEncryptor CreateAuthenticatedEncryptorInstance(ISecret secret, CngGcmAuthenticatedEncryptorConfiguration configuration)
 		{
 			throw null;
 		}
@@ -12729,18 +16010,61 @@ namespace Microsoft.AspNetCore.DataProtection.AuthenticatedEncryption
 
 
 // Microsoft.AspNetCore.DataProtection\Microsoft.AspNetCore.DataProtection.AuthenticatedEncryption\ManagedAuthenticatedEncryptorFactory.cs
+using Microsoft.AspNetCore.DataProtection.AuthenticatedEncryption.ConfigurationModel;
 using Microsoft.AspNetCore.DataProtection.KeyManagement;
+using Microsoft.AspNetCore.DataProtection.Managed;
 using Microsoft.Extensions.Logging;
+using System;
+using System.Runtime.CompilerServices;
 
 namespace Microsoft.AspNetCore.DataProtection.AuthenticatedEncryption
 {
 	public sealed class ManagedAuthenticatedEncryptorFactory : IAuthenticatedEncryptorFactory
 	{
+		private static class AlgorithmActivator
+		{
+			private interface IActivator<out T>
+			{
+				Func<T> Creator
+				{
+					get;
+				}
+			}
+
+			private class AlgorithmActivatorCore<T> : IActivator<T> where T : new()
+			{
+				public Func<T> Creator
+				{
+					[CompilerGenerated]
+					get
+					{
+						throw null;
+					}
+				}
+
+				public AlgorithmActivatorCore()
+				{
+					throw null;
+				}
+			}
+
+			public static Func<T> CreateFactory<T>(Type implementation)
+			{
+				throw null;
+			}
+		}
+
 		public ManagedAuthenticatedEncryptorFactory(ILoggerFactory loggerFactory)
 		{
+			throw null;
 		}
 
 		public IAuthenticatedEncryptor CreateEncryptorInstance(IKey key)
+		{
+			throw null;
+		}
+
+		internal ManagedAuthenticatedEncryptor CreateAuthenticatedEncryptorInstance(ISecret secret, ManagedAuthenticatedEncryptorConfiguration configuration)
 		{
 			throw null;
 		}
@@ -12764,7 +16088,14 @@ namespace Microsoft.AspNetCore.DataProtection.AuthenticatedEncryption.Configurat
 {
 	public abstract class AlgorithmConfiguration
 	{
+		internal const int KDK_SIZE_IN_BYTES = 64;
+
 		public abstract IAuthenticatedEncryptorDescriptor CreateNewDescriptor();
+
+		protected AlgorithmConfiguration()
+		{
+			throw null;
+		}
 	}
 }
 
@@ -12774,7 +16105,7 @@ using System.Runtime.CompilerServices;
 
 namespace Microsoft.AspNetCore.DataProtection.AuthenticatedEncryption.ConfigurationModel
 {
-	public sealed class AuthenticatedEncryptorConfiguration : AlgorithmConfiguration
+	public sealed class AuthenticatedEncryptorConfiguration : AlgorithmConfiguration, IInternalAlgorithmConfiguration
 	{
 		public EncryptionAlgorithm EncryptionAlgorithm
 		{
@@ -12786,6 +16117,7 @@ namespace Microsoft.AspNetCore.DataProtection.AuthenticatedEncryption.Configurat
 			[CompilerGenerated]
 			set
 			{
+				throw null;
 			}
 		}
 
@@ -12799,10 +16131,26 @@ namespace Microsoft.AspNetCore.DataProtection.AuthenticatedEncryption.Configurat
 			[CompilerGenerated]
 			set
 			{
+				throw null;
 			}
 		}
 
 		public override IAuthenticatedEncryptorDescriptor CreateNewDescriptor()
+		{
+			throw null;
+		}
+
+		IAuthenticatedEncryptorDescriptor IInternalAlgorithmConfiguration.CreateDescriptorFromSecret(ISecret secret)
+		{
+			throw null;
+		}
+
+		void IInternalAlgorithmConfiguration.Validate()
+		{
+			throw null;
+		}
+
+		public AuthenticatedEncryptorConfiguration()
 		{
 			throw null;
 		}
@@ -12811,12 +16159,33 @@ namespace Microsoft.AspNetCore.DataProtection.AuthenticatedEncryption.Configurat
 
 
 // Microsoft.AspNetCore.DataProtection\Microsoft.AspNetCore.DataProtection.AuthenticatedEncryption.ConfigurationModel\AuthenticatedEncryptorDescriptor.cs
+using System.Runtime.CompilerServices;
+
 namespace Microsoft.AspNetCore.DataProtection.AuthenticatedEncryption.ConfigurationModel
 {
 	public sealed class AuthenticatedEncryptorDescriptor : IAuthenticatedEncryptorDescriptor
 	{
+		internal ISecret MasterKey
+		{
+			[CompilerGenerated]
+			get
+			{
+				throw null;
+			}
+		}
+
+		internal AuthenticatedEncryptorConfiguration Configuration
+		{
+			[CompilerGenerated]
+			get
+			{
+				throw null;
+			}
+		}
+
 		public AuthenticatedEncryptorDescriptor(AuthenticatedEncryptorConfiguration configuration, ISecret masterKey)
 		{
+			throw null;
 		}
 
 		public XmlSerializedDescriptorInfo ExportToXml()
@@ -12838,6 +16207,11 @@ namespace Microsoft.AspNetCore.DataProtection.AuthenticatedEncryption.Configurat
 		{
 			throw null;
 		}
+
+		public AuthenticatedEncryptorDescriptorDeserializer()
+		{
+			throw null;
+		}
 	}
 }
 
@@ -12847,8 +16221,9 @@ using System.Runtime.CompilerServices;
 
 namespace Microsoft.AspNetCore.DataProtection.AuthenticatedEncryption.ConfigurationModel
 {
-	public sealed class CngCbcAuthenticatedEncryptorConfiguration : AlgorithmConfiguration
+	public sealed class CngCbcAuthenticatedEncryptorConfiguration : AlgorithmConfiguration, IInternalAlgorithmConfiguration
 	{
+		[ApplyPolicy]
 		public string EncryptionAlgorithm
 		{
 			[CompilerGenerated]
@@ -12859,22 +16234,11 @@ namespace Microsoft.AspNetCore.DataProtection.AuthenticatedEncryption.Configurat
 			[CompilerGenerated]
 			set
 			{
-			}
-		}
-
-		public int EncryptionAlgorithmKeySize
-		{
-			[CompilerGenerated]
-			get
-			{
 				throw null;
 			}
-			[CompilerGenerated]
-			set
-			{
-			}
 		}
 
+		[ApplyPolicy]
 		public string EncryptionAlgorithmProvider
 		{
 			[CompilerGenerated]
@@ -12885,9 +16249,26 @@ namespace Microsoft.AspNetCore.DataProtection.AuthenticatedEncryption.Configurat
 			[CompilerGenerated]
 			set
 			{
+				throw null;
 			}
 		}
 
+		[ApplyPolicy]
+		public int EncryptionAlgorithmKeySize
+		{
+			[CompilerGenerated]
+			get
+			{
+				throw null;
+			}
+			[CompilerGenerated]
+			set
+			{
+				throw null;
+			}
+		}
+
+		[ApplyPolicy]
 		public string HashAlgorithm
 		{
 			[CompilerGenerated]
@@ -12898,9 +16279,11 @@ namespace Microsoft.AspNetCore.DataProtection.AuthenticatedEncryption.Configurat
 			[CompilerGenerated]
 			set
 			{
+				throw null;
 			}
 		}
 
+		[ApplyPolicy]
 		public string HashAlgorithmProvider
 		{
 			[CompilerGenerated]
@@ -12911,10 +16294,26 @@ namespace Microsoft.AspNetCore.DataProtection.AuthenticatedEncryption.Configurat
 			[CompilerGenerated]
 			set
 			{
+				throw null;
 			}
 		}
 
 		public override IAuthenticatedEncryptorDescriptor CreateNewDescriptor()
+		{
+			throw null;
+		}
+
+		IAuthenticatedEncryptorDescriptor IInternalAlgorithmConfiguration.CreateDescriptorFromSecret(ISecret secret)
+		{
+			throw null;
+		}
+
+		void IInternalAlgorithmConfiguration.Validate()
+		{
+			throw null;
+		}
+
+		public CngCbcAuthenticatedEncryptorConfiguration()
 		{
 			throw null;
 		}
@@ -12929,7 +16328,7 @@ namespace Microsoft.AspNetCore.DataProtection.AuthenticatedEncryption.Configurat
 {
 	public sealed class CngCbcAuthenticatedEncryptorDescriptor : IAuthenticatedEncryptorDescriptor
 	{
-		internal CngCbcAuthenticatedEncryptorConfiguration Configuration
+		internal ISecret MasterKey
 		{
 			[CompilerGenerated]
 			get
@@ -12938,7 +16337,7 @@ namespace Microsoft.AspNetCore.DataProtection.AuthenticatedEncryption.Configurat
 			}
 		}
 
-		internal ISecret MasterKey
+		internal CngCbcAuthenticatedEncryptorConfiguration Configuration
 		{
 			[CompilerGenerated]
 			get
@@ -12949,6 +16348,7 @@ namespace Microsoft.AspNetCore.DataProtection.AuthenticatedEncryption.Configurat
 
 		public CngCbcAuthenticatedEncryptorDescriptor(CngCbcAuthenticatedEncryptorConfiguration configuration, ISecret masterKey)
 		{
+			throw null;
 		}
 
 		public XmlSerializedDescriptorInfo ExportToXml()
@@ -12970,6 +16370,11 @@ namespace Microsoft.AspNetCore.DataProtection.AuthenticatedEncryption.Configurat
 		{
 			throw null;
 		}
+
+		public CngCbcAuthenticatedEncryptorDescriptorDeserializer()
+		{
+			throw null;
+		}
 	}
 }
 
@@ -12979,8 +16384,9 @@ using System.Runtime.CompilerServices;
 
 namespace Microsoft.AspNetCore.DataProtection.AuthenticatedEncryption.ConfigurationModel
 {
-	public sealed class CngGcmAuthenticatedEncryptorConfiguration : AlgorithmConfiguration
+	public sealed class CngGcmAuthenticatedEncryptorConfiguration : AlgorithmConfiguration, IInternalAlgorithmConfiguration
 	{
+		[ApplyPolicy]
 		public string EncryptionAlgorithm
 		{
 			[CompilerGenerated]
@@ -12991,22 +16397,11 @@ namespace Microsoft.AspNetCore.DataProtection.AuthenticatedEncryption.Configurat
 			[CompilerGenerated]
 			set
 			{
-			}
-		}
-
-		public int EncryptionAlgorithmKeySize
-		{
-			[CompilerGenerated]
-			get
-			{
 				throw null;
 			}
-			[CompilerGenerated]
-			set
-			{
-			}
 		}
 
+		[ApplyPolicy]
 		public string EncryptionAlgorithmProvider
 		{
 			[CompilerGenerated]
@@ -13017,10 +16412,41 @@ namespace Microsoft.AspNetCore.DataProtection.AuthenticatedEncryption.Configurat
 			[CompilerGenerated]
 			set
 			{
+				throw null;
+			}
+		}
+
+		[ApplyPolicy]
+		public int EncryptionAlgorithmKeySize
+		{
+			[CompilerGenerated]
+			get
+			{
+				throw null;
+			}
+			[CompilerGenerated]
+			set
+			{
+				throw null;
 			}
 		}
 
 		public override IAuthenticatedEncryptorDescriptor CreateNewDescriptor()
+		{
+			throw null;
+		}
+
+		IAuthenticatedEncryptorDescriptor IInternalAlgorithmConfiguration.CreateDescriptorFromSecret(ISecret secret)
+		{
+			throw null;
+		}
+
+		void IInternalAlgorithmConfiguration.Validate()
+		{
+			throw null;
+		}
+
+		public CngGcmAuthenticatedEncryptorConfiguration()
 		{
 			throw null;
 		}
@@ -13035,7 +16461,7 @@ namespace Microsoft.AspNetCore.DataProtection.AuthenticatedEncryption.Configurat
 {
 	public sealed class CngGcmAuthenticatedEncryptorDescriptor : IAuthenticatedEncryptorDescriptor
 	{
-		internal CngGcmAuthenticatedEncryptorConfiguration Configuration
+		internal ISecret MasterKey
 		{
 			[CompilerGenerated]
 			get
@@ -13044,7 +16470,7 @@ namespace Microsoft.AspNetCore.DataProtection.AuthenticatedEncryption.Configurat
 			}
 		}
 
-		internal ISecret MasterKey
+		internal CngGcmAuthenticatedEncryptorConfiguration Configuration
 		{
 			[CompilerGenerated]
 			get
@@ -13055,6 +16481,7 @@ namespace Microsoft.AspNetCore.DataProtection.AuthenticatedEncryption.Configurat
 
 		public CngGcmAuthenticatedEncryptorDescriptor(CngGcmAuthenticatedEncryptorConfiguration configuration, ISecret masterKey)
 		{
+			throw null;
 		}
 
 		public XmlSerializedDescriptorInfo ExportToXml()
@@ -13073,6 +16500,11 @@ namespace Microsoft.AspNetCore.DataProtection.AuthenticatedEncryption.Configurat
 	public sealed class CngGcmAuthenticatedEncryptorDescriptorDeserializer : IAuthenticatedEncryptorDescriptorDeserializer
 	{
 		public IAuthenticatedEncryptorDescriptor ImportFromXml(XElement element)
+		{
+			throw null;
+		}
+
+		public CngGcmAuthenticatedEncryptorDescriptorDeserializer()
 		{
 			throw null;
 		}
@@ -13102,27 +16534,27 @@ namespace Microsoft.AspNetCore.DataProtection.AuthenticatedEncryption.Configurat
 }
 
 
+// Microsoft.AspNetCore.DataProtection\Microsoft.AspNetCore.DataProtection.AuthenticatedEncryption.ConfigurationModel\IInternalAlgorithmConfiguration.cs
+namespace Microsoft.AspNetCore.DataProtection.AuthenticatedEncryption.ConfigurationModel
+{
+	internal interface IInternalAlgorithmConfiguration
+	{
+		IAuthenticatedEncryptorDescriptor CreateDescriptorFromSecret(ISecret secret);
+
+		void Validate();
+	}
+}
+
+
 // Microsoft.AspNetCore.DataProtection\Microsoft.AspNetCore.DataProtection.AuthenticatedEncryption.ConfigurationModel\ManagedAuthenticatedEncryptorConfiguration.cs
 using System;
 using System.Runtime.CompilerServices;
 
 namespace Microsoft.AspNetCore.DataProtection.AuthenticatedEncryption.ConfigurationModel
 {
-	public sealed class ManagedAuthenticatedEncryptorConfiguration : AlgorithmConfiguration
+	public sealed class ManagedAuthenticatedEncryptorConfiguration : AlgorithmConfiguration, IInternalAlgorithmConfiguration
 	{
-		public int EncryptionAlgorithmKeySize
-		{
-			[CompilerGenerated]
-			get
-			{
-				throw null;
-			}
-			[CompilerGenerated]
-			set
-			{
-			}
-		}
-
+		[ApplyPolicy]
 		public Type EncryptionAlgorithmType
 		{
 			[CompilerGenerated]
@@ -13133,9 +16565,26 @@ namespace Microsoft.AspNetCore.DataProtection.AuthenticatedEncryption.Configurat
 			[CompilerGenerated]
 			set
 			{
+				throw null;
 			}
 		}
 
+		[ApplyPolicy]
+		public int EncryptionAlgorithmKeySize
+		{
+			[CompilerGenerated]
+			get
+			{
+				throw null;
+			}
+			[CompilerGenerated]
+			set
+			{
+				throw null;
+			}
+		}
+
+		[ApplyPolicy]
 		public Type ValidationAlgorithmType
 		{
 			[CompilerGenerated]
@@ -13146,10 +16595,26 @@ namespace Microsoft.AspNetCore.DataProtection.AuthenticatedEncryption.Configurat
 			[CompilerGenerated]
 			set
 			{
+				throw null;
 			}
 		}
 
 		public override IAuthenticatedEncryptorDescriptor CreateNewDescriptor()
+		{
+			throw null;
+		}
+
+		IAuthenticatedEncryptorDescriptor IInternalAlgorithmConfiguration.CreateDescriptorFromSecret(ISecret secret)
+		{
+			throw null;
+		}
+
+		void IInternalAlgorithmConfiguration.Validate()
+		{
+			throw null;
+		}
+
+		public ManagedAuthenticatedEncryptorConfiguration()
 		{
 			throw null;
 		}
@@ -13164,7 +16629,7 @@ namespace Microsoft.AspNetCore.DataProtection.AuthenticatedEncryption.Configurat
 {
 	public sealed class ManagedAuthenticatedEncryptorDescriptor : IAuthenticatedEncryptorDescriptor
 	{
-		internal ManagedAuthenticatedEncryptorConfiguration Configuration
+		internal ISecret MasterKey
 		{
 			[CompilerGenerated]
 			get
@@ -13173,7 +16638,7 @@ namespace Microsoft.AspNetCore.DataProtection.AuthenticatedEncryption.Configurat
 			}
 		}
 
-		internal ISecret MasterKey
+		internal ManagedAuthenticatedEncryptorConfiguration Configuration
 		{
 			[CompilerGenerated]
 			get
@@ -13184,6 +16649,7 @@ namespace Microsoft.AspNetCore.DataProtection.AuthenticatedEncryption.Configurat
 
 		public ManagedAuthenticatedEncryptorDescriptor(ManagedAuthenticatedEncryptorConfiguration configuration, ISecret masterKey)
 		{
+			throw null;
 		}
 
 		public XmlSerializedDescriptorInfo ExportToXml()
@@ -13205,6 +16671,11 @@ namespace Microsoft.AspNetCore.DataProtection.AuthenticatedEncryption.Configurat
 		{
 			throw null;
 		}
+
+		public ManagedAuthenticatedEncryptorDescriptorDeserializer()
+		{
+			throw null;
+		}
 	}
 }
 
@@ -13216,8 +16687,14 @@ namespace Microsoft.AspNetCore.DataProtection.AuthenticatedEncryption.Configurat
 {
 	public static class XmlExtensions
 	{
+		internal static bool IsMarkedAsRequiringEncryption(this XElement element)
+		{
+			throw null;
+		}
+
 		public static void MarkAsRequiresEncryption(this XElement element)
 		{
+			throw null;
 		}
 	}
 }
@@ -13252,6 +16729,7 @@ namespace Microsoft.AspNetCore.DataProtection.AuthenticatedEncryption.Configurat
 
 		public XmlSerializedDescriptorInfo(XElement serializedDescriptorElement, Type deserializerType)
 		{
+			throw null;
 		}
 	}
 }
@@ -13273,7 +16751,7 @@ using System;
 
 namespace Microsoft.AspNetCore.DataProtection.Cng.Internal
 {
-	internal abstract class CngAuthenticatedEncryptorBase : IAuthenticatedEncryptor, IOptimizedAuthenticatedEncryptor, IDisposable
+	internal abstract class CngAuthenticatedEncryptorBase : IOptimizedAuthenticatedEncryptor, IAuthenticatedEncryptor, IDisposable
 	{
 		public byte[] Decrypt(ArraySegment<byte> ciphertext, ArraySegment<byte> additionalAuthenticatedData)
 		{
@@ -13295,6 +16773,11 @@ namespace Microsoft.AspNetCore.DataProtection.Cng.Internal
 		}
 
 		protected unsafe abstract byte[] EncryptImpl(byte* pbPlaintext, uint cbPlaintext, byte* pbAdditionalAuthenticatedData, uint cbAdditionalAuthenticatedData, uint cbPreBuffer, uint cbPostBuffer);
+
+		protected CngAuthenticatedEncryptorBase()
+		{
+			throw null;
+		}
 	}
 }
 
@@ -13330,11 +16813,6 @@ namespace Microsoft.AspNetCore.DataProtection.KeyManagement
 			get;
 		}
 
-		IAuthenticatedEncryptorDescriptor Descriptor
-		{
-			get;
-		}
-
 		DateTimeOffset ExpirationDate
 		{
 			get;
@@ -13346,6 +16824,11 @@ namespace Microsoft.AspNetCore.DataProtection.KeyManagement
 		}
 
 		Guid KeyId
+		{
+			get;
+		}
+
+		IAuthenticatedEncryptorDescriptor Descriptor
 		{
 			get;
 		}
@@ -13383,9 +16866,9 @@ namespace Microsoft.AspNetCore.DataProtection.KeyManagement
 
 		CancellationToken GetCacheExpirationToken();
 
-		void RevokeAllKeys(DateTimeOffset revocationDate, string reason = null);
-
 		void RevokeKey(Guid keyId, string reason = null);
+
+		void RevokeAllKeys(DateTimeOffset revocationDate, string reason = null);
 	}
 }
 
@@ -13419,14 +16902,6 @@ namespace Microsoft.AspNetCore.DataProtection.KeyManagement
 			}
 		}
 
-		public IAuthenticatedEncryptorDescriptor Descriptor
-		{
-			get
-			{
-				throw null;
-			}
-		}
-
 		public DateTimeOffset ExpirationDate
 		{
 			[CompilerGenerated]
@@ -13454,8 +16929,17 @@ namespace Microsoft.AspNetCore.DataProtection.KeyManagement
 			}
 		}
 
+		public IAuthenticatedEncryptorDescriptor Descriptor
+		{
+			get
+			{
+				throw null;
+			}
+		}
+
 		public KeyBase(Guid keyId, DateTimeOffset creationDate, DateTimeOffset activationDate, DateTimeOffset expirationDate, Lazy<IAuthenticatedEncryptorDescriptor> lazyDescriptor, IEnumerable<IAuthenticatedEncryptorFactory> encryptorFactories)
 		{
+			throw null;
 		}
 
 		public IAuthenticatedEncryptor CreateEncryptor()
@@ -13465,6 +16949,7 @@ namespace Microsoft.AspNetCore.DataProtection.KeyManagement
 
 		internal void SetRevoked()
 		{
+			throw null;
 		}
 	}
 }
@@ -13483,28 +16968,6 @@ namespace Microsoft.AspNetCore.DataProtection.KeyManagement
 {
 	public class KeyManagementOptions
 	{
-		public AlgorithmConfiguration AuthenticatedEncryptorConfiguration
-		{
-			[CompilerGenerated]
-			get
-			{
-				throw null;
-			}
-			[CompilerGenerated]
-			set
-			{
-			}
-		}
-
-		public IList<IAuthenticatedEncryptorFactory> AuthenticatedEncryptorFactories
-		{
-			[CompilerGenerated]
-			get
-			{
-				throw null;
-			}
-		}
-
 		public bool AutoGenerateKeys
 		{
 			[CompilerGenerated]
@@ -13515,12 +16978,28 @@ namespace Microsoft.AspNetCore.DataProtection.KeyManagement
 			[CompilerGenerated]
 			set
 			{
+				throw null;
 			}
 		}
 
-		public IList<IKeyEscrowSink> KeyEscrowSinks
+		internal TimeSpan KeyPropagationWindow
 		{
-			[CompilerGenerated]
+			get
+			{
+				throw null;
+			}
+		}
+
+		internal TimeSpan KeyRingRefreshPeriod
+		{
+			get
+			{
+				throw null;
+			}
+		}
+
+		internal TimeSpan MaxServerClockSkew
+		{
 			get
 			{
 				throw null;
@@ -13535,10 +17014,11 @@ namespace Microsoft.AspNetCore.DataProtection.KeyManagement
 			}
 			set
 			{
+				throw null;
 			}
 		}
 
-		public IXmlEncryptor XmlEncryptor
+		public AlgorithmConfiguration AuthenticatedEncryptorConfiguration
 		{
 			[CompilerGenerated]
 			get
@@ -13548,6 +17028,16 @@ namespace Microsoft.AspNetCore.DataProtection.KeyManagement
 			[CompilerGenerated]
 			set
 			{
+				throw null;
+			}
+		}
+
+		public IList<IKeyEscrowSink> KeyEscrowSinks
+		{
+			[CompilerGenerated]
+			get
+			{
+				throw null;
 			}
 		}
 
@@ -13561,7 +17051,41 @@ namespace Microsoft.AspNetCore.DataProtection.KeyManagement
 			[CompilerGenerated]
 			set
 			{
+				throw null;
 			}
+		}
+
+		public IXmlEncryptor XmlEncryptor
+		{
+			[CompilerGenerated]
+			get
+			{
+				throw null;
+			}
+			[CompilerGenerated]
+			set
+			{
+				throw null;
+			}
+		}
+
+		public IList<IAuthenticatedEncryptorFactory> AuthenticatedEncryptorFactories
+		{
+			[CompilerGenerated]
+			get
+			{
+				throw null;
+			}
+		}
+
+		public KeyManagementOptions()
+		{
+			throw null;
+		}
+
+		internal KeyManagementOptions(KeyManagementOptions other)
+		{
+			throw null;
 		}
 	}
 }
@@ -13585,27 +17109,40 @@ namespace Microsoft.AspNetCore.DataProtection.KeyManagement
 {
 	public sealed class XmlKeyManager : IKeyManager, IInternalXmlKeyManager
 	{
-		internal static readonly XName ActivationDateElementName;
+		private sealed class AggregateKeyEscrowSink : IKeyEscrowSink
+		{
+			public AggregateKeyEscrowSink(IList<IKeyEscrowSink> sinks)
+			{
+				throw null;
+			}
+
+			public void Store(Guid keyId, XElement element)
+			{
+				throw null;
+			}
+		}
+
+		internal static readonly XName KeyElementName;
+
+		internal static readonly XName IdAttributeName;
+
+		internal static readonly XName VersionAttributeName;
 
 		internal static readonly XName CreationDateElementName;
+
+		internal static readonly XName ActivationDateElementName;
+
+		internal static readonly XName ExpirationDateElementName;
 
 		internal static readonly XName DescriptorElementName;
 
 		internal static readonly XName DeserializerTypeAttributeName;
 
-		internal static readonly XName ExpirationDateElementName;
-
-		internal static readonly XName IdAttributeName;
-
-		internal static readonly XName KeyElementName;
-
-		internal static readonly XName ReasonElementName;
+		internal static readonly XName RevocationElementName;
 
 		internal static readonly XName RevocationDateElementName;
 
-		internal static readonly XName RevocationElementName;
-
-		internal static readonly XName VersionAttributeName;
+		internal static readonly XName ReasonElementName;
 
 		internal IXmlEncryptor KeyEncryptor
 		{
@@ -13627,10 +17164,22 @@ namespace Microsoft.AspNetCore.DataProtection.KeyManagement
 
 		public XmlKeyManager(IOptions<KeyManagementOptions> keyManagementOptions, IActivator activator)
 		{
+			throw null;
 		}
 
 		public XmlKeyManager(IOptions<KeyManagementOptions> keyManagementOptions, IActivator activator, ILoggerFactory loggerFactory)
 		{
+			throw null;
+		}
+
+		internal XmlKeyManager(IOptions<KeyManagementOptions> keyManagementOptions, IActivator activator, ILoggerFactory loggerFactory, IDefaultKeyStorageDirectories keyStorageDirectories)
+		{
+			throw null;
+		}
+
+		internal XmlKeyManager(IOptions<KeyManagementOptions> keyManagementOptions, IActivator activator, ILoggerFactory loggerFactory, IInternalXmlKeyManager internalXmlKeyManager)
+		{
+			throw null;
 		}
 
 		public IKey CreateNewKey(DateTimeOffset activationDate, DateTimeOffset expirationDate)
@@ -13648,6 +17197,16 @@ namespace Microsoft.AspNetCore.DataProtection.KeyManagement
 			throw null;
 		}
 
+		public void RevokeAllKeys(DateTimeOffset revocationDate, string reason = null)
+		{
+			throw null;
+		}
+
+		public void RevokeKey(Guid keyId, string reason = null)
+		{
+			throw null;
+		}
+
 		IKey IInternalXmlKeyManager.CreateNewKey(Guid keyId, DateTimeOffset creationDate, DateTimeOffset activationDate, DateTimeOffset expirationDate)
 		{
 			throw null;
@@ -13660,22 +17219,7 @@ namespace Microsoft.AspNetCore.DataProtection.KeyManagement
 
 		void IInternalXmlKeyManager.RevokeSingleKey(Guid keyId, DateTimeOffset revocationDate, string reason)
 		{
-		}
-
-		public void RevokeAllKeys(DateTimeOffset revocationDate, string reason = null)
-		{
-		}
-
-		public void RevokeKey(Guid keyId, string reason = null)
-		{
-		}
-
-		internal XmlKeyManager(IOptions<KeyManagementOptions> keyManagementOptions, IActivator activator, ILoggerFactory loggerFactory, IInternalXmlKeyManager internalXmlKeyManager)
-		{
-		}
-
-		internal XmlKeyManager(IOptions<KeyManagementOptions> keyManagementOptions, IActivator activator, ILoggerFactory loggerFactory, IDefaultKeyStorageDirectories keyStorageDirectories)
-		{
+			throw null;
 		}
 
 		internal KeyValuePair<IXmlRepository, IXmlEncryptor> GetFallbackKeyRepositoryEncryptorPair()
@@ -13714,16 +17258,14 @@ namespace Microsoft.AspNetCore.DataProtection.KeyManagement.Internal
 			}
 		}
 
-		internal CacheableKeyRing()
-		{
-		}
-
 		internal CacheableKeyRing(CancellationToken expirationToken, DateTimeOffset expirationTime, IKey defaultKey, IEnumerable<IKey> allKeys)
 		{
+			throw null;
 		}
 
 		internal CacheableKeyRing(CancellationToken expirationToken, DateTimeOffset expirationTime, IKeyRing keyRing)
 		{
+			throw null;
 		}
 
 		internal static bool IsValid(CacheableKeyRing keyRing, DateTime utcNow)
@@ -13869,6 +17411,7 @@ namespace Microsoft.AspNetCore.DataProtection.Repositories
 
 		public FileSystemXmlRepository(DirectoryInfo directory, ILoggerFactory loggerFactory)
 		{
+			throw null;
 		}
 
 		public virtual IReadOnlyCollection<XElement> GetAllElements()
@@ -13878,6 +17421,7 @@ namespace Microsoft.AspNetCore.DataProtection.Repositories
 
 		public virtual void StoreElement(XElement element, string friendlyName)
 		{
+			throw null;
 		}
 	}
 }
@@ -13942,6 +17486,7 @@ namespace Microsoft.AspNetCore.DataProtection.Repositories
 
 		public RegistryXmlRepository(RegistryKey registryKey, ILoggerFactory loggerFactory)
 		{
+			throw null;
 		}
 
 		public virtual IReadOnlyCollection<XElement> GetAllElements()
@@ -13951,6 +17496,7 @@ namespace Microsoft.AspNetCore.DataProtection.Repositories
 
 		public virtual void StoreElement(XElement element, string friendlyName)
 		{
+			throw null;
 		}
 	}
 }
@@ -13979,6 +17525,11 @@ namespace Microsoft.AspNetCore.DataProtection.XmlEncryption
 		{
 			throw null;
 		}
+
+		public CertificateResolver()
+		{
+			throw null;
+		}
 	}
 }
 
@@ -13992,14 +17543,21 @@ using System.Xml.Linq;
 
 namespace Microsoft.AspNetCore.DataProtection.XmlEncryption
 {
-	public sealed class CertificateXmlEncryptor : IXmlEncryptor, IInternalCertificateXmlEncryptor
+	public sealed class CertificateXmlEncryptor : IInternalCertificateXmlEncryptor, IXmlEncryptor
 	{
-		public CertificateXmlEncryptor(X509Certificate2 certificate, ILoggerFactory loggerFactory)
-		{
-		}
-
 		public CertificateXmlEncryptor(string thumbprint, ICertificateResolver certificateResolver, ILoggerFactory loggerFactory)
 		{
+			throw null;
+		}
+
+		public CertificateXmlEncryptor(X509Certificate2 certificate, ILoggerFactory loggerFactory)
+		{
+			throw null;
+		}
+
+		internal CertificateXmlEncryptor(ILoggerFactory loggerFactory, IInternalCertificateXmlEncryptor encryptor)
+		{
+			throw null;
 		}
 
 		public EncryptedXmlInfo Encrypt(XElement plaintextElement)
@@ -14010,10 +17568,6 @@ namespace Microsoft.AspNetCore.DataProtection.XmlEncryption
 		EncryptedData IInternalCertificateXmlEncryptor.PerformEncryption(EncryptedXml encryptedXml, XmlElement elementToEncrypt)
 		{
 			throw null;
-		}
-
-		internal CertificateXmlEncryptor(ILoggerFactory loggerFactory, IInternalCertificateXmlEncryptor encryptor)
-		{
 		}
 	}
 }
@@ -14044,10 +17598,12 @@ namespace Microsoft.AspNetCore.DataProtection.XmlEncryption
 	{
 		public DpapiNGXmlDecryptor()
 		{
+			throw null;
 		}
 
 		public DpapiNGXmlDecryptor(IServiceProvider services)
 		{
+			throw null;
 		}
 
 		public XElement Decrypt(XElement encryptedElement)
@@ -14068,9 +17624,15 @@ namespace Microsoft.AspNetCore.DataProtection.XmlEncryption
 	{
 		public DpapiNGXmlEncryptor(string protectionDescriptorRule, DpapiNGProtectionDescriptorFlags flags, ILoggerFactory loggerFactory)
 		{
+			throw null;
 		}
 
 		public EncryptedXmlInfo Encrypt(XElement plaintextElement)
+		{
+			throw null;
+		}
+
+		internal static string GetDefaultProtectionDescriptorString()
 		{
 			throw null;
 		}
@@ -14088,10 +17650,12 @@ namespace Microsoft.AspNetCore.DataProtection.XmlEncryption
 	{
 		public DpapiXmlDecryptor()
 		{
+			throw null;
 		}
 
 		public DpapiXmlDecryptor(IServiceProvider services)
 		{
+			throw null;
 		}
 
 		public XElement Decrypt(XElement encryptedElement)
@@ -14112,6 +17676,7 @@ namespace Microsoft.AspNetCore.DataProtection.XmlEncryption
 	{
 		public DpapiXmlEncryptor(bool protectToLocalMachine, ILoggerFactory loggerFactory)
 		{
+			throw null;
 		}
 
 		public EncryptedXmlInfo Encrypt(XElement plaintextElement)
@@ -14124,21 +17689,43 @@ namespace Microsoft.AspNetCore.DataProtection.XmlEncryption
 
 // Microsoft.AspNetCore.DataProtection\Microsoft.AspNetCore.DataProtection.XmlEncryption\EncryptedXmlDecryptor.cs
 using System;
+using System.Security.Cryptography.Xml;
+using System.Xml;
 using System.Xml.Linq;
 
 namespace Microsoft.AspNetCore.DataProtection.XmlEncryption
 {
-	public sealed class EncryptedXmlDecryptor : IXmlDecryptor
+	public sealed class EncryptedXmlDecryptor : IInternalEncryptedXmlDecryptor, IXmlDecryptor
 	{
+		private class EncryptedXmlWithCertificateKeys : EncryptedXml
+		{
+			public EncryptedXmlWithCertificateKeys(XmlKeyDecryptionOptions options, XmlDocument document)
+			{
+				throw null;
+			}
+
+			public override byte[] DecryptEncryptedKey(EncryptedKey encryptedKey)
+			{
+				throw null;
+			}
+		}
+
 		public EncryptedXmlDecryptor()
 		{
+			throw null;
 		}
 
 		public EncryptedXmlDecryptor(IServiceProvider services)
 		{
+			throw null;
 		}
 
 		public XElement Decrypt(XElement encryptedElement)
+		{
+			throw null;
+		}
+
+		void IInternalEncryptedXmlDecryptor.PerformPreDecryptionSetup(EncryptedXml encryptedXml)
 		{
 			throw null;
 		}
@@ -14175,6 +17762,7 @@ namespace Microsoft.AspNetCore.DataProtection.XmlEncryption
 
 		public EncryptedXmlInfo(XElement encryptedElement, Type decryptorType)
 		{
+			throw null;
 		}
 	}
 }
@@ -14252,6 +17840,11 @@ namespace Microsoft.AspNetCore.DataProtection.XmlEncryption
 		{
 			throw null;
 		}
+
+		public NullXmlDecryptor()
+		{
+			throw null;
+		}
 	}
 }
 
@@ -14266,10 +17859,12 @@ namespace Microsoft.AspNetCore.DataProtection.XmlEncryption
 	{
 		public NullXmlEncryptor()
 		{
+			throw null;
 		}
 
 		public NullXmlEncryptor(IServiceProvider services)
 		{
+			throw null;
 		}
 
 		public EncryptedXmlInfo Encrypt(XElement plaintextElement)
@@ -14392,6 +17987,31 @@ namespace Microsoft.AspNetCore.DataProtection
 {
 	public static class DataProtectionAdvancedExtensions
 	{
+		private sealed class TimeLimitedWrappingProtector : IDataProtector, IDataProtectionProvider
+		{
+			public DateTimeOffset Expiration;
+
+			public TimeLimitedWrappingProtector(ITimeLimitedDataProtector innerProtector)
+			{
+				throw null;
+			}
+
+			public IDataProtector CreateProtector(string purpose)
+			{
+				throw null;
+			}
+
+			public byte[] Protect(byte[] plaintext)
+			{
+				throw null;
+			}
+
+			public byte[] Unprotect(byte[] protectedData)
+			{
+				throw null;
+			}
+		}
+
 		public static byte[] Protect(this ITimeLimitedDataProtector protector, byte[] plaintext, TimeSpan lifetime)
 		{
 			throw null;
@@ -14429,6 +18049,11 @@ namespace Microsoft.AspNetCore.DataProtection
 {
 	public static class DataProtectionProvider
 	{
+		public static IDataProtectionProvider Create(string applicationName)
+		{
+			throw null;
+		}
+
 		public static IDataProtectionProvider Create(DirectoryInfo keyDirectory)
 		{
 			throw null;
@@ -14439,7 +18064,7 @@ namespace Microsoft.AspNetCore.DataProtection
 			throw null;
 		}
 
-		public static IDataProtectionProvider Create(DirectoryInfo keyDirectory, Action<IDataProtectionBuilder> setupAction, X509Certificate2 certificate)
+		public static IDataProtectionProvider Create(string applicationName, X509Certificate2 certificate)
 		{
 			throw null;
 		}
@@ -14449,17 +18074,12 @@ namespace Microsoft.AspNetCore.DataProtection
 			throw null;
 		}
 
-		public static IDataProtectionProvider Create(string applicationName)
+		public static IDataProtectionProvider Create(DirectoryInfo keyDirectory, Action<IDataProtectionBuilder> setupAction, X509Certificate2 certificate)
 		{
 			throw null;
 		}
 
-		public static IDataProtectionProvider Create(string applicationName, X509Certificate2 certificate)
-		{
-			throw null;
-		}
-
-		internal static IDataProtectionProvider CreateProvider(DirectoryInfo keyDirectory, Action<IDataProtectionBuilder> setupAction, X509Certificate2 certificate)
+		internal static IDataProtectionProvider CreateProvider(DirectoryInfo? keyDirectory, Action<IDataProtectionBuilder> setupAction, X509Certificate2? certificate)
 		{
 			throw null;
 		}
@@ -14472,7 +18092,7 @@ using System;
 
 namespace Microsoft.AspNetCore.DataProtection
 {
-	public interface ITimeLimitedDataProtector : IDataProtectionProvider, IDataProtector
+	public interface ITimeLimitedDataProtector : IDataProtector, IDataProtectionProvider
 	{
 		new ITimeLimitedDataProtector CreateProtector(string purpose);
 
@@ -14509,19 +18129,6 @@ namespace Microsoft.AspNetCore.Builder
 {
 	public class DeveloperExceptionPageOptions
 	{
-		public IFileProvider FileProvider
-		{
-			[CompilerGenerated]
-			get
-			{
-				throw null;
-			}
-			[CompilerGenerated]
-			set
-			{
-			}
-		}
-
 		public int SourceCodeLineCount
 		{
 			[CompilerGenerated]
@@ -14532,11 +18139,27 @@ namespace Microsoft.AspNetCore.Builder
 			[CompilerGenerated]
 			set
 			{
+				throw null;
+			}
+		}
+
+		public IFileProvider FileProvider
+		{
+			[CompilerGenerated]
+			get
+			{
+				throw null;
+			}
+			[CompilerGenerated]
+			set
+			{
+				throw null;
 			}
 		}
 
 		public DeveloperExceptionPageOptions()
 		{
+			throw null;
 		}
 	}
 }
@@ -14554,7 +18177,7 @@ namespace Microsoft.AspNetCore.Builder
 			throw null;
 		}
 
-		public static IApplicationBuilder UseExceptionHandler(this IApplicationBuilder app, ExceptionHandlerOptions options)
+		public static IApplicationBuilder UseExceptionHandler(this IApplicationBuilder app, string errorHandlingPath)
 		{
 			throw null;
 		}
@@ -14564,7 +18187,7 @@ namespace Microsoft.AspNetCore.Builder
 			throw null;
 		}
 
-		public static IApplicationBuilder UseExceptionHandler(this IApplicationBuilder app, string errorHandlingPath)
+		public static IApplicationBuilder UseExceptionHandler(this IApplicationBuilder app, ExceptionHandlerOptions options)
 		{
 			throw null;
 		}
@@ -14580,19 +18203,6 @@ namespace Microsoft.AspNetCore.Builder
 {
 	public class ExceptionHandlerOptions
 	{
-		public RequestDelegate ExceptionHandler
-		{
-			[CompilerGenerated]
-			get
-			{
-				throw null;
-			}
-			[CompilerGenerated]
-			set
-			{
-			}
-		}
-
 		public PathString ExceptionHandlingPath
 		{
 			[CompilerGenerated]
@@ -14603,7 +18213,27 @@ namespace Microsoft.AspNetCore.Builder
 			[CompilerGenerated]
 			set
 			{
+				throw null;
 			}
+		}
+
+		public RequestDelegate ExceptionHandler
+		{
+			[CompilerGenerated]
+			get
+			{
+				throw null;
+			}
+			[CompilerGenerated]
+			set
+			{
+				throw null;
+			}
+		}
+
+		public ExceptionHandlerOptions()
+		{
+			throw null;
 		}
 	}
 }
@@ -14618,17 +18248,12 @@ namespace Microsoft.AspNetCore.Builder
 {
 	public static class StatusCodePagesExtensions
 	{
-		public static IApplicationBuilder UseStatusCodePages(this IApplicationBuilder app)
-		{
-			throw null;
-		}
-
 		public static IApplicationBuilder UseStatusCodePages(this IApplicationBuilder app, StatusCodePagesOptions options)
 		{
 			throw null;
 		}
 
-		public static IApplicationBuilder UseStatusCodePages(this IApplicationBuilder app, Action<IApplicationBuilder> configuration)
+		public static IApplicationBuilder UseStatusCodePages(this IApplicationBuilder app)
 		{
 			throw null;
 		}
@@ -14644,6 +18269,11 @@ namespace Microsoft.AspNetCore.Builder
 		}
 
 		public static IApplicationBuilder UseStatusCodePagesWithRedirects(this IApplicationBuilder app, string locationFormat)
+		{
+			throw null;
+		}
+
+		public static IApplicationBuilder UseStatusCodePages(this IApplicationBuilder app, Action<IApplicationBuilder> configuration)
 		{
 			throw null;
 		}
@@ -14676,7 +18306,13 @@ namespace Microsoft.AspNetCore.Builder
 			[CompilerGenerated]
 			set
 			{
+				throw null;
 			}
+		}
+
+		public StatusCodePagesOptions()
+		{
+			throw null;
 		}
 	}
 }
@@ -14689,11 +18325,6 @@ namespace Microsoft.AspNetCore.Builder
 {
 	public static class WelcomePageExtensions
 	{
-		public static IApplicationBuilder UseWelcomePage(this IApplicationBuilder app)
-		{
-			throw null;
-		}
-
 		public static IApplicationBuilder UseWelcomePage(this IApplicationBuilder app, WelcomePageOptions options)
 		{
 			throw null;
@@ -14705,6 +18336,11 @@ namespace Microsoft.AspNetCore.Builder
 		}
 
 		public static IApplicationBuilder UseWelcomePage(this IApplicationBuilder app, string path)
+		{
+			throw null;
+		}
+
+		public static IApplicationBuilder UseWelcomePage(this IApplicationBuilder app)
 		{
 			throw null;
 		}
@@ -14730,7 +18366,13 @@ namespace Microsoft.AspNetCore.Builder
 			[CompilerGenerated]
 			set
 			{
+				throw null;
 			}
+		}
+
+		public WelcomePageOptions()
+		{
+			throw null;
 		}
 	}
 }
@@ -14744,6 +18386,7 @@ using Microsoft.Extensions.Logging;
 using Microsoft.Extensions.Options;
 using System.Collections.Generic;
 using System.Diagnostics;
+using System.Runtime.CompilerServices;
 using System.Threading.Tasks;
 
 namespace Microsoft.AspNetCore.Diagnostics
@@ -14752,8 +18395,10 @@ namespace Microsoft.AspNetCore.Diagnostics
 	{
 		public DeveloperExceptionPageMiddleware(RequestDelegate next, IOptions<DeveloperExceptionPageOptions> options, ILoggerFactory loggerFactory, IWebHostEnvironment hostingEnvironment, DiagnosticSource diagnosticSource, IEnumerable<IDeveloperPageExceptionFilter> filters)
 		{
+			throw null;
 		}
 
+		[AsyncStateMachine(typeof(_003CInvoke_003Ed__9))]
 		[DebuggerStepThrough]
 		public Task Invoke(HttpContext context)
 		{
@@ -14769,7 +18414,7 @@ using System.Runtime.CompilerServices;
 
 namespace Microsoft.AspNetCore.Diagnostics
 {
-	public class ExceptionHandlerFeature : IExceptionHandlerFeature, IExceptionHandlerPathFeature
+	public class ExceptionHandlerFeature : IExceptionHandlerPathFeature, IExceptionHandlerFeature
 	{
 		public Exception Error
 		{
@@ -14781,6 +18426,7 @@ namespace Microsoft.AspNetCore.Diagnostics
 			[CompilerGenerated]
 			set
 			{
+				throw null;
 			}
 		}
 
@@ -14794,7 +18440,13 @@ namespace Microsoft.AspNetCore.Diagnostics
 			[CompilerGenerated]
 			set
 			{
+				throw null;
 			}
+		}
+
+		public ExceptionHandlerFeature()
+		{
+			throw null;
 		}
 	}
 }
@@ -14814,6 +18466,7 @@ namespace Microsoft.AspNetCore.Diagnostics
 	{
 		public ExceptionHandlerMiddleware(RequestDelegate next, ILoggerFactory loggerFactory, IOptions<ExceptionHandlerOptions> options, DiagnosticListener diagnosticListener)
 		{
+			throw null;
 		}
 
 		public Task Invoke(HttpContext context)
@@ -14842,7 +18495,7 @@ namespace Microsoft.AspNetCore.Diagnostics
 			}
 		}
 
-		public RequestDelegate Next
+		public StatusCodePagesOptions Options
 		{
 			[CompilerGenerated]
 			get
@@ -14851,7 +18504,7 @@ namespace Microsoft.AspNetCore.Diagnostics
 			}
 		}
 
-		public StatusCodePagesOptions Options
+		public RequestDelegate Next
 		{
 			[CompilerGenerated]
 			get
@@ -14862,6 +18515,7 @@ namespace Microsoft.AspNetCore.Diagnostics
 
 		public StatusCodeContext(HttpContext context, StatusCodePagesOptions options, RequestDelegate next)
 		{
+			throw null;
 		}
 	}
 }
@@ -14884,7 +18538,13 @@ namespace Microsoft.AspNetCore.Diagnostics
 			[CompilerGenerated]
 			set
 			{
+				throw null;
 			}
+		}
+
+		public StatusCodePagesFeature()
+		{
+			throw null;
 		}
 	}
 }
@@ -14895,6 +18555,7 @@ using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Http;
 using Microsoft.Extensions.Options;
 using System.Diagnostics;
+using System.Runtime.CompilerServices;
 using System.Threading.Tasks;
 
 namespace Microsoft.AspNetCore.Diagnostics
@@ -14903,8 +18564,10 @@ namespace Microsoft.AspNetCore.Diagnostics
 	{
 		public StatusCodePagesMiddleware(RequestDelegate next, IOptions<StatusCodePagesOptions> options)
 		{
+			throw null;
 		}
 
+		[AsyncStateMachine(typeof(_003CInvoke_003Ed__3))]
 		[DebuggerStepThrough]
 		public Task Invoke(HttpContext context)
 		{
@@ -14931,6 +18594,7 @@ namespace Microsoft.AspNetCore.Diagnostics
 			[CompilerGenerated]
 			set
 			{
+				throw null;
 			}
 		}
 
@@ -14944,6 +18608,7 @@ namespace Microsoft.AspNetCore.Diagnostics
 			[CompilerGenerated]
 			set
 			{
+				throw null;
 			}
 		}
 
@@ -14957,7 +18622,13 @@ namespace Microsoft.AspNetCore.Diagnostics
 			[CompilerGenerated]
 			set
 			{
+				throw null;
 			}
+		}
+
+		public StatusCodeReExecuteFeature()
+		{
+			throw null;
 		}
 	}
 }
@@ -14975,9 +18646,382 @@ namespace Microsoft.AspNetCore.Diagnostics
 	{
 		public WelcomePageMiddleware(RequestDelegate next, IOptions<WelcomePageOptions> options)
 		{
+			throw null;
 		}
 
 		public Task Invoke(HttpContext context)
+		{
+			throw null;
+		}
+	}
+}
+
+
+// Microsoft.AspNetCore.Diagnostics\Microsoft.AspNetCore.DiagnosticsViewPage.Views\BaseView.cs
+using Microsoft.AspNetCore.Http;
+using System.Diagnostics;
+using System.IO;
+using System.Runtime.CompilerServices;
+using System.Text.Encodings.Web;
+using System.Threading.Tasks;
+
+namespace Microsoft.AspNetCore.DiagnosticsViewPage.Views
+{
+	internal abstract class BaseView
+	{
+		protected HttpContext Context
+		{
+			[CompilerGenerated]
+			get
+			{
+				throw null;
+			}
+		}
+
+		protected HttpRequest Request
+		{
+			[CompilerGenerated]
+			get
+			{
+				throw null;
+			}
+		}
+
+		protected HttpResponse Response
+		{
+			[CompilerGenerated]
+			get
+			{
+				throw null;
+			}
+		}
+
+		protected StreamWriter Output
+		{
+			[CompilerGenerated]
+			get
+			{
+				throw null;
+			}
+		}
+
+		protected HtmlEncoder HtmlEncoder
+		{
+			[CompilerGenerated]
+			get
+			{
+				throw null;
+			}
+			[CompilerGenerated]
+			set
+			{
+				throw null;
+			}
+		}
+
+		protected UrlEncoder UrlEncoder
+		{
+			[CompilerGenerated]
+			get
+			{
+				throw null;
+			}
+			[CompilerGenerated]
+			set
+			{
+				throw null;
+			}
+		}
+
+		protected JavaScriptEncoder JavaScriptEncoder
+		{
+			[CompilerGenerated]
+			get
+			{
+				throw null;
+			}
+			[CompilerGenerated]
+			set
+			{
+				throw null;
+			}
+		}
+
+		[AsyncStateMachine(typeof(_003CExecuteAsync_003Ed__28))]
+		[DebuggerStepThrough]
+		public Task ExecuteAsync(HttpContext context)
+		{
+			throw null;
+		}
+
+		public abstract Task ExecuteAsync();
+
+		protected void WriteLiteral(string value)
+		{
+			throw null;
+		}
+
+		protected void WriteLiteral(object value)
+		{
+			throw null;
+		}
+
+		protected void WriteAttributeValue(string thingy, int startPostion, object value, int endValue, int dealyo, bool yesno)
+		{
+			throw null;
+		}
+
+		protected void BeginWriteAttribute(string name, string beginning, int startPosition, string ending, int endPosition, int thingy)
+		{
+			throw null;
+		}
+
+		protected void EndWriteAttribute()
+		{
+			throw null;
+		}
+
+		protected void WriteAttributeTo(TextWriter writer, string name, string leader, string trailer, params AttributeValue[] values)
+		{
+			throw null;
+		}
+
+		protected void Write(object value)
+		{
+			throw null;
+		}
+
+		protected void Write(string value)
+		{
+			throw null;
+		}
+
+		protected void Write(HelperResult result)
+		{
+			throw null;
+		}
+
+		protected void WriteTo(TextWriter writer, object value)
+		{
+			throw null;
+		}
+
+		protected void WriteTo(TextWriter writer, string value)
+		{
+			throw null;
+		}
+
+		protected void WriteLiteralTo(TextWriter writer, object value)
+		{
+			throw null;
+		}
+
+		protected void WriteLiteralTo(TextWriter writer, string value)
+		{
+			throw null;
+		}
+
+		protected string HtmlEncodeAndReplaceLineBreaks(string input)
+		{
+			throw null;
+		}
+
+		protected BaseView()
+		{
+			throw null;
+		}
+	}
+}
+
+
+// Microsoft.AspNetCore.Diagnostics\Microsoft.Extensions.DependencyInjection\ExceptionHandlerServiceCollectionExtensions.cs
+using Microsoft.AspNetCore.Builder;
+using System;
+
+namespace Microsoft.Extensions.DependencyInjection
+{
+	public static class ExceptionHandlerServiceCollectionExtensions
+	{
+		public static IServiceCollection AddExceptionHandler(this IServiceCollection services, Action<ExceptionHandlerOptions> configureOptions)
+		{
+			throw null;
+		}
+
+		public static IServiceCollection AddExceptionHandler<TService>(this IServiceCollection services, Action<ExceptionHandlerOptions, TService> configureOptions) where TService : class
+		{
+			throw null;
+		}
+	}
+}
+
+
+// Microsoft.AspNetCore.Diagnostics\Microsoft.Extensions.RazorViews\BaseView.cs
+using Microsoft.AspNetCore.Http;
+using System.Diagnostics;
+using System.IO;
+using System.Runtime.CompilerServices;
+using System.Text.Encodings.Web;
+using System.Threading.Tasks;
+
+namespace Microsoft.Extensions.RazorViews
+{
+	internal abstract class BaseView
+	{
+		protected HttpContext Context
+		{
+			[CompilerGenerated]
+			get
+			{
+				throw null;
+			}
+		}
+
+		protected HttpRequest Request
+		{
+			[CompilerGenerated]
+			get
+			{
+				throw null;
+			}
+		}
+
+		protected HttpResponse Response
+		{
+			[CompilerGenerated]
+			get
+			{
+				throw null;
+			}
+		}
+
+		protected TextWriter Output
+		{
+			[CompilerGenerated]
+			get
+			{
+				throw null;
+			}
+		}
+
+		protected HtmlEncoder HtmlEncoder
+		{
+			[CompilerGenerated]
+			get
+			{
+				throw null;
+			}
+			[CompilerGenerated]
+			set
+			{
+				throw null;
+			}
+		}
+
+		protected UrlEncoder UrlEncoder
+		{
+			[CompilerGenerated]
+			get
+			{
+				throw null;
+			}
+			[CompilerGenerated]
+			set
+			{
+				throw null;
+			}
+		}
+
+		protected JavaScriptEncoder JavaScriptEncoder
+		{
+			[CompilerGenerated]
+			get
+			{
+				throw null;
+			}
+			[CompilerGenerated]
+			set
+			{
+				throw null;
+			}
+		}
+
+		[AsyncStateMachine(typeof(_003CExecuteAsync_003Ed__31))]
+		[DebuggerStepThrough]
+		public Task ExecuteAsync(Stream stream)
+		{
+			throw null;
+		}
+
+		[AsyncStateMachine(typeof(_003CExecuteAsync_003Ed__32))]
+		[DebuggerStepThrough]
+		public Task ExecuteAsync(HttpContext context)
+		{
+			throw null;
+		}
+
+		public abstract Task ExecuteAsync();
+
+		protected virtual void PushWriter(TextWriter writer)
+		{
+			throw null;
+		}
+
+		protected virtual TextWriter PopWriter()
+		{
+			throw null;
+		}
+
+		protected void WriteLiteral(object value)
+		{
+			throw null;
+		}
+
+		protected void WriteLiteral(string value)
+		{
+			throw null;
+		}
+
+		protected void WriteAttributeValue(string thingy, int startPostion, object value, int endValue, int dealyo, bool yesno)
+		{
+			throw null;
+		}
+
+		protected void BeginWriteAttribute(string name, string beginning, int startPosition, string ending, int endPosition, int thingy)
+		{
+			throw null;
+		}
+
+		protected void EndWriteAttribute()
+		{
+			throw null;
+		}
+
+		protected void WriteAttribute(string name, string leader, string trailer, params AttributeValue[] values)
+		{
+			throw null;
+		}
+
+		protected void Write(HelperResult result)
+		{
+			throw null;
+		}
+
+		protected void Write(object value)
+		{
+			throw null;
+		}
+
+		protected void Write(string value)
+		{
+			throw null;
+		}
+
+		protected string HtmlEncodeAndReplaceLineBreaks(string input)
+		{
+			throw null;
+		}
+
+		protected BaseView()
 		{
 			throw null;
 		}
@@ -14993,25 +19037,7 @@ namespace Microsoft.AspNetCore.Diagnostics
 {
 	public class CompilationFailure
 	{
-		public string CompiledContent
-		{
-			[CompilerGenerated]
-			get
-			{
-				throw null;
-			}
-		}
-
-		public string FailureSummary
-		{
-			[CompilerGenerated]
-			get
-			{
-				throw null;
-			}
-		}
-
-		public IEnumerable<DiagnosticMessage> Messages
+		public string SourceFilePath
 		{
 			[CompilerGenerated]
 			get
@@ -15029,7 +19055,25 @@ namespace Microsoft.AspNetCore.Diagnostics
 			}
 		}
 
-		public string SourceFilePath
+		public string CompiledContent
+		{
+			[CompilerGenerated]
+			get
+			{
+				throw null;
+			}
+		}
+
+		public IEnumerable<DiagnosticMessage> Messages
+		{
+			[CompilerGenerated]
+			get
+			{
+				throw null;
+			}
+		}
+
+		public string FailureSummary
 		{
 			[CompilerGenerated]
 			get
@@ -15040,10 +19084,12 @@ namespace Microsoft.AspNetCore.Diagnostics
 
 		public CompilationFailure(string sourceFilePath, string sourceFileContent, string compiledContent, IEnumerable<DiagnosticMessage> messages)
 		{
+			throw null;
 		}
 
 		public CompilationFailure(string sourceFilePath, string sourceFileContent, string compiledContent, IEnumerable<DiagnosticMessage> messages, string failureSummary)
 		{
+			throw null;
 		}
 	}
 }
@@ -15056,25 +19102,7 @@ namespace Microsoft.AspNetCore.Diagnostics
 {
 	public class DiagnosticMessage
 	{
-		public int EndColumn
-		{
-			[CompilerGenerated]
-			get
-			{
-				throw null;
-			}
-		}
-
-		public int EndLine
-		{
-			[CompilerGenerated]
-			get
-			{
-				throw null;
-			}
-		}
-
-		public string FormattedMessage
+		public string SourceFilePath
 		{
 			[CompilerGenerated]
 			get
@@ -15092,7 +19120,7 @@ namespace Microsoft.AspNetCore.Diagnostics
 			}
 		}
 
-		public string SourceFilePath
+		public int StartLine
 		{
 			[CompilerGenerated]
 			get
@@ -15110,7 +19138,25 @@ namespace Microsoft.AspNetCore.Diagnostics
 			}
 		}
 
-		public int StartLine
+		public int EndLine
+		{
+			[CompilerGenerated]
+			get
+			{
+				throw null;
+			}
+		}
+
+		public int EndColumn
+		{
+			[CompilerGenerated]
+			get
+			{
+				throw null;
+			}
+		}
+
+		public string FormattedMessage
 		{
 			[CompilerGenerated]
 			get
@@ -15121,6 +19167,7 @@ namespace Microsoft.AspNetCore.Diagnostics
 
 		public DiagnosticMessage(string message, string formattedMessage, string filePath, int startLine, int startColumn, int endLine, int endColumn)
 		{
+			throw null;
 		}
 	}
 }
@@ -15135,7 +19182,7 @@ namespace Microsoft.AspNetCore.Diagnostics
 {
 	public class ErrorContext
 	{
-		public Exception Exception
+		public HttpContext HttpContext
 		{
 			[CompilerGenerated]
 			get
@@ -15144,7 +19191,7 @@ namespace Microsoft.AspNetCore.Diagnostics
 			}
 		}
 
-		public HttpContext HttpContext
+		public Exception Exception
 		{
 			[CompilerGenerated]
 			get
@@ -15155,6 +19202,7 @@ namespace Microsoft.AspNetCore.Diagnostics
 
 		public ErrorContext(HttpContext httpContext, Exception exception)
 		{
+			throw null;
 		}
 	}
 }
@@ -15235,13 +19283,13 @@ namespace Microsoft.AspNetCore.Diagnostics
 {
 	public interface IStatusCodeReExecuteFeature
 	{
-		string OriginalPath
+		string OriginalPathBase
 		{
 			get;
 			set;
 		}
 
-		string OriginalPathBase
+		string OriginalPath
 		{
 			get;
 			set;
@@ -15279,12 +19327,12 @@ namespace Microsoft.AspNetCore.Builder
 			throw null;
 		}
 
-		public static IApplicationBuilder UseHealthChecks(this IApplicationBuilder app, PathString path, int port, HealthCheckOptions options)
+		public static IApplicationBuilder UseHealthChecks(this IApplicationBuilder app, PathString path, string port)
 		{
 			throw null;
 		}
 
-		public static IApplicationBuilder UseHealthChecks(this IApplicationBuilder app, PathString path, string port)
+		public static IApplicationBuilder UseHealthChecks(this IApplicationBuilder app, PathString path, int port, HealthCheckOptions options)
 		{
 			throw null;
 		}
@@ -15323,6 +19371,7 @@ using Microsoft.AspNetCore.Http;
 using Microsoft.Extensions.Diagnostics.HealthChecks;
 using Microsoft.Extensions.Options;
 using System.Diagnostics;
+using System.Runtime.CompilerServices;
 using System.Threading.Tasks;
 
 namespace Microsoft.AspNetCore.Diagnostics.HealthChecks
@@ -15331,8 +19380,10 @@ namespace Microsoft.AspNetCore.Diagnostics.HealthChecks
 	{
 		public HealthCheckMiddleware(RequestDelegate next, IOptions<HealthCheckOptions> healthCheckOptions, HealthCheckService healthCheckService)
 		{
+			throw null;
 		}
 
+		[AsyncStateMachine(typeof(_003CInvokeAsync_003Ed__4))]
 		[DebuggerStepThrough]
 		public Task InvokeAsync(HttpContext httpContext)
 		{
@@ -15354,19 +19405,6 @@ namespace Microsoft.AspNetCore.Diagnostics.HealthChecks
 {
 	public class HealthCheckOptions
 	{
-		public bool AllowCachingResponses
-		{
-			[CompilerGenerated]
-			get
-			{
-				throw null;
-			}
-			[CompilerGenerated]
-			set
-			{
-			}
-		}
-
 		public Func<HealthCheckRegistration, bool> Predicate
 		{
 			[CompilerGenerated]
@@ -15377,6 +19415,19 @@ namespace Microsoft.AspNetCore.Diagnostics.HealthChecks
 			[CompilerGenerated]
 			set
 			{
+				throw null;
+			}
+		}
+
+		public IDictionary<HealthStatus, int> ResultStatusCodes
+		{
+			get
+			{
+				throw null;
+			}
+			set
+			{
+				throw null;
 			}
 		}
 
@@ -15390,18 +19441,27 @@ namespace Microsoft.AspNetCore.Diagnostics.HealthChecks
 			[CompilerGenerated]
 			set
 			{
+				throw null;
 			}
 		}
 
-		public IDictionary<HealthStatus, int> ResultStatusCodes
+		public bool AllowCachingResponses
 		{
+			[CompilerGenerated]
 			get
 			{
 				throw null;
 			}
+			[CompilerGenerated]
 			set
 			{
+				throw null;
 			}
+		}
+
+		public HealthCheckOptions()
+		{
+			throw null;
 		}
 	}
 }
@@ -15449,6 +19509,7 @@ namespace Microsoft.AspNetCore.HostFiltering
 	{
 		public HostFilteringMiddleware(RequestDelegate next, ILogger<HostFilteringMiddleware> logger, IOptionsMonitor<HostFilteringOptions> optionsMonitor)
 		{
+			throw null;
 		}
 
 		public Task Invoke(HttpContext context)
@@ -15477,6 +19538,7 @@ namespace Microsoft.AspNetCore.HostFiltering
 			[CompilerGenerated]
 			set
 			{
+				throw null;
 			}
 		}
 
@@ -15490,6 +19552,7 @@ namespace Microsoft.AspNetCore.HostFiltering
 			[CompilerGenerated]
 			set
 			{
+				throw null;
 			}
 		}
 
@@ -15503,7 +19566,13 @@ namespace Microsoft.AspNetCore.HostFiltering
 			[CompilerGenerated]
 			set
 			{
+				throw null;
 			}
+		}
+
+		public HostFilteringOptions()
+		{
+			throw null;
 		}
 	}
 }
@@ -15519,12 +19588,13 @@ namespace Microsoft.AspNetCore.Hosting
 	public class DelegateStartup : StartupBase<IServiceCollection>
 	{
 		public DelegateStartup(IServiceProviderFactory<IServiceCollection> factory, Action<IApplicationBuilder> configureApp)
-			: base((IServiceProviderFactory<IServiceCollection>)null)
 		{
+			throw null;
 		}
 
 		public override void Configure(IApplicationBuilder app)
 		{
+			throw null;
 		}
 	}
 }
@@ -15533,6 +19603,7 @@ namespace Microsoft.AspNetCore.Hosting
 // Microsoft.AspNetCore.Hosting\Microsoft.AspNetCore.Hosting\ISupportsStartup.cs
 using Microsoft.AspNetCore.Builder;
 using System;
+using System.Diagnostics.CodeAnalysis;
 
 namespace Microsoft.AspNetCore.Hosting
 {
@@ -15540,7 +19611,9 @@ namespace Microsoft.AspNetCore.Hosting
 	{
 		IWebHostBuilder Configure(Action<WebHostBuilderContext, IApplicationBuilder> configure);
 
-		IWebHostBuilder UseStartup(Type startupType);
+		IWebHostBuilder UseStartup([DynamicallyAccessedMembers((DynamicallyAccessedMemberTypes)11)] Type startupType);
+
+		IWebHostBuilder UseStartup<[DynamicallyAccessedMembers(DynamicallyAccessedMemberTypes.PublicMethods)] TStartup>(Func<WebHostBuilderContext, TStartup> startupFactory);
 	}
 }
 
@@ -15569,8 +19642,14 @@ namespace Microsoft.AspNetCore.Hosting
 	{
 		public abstract void Configure(IApplicationBuilder app);
 
+		IServiceProvider IStartup.ConfigureServices(IServiceCollection services)
+		{
+			throw null;
+		}
+
 		public virtual void ConfigureServices(IServiceCollection services)
 		{
+			throw null;
 		}
 
 		public virtual IServiceProvider CreateServiceProvider(IServiceCollection services)
@@ -15578,7 +19657,7 @@ namespace Microsoft.AspNetCore.Hosting
 			throw null;
 		}
 
-		IServiceProvider IStartup.ConfigureServices(IServiceCollection services)
+		protected StartupBase()
 		{
 			throw null;
 		}
@@ -15587,13 +19666,15 @@ namespace Microsoft.AspNetCore.Hosting
 	{
 		public StartupBase(IServiceProviderFactory<TBuilder> factory)
 		{
-		}
-
-		public virtual void ConfigureContainer(TBuilder builder)
-		{
+			throw null;
 		}
 
 		public override IServiceProvider CreateServiceProvider(IServiceCollection services)
+		{
+			throw null;
+		}
+
+		public virtual void ConfigureContainer(TBuilder builder)
 		{
 			throw null;
 		}
@@ -15612,19 +19693,15 @@ namespace Microsoft.AspNetCore.Hosting
 	{
 		public WebHostBuilder()
 		{
+			throw null;
 		}
 
-		public IWebHost Build()
+		public string GetSetting(string key)
 		{
 			throw null;
 		}
 
-		public IWebHostBuilder ConfigureAppConfiguration(Action<WebHostBuilderContext, IConfigurationBuilder> configureDelegate)
-		{
-			throw null;
-		}
-
-		public IWebHostBuilder ConfigureServices(Action<WebHostBuilderContext, IServiceCollection> configureServices)
+		public IWebHostBuilder UseSetting(string key, string? value)
 		{
 			throw null;
 		}
@@ -15634,12 +19711,17 @@ namespace Microsoft.AspNetCore.Hosting
 			throw null;
 		}
 
-		public string GetSetting(string key)
+		public IWebHostBuilder ConfigureServices(Action<WebHostBuilderContext, IServiceCollection> configureServices)
 		{
 			throw null;
 		}
 
-		public IWebHostBuilder UseSetting(string key, string value)
+		public IWebHostBuilder ConfigureAppConfiguration(Action<WebHostBuilderContext, IConfigurationBuilder> configureDelegate)
+		{
+			throw null;
+		}
+
+		public IWebHost Build()
 		{
 			throw null;
 		}
@@ -15653,6 +19735,7 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Logging;
 using System;
+using System.Diagnostics.CodeAnalysis;
 
 namespace Microsoft.AspNetCore.Hosting
 {
@@ -15668,22 +19751,17 @@ namespace Microsoft.AspNetCore.Hosting
 			throw null;
 		}
 
-		public static IWebHostBuilder ConfigureAppConfiguration(this IWebHostBuilder hostBuilder, Action<IConfigurationBuilder> configureDelegate)
+		public static IWebHostBuilder UseStartup<[DynamicallyAccessedMembers(DynamicallyAccessedMemberTypes.PublicMethods)] TStartup>(this IWebHostBuilder hostBuilder, Func<WebHostBuilderContext, TStartup> startupFactory) where TStartup : class
 		{
 			throw null;
 		}
 
-		public static IWebHostBuilder ConfigureLogging(this IWebHostBuilder hostBuilder, Action<WebHostBuilderContext, ILoggingBuilder> configureLogging)
+		public static IWebHostBuilder UseStartup(this IWebHostBuilder hostBuilder, [DynamicallyAccessedMembers((DynamicallyAccessedMemberTypes)11)] Type startupType)
 		{
 			throw null;
 		}
 
-		public static IWebHostBuilder ConfigureLogging(this IWebHostBuilder hostBuilder, Action<ILoggingBuilder> configureLogging)
-		{
-			throw null;
-		}
-
-		public static IWebHostBuilder UseDefaultServiceProvider(this IWebHostBuilder hostBuilder, Action<WebHostBuilderContext, ServiceProviderOptions> configure)
+		public static IWebHostBuilder UseStartup<[DynamicallyAccessedMembers((DynamicallyAccessedMemberTypes)11)] TStartup>(this IWebHostBuilder hostBuilder) where TStartup : class
 		{
 			throw null;
 		}
@@ -15693,12 +19771,22 @@ namespace Microsoft.AspNetCore.Hosting
 			throw null;
 		}
 
-		public static IWebHostBuilder UseStartup(this IWebHostBuilder hostBuilder, Type startupType)
+		public static IWebHostBuilder UseDefaultServiceProvider(this IWebHostBuilder hostBuilder, Action<WebHostBuilderContext, ServiceProviderOptions> configure)
 		{
 			throw null;
 		}
 
-		public static IWebHostBuilder UseStartup<TStartup>(this IWebHostBuilder hostBuilder) where TStartup : class
+		public static IWebHostBuilder ConfigureAppConfiguration(this IWebHostBuilder hostBuilder, Action<IConfigurationBuilder> configureDelegate)
+		{
+			throw null;
+		}
+
+		public static IWebHostBuilder ConfigureLogging(this IWebHostBuilder hostBuilder, Action<ILoggingBuilder> configureLogging)
+		{
+			throw null;
+		}
+
+		public static IWebHostBuilder ConfigureLogging(this IWebHostBuilder hostBuilder, Action<WebHostBuilderContext, ILoggingBuilder> configureLogging)
 		{
 			throw null;
 		}
@@ -15714,6 +19802,7 @@ namespace Microsoft.AspNetCore.Hosting
 // Microsoft.AspNetCore.Hosting\Microsoft.AspNetCore.Hosting\WebHostExtensions.cs
 using System;
 using System.Diagnostics;
+using System.Runtime.CompilerServices;
 using System.Threading;
 using System.Threading.Tasks;
 
@@ -15721,16 +19810,8 @@ namespace Microsoft.AspNetCore.Hosting
 {
 	public static class WebHostExtensions
 	{
-		public static void Run(this IWebHost host)
-		{
-		}
-
+		[AsyncStateMachine(typeof(_003CStopAsync_003Ed__0))]
 		[DebuggerStepThrough]
-		public static Task RunAsync(this IWebHost host, CancellationToken token = default(CancellationToken))
-		{
-			throw null;
-		}
-
 		public static Task StopAsync(this IWebHost host, TimeSpan timeout)
 		{
 			throw null;
@@ -15738,10 +19819,24 @@ namespace Microsoft.AspNetCore.Hosting
 
 		public static void WaitForShutdown(this IWebHost host)
 		{
+			throw null;
 		}
 
+		[AsyncStateMachine(typeof(_003CWaitForShutdownAsync_003Ed__2))]
 		[DebuggerStepThrough]
 		public static Task WaitForShutdownAsync(this IWebHost host, CancellationToken token = default(CancellationToken))
+		{
+			throw null;
+		}
+
+		public static void Run(this IWebHost host)
+		{
+			throw null;
+		}
+
+		[AsyncStateMachine(typeof(_003CRunAsync_003Ed__4))]
+		[DebuggerStepThrough]
+		public static Task RunAsync(this IWebHost host, CancellationToken token = default(CancellationToken))
 		{
 			throw null;
 		}
@@ -15760,6 +19855,7 @@ namespace Microsoft.AspNetCore.Hosting.Builder
 	{
 		public ApplicationBuilderFactory(IServiceProvider serviceProvider)
 		{
+			throw null;
 		}
 
 		public IApplicationBuilder CreateBuilder(IFeatureCollection serverFeatures)
@@ -15810,7 +19906,13 @@ namespace Microsoft.AspNetCore.Hosting.Server.Features
 			[CompilerGenerated]
 			set
 			{
+				throw null;
 			}
+		}
+
+		public ServerAddressesFeature()
+		{
+			throw null;
 		}
 	}
 }
@@ -15819,7 +19921,6 @@ namespace Microsoft.AspNetCore.Hosting.Server.Features
 // Microsoft.AspNetCore.Hosting\Microsoft.AspNetCore.Hosting.StaticWebAssets\StaticWebAssetsLoader.cs
 using Microsoft.Extensions.Configuration;
 using System.IO;
-using System.Reflection;
 
 namespace Microsoft.AspNetCore.Hosting.StaticWebAssets
 {
@@ -15829,20 +19930,22 @@ namespace Microsoft.AspNetCore.Hosting.StaticWebAssets
 
 		public static void UseStaticWebAssets(IWebHostEnvironment environment, IConfiguration configuration)
 		{
-		}
-
-		internal static string GetAssemblyLocation(Assembly assembly)
-		{
-			throw null;
-		}
-
-		internal static Stream ResolveManifest(IWebHostEnvironment environment, IConfiguration configuration)
-		{
 			throw null;
 		}
 
 		internal static void UseStaticWebAssetsCore(IWebHostEnvironment environment, Stream manifest)
 		{
+			throw null;
+		}
+
+		internal static Stream? ResolveManifest(IWebHostEnvironment environment, IConfiguration configuration)
+		{
+			throw null;
+		}
+
+		public StaticWebAssetsLoader()
+		{
+			throw null;
 		}
 	}
 }
@@ -15851,13 +19954,24 @@ namespace Microsoft.AspNetCore.Hosting.StaticWebAssets
 // Microsoft.AspNetCore.Hosting\Microsoft.AspNetCore.Http\DefaultHttpContextFactory.cs
 using Microsoft.AspNetCore.Http.Features;
 using System;
+using System.Runtime.CompilerServices;
 
 namespace Microsoft.AspNetCore.Http
 {
 	public class DefaultHttpContextFactory : IHttpContextFactory
 	{
+		internal IHttpContextAccessor? HttpContextAccessor
+		{
+			[System.Runtime.CompilerServices.NullableContext(2)]
+			get
+			{
+				throw null;
+			}
+		}
+
 		public DefaultHttpContextFactory(IServiceProvider serviceProvider)
 		{
+			throw null;
 		}
 
 		public HttpContext Create(IFeatureCollection featureCollection)
@@ -15865,8 +19979,20 @@ namespace Microsoft.AspNetCore.Http
 			throw null;
 		}
 
+		[MethodImpl(MethodImplOptions.AggressiveInlining)]
+		internal void Initialize(DefaultHttpContext httpContext, IFeatureCollection featureCollection)
+		{
+			throw null;
+		}
+
 		public void Dispose(HttpContext httpContext)
 		{
+			throw null;
+		}
+
+		internal void Dispose(DefaultHttpContext httpContext)
+		{
+			throw null;
 		}
 	}
 }
@@ -15888,6 +20014,180 @@ namespace Microsoft.Extensions.Hosting
 }
 
 
+// Microsoft.AspNetCore.Hosting\Microsoft.Extensions.RazorViews\BaseView.cs
+using Microsoft.AspNetCore.Http;
+using System.Diagnostics;
+using System.IO;
+using System.Runtime.CompilerServices;
+using System.Text.Encodings.Web;
+using System.Threading.Tasks;
+
+namespace Microsoft.Extensions.RazorViews
+{
+	internal abstract class BaseView
+	{
+		protected HttpContext Context
+		{
+			[CompilerGenerated]
+			get
+			{
+				throw null;
+			}
+		}
+
+		protected HttpRequest Request
+		{
+			[CompilerGenerated]
+			get
+			{
+				throw null;
+			}
+		}
+
+		protected HttpResponse Response
+		{
+			[CompilerGenerated]
+			get
+			{
+				throw null;
+			}
+		}
+
+		protected TextWriter Output
+		{
+			[CompilerGenerated]
+			get
+			{
+				throw null;
+			}
+		}
+
+		protected HtmlEncoder HtmlEncoder
+		{
+			[CompilerGenerated]
+			get
+			{
+				throw null;
+			}
+			[CompilerGenerated]
+			set
+			{
+				throw null;
+			}
+		}
+
+		protected UrlEncoder UrlEncoder
+		{
+			[CompilerGenerated]
+			get
+			{
+				throw null;
+			}
+			[CompilerGenerated]
+			set
+			{
+				throw null;
+			}
+		}
+
+		protected JavaScriptEncoder JavaScriptEncoder
+		{
+			[CompilerGenerated]
+			get
+			{
+				throw null;
+			}
+			[CompilerGenerated]
+			set
+			{
+				throw null;
+			}
+		}
+
+		[AsyncStateMachine(typeof(_003CExecuteAsync_003Ed__31))]
+		[DebuggerStepThrough]
+		public Task ExecuteAsync(Stream stream)
+		{
+			throw null;
+		}
+
+		[AsyncStateMachine(typeof(_003CExecuteAsync_003Ed__32))]
+		[DebuggerStepThrough]
+		public Task ExecuteAsync(HttpContext context)
+		{
+			throw null;
+		}
+
+		public abstract Task ExecuteAsync();
+
+		protected virtual void PushWriter(TextWriter writer)
+		{
+			throw null;
+		}
+
+		protected virtual TextWriter PopWriter()
+		{
+			throw null;
+		}
+
+		protected void WriteLiteral(object value)
+		{
+			throw null;
+		}
+
+		protected void WriteLiteral(string value)
+		{
+			throw null;
+		}
+
+		protected void WriteAttributeValue(string thingy, int startPostion, object value, int endValue, int dealyo, bool yesno)
+		{
+			throw null;
+		}
+
+		protected void BeginWriteAttribute(string name, string beginning, int startPosition, string ending, int endPosition, int thingy)
+		{
+			throw null;
+		}
+
+		protected void EndWriteAttribute()
+		{
+			throw null;
+		}
+
+		protected void WriteAttribute(string name, string leader, string trailer, params AttributeValue[] values)
+		{
+			throw null;
+		}
+
+		protected void Write(HelperResult result)
+		{
+			throw null;
+		}
+
+		protected void Write(object value)
+		{
+			throw null;
+		}
+
+		protected void Write(string value)
+		{
+			throw null;
+		}
+
+		protected string HtmlEncodeAndReplaceLineBreaks(string input)
+		{
+			throw null;
+		}
+
+		protected BaseView()
+		{
+			throw null;
+		}
+	}
+}
+
+
 // Microsoft.AspNetCore.Hosting.Abstractions\Microsoft.AspNetCore.Hosting\EnvironmentName.cs
 using System;
 
@@ -15898,9 +20198,9 @@ namespace Microsoft.AspNetCore.Hosting
 	{
 		public static readonly string Development;
 
-		public static readonly string Production;
-
 		public static readonly string Staging;
+
+		public static readonly string Production;
 	}
 }
 
@@ -15909,42 +20209,24 @@ namespace Microsoft.AspNetCore.Hosting
 using Microsoft.AspNetCore.Hosting.Server;
 using Microsoft.Extensions.Configuration;
 using System;
+using System.Diagnostics.CodeAnalysis;
 
 namespace Microsoft.AspNetCore.Hosting
 {
 	public static class HostingAbstractionsWebHostBuilderExtensions
 	{
-		public static IWebHostBuilder CaptureStartupErrors(this IWebHostBuilder hostBuilder, bool captureStartupErrors)
-		{
-			throw null;
-		}
-
-		public static IWebHostBuilder PreferHostingUrls(this IWebHostBuilder hostBuilder, bool preferHostingUrls)
-		{
-			throw null;
-		}
-
-		public static IWebHost Start(this IWebHostBuilder hostBuilder, params string[] urls)
-		{
-			throw null;
-		}
-
-		public static IWebHostBuilder SuppressStatusMessages(this IWebHostBuilder hostBuilder, bool suppressStatusMessages)
-		{
-			throw null;
-		}
-
 		public static IWebHostBuilder UseConfiguration(this IWebHostBuilder hostBuilder, IConfiguration configuration)
 		{
 			throw null;
 		}
 
-		public static IWebHostBuilder UseContentRoot(this IWebHostBuilder hostBuilder, string contentRoot)
+		public static IWebHostBuilder CaptureStartupErrors(this IWebHostBuilder hostBuilder, bool captureStartupErrors)
 		{
 			throw null;
 		}
 
-		public static IWebHostBuilder UseEnvironment(this IWebHostBuilder hostBuilder, string environment)
+		[RequiresUnreferencedCode("Types and members the loaded assembly depends on might be removed.")]
+		public static IWebHostBuilder UseStartup(this IWebHostBuilder hostBuilder, string startupAssemblyName)
 		{
 			throw null;
 		}
@@ -15954,12 +20236,17 @@ namespace Microsoft.AspNetCore.Hosting
 			throw null;
 		}
 
-		public static IWebHostBuilder UseShutdownTimeout(this IWebHostBuilder hostBuilder, TimeSpan timeout)
+		public static IWebHostBuilder UseEnvironment(this IWebHostBuilder hostBuilder, string environment)
 		{
 			throw null;
 		}
 
-		public static IWebHostBuilder UseStartup(this IWebHostBuilder hostBuilder, string startupAssemblyName)
+		public static IWebHostBuilder UseContentRoot(this IWebHostBuilder hostBuilder, string contentRoot)
+		{
+			throw null;
+		}
+
+		public static IWebHostBuilder UseWebRoot(this IWebHostBuilder hostBuilder, string webRoot)
 		{
 			throw null;
 		}
@@ -15969,7 +20256,22 @@ namespace Microsoft.AspNetCore.Hosting
 			throw null;
 		}
 
-		public static IWebHostBuilder UseWebRoot(this IWebHostBuilder hostBuilder, string webRoot)
+		public static IWebHostBuilder PreferHostingUrls(this IWebHostBuilder hostBuilder, bool preferHostingUrls)
+		{
+			throw null;
+		}
+
+		public static IWebHostBuilder SuppressStatusMessages(this IWebHostBuilder hostBuilder, bool suppressStatusMessages)
+		{
+			throw null;
+		}
+
+		public static IWebHostBuilder UseShutdownTimeout(this IWebHostBuilder hostBuilder, TimeSpan timeout)
+		{
+			throw null;
+		}
+
+		public static IWebHost Start(this IWebHostBuilder hostBuilder, params string[] urls)
 		{
 			throw null;
 		}
@@ -15987,7 +20289,7 @@ namespace Microsoft.AspNetCore.Hosting
 			throw null;
 		}
 
-		public static bool IsEnvironment(this IHostingEnvironment hostingEnvironment, string environmentName)
+		public static bool IsStaging(this IHostingEnvironment hostingEnvironment)
 		{
 			throw null;
 		}
@@ -15997,7 +20299,7 @@ namespace Microsoft.AspNetCore.Hosting
 			throw null;
 		}
 
-		public static bool IsStaging(this IHostingEnvironment hostingEnvironment)
+		public static bool IsEnvironment(this IHostingEnvironment hostingEnvironment, string environmentName)
 		{
 			throw null;
 		}
@@ -16007,6 +20309,7 @@ namespace Microsoft.AspNetCore.Hosting
 
 // Microsoft.AspNetCore.Hosting.Abstractions\Microsoft.AspNetCore.Hosting\HostingStartupAttribute.cs
 using System;
+using System.Diagnostics.CodeAnalysis;
 using System.Runtime.CompilerServices;
 
 namespace Microsoft.AspNetCore.Hosting
@@ -16014,6 +20317,7 @@ namespace Microsoft.AspNetCore.Hosting
 	[AttributeUsage(AttributeTargets.Assembly, Inherited = false, AllowMultiple = true)]
 	public sealed class HostingStartupAttribute : Attribute
 	{
+		[DynamicallyAccessedMembers(DynamicallyAccessedMemberTypes.PublicParameterlessConstructor)]
 		public Type HostingStartupType
 		{
 			[CompilerGenerated]
@@ -16023,8 +20327,9 @@ namespace Microsoft.AspNetCore.Hosting
 			}
 		}
 
-		public HostingStartupAttribute(Type hostingStartupType)
+		public HostingStartupAttribute([DynamicallyAccessedMembers(DynamicallyAccessedMemberTypes.PublicParameterlessConstructor)] Type hostingStartupType)
 		{
+			throw null;
 		}
 	}
 }
@@ -16044,12 +20349,12 @@ namespace Microsoft.AspNetCore.Hosting
 			get;
 		}
 
-		CancellationToken ApplicationStopped
+		CancellationToken ApplicationStopping
 		{
 			get;
 		}
 
-		CancellationToken ApplicationStopping
+		CancellationToken ApplicationStopped
 		{
 			get;
 		}
@@ -16068,25 +20373,19 @@ namespace Microsoft.AspNetCore.Hosting
 	[Obsolete("This type is obsolete and will be removed in a future version. The recommended alternative is Microsoft.AspNetCore.Hosting.IWebHostEnvironment.", false)]
 	public interface IHostingEnvironment
 	{
+		string EnvironmentName
+		{
+			get;
+			set;
+		}
+
 		string ApplicationName
 		{
 			get;
 			set;
 		}
 
-		IFileProvider ContentRootFileProvider
-		{
-			get;
-			set;
-		}
-
-		string ContentRootPath
-		{
-			get;
-			set;
-		}
-
-		string EnvironmentName
+		string WebRootPath
 		{
 			get;
 			set;
@@ -16098,7 +20397,13 @@ namespace Microsoft.AspNetCore.Hosting
 			set;
 		}
 
-		string WebRootPath
+		string ContentRootPath
+		{
+			get;
+			set;
+		}
+
+		IFileProvider ContentRootFileProvider
 		{
 			get;
 			set;
@@ -16126,9 +20431,9 @@ namespace Microsoft.AspNetCore.Hosting
 {
 	public interface IStartup
 	{
-		void Configure(IApplicationBuilder app);
-
 		IServiceProvider ConfigureServices(IServiceCollection services);
+
+		void Configure(IApplicationBuilder app);
 	}
 }
 
@@ -16215,13 +20520,13 @@ namespace Microsoft.AspNetCore.Hosting
 
 		IWebHostBuilder ConfigureAppConfiguration(Action<WebHostBuilderContext, IConfigurationBuilder> configureDelegate);
 
-		IWebHostBuilder ConfigureServices(Action<WebHostBuilderContext, IServiceCollection> configureServices);
-
 		IWebHostBuilder ConfigureServices(Action<IServiceCollection> configureServices);
 
-		string GetSetting(string key);
+		IWebHostBuilder ConfigureServices(Action<WebHostBuilderContext, IServiceCollection> configureServices);
 
-		IWebHostBuilder UseSetting(string key, string value);
+		string? GetSetting(string key);
+
+		IWebHostBuilder UseSetting(string key, string? value);
 	}
 }
 
@@ -16234,13 +20539,13 @@ namespace Microsoft.AspNetCore.Hosting
 {
 	public interface IWebHostEnvironment : IHostEnvironment
 	{
-		IFileProvider WebRootFileProvider
+		string WebRootPath
 		{
 			get;
 			set;
 		}
 
-		string WebRootPath
+		IFileProvider WebRootFileProvider
 		{
 			get;
 			set;
@@ -16257,19 +20562,6 @@ namespace Microsoft.AspNetCore.Hosting
 {
 	public class WebHostBuilderContext
 	{
-		public IConfiguration Configuration
-		{
-			[CompilerGenerated]
-			get
-			{
-				throw null;
-			}
-			[CompilerGenerated]
-			set
-			{
-			}
-		}
-
 		public IWebHostEnvironment HostingEnvironment
 		{
 			[CompilerGenerated]
@@ -16280,7 +20572,27 @@ namespace Microsoft.AspNetCore.Hosting
 			[CompilerGenerated]
 			set
 			{
+				throw null;
 			}
+		}
+
+		public IConfiguration Configuration
+		{
+			[CompilerGenerated]
+			get
+			{
+				throw null;
+			}
+			[CompilerGenerated]
+			set
+			{
+				throw null;
+			}
+		}
+
+		public WebHostBuilderContext()
+		{
+			throw null;
 		}
 	}
 }
@@ -16293,33 +20605,33 @@ namespace Microsoft.AspNetCore.Hosting
 	{
 		public static readonly string ApplicationKey;
 
-		public static readonly string CaptureStartupErrorsKey;
-
-		public static readonly string ContentRootKey;
-
-		public static readonly string DetailedErrorsKey;
-
-		public static readonly string EnvironmentKey;
+		public static readonly string StartupAssemblyKey;
 
 		public static readonly string HostingStartupAssembliesKey;
 
 		public static readonly string HostingStartupExcludeAssembliesKey;
 
+		public static readonly string DetailedErrorsKey;
+
+		public static readonly string EnvironmentKey;
+
+		public static readonly string WebRootKey;
+
+		public static readonly string CaptureStartupErrorsKey;
+
+		public static readonly string ServerUrlsKey;
+
+		public static readonly string ContentRootKey;
+
 		public static readonly string PreferHostingUrlsKey;
 
 		public static readonly string PreventHostingStartupKey;
 
-		public static readonly string ServerUrlsKey;
+		public static readonly string SuppressStatusMessagesKey;
 
 		public static readonly string ShutdownTimeoutKey;
 
-		public static readonly string StartupAssemblyKey;
-
 		public static readonly string StaticWebAssetsKey;
-
-		public static readonly string SuppressStatusMessagesKey;
-
-		public static readonly string WebRootKey;
 	}
 }
 
@@ -16331,13 +20643,13 @@ using System.Threading.Tasks;
 
 namespace Microsoft.AspNetCore.Hosting.Server
 {
-	public interface IHttpApplication<TContext>
+	public interface IHttpApplication<TContext> where TContext : notnull
 	{
 		TContext CreateContext(IFeatureCollection contextFeatures);
 
-		void DisposeContext(TContext context, Exception exception);
-
 		Task ProcessRequestAsync(TContext context);
+
+		void DisposeContext(TContext context, Exception exception);
 	}
 }
 
@@ -16357,7 +20669,7 @@ namespace Microsoft.AspNetCore.Hosting.Server
 			get;
 		}
 
-		Task StartAsync<TContext>(IHttpApplication<TContext> application, CancellationToken cancellationToken);
+		Task StartAsync<TContext>(IHttpApplication<TContext> application, CancellationToken cancellationToken) where TContext : notnull;
 
 		Task StopAsync(CancellationToken cancellationToken);
 	}
@@ -16369,12 +20681,12 @@ namespace Microsoft.AspNetCore.Hosting.Server
 {
 	public interface IServerIntegratedAuth
 	{
-		string AuthenticationScheme
+		bool IsEnabled
 		{
 			get;
 		}
 
-		bool IsEnabled
+		string? AuthenticationScheme
 		{
 			get;
 		}
@@ -16389,19 +20701,6 @@ namespace Microsoft.AspNetCore.Hosting.Server
 {
 	public class ServerIntegratedAuth : IServerIntegratedAuth
 	{
-		public string AuthenticationScheme
-		{
-			[CompilerGenerated]
-			get
-			{
-				throw null;
-			}
-			[CompilerGenerated]
-			set
-			{
-			}
-		}
-
 		public bool IsEnabled
 		{
 			[CompilerGenerated]
@@ -16412,7 +20711,27 @@ namespace Microsoft.AspNetCore.Hosting.Server
 			[CompilerGenerated]
 			set
 			{
+				throw null;
 			}
+		}
+
+		public string? AuthenticationScheme
+		{
+			[CompilerGenerated]
+			get
+			{
+				throw null;
+			}
+			[CompilerGenerated]
+			set
+			{
+				throw null;
+			}
+		}
+
+		public ServerIntegratedAuth()
+		{
+			throw null;
 		}
 	}
 }
@@ -16421,7 +20740,7 @@ namespace Microsoft.AspNetCore.Hosting.Server
 // Microsoft.AspNetCore.Hosting.Server.Abstractions\Microsoft.AspNetCore.Hosting.Server.Abstractions\IHostContextContainer.cs
 namespace Microsoft.AspNetCore.Hosting.Server.Abstractions
 {
-	public interface IHostContextContainer<TContext>
+	public interface IHostContextContainer<TContext> where TContext : notnull
 	{
 		TContext HostContext
 		{
@@ -16455,13 +20774,15 @@ namespace Microsoft.AspNetCore.Hosting.Server.Features
 
 // Microsoft.AspNetCore.Html.Abstractions\Microsoft.AspNetCore.Html\HtmlContentBuilder.cs
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.IO;
 using System.Runtime.CompilerServices;
 using System.Text.Encodings.Web;
 
 namespace Microsoft.AspNetCore.Html
 {
-	public class HtmlContentBuilder : IHtmlContent, IHtmlContentBuilder, IHtmlContentContainer
+	[DebuggerDisplay("{DebuggerToString()}")]
+	public class HtmlContentBuilder : IHtmlContentBuilder, IHtmlContentContainer, IHtmlContent
 	{
 		public int Count
 		{
@@ -16482,27 +20803,30 @@ namespace Microsoft.AspNetCore.Html
 
 		public HtmlContentBuilder()
 		{
-		}
-
-		public HtmlContentBuilder(IList<object> entries)
-		{
+			throw null;
 		}
 
 		public HtmlContentBuilder(int capacity)
 		{
+			throw null;
 		}
 
-		public IHtmlContentBuilder Append(string unencoded)
+		public HtmlContentBuilder(IList<object> entries)
 		{
 			throw null;
 		}
 
-		public IHtmlContentBuilder AppendHtml(IHtmlContent htmlContent)
+		public IHtmlContentBuilder Append(string? unencoded)
 		{
 			throw null;
 		}
 
-		public IHtmlContentBuilder AppendHtml(string encoded)
+		public IHtmlContentBuilder AppendHtml(IHtmlContent? htmlContent)
+		{
+			throw null;
+		}
+
+		public IHtmlContentBuilder AppendHtml(string? encoded)
 		{
 			throw null;
 		}
@@ -16514,14 +20838,17 @@ namespace Microsoft.AspNetCore.Html
 
 		public void CopyTo(IHtmlContentBuilder destination)
 		{
+			throw null;
 		}
 
 		public void MoveTo(IHtmlContentBuilder destination)
 		{
+			throw null;
 		}
 
 		public void WriteTo(TextWriter writer, HtmlEncoder encoder)
 		{
+			throw null;
 		}
 	}
 }
@@ -16534,17 +20861,12 @@ namespace Microsoft.AspNetCore.Html
 {
 	public static class HtmlContentBuilderExtensions
 	{
-		public static IHtmlContentBuilder AppendFormat(this IHtmlContentBuilder builder, IFormatProvider formatProvider, string format, params object[] args)
-		{
-			throw null;
-		}
-
 		public static IHtmlContentBuilder AppendFormat(this IHtmlContentBuilder builder, string format, params object[] args)
 		{
 			throw null;
 		}
 
-		public static IHtmlContentBuilder AppendHtmlLine(this IHtmlContentBuilder builder, string encoded)
+		public static IHtmlContentBuilder AppendFormat(this IHtmlContentBuilder builder, IFormatProvider formatProvider, string format, params object[] args)
 		{
 			throw null;
 		}
@@ -16554,12 +20876,17 @@ namespace Microsoft.AspNetCore.Html
 			throw null;
 		}
 
+		public static IHtmlContentBuilder AppendLine(this IHtmlContentBuilder builder, string unencoded)
+		{
+			throw null;
+		}
+
 		public static IHtmlContentBuilder AppendLine(this IHtmlContentBuilder builder, IHtmlContent content)
 		{
 			throw null;
 		}
 
-		public static IHtmlContentBuilder AppendLine(this IHtmlContentBuilder builder, string unencoded)
+		public static IHtmlContentBuilder AppendHtmlLine(this IHtmlContentBuilder builder, string encoded)
 		{
 			throw null;
 		}
@@ -16586,6 +20913,7 @@ namespace Microsoft.AspNetCore.Html
 using System;
 using System.Diagnostics;
 using System.IO;
+using System.Runtime.CompilerServices;
 using System.Text.Encodings.Web;
 
 namespace Microsoft.AspNetCore.Html
@@ -16593,16 +20921,38 @@ namespace Microsoft.AspNetCore.Html
 	[DebuggerDisplay("{DebuggerToString()}")]
 	public class HtmlFormattableString : IHtmlContent
 	{
-		public HtmlFormattableString(IFormatProvider formatProvider, string format, params object[] args)
+		private class EncodingFormatProvider : IFormatProvider, ICustomFormatter
 		{
+			[System.Runtime.CompilerServices.NullableContext(1)]
+			public EncodingFormatProvider(IFormatProvider formatProvider, HtmlEncoder encoder)
+			{
+				throw null;
+			}
+
+			public string Format(string? format, object? arg, IFormatProvider? formatProvider)
+			{
+				throw null;
+			}
+
+			public object? GetFormat(Type? formatType)
+			{
+				throw null;
+			}
 		}
 
 		public HtmlFormattableString(string format, params object[] args)
 		{
+			throw null;
+		}
+
+		public HtmlFormattableString(IFormatProvider? formatProvider, string format, params object[] args)
+		{
+			throw null;
 		}
 
 		public void WriteTo(TextWriter writer, HtmlEncoder encoder)
 		{
+			throw null;
 		}
 	}
 }
@@ -16617,12 +20967,13 @@ namespace Microsoft.AspNetCore.Html
 {
 	public class HtmlString : IHtmlContent
 	{
-		public static readonly HtmlString Empty;
-
 		public static readonly HtmlString NewLine;
 
-		public string Value
+		public static readonly HtmlString Empty;
+
+		public string? Value
 		{
+			[System.Runtime.CompilerServices.NullableContext(2)]
 			[CompilerGenerated]
 			get
 			{
@@ -16630,17 +20981,20 @@ namespace Microsoft.AspNetCore.Html
 			}
 		}
 
-		public HtmlString(string value)
-		{
-		}
-
-		public override string ToString()
+		[System.Runtime.CompilerServices.NullableContext(2)]
+		public HtmlString(string? value)
 		{
 			throw null;
 		}
 
 		public void WriteTo(TextWriter writer, HtmlEncoder encoder)
 		{
+			throw null;
+		}
+
+		public override string ToString()
+		{
+			throw null;
 		}
 	}
 }
@@ -16662,11 +21016,11 @@ namespace Microsoft.AspNetCore.Html
 // Microsoft.AspNetCore.Html.Abstractions\Microsoft.AspNetCore.Html\IHtmlContentBuilder.cs
 namespace Microsoft.AspNetCore.Html
 {
-	public interface IHtmlContentBuilder : IHtmlContent, IHtmlContentContainer
+	public interface IHtmlContentBuilder : IHtmlContentContainer, IHtmlContent
 	{
-		IHtmlContentBuilder Append(string unencoded);
-
 		IHtmlContentBuilder AppendHtml(IHtmlContent content);
+
+		IHtmlContentBuilder Append(string unencoded);
 
 		IHtmlContentBuilder AppendHtml(string encoded);
 
@@ -16706,14 +21060,6 @@ namespace Microsoft.AspNetCore.Builder
 			}
 			set
 			{
-			}
-		}
-
-		public IDictionary<string, object> Properties
-		{
-			[CompilerGenerated]
-			get
-			{
 				throw null;
 			}
 		}
@@ -16726,15 +21072,26 @@ namespace Microsoft.AspNetCore.Builder
 			}
 		}
 
+		public IDictionary<string, object?> Properties
+		{
+			[CompilerGenerated]
+			get
+			{
+				throw null;
+			}
+		}
+
 		public ApplicationBuilder(IServiceProvider serviceProvider)
 		{
+			throw null;
 		}
 
 		public ApplicationBuilder(IServiceProvider serviceProvider, object server)
 		{
+			throw null;
 		}
 
-		public RequestDelegate Build()
+		public IApplicationBuilder Use(Func<RequestDelegate, RequestDelegate> middleware)
 		{
 			throw null;
 		}
@@ -16744,7 +21101,7 @@ namespace Microsoft.AspNetCore.Builder
 			throw null;
 		}
 
-		public IApplicationBuilder Use(Func<RequestDelegate, RequestDelegate> middleware)
+		public RequestDelegate Build()
 		{
 			throw null;
 		}
@@ -16768,14 +21125,6 @@ namespace Microsoft.AspNetCore.Http
 			}
 		}
 
-		public bool IsUnixPipe
-		{
-			get
-			{
-				throw null;
-			}
-		}
-
 		public string PathBase
 		{
 			[CompilerGenerated]
@@ -16792,11 +21141,24 @@ namespace Microsoft.AspNetCore.Http
 			{
 				throw null;
 			}
+			[CompilerGenerated]
+			internal set
+			{
+				throw null;
+			}
 		}
 
 		public string Scheme
 		{
 			[CompilerGenerated]
+			get
+			{
+				throw null;
+			}
+		}
+
+		public bool IsUnixPipe
+		{
 			get
 			{
 				throw null;
@@ -16811,7 +21173,7 @@ namespace Microsoft.AspNetCore.Http
 			}
 		}
 
-		public override bool Equals(object obj)
+		public override string ToString()
 		{
 			throw null;
 		}
@@ -16821,12 +21183,17 @@ namespace Microsoft.AspNetCore.Http
 			throw null;
 		}
 
+		public override bool Equals(object? obj)
+		{
+			throw null;
+		}
+
 		public static BindingAddress Parse(string address)
 		{
 			throw null;
 		}
 
-		public override string ToString()
+		public BindingAddress()
 		{
 			throw null;
 		}
@@ -16836,6 +21203,7 @@ namespace Microsoft.AspNetCore.Http
 
 // Microsoft.AspNetCore.Http\Microsoft.AspNetCore.Http\DefaultHttpContext.cs
 using Microsoft.AspNetCore.Http.Features;
+using Microsoft.AspNetCore.Http.Features.Authentication;
 using Microsoft.Extensions.DependencyInjection;
 using System;
 using System.Collections.Generic;
@@ -16848,20 +21216,19 @@ namespace Microsoft.AspNetCore.Http
 {
 	public sealed class DefaultHttpContext : HttpContext
 	{
-		public override ConnectionInfo Connection
+		private struct FeatureInterfaces
 		{
-			get
-			{
-				throw null;
-			}
-		}
+			public IItemsFeature? Items;
 
-		public override IFeatureCollection Features
-		{
-			get
-			{
-				throw null;
-			}
+			public IServiceProvidersFeature? ServiceProviders;
+
+			public IHttpAuthenticationFeature? Authentication;
+
+			public IHttpRequestLifetimeFeature? Lifetime;
+
+			public ISessionFeature? Session;
+
+			public IHttpRequestIdentifierFeature? RequestIdentifier;
 		}
 
 		public FormOptions FormOptions
@@ -16873,63 +21240,6 @@ namespace Microsoft.AspNetCore.Http
 			}
 			[CompilerGenerated]
 			set
-			{
-			}
-		}
-
-		[EditorBrowsable(EditorBrowsableState.Never)]
-		public HttpContext HttpContext
-		{
-			get
-			{
-				throw null;
-			}
-		}
-
-		public override IDictionary<object, object> Items
-		{
-			get
-			{
-				throw null;
-			}
-			set
-			{
-			}
-		}
-
-		public override HttpRequest Request
-		{
-			get
-			{
-				throw null;
-			}
-		}
-
-		public override CancellationToken RequestAborted
-		{
-			get
-			{
-				throw null;
-			}
-			set
-			{
-			}
-		}
-
-		public override IServiceProvider RequestServices
-		{
-			get
-			{
-				throw null;
-			}
-			set
-			{
-			}
-		}
-
-		public override HttpResponse Response
-		{
-			get
 			{
 				throw null;
 			}
@@ -16945,39 +21255,39 @@ namespace Microsoft.AspNetCore.Http
 			[CompilerGenerated]
 			set
 			{
+				throw null;
 			}
 		}
 
-		public override ISession Session
+		public override IFeatureCollection Features
 		{
 			get
 			{
 				throw null;
 			}
-			set
-			{
-			}
 		}
 
-		public override string TraceIdentifier
+		public override HttpRequest Request
 		{
 			get
 			{
 				throw null;
 			}
-			set
-			{
-			}
 		}
 
-		public override ClaimsPrincipal User
+		public override HttpResponse Response
 		{
 			get
 			{
 				throw null;
 			}
-			set
+		}
+
+		public override ConnectionInfo Connection
+		{
+			get
 			{
+				throw null;
 			}
 		}
 
@@ -16989,24 +21299,110 @@ namespace Microsoft.AspNetCore.Http
 			}
 		}
 
+		public override ClaimsPrincipal User
+		{
+			get
+			{
+				throw null;
+			}
+			set
+			{
+				throw null;
+			}
+		}
+
+		public override IDictionary<object, object?> Items
+		{
+			get
+			{
+				throw null;
+			}
+			set
+			{
+				throw null;
+			}
+		}
+
+		public override IServiceProvider RequestServices
+		{
+			get
+			{
+				throw null;
+			}
+			set
+			{
+				throw null;
+			}
+		}
+
+		public override CancellationToken RequestAborted
+		{
+			get
+			{
+				throw null;
+			}
+			set
+			{
+				throw null;
+			}
+		}
+
+		public override string TraceIdentifier
+		{
+			get
+			{
+				throw null;
+			}
+			set
+			{
+				throw null;
+			}
+		}
+
+		public override ISession Session
+		{
+			get
+			{
+				throw null;
+			}
+			set
+			{
+				throw null;
+			}
+		}
+
+		[EditorBrowsable(EditorBrowsableState.Never)]
+		public HttpContext HttpContext
+		{
+			get
+			{
+				throw null;
+			}
+		}
+
 		public DefaultHttpContext()
 		{
+			throw null;
 		}
 
 		public DefaultHttpContext(IFeatureCollection features)
 		{
-		}
-
-		public override void Abort()
-		{
+			throw null;
 		}
 
 		public void Initialize(IFeatureCollection features)
 		{
+			throw null;
 		}
 
 		public void Uninitialize()
 		{
+			throw null;
+		}
+
+		public override void Abort()
+		{
+			throw null;
 		}
 	}
 }
@@ -17017,6 +21413,7 @@ using Microsoft.Extensions.Primitives;
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.Runtime.CompilerServices;
 
 namespace Microsoft.AspNetCore.Http
 {
@@ -17024,9 +21421,9 @@ namespace Microsoft.AspNetCore.Http
 	{
 		public struct Enumerator : IEnumerator<KeyValuePair<string, StringValues>>, IEnumerator, IDisposable
 		{
-			private object _dummy;
+			private Dictionary<string, StringValues>.Enumerator _dictionaryEnumerator;
 
-			private int _dummyPrimitive;
+			private bool _notEmpty;
 
 			public KeyValuePair<string, StringValues> Current
 			{
@@ -17038,14 +21435,16 @@ namespace Microsoft.AspNetCore.Http
 
 			object IEnumerator.Current
 			{
+				[System.Runtime.CompilerServices.NullableContext(1)]
 				get
 				{
 					throw null;
 				}
 			}
 
-			public void Dispose()
+			internal Enumerator(Dictionary<string, StringValues>.Enumerator dictionaryEnumerator)
 			{
+				throw null;
 			}
 
 			public bool MoveNext()
@@ -17053,20 +21452,18 @@ namespace Microsoft.AspNetCore.Http
 				throw null;
 			}
 
-			void IEnumerator.Reset()
+			public void Dispose()
 			{
+				throw null;
 			}
-		}
 
-		public static readonly FormCollection Empty;
-
-		public int Count
-		{
-			get
+			void IEnumerator.Reset()
 			{
 				throw null;
 			}
 		}
+
+		public static readonly FormCollection Empty;
 
 		public IFormFileCollection Files
 		{
@@ -17084,6 +21481,14 @@ namespace Microsoft.AspNetCore.Http
 			}
 		}
 
+		public int Count
+		{
+			get
+			{
+				throw null;
+			}
+		}
+
 		public ICollection<string> Keys
 		{
 			get
@@ -17092,11 +21497,18 @@ namespace Microsoft.AspNetCore.Http
 			}
 		}
 
-		public FormCollection(Dictionary<string, StringValues> fields, IFormFileCollection files = null)
+		[System.Runtime.CompilerServices.NullableContext(2)]
+		public FormCollection(Dictionary<string, StringValues>? fields, IFormFileCollection? files = null)
 		{
+			throw null;
 		}
 
 		public bool ContainsKey(string key)
+		{
+			throw null;
+		}
+
+		public bool TryGetValue(string key, out StringValues value)
 		{
 			throw null;
 		}
@@ -17112,11 +21524,6 @@ namespace Microsoft.AspNetCore.Http
 		}
 
 		IEnumerator IEnumerable.GetEnumerator()
-		{
-			throw null;
-		}
-
-		public bool TryGetValue(string key, out StringValues value)
 		{
 			throw null;
 		}
@@ -17143,6 +21550,7 @@ namespace Microsoft.AspNetCore.Http
 			}
 			set
 			{
+				throw null;
 			}
 		}
 
@@ -17153,14 +21561,6 @@ namespace Microsoft.AspNetCore.Http
 				throw null;
 			}
 			set
-			{
-			}
-		}
-
-		public string FileName
-		{
-			[CompilerGenerated]
-			get
 			{
 				throw null;
 			}
@@ -17176,6 +21576,7 @@ namespace Microsoft.AspNetCore.Http
 			[CompilerGenerated]
 			set
 			{
+				throw null;
 			}
 		}
 
@@ -17197,21 +21598,33 @@ namespace Microsoft.AspNetCore.Http
 			}
 		}
 
+		public string FileName
+		{
+			[CompilerGenerated]
+			get
+			{
+				throw null;
+			}
+		}
+
 		public FormFile(Stream baseStream, long baseStreamOffset, long length, string name, string fileName)
-		{
-		}
-
-		public void CopyTo(Stream target)
-		{
-		}
-
-		[DebuggerStepThrough]
-		public Task CopyToAsync(Stream target, CancellationToken cancellationToken = default(CancellationToken))
 		{
 			throw null;
 		}
 
 		public Stream OpenReadStream()
+		{
+			throw null;
+		}
+
+		public void CopyTo(Stream target)
+		{
+			throw null;
+		}
+
+		[AsyncStateMachine(typeof(_003CCopyToAsync_003Ed__25))]
+		[DebuggerStepThrough]
+		public Task CopyToAsync(Stream target, CancellationToken cancellationToken = default(CancellationToken))
 		{
 			throw null;
 		}
@@ -17225,9 +21638,9 @@ using System.Collections.Generic;
 
 namespace Microsoft.AspNetCore.Http
 {
-	public class FormFileCollection : List<IFormFile>, IFormFileCollection, IEnumerable<IFormFile>, IEnumerable, IReadOnlyCollection<IFormFile>, IReadOnlyList<IFormFile>
+	public class FormFileCollection : List<IFormFile>, IFormFileCollection, IReadOnlyList<IFormFile>, IEnumerable<IFormFile>, IEnumerable, IReadOnlyCollection<IFormFile>
 	{
-		public IFormFile this[string name]
+		public IFormFile? this[string name]
 		{
 			get
 			{
@@ -17235,12 +21648,17 @@ namespace Microsoft.AspNetCore.Http
 			}
 		}
 
-		public IFormFile GetFile(string name)
+		public IFormFile? GetFile(string name)
 		{
 			throw null;
 		}
 
 		public IReadOnlyList<IFormFile> GetFiles(string name)
+		{
+			throw null;
+		}
+
+		public FormFileCollection()
 		{
 			throw null;
 		}
@@ -17257,13 +21675,13 @@ using System.Runtime.CompilerServices;
 
 namespace Microsoft.AspNetCore.Http
 {
-	public class HeaderDictionary : IHeaderDictionary, ICollection<KeyValuePair<string, StringValues>>, IEnumerable<KeyValuePair<string, StringValues>>, IEnumerable, IDictionary<string, StringValues>
+	public class HeaderDictionary : IHeaderDictionary, IDictionary<string, StringValues>, ICollection<KeyValuePair<string, StringValues>>, IEnumerable<KeyValuePair<string, StringValues>>, IEnumerable
 	{
 		public struct Enumerator : IEnumerator<KeyValuePair<string, StringValues>>, IEnumerator, IDisposable
 		{
-			private object _dummy;
+			private Dictionary<string, StringValues>.Enumerator _dictionaryEnumerator;
 
-			private int _dummyPrimitive;
+			private bool _notEmpty;
 
 			public KeyValuePair<string, StringValues> Current
 			{
@@ -17275,14 +21693,16 @@ namespace Microsoft.AspNetCore.Http
 
 			object IEnumerator.Current
 			{
+				[System.Runtime.CompilerServices.NullableContext(1)]
 				get
 				{
 					throw null;
 				}
 			}
 
-			public void Dispose()
+			internal Enumerator(Dictionary<string, StringValues>.Enumerator dictionaryEnumerator)
 			{
+				throw null;
 			}
 
 			public bool MoveNext()
@@ -17290,8 +21710,38 @@ namespace Microsoft.AspNetCore.Http
 				throw null;
 			}
 
+			public void Dispose()
+			{
+				throw null;
+			}
+
 			void IEnumerator.Reset()
 			{
+				throw null;
+			}
+		}
+
+		public StringValues this[string key]
+		{
+			get
+			{
+				throw null;
+			}
+			set
+			{
+				throw null;
+			}
+		}
+
+		StringValues IDictionary<string, StringValues>.this[string key]
+		{
+			get
+			{
+				throw null;
+			}
+			set
+			{
+				throw null;
 			}
 		}
 
@@ -17303,6 +21753,7 @@ namespace Microsoft.AspNetCore.Http
 			}
 			set
 			{
+				throw null;
 			}
 		}
 
@@ -17324,17 +21775,7 @@ namespace Microsoft.AspNetCore.Http
 			[CompilerGenerated]
 			set
 			{
-			}
-		}
-
-		public StringValues this[string key]
-		{
-			get
-			{
 				throw null;
-			}
-			set
-			{
 			}
 		}
 
@@ -17343,17 +21784,6 @@ namespace Microsoft.AspNetCore.Http
 			get
 			{
 				throw null;
-			}
-		}
-
-		StringValues IDictionary<string, StringValues>.this[string key]
-		{
-			get
-			{
-				throw null;
-			}
-			set
-			{
 			}
 		}
 
@@ -17367,26 +21797,32 @@ namespace Microsoft.AspNetCore.Http
 
 		public HeaderDictionary()
 		{
+			throw null;
 		}
 
-		public HeaderDictionary(Dictionary<string, StringValues> store)
+		public HeaderDictionary(Dictionary<string, StringValues>? store)
 		{
+			throw null;
 		}
 
 		public HeaderDictionary(int capacity)
 		{
+			throw null;
 		}
 
 		public void Add(KeyValuePair<string, StringValues> item)
 		{
+			throw null;
 		}
 
 		public void Add(string key, StringValues value)
 		{
+			throw null;
 		}
 
 		public void Clear()
 		{
+			throw null;
 		}
 
 		public bool Contains(KeyValuePair<string, StringValues> item)
@@ -17401,10 +21837,6 @@ namespace Microsoft.AspNetCore.Http
 
 		public void CopyTo(KeyValuePair<string, StringValues>[] array, int arrayIndex)
 		{
-		}
-
-		public Enumerator GetEnumerator()
-		{
 			throw null;
 		}
 
@@ -17418,6 +21850,16 @@ namespace Microsoft.AspNetCore.Http
 			throw null;
 		}
 
+		public bool TryGetValue(string key, out StringValues value)
+		{
+			throw null;
+		}
+
+		public Enumerator GetEnumerator()
+		{
+			throw null;
+		}
+
 		IEnumerator<KeyValuePair<string, StringValues>> IEnumerable<KeyValuePair<string, StringValues>>.GetEnumerator()
 		{
 			throw null;
@@ -17427,29 +21869,44 @@ namespace Microsoft.AspNetCore.Http
 		{
 			throw null;
 		}
-
-		public bool TryGetValue(string key, out StringValues value)
-		{
-			throw null;
-		}
 	}
 }
 
 
 // Microsoft.AspNetCore.Http\Microsoft.AspNetCore.Http\HttpContextAccessor.cs
+using System.Runtime.CompilerServices;
+
 namespace Microsoft.AspNetCore.Http
 {
 	public class HttpContextAccessor : IHttpContextAccessor
 	{
-		public HttpContext HttpContext
+		private class HttpContextHolder
 		{
+			public HttpContext? Context;
+
+			public HttpContextHolder()
+			{
+				throw null;
+			}
+		}
+
+		public HttpContext? HttpContext
+		{
+			[System.Runtime.CompilerServices.NullableContext(2)]
 			get
 			{
 				throw null;
 			}
+			[System.Runtime.CompilerServices.NullableContext(2)]
 			set
 			{
+				throw null;
 			}
+		}
+
+		public HttpContextAccessor()
+		{
+			throw null;
 		}
 	}
 }
@@ -17468,18 +21925,22 @@ namespace Microsoft.AspNetCore.Http
 	{
 		public HttpContextFactory(IOptions<FormOptions> formOptions)
 		{
-		}
-
-		public HttpContextFactory(IOptions<FormOptions> formOptions, IHttpContextAccessor httpContextAccessor)
-		{
+			throw null;
 		}
 
 		public HttpContextFactory(IOptions<FormOptions> formOptions, IServiceScopeFactory serviceScopeFactory)
 		{
+			throw null;
 		}
 
-		public HttpContextFactory(IOptions<FormOptions> formOptions, IServiceScopeFactory serviceScopeFactory, IHttpContextAccessor httpContextAccessor)
+		public HttpContextFactory(IOptions<FormOptions> formOptions, IHttpContextAccessor? httpContextAccessor)
 		{
+			throw null;
+		}
+
+		public HttpContextFactory(IOptions<FormOptions> formOptions, IServiceScopeFactory serviceScopeFactory, IHttpContextAccessor? httpContextAccessor)
+		{
+			throw null;
 		}
 
 		public HttpContext Create(IFeatureCollection featureCollection)
@@ -17489,6 +21950,7 @@ namespace Microsoft.AspNetCore.Http
 
 		public void Dispose(HttpContext httpContext)
 		{
+			throw null;
 		}
 	}
 }
@@ -17501,18 +21963,22 @@ namespace Microsoft.AspNetCore.Http
 	{
 		public static void EnableBuffering(this HttpRequest request)
 		{
+			throw null;
 		}
 
 		public static void EnableBuffering(this HttpRequest request, int bufferThreshold)
 		{
-		}
-
-		public static void EnableBuffering(this HttpRequest request, int bufferThreshold, long bufferLimit)
-		{
+			throw null;
 		}
 
 		public static void EnableBuffering(this HttpRequest request, long bufferLimit)
 		{
+			throw null;
+		}
+
+		public static void EnableBuffering(this HttpRequest request, int bufferThreshold, long bufferLimit)
+		{
+			throw null;
 		}
 	}
 }
@@ -17527,15 +21993,17 @@ namespace Microsoft.AspNetCore.Http
 	{
 		public MiddlewareFactory(IServiceProvider serviceProvider)
 		{
+			throw null;
 		}
 
-		public IMiddleware Create(Type middlewareType)
+		public IMiddleware? Create(Type middlewareType)
 		{
 			throw null;
 		}
 
 		public void Release(IMiddleware middleware)
 		{
+			throw null;
 		}
 	}
 }
@@ -17546,6 +22014,7 @@ using Microsoft.Extensions.Primitives;
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.Runtime.CompilerServices;
 
 namespace Microsoft.AspNetCore.Http
 {
@@ -17553,9 +22022,9 @@ namespace Microsoft.AspNetCore.Http
 	{
 		public struct Enumerator : IEnumerator<KeyValuePair<string, StringValues>>, IEnumerator, IDisposable
 		{
-			private object _dummy;
+			private Dictionary<string, StringValues>.Enumerator _dictionaryEnumerator;
 
-			private int _dummyPrimitive;
+			private bool _notEmpty;
 
 			public KeyValuePair<string, StringValues> Current
 			{
@@ -17567,14 +22036,16 @@ namespace Microsoft.AspNetCore.Http
 
 			object IEnumerator.Current
 			{
+				[System.Runtime.CompilerServices.NullableContext(1)]
 				get
 				{
 					throw null;
 				}
 			}
 
-			public void Dispose()
+			internal Enumerator(Dictionary<string, StringValues>.Enumerator dictionaryEnumerator)
 			{
+				throw null;
 			}
 
 			public bool MoveNext()
@@ -17582,14 +22053,20 @@ namespace Microsoft.AspNetCore.Http
 				throw null;
 			}
 
+			public void Dispose()
+			{
+				throw null;
+			}
+
 			void IEnumerator.Reset()
 			{
+				throw null;
 			}
 		}
 
 		public static readonly QueryCollection Empty;
 
-		public int Count
+		public StringValues this[string key]
 		{
 			get
 			{
@@ -17597,7 +22074,7 @@ namespace Microsoft.AspNetCore.Http
 			}
 		}
 
-		public StringValues this[string key]
+		public int Count
 		{
 			get
 			{
@@ -17615,21 +22092,30 @@ namespace Microsoft.AspNetCore.Http
 
 		public QueryCollection()
 		{
-		}
-
-		public QueryCollection(QueryCollection store)
-		{
+			throw null;
 		}
 
 		public QueryCollection(Dictionary<string, StringValues> store)
 		{
+			throw null;
+		}
+
+		public QueryCollection(QueryCollection store)
+		{
+			throw null;
 		}
 
 		public QueryCollection(int capacity)
 		{
+			throw null;
 		}
 
 		public bool ContainsKey(string key)
+		{
+			throw null;
+		}
+
+		public bool TryGetValue(string key, out StringValues value)
 		{
 			throw null;
 		}
@@ -17645,11 +22131,6 @@ namespace Microsoft.AspNetCore.Http
 		}
 
 		IEnumerator IEnumerable.GetEnumerator()
-		{
-			throw null;
-		}
-
-		public bool TryGetValue(string key, out StringValues value)
 		{
 			throw null;
 		}
@@ -17677,6 +22158,7 @@ namespace Microsoft.AspNetCore.Http
 // Microsoft.AspNetCore.Http\Microsoft.AspNetCore.Http\SendFileFallback.cs
 using System.Diagnostics;
 using System.IO;
+using System.Runtime.CompilerServices;
 using System.Threading;
 using System.Threading.Tasks;
 
@@ -17684,6 +22166,7 @@ namespace Microsoft.AspNetCore.Http
 {
 	public static class SendFileFallback
 	{
+		[AsyncStateMachine(typeof(_003CSendFileAsync_003Ed__0))]
 		[DebuggerStepThrough]
 		public static Task SendFileAsync(Stream destination, string filePath, long offset, long? count, CancellationToken cancellationToken)
 		{
@@ -17706,7 +22189,7 @@ namespace Microsoft.AspNetCore.Http
 {
 	public class StreamResponseBodyFeature : IHttpResponseBodyFeature
 	{
-		public IHttpResponseBodyFeature PriorFeature
+		public Stream Stream
 		{
 			[CompilerGenerated]
 			get
@@ -17715,8 +22198,9 @@ namespace Microsoft.AspNetCore.Http
 			}
 		}
 
-		public Stream Stream
+		public IHttpResponseBodyFeature? PriorFeature
 		{
+			[System.Runtime.CompilerServices.NullableContext(2)]
 			[CompilerGenerated]
 			get
 			{
@@ -17734,26 +22218,20 @@ namespace Microsoft.AspNetCore.Http
 
 		public StreamResponseBodyFeature(Stream stream)
 		{
+			throw null;
 		}
 
 		public StreamResponseBodyFeature(Stream stream, IHttpResponseBodyFeature priorFeature)
-		{
-		}
-
-		[DebuggerStepThrough]
-		public virtual Task CompleteAsync()
 		{
 			throw null;
 		}
 
 		public virtual void DisableBuffering()
 		{
+			throw null;
 		}
 
-		public void Dispose()
-		{
-		}
-
+		[AsyncStateMachine(typeof(_003CSendFileAsync_003Ed__15))]
 		[DebuggerStepThrough]
 		public virtual Task SendFileAsync(string path, long offset, long? count, CancellationToken cancellationToken)
 		{
@@ -17761,6 +22239,18 @@ namespace Microsoft.AspNetCore.Http
 		}
 
 		public virtual Task StartAsync(CancellationToken cancellationToken = default(CancellationToken))
+		{
+			throw null;
+		}
+
+		[AsyncStateMachine(typeof(_003CCompleteAsync_003Ed__17))]
+		[DebuggerStepThrough]
+		public virtual Task CompleteAsync()
+		{
+			throw null;
+		}
+
+		public void Dispose()
 		{
 			throw null;
 		}
@@ -17785,13 +22275,20 @@ namespace Microsoft.AspNetCore.Http.Features
 			[CompilerGenerated]
 			set
 			{
+				throw null;
 			}
+		}
+
+		public DefaultSessionFeature()
+		{
+			throw null;
 		}
 	}
 }
 
 
 // Microsoft.AspNetCore.Http\Microsoft.AspNetCore.Http.Features\FormFeature.cs
+using System.Runtime.CompilerServices;
 using System.Threading;
 using System.Threading.Tasks;
 
@@ -17799,17 +22296,6 @@ namespace Microsoft.AspNetCore.Http.Features
 {
 	public class FormFeature : IFormFeature
 	{
-		public IFormCollection Form
-		{
-			get
-			{
-				throw null;
-			}
-			set
-			{
-			}
-		}
-
 		public bool HasFormContentType
 		{
 			get
@@ -17818,16 +22304,33 @@ namespace Microsoft.AspNetCore.Http.Features
 			}
 		}
 
-		public FormFeature(HttpRequest request)
+		public IFormCollection? Form
 		{
-		}
-
-		public FormFeature(HttpRequest request, FormOptions options)
-		{
+			[System.Runtime.CompilerServices.NullableContext(2)]
+			get
+			{
+				throw null;
+			}
+			[System.Runtime.CompilerServices.NullableContext(2)]
+			set
+			{
+				throw null;
+			}
 		}
 
 		public FormFeature(IFormCollection form)
 		{
+			throw null;
+		}
+
+		public FormFeature(HttpRequest request)
+		{
+			throw null;
+		}
+
+		public FormFeature(HttpRequest request, FormOptions options)
+		{
+			throw null;
 		}
 
 		public IFormCollection ReadForm()
@@ -17855,13 +22358,15 @@ namespace Microsoft.AspNetCore.Http.Features
 {
 	public class FormOptions
 	{
-		public const int DefaultBufferBodyLengthLimit = 134217728;
+		internal static readonly FormOptions Default;
 
 		public const int DefaultMemoryBufferThreshold = 65536;
 
-		public const long DefaultMultipartBodyLengthLimit = 134217728L;
+		public const int DefaultBufferBodyLengthLimit = 134217728;
 
 		public const int DefaultMultipartBoundaryLengthLimit = 128;
+
+		public const long DefaultMultipartBodyLengthLimit = 134217728L;
 
 		public bool BufferBody
 		{
@@ -17873,32 +22378,7 @@ namespace Microsoft.AspNetCore.Http.Features
 			[CompilerGenerated]
 			set
 			{
-			}
-		}
-
-		public long BufferBodyLengthLimit
-		{
-			[CompilerGenerated]
-			get
-			{
 				throw null;
-			}
-			[CompilerGenerated]
-			set
-			{
-			}
-		}
-
-		public int KeyLengthLimit
-		{
-			[CompilerGenerated]
-			get
-			{
-				throw null;
-			}
-			[CompilerGenerated]
-			set
-			{
 			}
 		}
 
@@ -17912,10 +22392,11 @@ namespace Microsoft.AspNetCore.Http.Features
 			[CompilerGenerated]
 			set
 			{
+				throw null;
 			}
 		}
 
-		public long MultipartBodyLengthLimit
+		public long BufferBodyLengthLimit
 		{
 			[CompilerGenerated]
 			get
@@ -17925,45 +22406,7 @@ namespace Microsoft.AspNetCore.Http.Features
 			[CompilerGenerated]
 			set
 			{
-			}
-		}
-
-		public int MultipartBoundaryLengthLimit
-		{
-			[CompilerGenerated]
-			get
-			{
 				throw null;
-			}
-			[CompilerGenerated]
-			set
-			{
-			}
-		}
-
-		public int MultipartHeadersCountLimit
-		{
-			[CompilerGenerated]
-			get
-			{
-				throw null;
-			}
-			[CompilerGenerated]
-			set
-			{
-			}
-		}
-
-		public int MultipartHeadersLengthLimit
-		{
-			[CompilerGenerated]
-			get
-			{
-				throw null;
-			}
-			[CompilerGenerated]
-			set
-			{
 			}
 		}
 
@@ -17977,6 +22420,21 @@ namespace Microsoft.AspNetCore.Http.Features
 			[CompilerGenerated]
 			set
 			{
+				throw null;
+			}
+		}
+
+		public int KeyLengthLimit
+		{
+			[CompilerGenerated]
+			get
+			{
+				throw null;
+			}
+			[CompilerGenerated]
+			set
+			{
+				throw null;
 			}
 		}
 
@@ -17990,7 +22448,69 @@ namespace Microsoft.AspNetCore.Http.Features
 			[CompilerGenerated]
 			set
 			{
+				throw null;
 			}
+		}
+
+		public int MultipartBoundaryLengthLimit
+		{
+			[CompilerGenerated]
+			get
+			{
+				throw null;
+			}
+			[CompilerGenerated]
+			set
+			{
+				throw null;
+			}
+		}
+
+		public int MultipartHeadersCountLimit
+		{
+			[CompilerGenerated]
+			get
+			{
+				throw null;
+			}
+			[CompilerGenerated]
+			set
+			{
+				throw null;
+			}
+		}
+
+		public int MultipartHeadersLengthLimit
+		{
+			[CompilerGenerated]
+			get
+			{
+				throw null;
+			}
+			[CompilerGenerated]
+			set
+			{
+				throw null;
+			}
+		}
+
+		public long MultipartBodyLengthLimit
+		{
+			[CompilerGenerated]
+			get
+			{
+				throw null;
+			}
+			[CompilerGenerated]
+			set
+			{
+				throw null;
+			}
+		}
+
+		public FormOptions()
+		{
+			throw null;
 		}
 	}
 }
@@ -18006,18 +22526,21 @@ namespace Microsoft.AspNetCore.Http.Features
 	{
 		public string ConnectionId
 		{
+			[System.Runtime.CompilerServices.NullableContext(1)]
 			[CompilerGenerated]
 			get
 			{
 				throw null;
 			}
+			[System.Runtime.CompilerServices.NullableContext(1)]
 			[CompilerGenerated]
 			set
 			{
+				throw null;
 			}
 		}
 
-		public IPAddress LocalIpAddress
+		public IPAddress? LocalIpAddress
 		{
 			[CompilerGenerated]
 			get
@@ -18027,6 +22550,7 @@ namespace Microsoft.AspNetCore.Http.Features
 			[CompilerGenerated]
 			set
 			{
+				throw null;
 			}
 		}
 
@@ -18040,10 +22564,11 @@ namespace Microsoft.AspNetCore.Http.Features
 			[CompilerGenerated]
 			set
 			{
+				throw null;
 			}
 		}
 
-		public IPAddress RemoteIpAddress
+		public IPAddress? RemoteIpAddress
 		{
 			[CompilerGenerated]
 			get
@@ -18053,6 +22578,7 @@ namespace Microsoft.AspNetCore.Http.Features
 			[CompilerGenerated]
 			set
 			{
+				throw null;
 			}
 		}
 
@@ -18066,7 +22592,13 @@ namespace Microsoft.AspNetCore.Http.Features
 			[CompilerGenerated]
 			set
 			{
+				throw null;
 			}
+		}
+
+		public HttpConnectionFeature()
+		{
+			throw null;
 		}
 	}
 }
@@ -18080,71 +22612,6 @@ namespace Microsoft.AspNetCore.Http.Features
 {
 	public class HttpRequestFeature : IHttpRequestFeature
 	{
-		public Stream Body
-		{
-			[CompilerGenerated]
-			get
-			{
-				throw null;
-			}
-			[CompilerGenerated]
-			set
-			{
-			}
-		}
-
-		public IHeaderDictionary Headers
-		{
-			[CompilerGenerated]
-			get
-			{
-				throw null;
-			}
-			[CompilerGenerated]
-			set
-			{
-			}
-		}
-
-		public string Method
-		{
-			[CompilerGenerated]
-			get
-			{
-				throw null;
-			}
-			[CompilerGenerated]
-			set
-			{
-			}
-		}
-
-		public string Path
-		{
-			[CompilerGenerated]
-			get
-			{
-				throw null;
-			}
-			[CompilerGenerated]
-			set
-			{
-			}
-		}
-
-		public string PathBase
-		{
-			[CompilerGenerated]
-			get
-			{
-				throw null;
-			}
-			[CompilerGenerated]
-			set
-			{
-			}
-		}
-
 		public string Protocol
 		{
 			[CompilerGenerated]
@@ -18155,32 +22622,7 @@ namespace Microsoft.AspNetCore.Http.Features
 			[CompilerGenerated]
 			set
 			{
-			}
-		}
-
-		public string QueryString
-		{
-			[CompilerGenerated]
-			get
-			{
 				throw null;
-			}
-			[CompilerGenerated]
-			set
-			{
-			}
-		}
-
-		public string RawTarget
-		{
-			[CompilerGenerated]
-			get
-			{
-				throw null;
-			}
-			[CompilerGenerated]
-			set
-			{
 			}
 		}
 
@@ -18194,7 +22636,111 @@ namespace Microsoft.AspNetCore.Http.Features
 			[CompilerGenerated]
 			set
 			{
+				throw null;
 			}
+		}
+
+		public string Method
+		{
+			[CompilerGenerated]
+			get
+			{
+				throw null;
+			}
+			[CompilerGenerated]
+			set
+			{
+				throw null;
+			}
+		}
+
+		public string PathBase
+		{
+			[CompilerGenerated]
+			get
+			{
+				throw null;
+			}
+			[CompilerGenerated]
+			set
+			{
+				throw null;
+			}
+		}
+
+		public string Path
+		{
+			[CompilerGenerated]
+			get
+			{
+				throw null;
+			}
+			[CompilerGenerated]
+			set
+			{
+				throw null;
+			}
+		}
+
+		public string QueryString
+		{
+			[CompilerGenerated]
+			get
+			{
+				throw null;
+			}
+			[CompilerGenerated]
+			set
+			{
+				throw null;
+			}
+		}
+
+		public string RawTarget
+		{
+			[CompilerGenerated]
+			get
+			{
+				throw null;
+			}
+			[CompilerGenerated]
+			set
+			{
+				throw null;
+			}
+		}
+
+		public IHeaderDictionary Headers
+		{
+			[CompilerGenerated]
+			get
+			{
+				throw null;
+			}
+			[CompilerGenerated]
+			set
+			{
+				throw null;
+			}
+		}
+
+		public Stream Body
+		{
+			[CompilerGenerated]
+			get
+			{
+				throw null;
+			}
+			[CompilerGenerated]
+			set
+			{
+				throw null;
+			}
+		}
+
+		public HttpRequestFeature()
+		{
+			throw null;
 		}
 	}
 }
@@ -18213,7 +22759,13 @@ namespace Microsoft.AspNetCore.Http.Features
 			}
 			set
 			{
+				throw null;
 			}
+		}
+
+		public HttpRequestIdentifierFeature()
+		{
+			throw null;
 		}
 	}
 }
@@ -18237,11 +22789,18 @@ namespace Microsoft.AspNetCore.Http.Features
 			[CompilerGenerated]
 			set
 			{
+				throw null;
 			}
 		}
 
 		public void Abort()
 		{
+			throw null;
+		}
+
+		public HttpRequestLifetimeFeature()
+		{
+			throw null;
 		}
 	}
 }
@@ -18257,7 +22816,7 @@ namespace Microsoft.AspNetCore.Http.Features
 {
 	public class HttpResponseFeature : IHttpResponseFeature
 	{
-		public Stream Body
+		public int StatusCode
 		{
 			[CompilerGenerated]
 			get
@@ -18267,12 +22826,21 @@ namespace Microsoft.AspNetCore.Http.Features
 			[CompilerGenerated]
 			set
 			{
+				throw null;
 			}
 		}
 
-		public virtual bool HasStarted
+		public string? ReasonPhrase
 		{
+			[System.Runtime.CompilerServices.NullableContext(2)]
+			[CompilerGenerated]
 			get
+			{
+				throw null;
+			}
+			[System.Runtime.CompilerServices.NullableContext(2)]
+			[CompilerGenerated]
+			set
 			{
 				throw null;
 			}
@@ -18288,10 +22856,11 @@ namespace Microsoft.AspNetCore.Http.Features
 			[CompilerGenerated]
 			set
 			{
+				throw null;
 			}
 		}
 
-		public string ReasonPhrase
+		public Stream Body
 		{
 			[CompilerGenerated]
 			get
@@ -18301,28 +22870,31 @@ namespace Microsoft.AspNetCore.Http.Features
 			[CompilerGenerated]
 			set
 			{
+				throw null;
 			}
 		}
 
-		public int StatusCode
+		public virtual bool HasStarted
 		{
-			[CompilerGenerated]
 			get
 			{
 				throw null;
 			}
-			[CompilerGenerated]
-			set
-			{
-			}
 		}
 
-		public virtual void OnCompleted(Func<object, Task> callback, object state)
+		public HttpResponseFeature()
 		{
+			throw null;
 		}
 
 		public virtual void OnStarting(Func<object, Task> callback, object state)
 		{
+			throw null;
+		}
+
+		public virtual void OnCompleted(Func<object, Task> callback, object state)
+		{
+			throw null;
 		}
 	}
 }
@@ -18336,7 +22908,7 @@ namespace Microsoft.AspNetCore.Http.Features
 {
 	public class ItemsFeature : IItemsFeature
 	{
-		public IDictionary<object, object> Items
+		public IDictionary<object, object?> Items
 		{
 			[CompilerGenerated]
 			get
@@ -18346,7 +22918,13 @@ namespace Microsoft.AspNetCore.Http.Features
 			[CompilerGenerated]
 			set
 			{
+				throw null;
 			}
+		}
+
+		public ItemsFeature()
+		{
+			throw null;
 		}
 	}
 }
@@ -18365,15 +22943,18 @@ namespace Microsoft.AspNetCore.Http.Features
 			}
 			set
 			{
+				throw null;
 			}
-		}
-
-		public QueryFeature(IFeatureCollection features)
-		{
 		}
 
 		public QueryFeature(IQueryCollection query)
 		{
+			throw null;
+		}
+
+		public QueryFeature(IFeatureCollection features)
+		{
+			throw null;
 		}
 	}
 }
@@ -18396,6 +22977,7 @@ namespace Microsoft.AspNetCore.Http.Features
 
 		public RequestBodyPipeFeature(HttpContext context)
 		{
+			throw null;
 		}
 	}
 }
@@ -18414,15 +22996,18 @@ namespace Microsoft.AspNetCore.Http.Features
 			}
 			set
 			{
+				throw null;
 			}
-		}
-
-		public RequestCookiesFeature(IFeatureCollection features)
-		{
 		}
 
 		public RequestCookiesFeature(IRequestCookieCollection cookies)
 		{
+			throw null;
+		}
+
+		public RequestCookiesFeature(IFeatureCollection features)
+		{
+			throw null;
 		}
 	}
 }
@@ -18435,7 +23020,7 @@ using System.Threading.Tasks;
 
 namespace Microsoft.AspNetCore.Http.Features
 {
-	public class RequestServicesFeature : IServiceProvidersFeature, IAsyncDisposable, IDisposable
+	public class RequestServicesFeature : IServiceProvidersFeature, IDisposable, IAsyncDisposable
 	{
 		public IServiceProvider RequestServices
 		{
@@ -18445,18 +23030,21 @@ namespace Microsoft.AspNetCore.Http.Features
 			}
 			set
 			{
+				throw null;
 			}
 		}
 
-		public RequestServicesFeature(HttpContext context, IServiceScopeFactory scopeFactory)
+		public RequestServicesFeature(HttpContext context, IServiceScopeFactory? scopeFactory)
 		{
-		}
-
-		public void Dispose()
-		{
+			throw null;
 		}
 
 		public ValueTask DisposeAsync()
+		{
+			throw null;
+		}
+
+		public void Dispose()
 		{
 			throw null;
 		}
@@ -18466,6 +23054,7 @@ namespace Microsoft.AspNetCore.Http.Features
 
 // Microsoft.AspNetCore.Http\Microsoft.AspNetCore.Http.Features\ResponseCookiesFeature.cs
 using Microsoft.Extensions.ObjectPool;
+using System;
 using System.Text;
 
 namespace Microsoft.AspNetCore.Http.Features
@@ -18482,10 +23071,13 @@ namespace Microsoft.AspNetCore.Http.Features
 
 		public ResponseCookiesFeature(IFeatureCollection features)
 		{
+			throw null;
 		}
 
-		public ResponseCookiesFeature(IFeatureCollection features, ObjectPool<StringBuilder> builderPool)
+		[Obsolete("This constructor is obsolete and will be removed in a future version.")]
+		public ResponseCookiesFeature(IFeatureCollection features, ObjectPool<StringBuilder>? builderPool)
 		{
+			throw null;
 		}
 	}
 }
@@ -18506,7 +23098,13 @@ namespace Microsoft.AspNetCore.Http.Features
 			}
 			set
 			{
+				throw null;
 			}
+		}
+
+		public RouteValuesFeature()
+		{
+			throw null;
 		}
 	}
 }
@@ -18530,7 +23128,13 @@ namespace Microsoft.AspNetCore.Http.Features
 			[CompilerGenerated]
 			set
 			{
+				throw null;
 			}
+		}
+
+		public ServiceProvidersFeature()
+		{
+			throw null;
 		}
 	}
 }
@@ -18546,7 +23150,7 @@ namespace Microsoft.AspNetCore.Http.Features
 {
 	public class TlsConnectionFeature : ITlsConnectionFeature
 	{
-		public X509Certificate2 ClientCertificate
+		public X509Certificate2? ClientCertificate
 		{
 			[CompilerGenerated]
 			get
@@ -18556,10 +23160,16 @@ namespace Microsoft.AspNetCore.Http.Features
 			[CompilerGenerated]
 			set
 			{
+				throw null;
 			}
 		}
 
-		public Task<X509Certificate2> GetClientCertificateAsync(CancellationToken cancellationToken)
+		public Task<X509Certificate2?> GetClientCertificateAsync(CancellationToken cancellationToken)
+		{
+			throw null;
+		}
+
+		public TlsConnectionFeature()
 		{
 			throw null;
 		}
@@ -18575,7 +23185,7 @@ namespace Microsoft.AspNetCore.Http.Features.Authentication
 {
 	public class HttpAuthenticationFeature : IHttpAuthenticationFeature
 	{
-		public ClaimsPrincipal User
+		public ClaimsPrincipal? User
 		{
 			[CompilerGenerated]
 			get
@@ -18585,7 +23195,13 @@ namespace Microsoft.AspNetCore.Http.Features.Authentication
 			[CompilerGenerated]
 			set
 			{
+				throw null;
 			}
+		}
+
+		public HttpAuthenticationFeature()
+		{
+			throw null;
 		}
 	}
 }
@@ -18604,6 +23220,149 @@ namespace Microsoft.Extensions.DependencyInjection
 }
 
 
+// Microsoft.AspNetCore.Http\Microsoft.Extensions.Internal\CopyOnWriteDictionaryHolder.cs
+using System.Collections.Generic;
+using System.Diagnostics.CodeAnalysis;
+
+namespace Microsoft.Extensions.Internal
+{
+	internal struct CopyOnWriteDictionaryHolder<TKey, TValue> where TKey : notnull
+	{
+		private readonly Dictionary<TKey, TValue> _source;
+
+		private Dictionary<TKey, TValue>? _copy;
+
+		public bool HasBeenCopied
+		{
+			get
+			{
+				throw null;
+			}
+		}
+
+		public Dictionary<TKey, TValue> ReadDictionary
+		{
+			get
+			{
+				throw null;
+			}
+		}
+
+		public Dictionary<TKey, TValue> WriteDictionary
+		{
+			get
+			{
+				throw null;
+			}
+		}
+
+		public Dictionary<TKey, TValue>.KeyCollection Keys
+		{
+			get
+			{
+				throw null;
+			}
+		}
+
+		public Dictionary<TKey, TValue>.ValueCollection Values
+		{
+			get
+			{
+				throw null;
+			}
+		}
+
+		public int Count
+		{
+			get
+			{
+				throw null;
+			}
+		}
+
+		public bool IsReadOnly
+		{
+			get
+			{
+				throw null;
+			}
+		}
+
+		public TValue this[TKey key]
+		{
+			get
+			{
+				throw null;
+			}
+			set
+			{
+				throw null;
+			}
+		}
+
+		public CopyOnWriteDictionaryHolder(Dictionary<TKey, TValue> source)
+		{
+			throw null;
+		}
+
+		public CopyOnWriteDictionaryHolder(CopyOnWriteDictionaryHolder<TKey, TValue> source)
+		{
+			throw null;
+		}
+
+		public bool ContainsKey(TKey key)
+		{
+			throw null;
+		}
+
+		public void Add(TKey key, TValue value)
+		{
+			throw null;
+		}
+
+		public bool Remove(TKey key)
+		{
+			throw null;
+		}
+
+		public bool TryGetValue(TKey key, [MaybeNullWhen(false)] out TValue value)
+		{
+			throw null;
+		}
+
+		public void Add(KeyValuePair<TKey, TValue> item)
+		{
+			throw null;
+		}
+
+		public void Clear()
+		{
+			throw null;
+		}
+
+		public bool Contains(KeyValuePair<TKey, TValue> item)
+		{
+			throw null;
+		}
+
+		public void CopyTo(KeyValuePair<TKey, TValue>[] array, int arrayIndex)
+		{
+			throw null;
+		}
+
+		public bool Remove(KeyValuePair<TKey, TValue> item)
+		{
+			throw null;
+		}
+
+		public Dictionary<TKey, TValue>.Enumerator GetEnumerator()
+		{
+			throw null;
+		}
+	}
+}
+
+
 // Microsoft.AspNetCore.Http.Abstractions\Microsoft.AspNetCore.Builder\EndpointBuilder.cs
 using Microsoft.AspNetCore.Http;
 using System.Collections.Generic;
@@ -18613,7 +23372,7 @@ namespace Microsoft.AspNetCore.Builder
 {
 	public abstract class EndpointBuilder
 	{
-		public string DisplayName
+		public RequestDelegate? RequestDelegate
 		{
 			[CompilerGenerated]
 			get
@@ -18623,32 +23382,40 @@ namespace Microsoft.AspNetCore.Builder
 			[CompilerGenerated]
 			set
 			{
+				throw null;
+			}
+		}
+
+		public string? DisplayName
+		{
+			[CompilerGenerated]
+			get
+			{
+				throw null;
+			}
+			[CompilerGenerated]
+			set
+			{
+				throw null;
 			}
 		}
 
 		public IList<object> Metadata
 		{
+			[System.Runtime.CompilerServices.NullableContext(1)]
 			[CompilerGenerated]
 			get
 			{
 				throw null;
-			}
-		}
-
-		public RequestDelegate RequestDelegate
-		{
-			[CompilerGenerated]
-			get
-			{
-				throw null;
-			}
-			[CompilerGenerated]
-			set
-			{
 			}
 		}
 
 		public abstract Endpoint Build();
+
+		protected EndpointBuilder()
+		{
+			throw null;
+		}
 	}
 }
 
@@ -18669,21 +23436,21 @@ namespace Microsoft.AspNetCore.Builder
 			set;
 		}
 
-		IDictionary<string, object> Properties
-		{
-			get;
-		}
-
 		IFeatureCollection ServerFeatures
 		{
 			get;
 		}
 
-		RequestDelegate Build();
+		IDictionary<string, object?> Properties
+		{
+			get;
+		}
+
+		IApplicationBuilder Use(Func<RequestDelegate, RequestDelegate> middleware);
 
 		IApplicationBuilder New();
 
-		IApplicationBuilder Use(Func<RequestDelegate, RequestDelegate> middleware);
+		RequestDelegate Build();
 	}
 }
 
@@ -18709,6 +23476,11 @@ namespace Microsoft.AspNetCore.Builder
 	public static class MapExtensions
 	{
 		public static IApplicationBuilder Map(this IApplicationBuilder app, PathString pathMatch, Action<IApplicationBuilder> configuration)
+		{
+			throw null;
+		}
+
+		public static IApplicationBuilder Map(this IApplicationBuilder app, PathString pathMatch, bool preserveMatchedPathSegment, Action<IApplicationBuilder> configuration)
 		{
 			throw null;
 		}
@@ -18741,6 +23513,7 @@ namespace Microsoft.AspNetCore.Builder
 	{
 		public static void Run(this IApplicationBuilder app, RequestDelegate handler)
 		{
+			throw null;
 		}
 	}
 }
@@ -18765,21 +23538,22 @@ namespace Microsoft.AspNetCore.Builder
 
 // Microsoft.AspNetCore.Http.Abstractions\Microsoft.AspNetCore.Builder\UseMiddlewareExtensions.cs
 using System;
+using System.Diagnostics.CodeAnalysis;
 
 namespace Microsoft.AspNetCore.Builder
 {
 	public static class UseMiddlewareExtensions
 	{
-		internal const string InvokeAsyncMethodName = "InvokeAsync";
-
 		internal const string InvokeMethodName = "Invoke";
 
-		public static IApplicationBuilder UseMiddleware(this IApplicationBuilder app, Type middleware, params object[] args)
+		internal const string InvokeAsyncMethodName = "InvokeAsync";
+
+		public static IApplicationBuilder UseMiddleware<[DynamicallyAccessedMembers((DynamicallyAccessedMemberTypes)11)] TMiddleware>(this IApplicationBuilder app, params object[] args)
 		{
 			throw null;
 		}
 
-		public static IApplicationBuilder UseMiddleware<TMiddleware>(this IApplicationBuilder app, params object[] args)
+		public static IApplicationBuilder UseMiddleware(this IApplicationBuilder app, [DynamicallyAccessedMembers((DynamicallyAccessedMemberTypes)11)] Type middleware, params object[] args)
 		{
 			throw null;
 		}
@@ -18821,6 +23595,7 @@ namespace Microsoft.AspNetCore.Builder
 // Microsoft.AspNetCore.Http.Abstractions\Microsoft.AspNetCore.Builder.Extensions\MapMiddleware.cs
 using Microsoft.AspNetCore.Http;
 using System.Diagnostics;
+using System.Runtime.CompilerServices;
 using System.Threading.Tasks;
 
 namespace Microsoft.AspNetCore.Builder.Extensions
@@ -18829,8 +23604,10 @@ namespace Microsoft.AspNetCore.Builder.Extensions
 	{
 		public MapMiddleware(RequestDelegate next, MapOptions options)
 		{
+			throw null;
 		}
 
+		[AsyncStateMachine(typeof(_003CInvoke_003Ed__3))]
 		[DebuggerStepThrough]
 		public Task Invoke(HttpContext context)
 		{
@@ -18848,19 +23625,6 @@ namespace Microsoft.AspNetCore.Builder.Extensions
 {
 	public class MapOptions
 	{
-		public RequestDelegate Branch
-		{
-			[CompilerGenerated]
-			get
-			{
-				throw null;
-			}
-			[CompilerGenerated]
-			set
-			{
-			}
-		}
-
 		public PathString PathMatch
 		{
 			[CompilerGenerated]
@@ -18871,7 +23635,41 @@ namespace Microsoft.AspNetCore.Builder.Extensions
 			[CompilerGenerated]
 			set
 			{
+				throw null;
 			}
+		}
+
+		public RequestDelegate? Branch
+		{
+			[CompilerGenerated]
+			get
+			{
+				throw null;
+			}
+			[CompilerGenerated]
+			set
+			{
+				throw null;
+			}
+		}
+
+		public bool PreserveMatchedPathSegment
+		{
+			[CompilerGenerated]
+			get
+			{
+				throw null;
+			}
+			[CompilerGenerated]
+			set
+			{
+				throw null;
+			}
+		}
+
+		public MapOptions()
+		{
+			throw null;
 		}
 	}
 }
@@ -18880,6 +23678,7 @@ namespace Microsoft.AspNetCore.Builder.Extensions
 // Microsoft.AspNetCore.Http.Abstractions\Microsoft.AspNetCore.Builder.Extensions\MapWhenMiddleware.cs
 using Microsoft.AspNetCore.Http;
 using System.Diagnostics;
+using System.Runtime.CompilerServices;
 using System.Threading.Tasks;
 
 namespace Microsoft.AspNetCore.Builder.Extensions
@@ -18888,8 +23687,10 @@ namespace Microsoft.AspNetCore.Builder.Extensions
 	{
 		public MapWhenMiddleware(RequestDelegate next, MapWhenOptions options)
 		{
+			throw null;
 		}
 
+		[AsyncStateMachine(typeof(_003CInvoke_003Ed__3))]
 		[DebuggerStepThrough]
 		public Task Invoke(HttpContext context)
 		{
@@ -18908,28 +23709,35 @@ namespace Microsoft.AspNetCore.Builder.Extensions
 {
 	public class MapWhenOptions
 	{
-		public RequestDelegate Branch
+		public Func<HttpContext, bool>? Predicate
 		{
-			[CompilerGenerated]
 			get
 			{
 				throw null;
 			}
-			[CompilerGenerated]
 			set
 			{
+				throw null;
 			}
 		}
 
-		public Func<HttpContext, bool> Predicate
+		public RequestDelegate? Branch
 		{
+			[CompilerGenerated]
 			get
 			{
 				throw null;
 			}
+			[CompilerGenerated]
 			set
 			{
+				throw null;
 			}
+		}
+
+		public MapWhenOptions()
+		{
+			throw null;
 		}
 	}
 }
@@ -18938,6 +23746,7 @@ namespace Microsoft.AspNetCore.Builder.Extensions
 // Microsoft.AspNetCore.Http.Abstractions\Microsoft.AspNetCore.Builder.Extensions\UsePathBaseMiddleware.cs
 using Microsoft.AspNetCore.Http;
 using System.Diagnostics;
+using System.Runtime.CompilerServices;
 using System.Threading.Tasks;
 
 namespace Microsoft.AspNetCore.Builder.Extensions
@@ -18946,8 +23755,10 @@ namespace Microsoft.AspNetCore.Builder.Extensions
 	{
 		public UsePathBaseMiddleware(RequestDelegate next, PathString pathBase)
 		{
+			throw null;
 		}
 
+		[AsyncStateMachine(typeof(_003CInvoke_003Ed__3))]
 		[DebuggerStepThrough]
 		public Task Invoke(HttpContext context)
 		{
@@ -18966,8 +23777,50 @@ namespace Microsoft.AspNetCore.Cors.Infrastructure
 }
 
 
+// Microsoft.AspNetCore.Http.Abstractions\Microsoft.AspNetCore.Http\BadHttpRequestException.cs
+using System;
+using System.IO;
+using System.Runtime.CompilerServices;
+
+namespace Microsoft.AspNetCore.Http
+{
+	public class BadHttpRequestException : IOException
+	{
+		public int StatusCode
+		{
+			[CompilerGenerated]
+			get
+			{
+				throw null;
+			}
+		}
+
+		public BadHttpRequestException(string message, int statusCode)
+		{
+			throw null;
+		}
+
+		public BadHttpRequestException(string message)
+		{
+			throw null;
+		}
+
+		public BadHttpRequestException(string message, int statusCode, Exception innerException)
+		{
+			throw null;
+		}
+
+		public BadHttpRequestException(string message, Exception innerException)
+		{
+			throw null;
+		}
+	}
+}
+
+
 // Microsoft.AspNetCore.Http.Abstractions\Microsoft.AspNetCore.Http\ConnectionInfo.cs
 using System.Net;
+using System.Runtime.CompilerServices;
 using System.Security.Cryptography.X509Certificates;
 using System.Threading;
 using System.Threading.Tasks;
@@ -18976,31 +23829,15 @@ namespace Microsoft.AspNetCore.Http
 {
 	public abstract class ConnectionInfo
 	{
-		public abstract X509Certificate2 ClientCertificate
-		{
-			get;
-			set;
-		}
-
 		public abstract string Id
 		{
+			[System.Runtime.CompilerServices.NullableContext(1)]
 			get;
+			[System.Runtime.CompilerServices.NullableContext(1)]
 			set;
 		}
 
-		public abstract IPAddress LocalIpAddress
-		{
-			get;
-			set;
-		}
-
-		public abstract int LocalPort
-		{
-			get;
-			set;
-		}
-
-		public abstract IPAddress RemoteIpAddress
+		public abstract IPAddress? RemoteIpAddress
 		{
 			get;
 			set;
@@ -19012,7 +23849,30 @@ namespace Microsoft.AspNetCore.Http
 			set;
 		}
 
-		public abstract Task<X509Certificate2> GetClientCertificateAsync(CancellationToken cancellationToken = default(CancellationToken));
+		public abstract IPAddress? LocalIpAddress
+		{
+			get;
+			set;
+		}
+
+		public abstract int LocalPort
+		{
+			get;
+			set;
+		}
+
+		public abstract X509Certificate2? ClientCertificate
+		{
+			get;
+			set;
+		}
+
+		public abstract Task<X509Certificate2?> GetClientCertificateAsync(CancellationToken cancellationToken = default(CancellationToken));
+
+		protected ConnectionInfo()
+		{
+			throw null;
+		}
 	}
 }
 
@@ -19025,20 +23885,19 @@ namespace Microsoft.AspNetCore.Http
 {
 	public class CookieBuilder
 	{
-		public virtual string Domain
+		public virtual string? Name
 		{
-			[CompilerGenerated]
 			get
 			{
 				throw null;
 			}
-			[CompilerGenerated]
 			set
 			{
+				throw null;
 			}
 		}
 
-		public virtual TimeSpan? Expiration
+		public virtual string? Path
 		{
 			[CompilerGenerated]
 			get
@@ -19048,6 +23907,21 @@ namespace Microsoft.AspNetCore.Http
 			[CompilerGenerated]
 			set
 			{
+				throw null;
+			}
+		}
+
+		public virtual string? Domain
+		{
+			[CompilerGenerated]
+			get
+			{
+				throw null;
+			}
+			[CompilerGenerated]
+			set
+			{
+				throw null;
 			}
 		}
 
@@ -19061,56 +23935,7 @@ namespace Microsoft.AspNetCore.Http
 			[CompilerGenerated]
 			set
 			{
-			}
-		}
-
-		public virtual bool IsEssential
-		{
-			[CompilerGenerated]
-			get
-			{
 				throw null;
-			}
-			[CompilerGenerated]
-			set
-			{
-			}
-		}
-
-		public virtual TimeSpan? MaxAge
-		{
-			[CompilerGenerated]
-			get
-			{
-				throw null;
-			}
-			[CompilerGenerated]
-			set
-			{
-			}
-		}
-
-		public virtual string Name
-		{
-			get
-			{
-				throw null;
-			}
-			set
-			{
-			}
-		}
-
-		public virtual string Path
-		{
-			[CompilerGenerated]
-			get
-			{
-				throw null;
-			}
-			[CompilerGenerated]
-			set
-			{
 			}
 		}
 
@@ -19124,6 +23949,7 @@ namespace Microsoft.AspNetCore.Http
 			[CompilerGenerated]
 			set
 			{
+				throw null;
 			}
 		}
 
@@ -19137,6 +23963,49 @@ namespace Microsoft.AspNetCore.Http
 			[CompilerGenerated]
 			set
 			{
+				throw null;
+			}
+		}
+
+		public virtual TimeSpan? Expiration
+		{
+			[CompilerGenerated]
+			get
+			{
+				throw null;
+			}
+			[CompilerGenerated]
+			set
+			{
+				throw null;
+			}
+		}
+
+		public virtual TimeSpan? MaxAge
+		{
+			[CompilerGenerated]
+			get
+			{
+				throw null;
+			}
+			[CompilerGenerated]
+			set
+			{
+				throw null;
+			}
+		}
+
+		public virtual bool IsEssential
+		{
+			[CompilerGenerated]
+			get
+			{
+				throw null;
+			}
+			[CompilerGenerated]
+			set
+			{
+				throw null;
 			}
 		}
 
@@ -19146,6 +24015,11 @@ namespace Microsoft.AspNetCore.Http
 		}
 
 		public virtual CookieOptions Build(HttpContext context, DateTimeOffset expiresFrom)
+		{
+			throw null;
+		}
+
+		public CookieBuilder()
 		{
 			throw null;
 		}
@@ -19172,8 +24046,9 @@ namespace Microsoft.AspNetCore.Http
 {
 	public class Endpoint
 	{
-		public string DisplayName
+		public string? DisplayName
 		{
+			[System.Runtime.CompilerServices.NullableContext(2)]
 			[CompilerGenerated]
 			get
 			{
@@ -19199,11 +24074,13 @@ namespace Microsoft.AspNetCore.Http
 			}
 		}
 
-		public Endpoint(RequestDelegate requestDelegate, EndpointMetadataCollection metadata, string displayName)
+		[System.Runtime.CompilerServices.NullableContext(2)]
+		public Endpoint(RequestDelegate requestDelegate, EndpointMetadataCollection? metadata, string? displayName)
 		{
+			throw null;
 		}
 
-		public override string ToString()
+		public override string? ToString()
 		{
 			throw null;
 		}
@@ -19212,17 +24089,43 @@ namespace Microsoft.AspNetCore.Http
 
 
 // Microsoft.AspNetCore.Http.Abstractions\Microsoft.AspNetCore.Http\EndpointHttpContextExtensions.cs
+using Microsoft.AspNetCore.Http.Features;
+using System.Runtime.CompilerServices;
+
 namespace Microsoft.AspNetCore.Http
 {
 	public static class EndpointHttpContextExtensions
 	{
-		public static Endpoint GetEndpoint(this HttpContext context)
+		private class EndpointFeature : IEndpointFeature
+		{
+			public Endpoint? Endpoint
+			{
+				[CompilerGenerated]
+				get
+				{
+					throw null;
+				}
+				[CompilerGenerated]
+				set
+				{
+					throw null;
+				}
+			}
+
+			public EndpointFeature()
+			{
+				throw null;
+			}
+		}
+
+		public static Endpoint? GetEndpoint(this HttpContext context)
 		{
 			throw null;
 		}
 
-		public static void SetEndpoint(this HttpContext context, Endpoint endpoint)
+		public static void SetEndpoint(this HttpContext context, Endpoint? endpoint)
 		{
+			throw null;
 		}
 	}
 }
@@ -19236,25 +24139,32 @@ using System.Runtime.CompilerServices;
 
 namespace Microsoft.AspNetCore.Http
 {
-	public sealed class EndpointMetadataCollection : IEnumerable<object>, IEnumerable, IReadOnlyCollection<object>, IReadOnlyList<object>
+	public sealed class EndpointMetadataCollection : IReadOnlyList<object>, IEnumerable<object>, IEnumerable, IReadOnlyCollection<object>
 	{
-		public struct Enumerator : IEnumerator<object>, IEnumerator, IDisposable
+		public struct Enumerator : IEnumerator<object?>, IEnumerator, IDisposable
 		{
-			private object _dummy;
+			private object[] _items;
 
-			private int _dummyPrimitive;
+			private int _index;
 
-			public object Current
+			public object? Current
 			{
 				[CompilerGenerated]
-				get
+				readonly get
 				{
 					throw null;
 				}
 			}
 
+			[System.Runtime.CompilerServices.NullableContext(1)]
+			internal Enumerator(EndpointMetadataCollection collection)
+			{
+				throw null;
+			}
+
 			public void Dispose()
 			{
+				throw null;
 			}
 
 			public bool MoveNext()
@@ -19264,18 +24174,11 @@ namespace Microsoft.AspNetCore.Http
 
 			public void Reset()
 			{
+				throw null;
 			}
 		}
 
 		public static readonly EndpointMetadataCollection Empty;
-
-		public int Count
-		{
-			get
-			{
-				throw null;
-			}
-		}
 
 		public object this[int index]
 		{
@@ -19285,27 +24188,37 @@ namespace Microsoft.AspNetCore.Http
 			}
 		}
 
+		public int Count
+		{
+			get
+			{
+				throw null;
+			}
+		}
+
 		public EndpointMetadataCollection(IEnumerable<object> items)
 		{
+			throw null;
 		}
 
 		public EndpointMetadataCollection(params object[] items)
-		{
-		}
-
-		public Enumerator GetEnumerator()
 		{
 			throw null;
 		}
 
 		[MethodImpl(MethodImplOptions.AggressiveInlining)]
-		public T GetMetadata<T>() where T : class
+		public T? GetMetadata<T>() where T : class
 		{
 			throw null;
 		}
 
 		[MethodImpl(MethodImplOptions.AggressiveInlining)]
 		public IReadOnlyList<T> GetOrderedMetadata<T>() where T : class
+		{
+			throw null;
+		}
+
+		public Enumerator GetEnumerator()
 		{
 			throw null;
 		}
@@ -19330,11 +24243,11 @@ namespace Microsoft.AspNetCore.Http
 {
 	public readonly struct FragmentString : IEquatable<FragmentString>
 	{
-		private readonly object _dummy;
-
 		public static readonly FragmentString Empty;
 
-		public bool HasValue
+		private readonly string _value;
+
+		public string Value
 		{
 			get
 			{
@@ -19342,7 +24255,7 @@ namespace Microsoft.AspNetCore.Http
 			}
 		}
 
-		public string Value
+		public bool HasValue
 		{
 			get
 			{
@@ -19355,12 +24268,12 @@ namespace Microsoft.AspNetCore.Http
 			throw null;
 		}
 
-		public bool Equals(FragmentString other)
+		public override string ToString()
 		{
 			throw null;
 		}
 
-		public override bool Equals(object obj)
+		public string ToUriComponent()
 		{
 			throw null;
 		}
@@ -19371,6 +24284,16 @@ namespace Microsoft.AspNetCore.Http
 		}
 
 		public static FragmentString FromUriComponent(Uri uri)
+		{
+			throw null;
+		}
+
+		public bool Equals(FragmentString other)
+		{
+			throw null;
+		}
+
+		public override bool Equals(object? obj)
 		{
 			throw null;
 		}
@@ -19389,16 +24312,6 @@ namespace Microsoft.AspNetCore.Http
 		{
 			throw null;
 		}
-
-		public override string ToString()
-		{
-			throw null;
-		}
-
-		public string ToUriComponent()
-		{
-			throw null;
-		}
 	}
 }
 
@@ -19412,10 +24325,12 @@ namespace Microsoft.AspNetCore.Http
 	{
 		public static void Append(this IHeaderDictionary headers, string key, StringValues value)
 		{
+			throw null;
 		}
 
 		public static void AppendCommaSeparatedValues(this IHeaderDictionary headers, string key, params string[] values)
 		{
+			throw null;
 		}
 
 		public static string[] GetCommaSeparatedValues(this IHeaderDictionary headers, string key)
@@ -19425,6 +24340,208 @@ namespace Microsoft.AspNetCore.Http
 
 		public static void SetCommaSeparatedValues(this IHeaderDictionary headers, string key, params string[] values)
 		{
+			throw null;
+		}
+	}
+}
+
+
+// Microsoft.AspNetCore.Http.Abstractions\Microsoft.AspNetCore.Http\HeaderSegment.cs
+using Microsoft.Extensions.Primitives;
+using System;
+
+namespace Microsoft.AspNetCore.Http
+{
+	internal readonly struct HeaderSegment : IEquatable<HeaderSegment>
+	{
+		private readonly StringSegment _formatting;
+
+		private readonly StringSegment _data;
+
+		public StringSegment Formatting
+		{
+			get
+			{
+				throw null;
+			}
+		}
+
+		public StringSegment Data
+		{
+			get
+			{
+				throw null;
+			}
+		}
+
+		public HeaderSegment(StringSegment formatting, StringSegment data)
+		{
+			throw null;
+		}
+
+		public bool Equals(HeaderSegment other)
+		{
+			throw null;
+		}
+
+		public override bool Equals(object? obj)
+		{
+			throw null;
+		}
+
+		public override int GetHashCode()
+		{
+			throw null;
+		}
+
+		public static bool operator ==(HeaderSegment left, HeaderSegment right)
+		{
+			throw null;
+		}
+
+		public static bool operator !=(HeaderSegment left, HeaderSegment right)
+		{
+			throw null;
+		}
+	}
+}
+
+
+// Microsoft.AspNetCore.Http.Abstractions\Microsoft.AspNetCore.Http\HeaderSegmentCollection.cs
+using Microsoft.Extensions.Primitives;
+using System;
+using System.Collections;
+using System.Collections.Generic;
+using System.Runtime.CompilerServices;
+
+namespace Microsoft.AspNetCore.Http
+{
+	internal readonly struct HeaderSegmentCollection : IEnumerable<HeaderSegment>, IEnumerable, IEquatable<HeaderSegmentCollection>
+	{
+		public struct Enumerator : IEnumerator<HeaderSegment>, IEnumerator, IDisposable
+		{
+			private enum Mode
+			{
+				Leading,
+				Value,
+				ValueQuoted,
+				Trailing,
+				Produce
+			}
+
+			private enum Attr
+			{
+				Value,
+				Quote,
+				Delimiter,
+				Whitespace
+			}
+
+			private readonly StringValues _headers;
+
+			private int _index;
+
+			private string _header;
+
+			private int _headerLength;
+
+			private int _offset;
+
+			private int _leadingStart;
+
+			private int _leadingEnd;
+
+			private int _valueStart;
+
+			private int _valueEnd;
+
+			private int _trailingStart;
+
+			private Mode _mode;
+
+			public HeaderSegment Current
+			{
+				get
+				{
+					throw null;
+				}
+			}
+
+			object IEnumerator.Current
+			{
+				[System.Runtime.CompilerServices.NullableContext(1)]
+				get
+				{
+					throw null;
+				}
+			}
+
+			public Enumerator(StringValues headers)
+			{
+				throw null;
+			}
+
+			public void Dispose()
+			{
+				throw null;
+			}
+
+			public bool MoveNext()
+			{
+				throw null;
+			}
+
+			public void Reset()
+			{
+				throw null;
+			}
+		}
+
+		private readonly StringValues _headers;
+
+		public HeaderSegmentCollection(StringValues headers)
+		{
+			throw null;
+		}
+
+		public bool Equals(HeaderSegmentCollection other)
+		{
+			throw null;
+		}
+
+		public override bool Equals(object? obj)
+		{
+			throw null;
+		}
+
+		public override int GetHashCode()
+		{
+			throw null;
+		}
+
+		public static bool operator ==(HeaderSegmentCollection left, HeaderSegmentCollection right)
+		{
+			throw null;
+		}
+
+		public static bool operator !=(HeaderSegmentCollection left, HeaderSegmentCollection right)
+		{
+			throw null;
+		}
+
+		public Enumerator GetEnumerator()
+		{
+			throw null;
+		}
+
+		IEnumerator<HeaderSegment> IEnumerable<HeaderSegment>.GetEnumerator()
+		{
+			throw null;
+		}
+
+		IEnumerator IEnumerable.GetEnumerator()
+		{
+			throw null;
 		}
 	}
 }
@@ -19439,7 +24556,15 @@ namespace Microsoft.AspNetCore.Http
 {
 	public readonly struct HostString : IEquatable<HostString>
 	{
-		private readonly object _dummy;
+		private readonly string _value;
+
+		public string Value
+		{
+			get
+			{
+				throw null;
+			}
+		}
 
 		public bool HasValue
 		{
@@ -19465,14 +24590,6 @@ namespace Microsoft.AspNetCore.Http
 			}
 		}
 
-		public string Value
-		{
-			get
-			{
-				throw null;
-			}
-		}
-
 		public HostString(string value)
 		{
 			throw null;
@@ -19483,12 +24600,12 @@ namespace Microsoft.AspNetCore.Http
 			throw null;
 		}
 
-		public bool Equals(HostString other)
+		public override string ToString()
 		{
 			throw null;
 		}
 
-		public override bool Equals(object obj)
+		public string ToUriComponent()
 		{
 			throw null;
 		}
@@ -19503,12 +24620,22 @@ namespace Microsoft.AspNetCore.Http
 			throw null;
 		}
 
-		public override int GetHashCode()
+		public static bool MatchesAny(StringSegment value, IList<StringSegment> patterns)
 		{
 			throw null;
 		}
 
-		public static bool MatchesAny(StringSegment value, IList<StringSegment> patterns)
+		public bool Equals(HostString other)
+		{
+			throw null;
+		}
+
+		public override bool Equals(object? obj)
+		{
+			throw null;
+		}
+
+		public override int GetHashCode()
 		{
 			throw null;
 		}
@@ -19519,16 +24646,6 @@ namespace Microsoft.AspNetCore.Http
 		}
 
 		public static bool operator !=(HostString left, HostString right)
-		{
-			throw null;
-		}
-
-		public override string ToString()
-		{
-			throw null;
-		}
-
-		public string ToUriComponent()
 		{
 			throw null;
 		}
@@ -19547,20 +24664,9 @@ namespace Microsoft.AspNetCore.Http
 {
 	public abstract class HttpContext
 	{
-		public abstract ConnectionInfo Connection
-		{
-			get;
-		}
-
 		public abstract IFeatureCollection Features
 		{
 			get;
-		}
-
-		public abstract IDictionary<object, object> Items
-		{
-			get;
-			set;
 		}
 
 		public abstract HttpRequest Request
@@ -19568,7 +24674,28 @@ namespace Microsoft.AspNetCore.Http
 			get;
 		}
 
-		public abstract CancellationToken RequestAborted
+		public abstract HttpResponse Response
+		{
+			get;
+		}
+
+		public abstract ConnectionInfo Connection
+		{
+			get;
+		}
+
+		public abstract WebSocketManager WebSockets
+		{
+			get;
+		}
+
+		public abstract ClaimsPrincipal User
+		{
+			get;
+			set;
+		}
+
+		public abstract IDictionary<object, object?> Items
 		{
 			get;
 			set;
@@ -19580,12 +24707,7 @@ namespace Microsoft.AspNetCore.Http
 			set;
 		}
 
-		public abstract HttpResponse Response
-		{
-			get;
-		}
-
-		public abstract ISession Session
+		public abstract CancellationToken RequestAborted
 		{
 			get;
 			set;
@@ -19597,18 +24719,18 @@ namespace Microsoft.AspNetCore.Http
 			set;
 		}
 
-		public abstract ClaimsPrincipal User
+		public abstract ISession Session
 		{
 			get;
 			set;
 		}
 
-		public abstract WebSocketManager WebSockets
-		{
-			get;
-		}
-
 		public abstract void Abort();
+
+		protected HttpContext()
+		{
+			throw null;
+		}
 	}
 }
 
@@ -19680,6 +24802,59 @@ namespace Microsoft.AspNetCore.Http
 		{
 			throw null;
 		}
+
+		public static string GetCanonicalizedValue(string method)
+		{
+			throw null;
+		}
+
+		public static bool Equals(string methodA, string methodB)
+		{
+			throw null;
+		}
+	}
+}
+
+
+// Microsoft.AspNetCore.Http.Abstractions\Microsoft.AspNetCore.Http\HttpProtocol.cs
+using System;
+
+namespace Microsoft.AspNetCore.Http
+{
+	public static class HttpProtocol
+	{
+		public static readonly string Http10;
+
+		public static readonly string Http11;
+
+		public static readonly string Http2;
+
+		public static readonly string Http3;
+
+		public static bool IsHttp10(string protocol)
+		{
+			throw null;
+		}
+
+		public static bool IsHttp11(string protocol)
+		{
+			throw null;
+		}
+
+		public static bool IsHttp2(string protocol)
+		{
+			throw null;
+		}
+
+		public static bool IsHttp3(string protocol)
+		{
+			throw null;
+		}
+
+		public static string GetHttpProtocol(Version version)
+		{
+			throw null;
+		}
 	}
 }
 
@@ -19696,18 +24871,74 @@ namespace Microsoft.AspNetCore.Http
 {
 	public abstract class HttpRequest
 	{
-		public abstract Stream Body
+		public abstract HttpContext HttpContext
+		{
+			get;
+		}
+
+		public abstract string Method
 		{
 			get;
 			set;
 		}
 
-		public virtual PipeReader BodyReader
+		public abstract string Scheme
 		{
-			get
-			{
-				throw null;
-			}
+			get;
+			set;
+		}
+
+		public abstract bool IsHttps
+		{
+			get;
+			set;
+		}
+
+		public abstract HostString Host
+		{
+			get;
+			set;
+		}
+
+		public abstract PathString PathBase
+		{
+			get;
+			set;
+		}
+
+		public abstract PathString Path
+		{
+			get;
+			set;
+		}
+
+		public abstract QueryString QueryString
+		{
+			get;
+			set;
+		}
+
+		public abstract IQueryCollection Query
+		{
+			get;
+			set;
+		}
+
+		public abstract string Protocol
+		{
+			get;
+			set;
+		}
+
+		public abstract IHeaderDictionary Headers
+		{
+			get;
+		}
+
+		public abstract IRequestCookieCollection Cookies
+		{
+			get;
+			set;
 		}
 
 		public abstract long? ContentLength
@@ -19722,16 +24953,18 @@ namespace Microsoft.AspNetCore.Http
 			set;
 		}
 
-		public abstract IRequestCookieCollection Cookies
+		public abstract Stream Body
 		{
 			get;
 			set;
 		}
 
-		public abstract IFormCollection Form
+		public virtual PipeReader BodyReader
 		{
-			get;
-			set;
+			get
+			{
+				throw null;
+			}
 		}
 
 		public abstract bool HasFormContentType
@@ -19739,59 +24972,7 @@ namespace Microsoft.AspNetCore.Http
 			get;
 		}
 
-		public abstract IHeaderDictionary Headers
-		{
-			get;
-		}
-
-		public abstract HostString Host
-		{
-			get;
-			set;
-		}
-
-		public abstract HttpContext HttpContext
-		{
-			get;
-		}
-
-		public abstract bool IsHttps
-		{
-			get;
-			set;
-		}
-
-		public abstract string Method
-		{
-			get;
-			set;
-		}
-
-		public abstract PathString Path
-		{
-			get;
-			set;
-		}
-
-		public abstract PathString PathBase
-		{
-			get;
-			set;
-		}
-
-		public abstract string Protocol
-		{
-			get;
-			set;
-		}
-
-		public abstract IQueryCollection Query
-		{
-			get;
-			set;
-		}
-
-		public abstract QueryString QueryString
+		public abstract IFormCollection Form
 		{
 			get;
 			set;
@@ -19807,16 +24988,16 @@ namespace Microsoft.AspNetCore.Http
 			[CompilerGenerated]
 			set
 			{
+				throw null;
 			}
 		}
 
-		public abstract string Scheme
-		{
-			get;
-			set;
-		}
-
 		public abstract Task<IFormCollection> ReadFormAsync(CancellationToken cancellationToken = default(CancellationToken));
+
+		protected HttpRequest()
+		{
+			throw null;
+		}
 	}
 }
 
@@ -19832,6 +25013,22 @@ namespace Microsoft.AspNetCore.Http
 {
 	public abstract class HttpResponse
 	{
+		public abstract HttpContext HttpContext
+		{
+			get;
+		}
+
+		public abstract int StatusCode
+		{
+			get;
+			set;
+		}
+
+		public abstract IHeaderDictionary Headers
+		{
+			get;
+		}
+
 		public abstract Stream Body
 		{
 			get;
@@ -19868,20 +25065,40 @@ namespace Microsoft.AspNetCore.Http
 			get;
 		}
 
-		public abstract IHeaderDictionary Headers
+		public abstract void OnStarting(Func<object, Task> callback, object state);
+
+		public virtual void OnStarting(Func<Task> callback)
 		{
-			get;
+			throw null;
 		}
 
-		public abstract HttpContext HttpContext
+		public abstract void OnCompleted(Func<object, Task> callback, object state);
+
+		public virtual void RegisterForDispose(IDisposable disposable)
 		{
-			get;
+			throw null;
 		}
 
-		public abstract int StatusCode
+		public virtual void RegisterForDisposeAsync(IAsyncDisposable disposable)
 		{
-			get;
-			set;
+			throw null;
+		}
+
+		public virtual void OnCompleted(Func<Task> callback)
+		{
+			throw null;
+		}
+
+		public virtual void Redirect(string location)
+		{
+			throw null;
+		}
+
+		public abstract void Redirect(string location, bool permanent);
+
+		public virtual Task StartAsync(CancellationToken cancellationToken = default(CancellationToken))
+		{
+			throw null;
 		}
 
 		public virtual Task CompleteAsync()
@@ -19889,33 +25106,7 @@ namespace Microsoft.AspNetCore.Http
 			throw null;
 		}
 
-		public abstract void OnCompleted(Func<object, Task> callback, object state);
-
-		public virtual void OnCompleted(Func<Task> callback)
-		{
-		}
-
-		public abstract void OnStarting(Func<object, Task> callback, object state);
-
-		public virtual void OnStarting(Func<Task> callback)
-		{
-		}
-
-		public virtual void Redirect(string location)
-		{
-		}
-
-		public abstract void Redirect(string location, bool permanent);
-
-		public virtual void RegisterForDispose(IDisposable disposable)
-		{
-		}
-
-		public virtual void RegisterForDisposeAsync(IAsyncDisposable disposable)
-		{
-		}
-
-		public virtual Task StartAsync(CancellationToken cancellationToken = default(CancellationToken))
+		protected HttpResponse()
 		{
 			throw null;
 		}
@@ -19932,12 +25123,12 @@ namespace Microsoft.AspNetCore.Http
 {
 	public static class HttpResponseWritingExtensions
 	{
-		public static Task WriteAsync(this HttpResponse response, string text, Encoding encoding, CancellationToken cancellationToken = default(CancellationToken))
+		public static Task WriteAsync(this HttpResponse response, string text, CancellationToken cancellationToken = default(CancellationToken))
 		{
 			throw null;
 		}
 
-		public static Task WriteAsync(this HttpResponse response, string text, CancellationToken cancellationToken = default(CancellationToken))
+		public static Task WriteAsync(this HttpResponse response, string text, Encoding encoding, CancellationToken cancellationToken = default(CancellationToken))
 		{
 			throw null;
 		}
@@ -19950,7 +25141,7 @@ namespace Microsoft.AspNetCore.Http
 {
 	public interface IHttpContextAccessor
 	{
-		HttpContext HttpContext
+		HttpContext? HttpContext
 		{
 			get;
 			set;
@@ -19992,7 +25183,7 @@ namespace Microsoft.AspNetCore.Http
 {
 	public interface IMiddlewareFactory
 	{
-		IMiddleware Create(Type middlewareType);
+		IMiddleware? Create(Type middlewareType);
 
 		void Release(IMiddleware middleware);
 	}
@@ -20001,14 +25192,26 @@ namespace Microsoft.AspNetCore.Http
 
 // Microsoft.AspNetCore.Http.Abstractions\Microsoft.AspNetCore.Http\PathString.cs
 using System;
+using System.ComponentModel;
+using System.Runtime.CompilerServices;
 
 namespace Microsoft.AspNetCore.Http
 {
+	[TypeConverter(typeof(PathStringConverter))]
 	public readonly struct PathString : IEquatable<PathString>
 	{
-		private readonly object _dummy;
-
 		public static readonly PathString Empty;
+
+		private readonly string? _value;
+
+		public string? Value
+		{
+			[System.Runtime.CompilerServices.NullableContext(2)]
+			get
+			{
+				throw null;
+			}
+		}
 
 		public bool HasValue
 		{
@@ -20018,15 +25221,58 @@ namespace Microsoft.AspNetCore.Http
 			}
 		}
 
-		public string Value
+		[System.Runtime.CompilerServices.NullableContext(2)]
+		public PathString(string? value)
 		{
-			get
-			{
-				throw null;
-			}
+			throw null;
 		}
 
-		public PathString(string value)
+		public override string ToString()
+		{
+			throw null;
+		}
+
+		public string ToUriComponent()
+		{
+			throw null;
+		}
+
+		public static PathString FromUriComponent(string uriComponent)
+		{
+			throw null;
+		}
+
+		public static PathString FromUriComponent(Uri uri)
+		{
+			throw null;
+		}
+
+		public bool StartsWithSegments(PathString other)
+		{
+			throw null;
+		}
+
+		public bool StartsWithSegments(PathString other, StringComparison comparisonType)
+		{
+			throw null;
+		}
+
+		public bool StartsWithSegments(PathString other, out PathString remaining)
+		{
+			throw null;
+		}
+
+		public bool StartsWithSegments(PathString other, StringComparison comparisonType, out PathString remaining)
+		{
+			throw null;
+		}
+
+		public bool StartsWithSegments(PathString other, out PathString matched, out PathString remaining)
+		{
+			throw null;
+		}
+
+		public bool StartsWithSegments(PathString other, StringComparison comparisonType, out PathString matched, out PathString remaining)
 		{
 			throw null;
 		}
@@ -20051,22 +25297,32 @@ namespace Microsoft.AspNetCore.Http
 			throw null;
 		}
 
-		public override bool Equals(object obj)
-		{
-			throw null;
-		}
-
-		public static PathString FromUriComponent(string uriComponent)
-		{
-			throw null;
-		}
-
-		public static PathString FromUriComponent(Uri uri)
+		public override bool Equals(object? obj)
 		{
 			throw null;
 		}
 
 		public override int GetHashCode()
+		{
+			throw null;
+		}
+
+		public static bool operator ==(PathString left, PathString right)
+		{
+			throw null;
+		}
+
+		public static bool operator !=(PathString left, PathString right)
+		{
+			throw null;
+		}
+
+		public static string operator +(string left, PathString right)
+		{
+			throw null;
+		}
+
+		public static string operator +(PathString left, string? right)
 		{
 			throw null;
 		}
@@ -20081,17 +25337,8 @@ namespace Microsoft.AspNetCore.Http
 			throw null;
 		}
 
-		public static string operator +(PathString left, string right)
-		{
-			throw null;
-		}
-
-		public static string operator +(string left, PathString right)
-		{
-			throw null;
-		}
-
-		public static bool operator ==(PathString left, PathString right)
+		[System.Runtime.CompilerServices.NullableContext(2)]
+		public static implicit operator PathString(string? s)
 		{
 			throw null;
 		}
@@ -20101,52 +25348,7 @@ namespace Microsoft.AspNetCore.Http
 			throw null;
 		}
 
-		public static implicit operator PathString(string s)
-		{
-			throw null;
-		}
-
-		public static bool operator !=(PathString left, PathString right)
-		{
-			throw null;
-		}
-
-		public bool StartsWithSegments(PathString other)
-		{
-			throw null;
-		}
-
-		public bool StartsWithSegments(PathString other, out PathString remaining)
-		{
-			throw null;
-		}
-
-		public bool StartsWithSegments(PathString other, out PathString matched, out PathString remaining)
-		{
-			throw null;
-		}
-
-		public bool StartsWithSegments(PathString other, StringComparison comparisonType)
-		{
-			throw null;
-		}
-
-		public bool StartsWithSegments(PathString other, StringComparison comparisonType, out PathString remaining)
-		{
-			throw null;
-		}
-
-		public bool StartsWithSegments(PathString other, StringComparison comparisonType, out PathString matched, out PathString remaining)
-		{
-			throw null;
-		}
-
-		public override string ToString()
-		{
-			throw null;
-		}
-
-		public string ToUriComponent()
+		internal static PathString ConvertFromString(string? s)
 		{
 			throw null;
 		}
@@ -20158,14 +25360,23 @@ namespace Microsoft.AspNetCore.Http
 using Microsoft.Extensions.Primitives;
 using System;
 using System.Collections.Generic;
+using System.Runtime.CompilerServices;
 
 namespace Microsoft.AspNetCore.Http
 {
 	public readonly struct QueryString : IEquatable<QueryString>
 	{
-		private readonly object _dummy;
-
 		public static readonly QueryString Empty;
+
+		public string? Value
+		{
+			[System.Runtime.CompilerServices.NullableContext(2)]
+			[CompilerGenerated]
+			get
+			{
+				throw null;
+			}
+		}
 
 		public bool HasValue
 		{
@@ -20175,50 +25386,18 @@ namespace Microsoft.AspNetCore.Http
 			}
 		}
 
-		public string Value
-		{
-			get
-			{
-				throw null;
-			}
-		}
-
-		public QueryString(string value)
+		[System.Runtime.CompilerServices.NullableContext(2)]
+		public QueryString(string? value)
 		{
 			throw null;
 		}
 
-		public QueryString Add(QueryString other)
+		public override string ToString()
 		{
 			throw null;
 		}
 
-		public QueryString Add(string name, string value)
-		{
-			throw null;
-		}
-
-		public static QueryString Create(IEnumerable<KeyValuePair<string, StringValues>> parameters)
-		{
-			throw null;
-		}
-
-		public static QueryString Create(IEnumerable<KeyValuePair<string, string>> parameters)
-		{
-			throw null;
-		}
-
-		public static QueryString Create(string name, string value)
-		{
-			throw null;
-		}
-
-		public bool Equals(QueryString other)
-		{
-			throw null;
-		}
-
-		public override bool Equals(object obj)
+		public string ToUriComponent()
 		{
 			throw null;
 		}
@@ -20233,12 +25412,42 @@ namespace Microsoft.AspNetCore.Http
 			throw null;
 		}
 
-		public override int GetHashCode()
+		public static QueryString Create(string name, string value)
 		{
 			throw null;
 		}
 
-		public static QueryString operator +(QueryString left, QueryString right)
+		public static QueryString Create(IEnumerable<KeyValuePair<string, string?>> parameters)
+		{
+			throw null;
+		}
+
+		public static QueryString Create(IEnumerable<KeyValuePair<string, StringValues>> parameters)
+		{
+			throw null;
+		}
+
+		public QueryString Add(QueryString other)
+		{
+			throw null;
+		}
+
+		public QueryString Add(string name, string value)
+		{
+			throw null;
+		}
+
+		public bool Equals(QueryString other)
+		{
+			throw null;
+		}
+
+		public override bool Equals(object? obj)
+		{
+			throw null;
+		}
+
+		public override int GetHashCode()
 		{
 			throw null;
 		}
@@ -20253,12 +25462,7 @@ namespace Microsoft.AspNetCore.Http
 			throw null;
 		}
 
-		public override string ToString()
-		{
-			throw null;
-		}
-
-		public string ToUriComponent()
+		public static QueryString operator +(QueryString left, QueryString right)
 		{
 			throw null;
 		}
@@ -20282,22 +25486,22 @@ namespace Microsoft.AspNetCore.Http
 {
 	public static class RequestTrailerExtensions
 	{
-		public static bool CheckTrailersAvailable(this HttpRequest request)
-		{
-			throw null;
-		}
-
 		public static StringValues GetDeclaredTrailers(this HttpRequest request)
 		{
 			throw null;
 		}
 
-		public static StringValues GetTrailer(this HttpRequest request, string trailerName)
+		public static bool SupportsTrailers(this HttpRequest request)
 		{
 			throw null;
 		}
 
-		public static bool SupportsTrailers(this HttpRequest request)
+		public static bool CheckTrailersAvailable(this HttpRequest request)
+		{
+			throw null;
+		}
+
+		public static StringValues GetTrailer(this HttpRequest request, string trailerName)
 		{
 			throw null;
 		}
@@ -20312,15 +25516,17 @@ namespace Microsoft.AspNetCore.Http
 {
 	public static class ResponseTrailerExtensions
 	{
-		public static void AppendTrailer(this HttpResponse response, string trailerName, StringValues trailerValues)
-		{
-		}
-
 		public static void DeclareTrailer(this HttpResponse response, string trailerName)
 		{
+			throw null;
 		}
 
 		public static bool SupportsTrailers(this HttpResponse response)
+		{
+			throw null;
+		}
+
+		public static void AppendTrailer(this HttpResponse response, string trailerName, StringValues trailerValues)
 		{
 			throw null;
 		}
@@ -20403,9 +25609,9 @@ namespace Microsoft.AspNetCore.Http
 
 		public const int Status412PreconditionFailed = 412;
 
-		public const int Status413PayloadTooLarge = 413;
-
 		public const int Status413RequestEntityTooLarge = 413;
+
+		public const int Status413PayloadTooLarge = 413;
 
 		public const int Status414RequestUriTooLong = 414;
 
@@ -20413,9 +25619,9 @@ namespace Microsoft.AspNetCore.Http
 
 		public const int Status415UnsupportedMediaType = 415;
 
-		public const int Status416RangeNotSatisfiable = 416;
-
 		public const int Status416RequestedRangeNotSatisfiable = 416;
+
+		public const int Status416RangeNotSatisfiable = 416;
 
 		public const int Status417ExpectationFailed = 417;
 
@@ -20490,7 +25696,12 @@ namespace Microsoft.AspNetCore.Http
 			throw null;
 		}
 
-		public abstract Task<WebSocket> AcceptWebSocketAsync(string subProtocol);
+		public abstract Task<WebSocket> AcceptWebSocketAsync(string? subProtocol);
+
+		protected WebSocketManager()
+		{
+			throw null;
+		}
 	}
 }
 
@@ -20500,7 +25711,7 @@ namespace Microsoft.AspNetCore.Http.Features
 {
 	public interface IEndpointFeature
 	{
-		Endpoint Endpoint
+		Endpoint? Endpoint
 		{
 			get;
 			set;
@@ -20541,12 +25752,14 @@ namespace Microsoft.AspNetCore.Builder
 {
 	public sealed class ConnectionEndpointRouteBuilder : IEndpointConventionBuilder
 	{
-		internal ConnectionEndpointRouteBuilder()
+		internal ConnectionEndpointRouteBuilder(IEndpointConventionBuilder endpointConventionBuilder)
 		{
+			throw null;
 		}
 
 		public void Add(Action<EndpointBuilder> convention)
 		{
+			throw null;
 		}
 	}
 }
@@ -20557,44 +25770,41 @@ using Microsoft.AspNetCore.Connections;
 using Microsoft.AspNetCore.Http.Connections;
 using Microsoft.AspNetCore.Routing;
 using System;
+using System.Collections.Generic;
 
 namespace Microsoft.AspNetCore.Builder
 {
 	public static class ConnectionEndpointRouteBuilderExtensions
 	{
-		public static ConnectionEndpointRouteBuilder MapConnectionHandler<TConnectionHandler>(this IEndpointRouteBuilder endpoints, string pattern) where TConnectionHandler : ConnectionHandler
+		private class CompositeEndpointConventionBuilder : IEndpointConventionBuilder
 		{
-			throw null;
-		}
+			public CompositeEndpointConventionBuilder(List<IEndpointConventionBuilder> endpointConventionBuilders)
+			{
+				throw null;
+			}
 
-		public static ConnectionEndpointRouteBuilder MapConnectionHandler<TConnectionHandler>(this IEndpointRouteBuilder endpoints, string pattern, Action<HttpConnectionDispatcherOptions> configureOptions) where TConnectionHandler : ConnectionHandler
-		{
-			throw null;
-		}
-
-		public static ConnectionEndpointRouteBuilder MapConnections(this IEndpointRouteBuilder endpoints, string pattern, HttpConnectionDispatcherOptions options, Action<IConnectionBuilder> configure)
-		{
-			throw null;
+			public void Add(Action<EndpointBuilder> convention)
+			{
+				throw null;
+			}
 		}
 
 		public static ConnectionEndpointRouteBuilder MapConnections(this IEndpointRouteBuilder endpoints, string pattern, Action<IConnectionBuilder> configure)
 		{
 			throw null;
 		}
-	}
-}
 
+		public static ConnectionEndpointRouteBuilder MapConnectionHandler<TConnectionHandler>(this IEndpointRouteBuilder endpoints, string pattern) where TConnectionHandler : ConnectionHandler
+		{
+			throw null;
+		}
 
-// Microsoft.AspNetCore.Http.Connections\Microsoft.AspNetCore.Builder\ConnectionsAppBuilderExtensions.cs
-using Microsoft.AspNetCore.Http.Connections;
-using System;
+		public static ConnectionEndpointRouteBuilder MapConnectionHandler<TConnectionHandler>(this IEndpointRouteBuilder endpoints, string pattern, Action<HttpConnectionDispatcherOptions>? configureOptions) where TConnectionHandler : ConnectionHandler
+		{
+			throw null;
+		}
 
-namespace Microsoft.AspNetCore.Builder
-{
-	public static class ConnectionsAppBuilderExtensions
-	{
-		[Obsolete("This method is obsolete and will be removed in a future version. The recommended alternative is to use MapConnections or MapConnectionHandler<TConnectionHandler> inside Microsoft.AspNetCore.Builder.UseEndpoints(...).")]
-		public static IApplicationBuilder UseConnections(this IApplicationBuilder app, Action<ConnectionsRouteBuilder> configure)
+		public static ConnectionEndpointRouteBuilder MapConnections(this IEndpointRouteBuilder endpoints, string pattern, HttpConnectionDispatcherOptions options, Action<IConnectionBuilder> configure)
 		{
 			throw null;
 		}
@@ -20620,7 +25830,13 @@ namespace Microsoft.AspNetCore.Http.Connections
 			[CompilerGenerated]
 			set
 			{
+				throw null;
 			}
+		}
+
+		public ConnectionOptions()
+		{
+			throw null;
 		}
 	}
 }
@@ -20638,38 +25854,12 @@ namespace Microsoft.AspNetCore.Http.Connections
 
 		public void Configure(ConnectionOptions options)
 		{
-		}
-	}
-}
-
-
-// Microsoft.AspNetCore.Http.Connections\Microsoft.AspNetCore.Http.Connections\ConnectionsRouteBuilder.cs
-using Microsoft.AspNetCore.Connections;
-using System;
-
-namespace Microsoft.AspNetCore.Http.Connections
-{
-	[Obsolete("This class is obsolete and will be removed in a future version. The recommended alternative is to use MapConnection and MapConnectionHandler<TConnectionHandler> inside Microsoft.AspNetCore.Builder.UseEndpoints(...).")]
-	public class ConnectionsRouteBuilder
-	{
-		internal ConnectionsRouteBuilder()
-		{
+			throw null;
 		}
 
-		public void MapConnectionHandler<TConnectionHandler>(PathString path) where TConnectionHandler : ConnectionHandler
+		public ConnectionOptionsSetup()
 		{
-		}
-
-		public void MapConnectionHandler<TConnectionHandler>(PathString path, Action<HttpConnectionDispatcherOptions> configureOptions) where TConnectionHandler : ConnectionHandler
-		{
-		}
-
-		public void MapConnections(PathString path, HttpConnectionDispatcherOptions options, Action<IConnectionBuilder> configure)
-		{
-		}
-
-		public void MapConnections(PathString path, Action<IConnectionBuilder> configure)
-		{
+			throw null;
 		}
 	}
 }
@@ -20682,7 +25872,7 @@ namespace Microsoft.AspNetCore.Http.Connections
 {
 	public static class HttpConnectionContextExtensions
 	{
-		public static HttpContext GetHttpContext(this ConnectionContext connection)
+		public static HttpContext? GetHttpContext(this ConnectionContext connection)
 		{
 			throw null;
 		}
@@ -20699,7 +25889,16 @@ namespace Microsoft.AspNetCore.Http.Connections
 {
 	public class HttpConnectionDispatcherOptions
 	{
-		public long ApplicationMaxBufferSize
+		public IList<IAuthorizeData> AuthorizationData
+		{
+			[CompilerGenerated]
+			get
+			{
+				throw null;
+			}
+		}
+
+		public HttpTransportType Transports
 		{
 			[CompilerGenerated]
 			get
@@ -20709,10 +25908,11 @@ namespace Microsoft.AspNetCore.Http.Connections
 			[CompilerGenerated]
 			set
 			{
+				throw null;
 			}
 		}
 
-		public IList<IAuthorizeData> AuthorizationData
+		public WebSocketOptions WebSockets
 		{
 			[CompilerGenerated]
 			get
@@ -20730,19 +25930,6 @@ namespace Microsoft.AspNetCore.Http.Connections
 			}
 		}
 
-		public int MinimumProtocolVersion
-		{
-			[CompilerGenerated]
-			get
-			{
-				throw null;
-			}
-			[CompilerGenerated]
-			set
-			{
-			}
-		}
-
 		public long TransportMaxBufferSize
 		{
 			[CompilerGenerated]
@@ -20753,10 +25940,11 @@ namespace Microsoft.AspNetCore.Http.Connections
 			[CompilerGenerated]
 			set
 			{
+				throw null;
 			}
 		}
 
-		public HttpTransportType Transports
+		public long ApplicationMaxBufferSize
 		{
 			[CompilerGenerated]
 			get
@@ -20766,13 +25954,19 @@ namespace Microsoft.AspNetCore.Http.Connections
 			[CompilerGenerated]
 			set
 			{
+				throw null;
 			}
 		}
 
-		public WebSocketOptions WebSockets
+		public int MinimumProtocolVersion
 		{
 			[CompilerGenerated]
 			get
+			{
+				throw null;
+			}
+			[CompilerGenerated]
+			set
 			{
 				throw null;
 			}
@@ -20780,6 +25974,7 @@ namespace Microsoft.AspNetCore.Http.Connections
 
 		public HttpConnectionDispatcherOptions()
 		{
+			throw null;
 		}
 	}
 }
@@ -20803,7 +25998,13 @@ namespace Microsoft.AspNetCore.Http.Connections
 			[CompilerGenerated]
 			set
 			{
+				throw null;
 			}
+		}
+
+		public LongPollingOptions()
+		{
+			throw null;
 		}
 	}
 }
@@ -20814,6 +26015,10 @@ namespace Microsoft.AspNetCore.Http.Connections
 {
 	public class NegotiateMetadata
 	{
+		public NegotiateMetadata()
+		{
+			throw null;
+		}
 	}
 }
 
@@ -20837,10 +26042,11 @@ namespace Microsoft.AspNetCore.Http.Connections
 			[CompilerGenerated]
 			set
 			{
+				throw null;
 			}
 		}
 
-		public Func<IList<string>, string> SubProtocolSelector
+		public Func<IList<string>, string>? SubProtocolSelector
 		{
 			[CompilerGenerated]
 			get
@@ -20850,7 +26056,13 @@ namespace Microsoft.AspNetCore.Http.Connections
 			[CompilerGenerated]
 			set
 			{
+				throw null;
 			}
+		}
+
+		public WebSocketOptions()
+		{
+			throw null;
 		}
 	}
 }
@@ -20883,6 +26095,31 @@ namespace Microsoft.AspNetCore.Http.Connections.Features
 }
 
 
+// Microsoft.AspNetCore.Http.Connections\Microsoft.AspNetCore.Http.Connections.Internal\HttpConnectionStatus.cs
+namespace Microsoft.AspNetCore.Http.Connections.Internal
+{
+	internal enum HttpConnectionStatus
+	{
+		Inactive,
+		Active,
+		Disposed
+	}
+}
+
+
+// Microsoft.AspNetCore.Http.Connections\Microsoft.AspNetCore.Http.Connections.Internal.Transports\IHttpTransport.cs
+using System.Threading;
+using System.Threading.Tasks;
+
+namespace Microsoft.AspNetCore.Http.Connections.Internal.Transports
+{
+	internal interface IHttpTransport
+	{
+		Task ProcessRequestAsync(HttpContext context, CancellationToken token);
+	}
+}
+
+
 // Microsoft.AspNetCore.Http.Connections\Microsoft.Extensions.DependencyInjection\ConnectionsDependencyInjectionExtensions.cs
 using Microsoft.AspNetCore.Http.Connections;
 using System;
@@ -20906,36 +26143,76 @@ namespace Microsoft.Extensions.DependencyInjection
 
 // Microsoft.AspNetCore.Http.Connections\Microsoft.Extensions.Internal\ValueStopwatch.cs
 using System;
-using System.Diagnostics;
 
 namespace Microsoft.Extensions.Internal
 {
 	internal struct ValueStopwatch
 	{
-		private static readonly double TimestampToTicks = 10000000.0 / (double)Stopwatch.Frequency;
+		private static readonly double TimestampToTicks;
 
 		private long _startTimestamp;
 
-		public bool IsActive => _startTimestamp != 0;
-
-		private ValueStopwatch(long startTimestamp)
+		public bool IsActive
 		{
-			_startTimestamp = startTimestamp;
+			get
+			{
+				throw null;
+			}
 		}
 
 		public static ValueStopwatch StartNew()
 		{
-			return new ValueStopwatch(Stopwatch.GetTimestamp());
+			throw null;
 		}
 
 		public TimeSpan GetElapsedTime()
 		{
-			if (!IsActive)
+			throw null;
+		}
+	}
+}
+
+
+// Microsoft.AspNetCore.Http.Connections\System.Threading.Tasks\NoThrowAwaiter.cs
+using System.Runtime.CompilerServices;
+
+namespace System.Threading.Tasks
+{
+	internal readonly struct NoThrowAwaiter : ICriticalNotifyCompletion, INotifyCompletion
+	{
+		private readonly Task _task;
+
+		public bool IsCompleted
+		{
+			get
 			{
-				throw new InvalidOperationException("An uninitialized, or 'default', ValueStopwatch cannot be used to get elapsed time.");
+				throw null;
 			}
-			long num = Stopwatch.GetTimestamp() - _startTimestamp;
-			return new TimeSpan((long)(TimestampToTicks * (double)num));
+		}
+
+		public NoThrowAwaiter(Task task)
+		{
+			throw null;
+		}
+
+		public NoThrowAwaiter GetAwaiter()
+		{
+			throw null;
+		}
+
+		public void GetResult()
+		{
+			throw null;
+		}
+
+		public void OnCompleted(Action continuation)
+		{
+			throw null;
+		}
+
+		public void UnsafeOnCompleted(Action continuation)
+		{
+			throw null;
 		}
 	}
 }
@@ -20949,19 +26226,6 @@ namespace Microsoft.AspNetCore.Http.Connections
 {
 	public class AvailableTransport
 	{
-		public IList<string> TransferFormats
-		{
-			[CompilerGenerated]
-			get
-			{
-				throw null;
-			}
-			[CompilerGenerated]
-			set
-			{
-			}
-		}
-
 		public string Transport
 		{
 			[CompilerGenerated]
@@ -20972,7 +26236,27 @@ namespace Microsoft.AspNetCore.Http.Connections
 			[CompilerGenerated]
 			set
 			{
+				throw null;
 			}
+		}
+
+		public IList<string> TransferFormats
+		{
+			[CompilerGenerated]
+			get
+			{
+				throw null;
+			}
+			[CompilerGenerated]
+			set
+			{
+				throw null;
+			}
+		}
+
+		public AvailableTransport()
+		{
+			throw null;
 		}
 	}
 }
@@ -21013,8 +26297,7 @@ namespace Microsoft.AspNetCore.Http.Connections
 {
 	public static class NegotiateProtocol
 	{
-		[Obsolete("This method is obsolete and will be removed in a future version. The recommended alternative is ParseResponse(ReadOnlySpan{byte}).")]
-		public static NegotiationResponse ParseResponse(Stream content)
+		public static void WriteResponse(NegotiationResponse response, IBufferWriter<byte> output)
 		{
 			throw null;
 		}
@@ -21024,8 +26307,10 @@ namespace Microsoft.AspNetCore.Http.Connections
 			throw null;
 		}
 
-		public static void WriteResponse(NegotiationResponse response, IBufferWriter<byte> output)
+		[Obsolete("This method is obsolete and will be removed in a future version. The recommended alternative is ParseResponse(ReadOnlySpan{byte}).")]
+		public static NegotiationResponse ParseResponse(Stream content)
 		{
+			throw null;
 		}
 	}
 }
@@ -21039,6 +26324,20 @@ namespace Microsoft.AspNetCore.Http.Connections
 {
 	public class NegotiationResponse
 	{
+		public string Url
+		{
+			[CompilerGenerated]
+			get
+			{
+				throw null;
+			}
+			[CompilerGenerated]
+			set
+			{
+				throw null;
+			}
+		}
+
 		public string AccessToken
 		{
 			[CompilerGenerated]
@@ -21049,19 +26348,7 @@ namespace Microsoft.AspNetCore.Http.Connections
 			[CompilerGenerated]
 			set
 			{
-			}
-		}
-
-		public IList<AvailableTransport> AvailableTransports
-		{
-			[CompilerGenerated]
-			get
-			{
 				throw null;
-			}
-			[CompilerGenerated]
-			set
-			{
 			}
 		}
 
@@ -21075,6 +26362,7 @@ namespace Microsoft.AspNetCore.Http.Connections
 			[CompilerGenerated]
 			set
 			{
+				throw null;
 			}
 		}
 
@@ -21088,32 +26376,7 @@ namespace Microsoft.AspNetCore.Http.Connections
 			[CompilerGenerated]
 			set
 			{
-			}
-		}
-
-		public string Error
-		{
-			[CompilerGenerated]
-			get
-			{
 				throw null;
-			}
-			[CompilerGenerated]
-			set
-			{
-			}
-		}
-
-		public string Url
-		{
-			[CompilerGenerated]
-			get
-			{
-				throw null;
-			}
-			[CompilerGenerated]
-			set
-			{
 			}
 		}
 
@@ -21127,7 +26390,41 @@ namespace Microsoft.AspNetCore.Http.Connections
 			[CompilerGenerated]
 			set
 			{
+				throw null;
 			}
+		}
+
+		public IList<AvailableTransport> AvailableTransports
+		{
+			[CompilerGenerated]
+			get
+			{
+				throw null;
+			}
+			[CompilerGenerated]
+			set
+			{
+				throw null;
+			}
+		}
+
+		public string Error
+		{
+			[CompilerGenerated]
+			get
+			{
+				throw null;
+			}
+			[CompilerGenerated]
+			set
+			{
+				throw null;
+			}
+		}
+
+		public NegotiationResponse()
+		{
+			throw null;
 		}
 	}
 }
@@ -21135,22 +26432,54 @@ namespace Microsoft.AspNetCore.Http.Connections
 
 // Microsoft.AspNetCore.Http.Extensions\Microsoft.AspNetCore.Http\HeaderDictionaryTypeExtensions.cs
 using Microsoft.AspNetCore.Http.Headers;
+using System;
 using System.Collections.Generic;
 
 namespace Microsoft.AspNetCore.Http
 {
 	public static class HeaderDictionaryTypeExtensions
 	{
-		public static void AppendList<T>(this IHeaderDictionary Headers, string name, IList<T> values)
-		{
-		}
-
 		public static RequestHeaders GetTypedHeaders(this HttpRequest request)
 		{
 			throw null;
 		}
 
 		public static ResponseHeaders GetTypedHeaders(this HttpResponse response)
+		{
+			throw null;
+		}
+
+		internal static DateTimeOffset? GetDate(this IHeaderDictionary headers, string name)
+		{
+			throw null;
+		}
+
+		internal static void Set(this IHeaderDictionary headers, string name, object value)
+		{
+			throw null;
+		}
+
+		internal static void SetList<T>(this IHeaderDictionary headers, string name, IList<T> values)
+		{
+			throw null;
+		}
+
+		public static void AppendList<T>(this IHeaderDictionary Headers, string name, IList<T> values)
+		{
+			throw null;
+		}
+
+		internal static void SetDate(this IHeaderDictionary headers, string name, DateTimeOffset? value)
+		{
+			throw null;
+		}
+
+		internal static T Get<T>(this IHeaderDictionary headers, string name)
+		{
+			throw null;
+		}
+
+		internal static IList<T> GetList<T>(this IHeaderDictionary headers, string name)
 		{
 			throw null;
 		}
@@ -21171,6 +26500,94 @@ namespace Microsoft.AspNetCore.Http
 }
 
 
+// Microsoft.AspNetCore.Http.Extensions\Microsoft.AspNetCore.Http\HttpRequestJsonExtensions.cs
+using System;
+using System.Diagnostics;
+using System.Runtime.CompilerServices;
+using System.Text.Json;
+using System.Threading;
+using System.Threading.Tasks;
+
+namespace Microsoft.AspNetCore.Http
+{
+	public static class HttpRequestJsonExtensions
+	{
+		public static ValueTask<TValue?> ReadFromJsonAsync<TValue>(this HttpRequest request, CancellationToken cancellationToken = default(CancellationToken))
+		{
+			throw null;
+		}
+
+		[AsyncStateMachine(typeof(_003CReadFromJsonAsync_003Ed__1<>))]
+		[DebuggerStepThrough]
+		public static ValueTask<TValue?> ReadFromJsonAsync<TValue>(this HttpRequest request, JsonSerializerOptions? options, CancellationToken cancellationToken = default(CancellationToken))
+		{
+			throw null;
+		}
+
+		public static ValueTask<object?> ReadFromJsonAsync(this HttpRequest request, Type type, CancellationToken cancellationToken = default(CancellationToken))
+		{
+			throw null;
+		}
+
+		[AsyncStateMachine(typeof(_003CReadFromJsonAsync_003Ed__3))]
+		[DebuggerStepThrough]
+		public static ValueTask<object?> ReadFromJsonAsync(this HttpRequest request, Type type, JsonSerializerOptions? options, CancellationToken cancellationToken = default(CancellationToken))
+		{
+			throw null;
+		}
+
+		public static bool HasJsonContentType(this HttpRequest request)
+		{
+			throw null;
+		}
+	}
+}
+
+
+// Microsoft.AspNetCore.Http.Extensions\Microsoft.AspNetCore.Http\HttpResponseJsonExtensions.cs
+using System;
+using System.Diagnostics.CodeAnalysis;
+using System.Text.Json;
+using System.Threading;
+using System.Threading.Tasks;
+
+namespace Microsoft.AspNetCore.Http
+{
+	public static class HttpResponseJsonExtensions
+	{
+		public static Task WriteAsJsonAsync<TValue>(this HttpResponse response, [AllowNull] TValue value, CancellationToken cancellationToken = default(CancellationToken))
+		{
+			throw null;
+		}
+
+		public static Task WriteAsJsonAsync<TValue>(this HttpResponse response, [AllowNull] TValue value, JsonSerializerOptions? options, CancellationToken cancellationToken = default(CancellationToken))
+		{
+			throw null;
+		}
+
+		public static Task WriteAsJsonAsync<TValue>(this HttpResponse response, [AllowNull] TValue value, JsonSerializerOptions? options, string? contentType, CancellationToken cancellationToken = default(CancellationToken))
+		{
+			throw null;
+		}
+
+		public static Task WriteAsJsonAsync(this HttpResponse response, object? value, Type type, CancellationToken cancellationToken = default(CancellationToken))
+		{
+			throw null;
+		}
+
+		public static Task WriteAsJsonAsync(this HttpResponse response, object? value, Type type, JsonSerializerOptions? options, CancellationToken cancellationToken = default(CancellationToken))
+		{
+			throw null;
+		}
+
+		public static Task WriteAsJsonAsync(this HttpResponse response, object? value, Type type, JsonSerializerOptions? options, string? contentType, CancellationToken cancellationToken = default(CancellationToken))
+		{
+			throw null;
+		}
+	}
+}
+
+
 // Microsoft.AspNetCore.Http.Extensions\Microsoft.AspNetCore.Http\ResponseExtensions.cs
 namespace Microsoft.AspNetCore.Http
 {
@@ -21178,10 +26595,12 @@ namespace Microsoft.AspNetCore.Http
 	{
 		public static void Clear(this HttpResponse response)
 		{
+			throw null;
 		}
 
 		public static void Redirect(this HttpResponse response, string location, bool permanent, bool preserveMethod)
 		{
+			throw null;
 		}
 	}
 }
@@ -21196,22 +26615,22 @@ namespace Microsoft.AspNetCore.Http
 {
 	public static class SendFileResponseExtensions
 	{
-		public static Task SendFileAsync(this HttpResponse response, IFileInfo file, long offset, long? count, CancellationToken cancellationToken = default(CancellationToken))
-		{
-			throw null;
-		}
-
 		public static Task SendFileAsync(this HttpResponse response, IFileInfo file, CancellationToken cancellationToken = default(CancellationToken))
 		{
 			throw null;
 		}
 
-		public static Task SendFileAsync(this HttpResponse response, string fileName, long offset, long? count, CancellationToken cancellationToken = default(CancellationToken))
+		public static Task SendFileAsync(this HttpResponse response, IFileInfo file, long offset, long? count, CancellationToken cancellationToken = default(CancellationToken))
 		{
 			throw null;
 		}
 
 		public static Task SendFileAsync(this HttpResponse response, string fileName, CancellationToken cancellationToken = default(CancellationToken))
+		{
+			throw null;
+		}
+
+		public static Task SendFileAsync(this HttpResponse response, string fileName, long offset, long? count, CancellationToken cancellationToken = default(CancellationToken))
 		{
 			throw null;
 		}
@@ -21224,7 +26643,7 @@ namespace Microsoft.AspNetCore.Http
 {
 	public static class SessionExtensions
 	{
-		public static byte[] Get(this ISession session, string key)
+		public static void SetInt32(this ISession session, string key, int value)
 		{
 			throw null;
 		}
@@ -21234,17 +26653,19 @@ namespace Microsoft.AspNetCore.Http
 			throw null;
 		}
 
+		public static void SetString(this ISession session, string key, string value)
+		{
+			throw null;
+		}
+
 		public static string GetString(this ISession session, string key)
 		{
 			throw null;
 		}
 
-		public static void SetInt32(this ISession session, string key, int value)
+		public static byte[] Get(this ISession session, string key)
 		{
-		}
-
-		public static void SetString(this ISession session, string key, string value)
-		{
+			throw null;
 		}
 	}
 }
@@ -21264,6 +26685,7 @@ namespace Microsoft.AspNetCore.Http.Extensions
 
 
 // Microsoft.AspNetCore.Http.Extensions\Microsoft.AspNetCore.Http.Extensions\QueryBuilder.cs
+using Microsoft.Extensions.Primitives;
 using System.Collections;
 using System.Collections.Generic;
 
@@ -21273,18 +26695,42 @@ namespace Microsoft.AspNetCore.Http.Extensions
 	{
 		public QueryBuilder()
 		{
+			throw null;
 		}
 
 		public QueryBuilder(IEnumerable<KeyValuePair<string, string>> parameters)
 		{
+			throw null;
+		}
+
+		public QueryBuilder(IEnumerable<KeyValuePair<string, StringValues>> parameters)
+		{
+			throw null;
 		}
 
 		public void Add(string key, IEnumerable<string> values)
 		{
+			throw null;
 		}
 
 		public void Add(string key, string value)
 		{
+			throw null;
+		}
+
+		public override string ToString()
+		{
+			throw null;
+		}
+
+		public QueryString ToQueryString()
+		{
+			throw null;
+		}
+
+		public override int GetHashCode()
+		{
+			throw null;
 		}
 
 		public override bool Equals(object obj)
@@ -21297,22 +26743,7 @@ namespace Microsoft.AspNetCore.Http.Extensions
 			throw null;
 		}
 
-		public override int GetHashCode()
-		{
-			throw null;
-		}
-
 		IEnumerator IEnumerable.GetEnumerator()
-		{
-			throw null;
-		}
-
-		public QueryString ToQueryString()
-		{
-			throw null;
-		}
-
-		public override string ToString()
 		{
 			throw null;
 		}
@@ -21329,12 +26760,12 @@ namespace Microsoft.AspNetCore.Http.Extensions
 {
 	public static class StreamCopyOperation
 	{
-		public static Task CopyToAsync(Stream source, Stream destination, long? count, int bufferSize, CancellationToken cancel)
+		public static Task CopyToAsync(Stream source, Stream destination, long? count, CancellationToken cancel)
 		{
 			throw null;
 		}
 
-		public static Task CopyToAsync(Stream source, Stream destination, long? count, CancellationToken cancel)
+		public static Task CopyToAsync(Stream source, Stream destination, long? count, int bufferSize, CancellationToken cancel)
 		{
 			throw null;
 		}
@@ -21349,17 +26780,12 @@ namespace Microsoft.AspNetCore.Http.Extensions
 {
 	public static class UriHelper
 	{
-		public static string BuildAbsolute(string scheme, HostString host, PathString pathBase = default(PathString), PathString path = default(PathString), QueryString query = default(QueryString), FragmentString fragment = default(FragmentString))
-		{
-			throw null;
-		}
-
 		public static string BuildRelative(PathString pathBase = default(PathString), PathString path = default(PathString), QueryString query = default(QueryString), FragmentString fragment = default(FragmentString))
 		{
 			throw null;
 		}
 
-		public static string Encode(Uri uri)
+		public static string BuildAbsolute(string scheme, HostString host, PathString pathBase = default(PathString), PathString path = default(PathString), QueryString query = default(QueryString), FragmentString fragment = default(FragmentString))
 		{
 			throw null;
 		}
@@ -21369,7 +26795,12 @@ namespace Microsoft.AspNetCore.Http.Extensions
 			throw null;
 		}
 
-		public static string GetDisplayUrl(this HttpRequest request)
+		public static string Encode(Uri uri)
+		{
+			throw null;
+		}
+
+		public static string GetEncodedUrl(this HttpRequest request)
 		{
 			throw null;
 		}
@@ -21379,7 +26810,7 @@ namespace Microsoft.AspNetCore.Http.Extensions
 			throw null;
 		}
 
-		public static string GetEncodedUrl(this HttpRequest request)
+		public static string GetDisplayUrl(this HttpRequest request)
 		{
 			throw null;
 		}
@@ -21397,6 +26828,15 @@ namespace Microsoft.AspNetCore.Http.Headers
 {
 	public class RequestHeaders
 	{
+		public IHeaderDictionary Headers
+		{
+			[CompilerGenerated]
+			get
+			{
+				throw null;
+			}
+		}
+
 		public IList<MediaTypeHeaderValue> Accept
 		{
 			get
@@ -21405,6 +26845,7 @@ namespace Microsoft.AspNetCore.Http.Headers
 			}
 			set
 			{
+				throw null;
 			}
 		}
 
@@ -21416,6 +26857,7 @@ namespace Microsoft.AspNetCore.Http.Headers
 			}
 			set
 			{
+				throw null;
 			}
 		}
 
@@ -21427,6 +26869,7 @@ namespace Microsoft.AspNetCore.Http.Headers
 			}
 			set
 			{
+				throw null;
 			}
 		}
 
@@ -21438,6 +26881,7 @@ namespace Microsoft.AspNetCore.Http.Headers
 			}
 			set
 			{
+				throw null;
 			}
 		}
 
@@ -21449,6 +26893,7 @@ namespace Microsoft.AspNetCore.Http.Headers
 			}
 			set
 			{
+				throw null;
 			}
 		}
 
@@ -21460,6 +26905,7 @@ namespace Microsoft.AspNetCore.Http.Headers
 			}
 			set
 			{
+				throw null;
 			}
 		}
 
@@ -21471,6 +26917,7 @@ namespace Microsoft.AspNetCore.Http.Headers
 			}
 			set
 			{
+				throw null;
 			}
 		}
 
@@ -21482,6 +26929,7 @@ namespace Microsoft.AspNetCore.Http.Headers
 			}
 			set
 			{
+				throw null;
 			}
 		}
 
@@ -21493,6 +26941,7 @@ namespace Microsoft.AspNetCore.Http.Headers
 			}
 			set
 			{
+				throw null;
 			}
 		}
 
@@ -21504,6 +26953,7 @@ namespace Microsoft.AspNetCore.Http.Headers
 			}
 			set
 			{
+				throw null;
 			}
 		}
 
@@ -21515,6 +26965,7 @@ namespace Microsoft.AspNetCore.Http.Headers
 			}
 			set
 			{
+				throw null;
 			}
 		}
 
@@ -21525,14 +26976,6 @@ namespace Microsoft.AspNetCore.Http.Headers
 				throw null;
 			}
 			set
-			{
-			}
-		}
-
-		public IHeaderDictionary Headers
-		{
-			[CompilerGenerated]
-			get
 			{
 				throw null;
 			}
@@ -21546,6 +26989,7 @@ namespace Microsoft.AspNetCore.Http.Headers
 			}
 			set
 			{
+				throw null;
 			}
 		}
 
@@ -21557,6 +27001,7 @@ namespace Microsoft.AspNetCore.Http.Headers
 			}
 			set
 			{
+				throw null;
 			}
 		}
 
@@ -21568,6 +27013,7 @@ namespace Microsoft.AspNetCore.Http.Headers
 			}
 			set
 			{
+				throw null;
 			}
 		}
 
@@ -21579,6 +27025,7 @@ namespace Microsoft.AspNetCore.Http.Headers
 			}
 			set
 			{
+				throw null;
 			}
 		}
 
@@ -21590,6 +27037,7 @@ namespace Microsoft.AspNetCore.Http.Headers
 			}
 			set
 			{
+				throw null;
 			}
 		}
 
@@ -21601,6 +27049,7 @@ namespace Microsoft.AspNetCore.Http.Headers
 			}
 			set
 			{
+				throw null;
 			}
 		}
 
@@ -21612,6 +27061,7 @@ namespace Microsoft.AspNetCore.Http.Headers
 			}
 			set
 			{
+				throw null;
 			}
 		}
 
@@ -21623,6 +27073,7 @@ namespace Microsoft.AspNetCore.Http.Headers
 			}
 			set
 			{
+				throw null;
 			}
 		}
 
@@ -21634,22 +27085,11 @@ namespace Microsoft.AspNetCore.Http.Headers
 			}
 			set
 			{
+				throw null;
 			}
 		}
 
 		public RequestHeaders(IHeaderDictionary headers)
-		{
-		}
-
-		public void Append(string name, object value)
-		{
-		}
-
-		public void AppendList<T>(string name, IList<T> values)
-		{
-		}
-
-		public IList<T> GetList<T>(string name)
 		{
 			throw null;
 		}
@@ -21659,12 +27099,29 @@ namespace Microsoft.AspNetCore.Http.Headers
 			throw null;
 		}
 
+		public IList<T> GetList<T>(string name)
+		{
+			throw null;
+		}
+
 		public void Set(string name, object value)
 		{
+			throw null;
 		}
 
 		public void SetList<T>(string name, IList<T> values)
 		{
+			throw null;
+		}
+
+		public void Append(string name, object value)
+		{
+			throw null;
+		}
+
+		public void AppendList<T>(string name, IList<T> values)
+		{
+			throw null;
 		}
 	}
 }
@@ -21680,6 +27137,15 @@ namespace Microsoft.AspNetCore.Http.Headers
 {
 	public class ResponseHeaders
 	{
+		public IHeaderDictionary Headers
+		{
+			[CompilerGenerated]
+			get
+			{
+				throw null;
+			}
+		}
+
 		public CacheControlHeaderValue CacheControl
 		{
 			get
@@ -21688,6 +27154,7 @@ namespace Microsoft.AspNetCore.Http.Headers
 			}
 			set
 			{
+				throw null;
 			}
 		}
 
@@ -21699,6 +27166,7 @@ namespace Microsoft.AspNetCore.Http.Headers
 			}
 			set
 			{
+				throw null;
 			}
 		}
 
@@ -21710,6 +27178,7 @@ namespace Microsoft.AspNetCore.Http.Headers
 			}
 			set
 			{
+				throw null;
 			}
 		}
 
@@ -21721,6 +27190,7 @@ namespace Microsoft.AspNetCore.Http.Headers
 			}
 			set
 			{
+				throw null;
 			}
 		}
 
@@ -21732,6 +27202,7 @@ namespace Microsoft.AspNetCore.Http.Headers
 			}
 			set
 			{
+				throw null;
 			}
 		}
 
@@ -21743,6 +27214,7 @@ namespace Microsoft.AspNetCore.Http.Headers
 			}
 			set
 			{
+				throw null;
 			}
 		}
 
@@ -21754,6 +27226,7 @@ namespace Microsoft.AspNetCore.Http.Headers
 			}
 			set
 			{
+				throw null;
 			}
 		}
 
@@ -21764,14 +27237,6 @@ namespace Microsoft.AspNetCore.Http.Headers
 				throw null;
 			}
 			set
-			{
-			}
-		}
-
-		public IHeaderDictionary Headers
-		{
-			[CompilerGenerated]
-			get
 			{
 				throw null;
 			}
@@ -21785,6 +27250,7 @@ namespace Microsoft.AspNetCore.Http.Headers
 			}
 			set
 			{
+				throw null;
 			}
 		}
 
@@ -21796,6 +27262,7 @@ namespace Microsoft.AspNetCore.Http.Headers
 			}
 			set
 			{
+				throw null;
 			}
 		}
 
@@ -21807,22 +27274,11 @@ namespace Microsoft.AspNetCore.Http.Headers
 			}
 			set
 			{
+				throw null;
 			}
 		}
 
 		public ResponseHeaders(IHeaderDictionary headers)
-		{
-		}
-
-		public void Append(string name, object value)
-		{
-		}
-
-		public void AppendList<T>(string name, IList<T> values)
-		{
-		}
-
-		public IList<T> GetList<T>(string name)
 		{
 			throw null;
 		}
@@ -21832,12 +27288,56 @@ namespace Microsoft.AspNetCore.Http.Headers
 			throw null;
 		}
 
+		public IList<T> GetList<T>(string name)
+		{
+			throw null;
+		}
+
 		public void Set(string name, object value)
 		{
+			throw null;
 		}
 
 		public void SetList<T>(string name, IList<T> values)
 		{
+			throw null;
+		}
+
+		public void Append(string name, object value)
+		{
+			throw null;
+		}
+
+		public void AppendList<T>(string name, IList<T> values)
+		{
+			throw null;
+		}
+	}
+}
+
+
+// Microsoft.AspNetCore.Http.Extensions\Microsoft.AspNetCore.Http.Json\JsonOptions.cs
+using System.Runtime.CompilerServices;
+using System.Text.Json;
+
+namespace Microsoft.AspNetCore.Http.Json
+{
+	public class JsonOptions
+	{
+		internal static readonly JsonSerializerOptions DefaultSerializerOptions;
+
+		public JsonSerializerOptions SerializerOptions
+		{
+			[CompilerGenerated]
+			get
+			{
+				throw null;
+			}
+		}
+
+		public JsonOptions()
+		{
+			throw null;
 		}
 	}
 }
@@ -21851,7 +27351,7 @@ namespace Microsoft.AspNetCore.Http
 {
 	public class CookieOptions
 	{
-		public string Domain
+		public string? Domain
 		{
 			[CompilerGenerated]
 			get
@@ -21861,6 +27361,21 @@ namespace Microsoft.AspNetCore.Http
 			[CompilerGenerated]
 			set
 			{
+				throw null;
+			}
+		}
+
+		public string? Path
+		{
+			[CompilerGenerated]
+			get
+			{
+				throw null;
+			}
+			[CompilerGenerated]
+			set
+			{
+				throw null;
 			}
 		}
 
@@ -21874,71 +27389,7 @@ namespace Microsoft.AspNetCore.Http
 			[CompilerGenerated]
 			set
 			{
-			}
-		}
-
-		public bool HttpOnly
-		{
-			[CompilerGenerated]
-			get
-			{
 				throw null;
-			}
-			[CompilerGenerated]
-			set
-			{
-			}
-		}
-
-		public bool IsEssential
-		{
-			[CompilerGenerated]
-			get
-			{
-				throw null;
-			}
-			[CompilerGenerated]
-			set
-			{
-			}
-		}
-
-		public TimeSpan? MaxAge
-		{
-			[CompilerGenerated]
-			get
-			{
-				throw null;
-			}
-			[CompilerGenerated]
-			set
-			{
-			}
-		}
-
-		public string Path
-		{
-			[CompilerGenerated]
-			get
-			{
-				throw null;
-			}
-			[CompilerGenerated]
-			set
-			{
-			}
-		}
-
-		public SameSiteMode SameSite
-		{
-			[CompilerGenerated]
-			get
-			{
-				throw null;
-			}
-			[CompilerGenerated]
-			set
-			{
 			}
 		}
 
@@ -21952,11 +27403,69 @@ namespace Microsoft.AspNetCore.Http
 			[CompilerGenerated]
 			set
 			{
+				throw null;
+			}
+		}
+
+		public SameSiteMode SameSite
+		{
+			[CompilerGenerated]
+			get
+			{
+				throw null;
+			}
+			[CompilerGenerated]
+			set
+			{
+				throw null;
+			}
+		}
+
+		public bool HttpOnly
+		{
+			[CompilerGenerated]
+			get
+			{
+				throw null;
+			}
+			[CompilerGenerated]
+			set
+			{
+				throw null;
+			}
+		}
+
+		public TimeSpan? MaxAge
+		{
+			[CompilerGenerated]
+			get
+			{
+				throw null;
+			}
+			[CompilerGenerated]
+			set
+			{
+				throw null;
+			}
+		}
+
+		public bool IsEssential
+		{
+			[CompilerGenerated]
+			get
+			{
+				throw null;
+			}
+			[CompilerGenerated]
+			set
+			{
+				throw null;
 			}
 		}
 
 		public CookieOptions()
 		{
+			throw null;
 		}
 	}
 }
@@ -21976,7 +27485,7 @@ namespace Microsoft.AspNetCore.Http
 			get;
 		}
 
-		IFormFileCollection Files
+		ICollection<string> Keys
 		{
 			get;
 		}
@@ -21986,7 +27495,7 @@ namespace Microsoft.AspNetCore.Http
 			get;
 		}
 
-		ICollection<string> Keys
+		IFormFileCollection Files
 		{
 			get;
 		}
@@ -22007,17 +27516,12 @@ namespace Microsoft.AspNetCore.Http
 {
 	public interface IFormFile
 	{
-		string ContentDisposition
-		{
-			get;
-		}
-
 		string ContentType
 		{
 			get;
 		}
 
-		string FileName
+		string ContentDisposition
 		{
 			get;
 		}
@@ -22037,11 +27541,16 @@ namespace Microsoft.AspNetCore.Http
 			get;
 		}
 
+		string FileName
+		{
+			get;
+		}
+
+		Stream OpenReadStream();
+
 		void CopyTo(Stream target);
 
 		Task CopyToAsync(Stream target, CancellationToken cancellationToken = default(CancellationToken));
-
-		Stream OpenReadStream();
 	}
 }
 
@@ -22052,14 +27561,14 @@ using System.Collections.Generic;
 
 namespace Microsoft.AspNetCore.Http
 {
-	public interface IFormFileCollection : IEnumerable<IFormFile>, IEnumerable, IReadOnlyCollection<IFormFile>, IReadOnlyList<IFormFile>
+	public interface IFormFileCollection : IReadOnlyList<IFormFile>, IEnumerable<IFormFile>, IEnumerable, IReadOnlyCollection<IFormFile>
 	{
-		IFormFile this[string name]
+		IFormFile? this[string name]
 		{
 			get;
 		}
 
-		IFormFile GetFile(string name);
+		IFormFile? GetFile(string name);
 
 		IReadOnlyList<IFormFile> GetFiles(string name);
 	}
@@ -22073,15 +27582,15 @@ using System.Collections.Generic;
 
 namespace Microsoft.AspNetCore.Http
 {
-	public interface IHeaderDictionary : ICollection<KeyValuePair<string, StringValues>>, IEnumerable<KeyValuePair<string, StringValues>>, IEnumerable, IDictionary<string, StringValues>
+	public interface IHeaderDictionary : IDictionary<string, StringValues>, ICollection<KeyValuePair<string, StringValues>>, IEnumerable<KeyValuePair<string, StringValues>>, IEnumerable
 	{
-		long? ContentLength
+		new StringValues this[string key]
 		{
 			get;
 			set;
 		}
 
-		new StringValues this[string key]
+		long? ContentLength
 		{
 			get;
 			set;
@@ -22104,12 +27613,12 @@ namespace Microsoft.AspNetCore.Http
 			get;
 		}
 
-		StringValues this[string key]
+		ICollection<string> Keys
 		{
 			get;
 		}
 
-		ICollection<string> Keys
+		StringValues this[string key]
 		{
 			get;
 		}
@@ -22124,6 +27633,7 @@ namespace Microsoft.AspNetCore.Http
 // Microsoft.AspNetCore.Http.Features\Microsoft.AspNetCore.Http\IRequestCookieCollection.cs
 using System.Collections;
 using System.Collections.Generic;
+using System.Diagnostics.CodeAnalysis;
 
 namespace Microsoft.AspNetCore.Http
 {
@@ -22134,19 +27644,19 @@ namespace Microsoft.AspNetCore.Http
 			get;
 		}
 
-		string this[string key]
+		ICollection<string> Keys
 		{
 			get;
 		}
 
-		ICollection<string> Keys
+		string? this[string key]
 		{
 			get;
 		}
 
 		bool ContainsKey(string key);
 
-		bool TryGetValue(string key, out string value);
+		bool TryGetValue(string key, [MaybeNullWhen(false)] out string? value);
 	}
 }
 
@@ -22176,12 +27686,12 @@ namespace Microsoft.AspNetCore.Http
 {
 	public interface ISession
 	{
-		string Id
+		bool IsAvailable
 		{
 			get;
 		}
 
-		bool IsAvailable
+		string Id
 		{
 			get;
 		}
@@ -22191,17 +27701,17 @@ namespace Microsoft.AspNetCore.Http
 			get;
 		}
 
-		void Clear();
+		Task LoadAsync(CancellationToken cancellationToken = default(CancellationToken));
 
 		Task CommitAsync(CancellationToken cancellationToken = default(CancellationToken));
 
-		Task LoadAsync(CancellationToken cancellationToken = default(CancellationToken));
-
-		void Remove(string key);
+		bool TryGetValue(string key, out byte[] value);
 
 		void Set(string key, byte[] value);
 
-		bool TryGetValue(string key, out byte[] value);
+		void Remove(string key);
+
+		void Clear();
 	}
 }
 
@@ -22226,7 +27736,7 @@ namespace Microsoft.AspNetCore.Http
 {
 	public class WebSocketAcceptContext
 	{
-		public virtual string SubProtocol
+		public virtual string? SubProtocol
 		{
 			[CompilerGenerated]
 			get
@@ -22236,7 +27746,13 @@ namespace Microsoft.AspNetCore.Http
 			[CompilerGenerated]
 			set
 			{
+				throw null;
 			}
+		}
+
+		public WebSocketAcceptContext()
+		{
+			throw null;
 		}
 	}
 }
@@ -22246,27 +27762,28 @@ namespace Microsoft.AspNetCore.Http
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.Diagnostics.CodeAnalysis;
+using System.Runtime.CompilerServices;
 
 namespace Microsoft.AspNetCore.Http.Features
 {
 	public class FeatureCollection : IFeatureCollection, IEnumerable<KeyValuePair<Type, object>>, IEnumerable
 	{
-		public bool IsReadOnly
+		private class KeyComparer : IEqualityComparer<KeyValuePair<Type, object>>
 		{
-			get
+			public bool Equals(KeyValuePair<Type, object> x, KeyValuePair<Type, object> y)
 			{
 				throw null;
 			}
-		}
 
-		public object this[Type key]
-		{
-			get
+			public int GetHashCode(KeyValuePair<Type, object> obj)
 			{
 				throw null;
 			}
-			set
+
+			public KeyComparer()
 			{
+				throw null;
 			}
 		}
 
@@ -22278,29 +27795,54 @@ namespace Microsoft.AspNetCore.Http.Features
 			}
 		}
 
+		public bool IsReadOnly
+		{
+			get
+			{
+				throw null;
+			}
+		}
+
+		public object? this[Type key]
+		{
+			get
+			{
+				throw null;
+			}
+			set
+			{
+				throw null;
+			}
+		}
+
 		public FeatureCollection()
 		{
+			throw null;
 		}
 
 		public FeatureCollection(IFeatureCollection defaults)
 		{
+			throw null;
 		}
 
+		IEnumerator IEnumerable.GetEnumerator()
+		{
+			throw null;
+		}
+
+		[IteratorStateMachine(typeof(_003CGetEnumerator_003Ed__14))]
 		public IEnumerator<KeyValuePair<Type, object>> GetEnumerator()
 		{
 			throw null;
 		}
 
+		[return: MaybeNull]
 		public TFeature Get<TFeature>()
 		{
 			throw null;
 		}
 
 		public void Set<TFeature>(TFeature instance)
-		{
-		}
-
-		IEnumerator IEnumerable.GetEnumerator()
 		{
 			throw null;
 		}
@@ -22309,16 +27851,19 @@ namespace Microsoft.AspNetCore.Http.Features
 
 
 // Microsoft.AspNetCore.Http.Features\Microsoft.AspNetCore.Http.Features\FeatureReference.cs
+using System.Diagnostics.CodeAnalysis;
+
 namespace Microsoft.AspNetCore.Http.Features
 {
 	public struct FeatureReference<T>
 	{
 		private T _feature;
 
-		private int _dummyPrimitive;
+		private int _revision;
 
 		public static readonly FeatureReference<T> Default;
 
+		[return: MaybeNull]
 		public T Fetch(IFeatureCollection features)
 		{
 			throw null;
@@ -22334,22 +27879,21 @@ namespace Microsoft.AspNetCore.Http.Features
 
 // Microsoft.AspNetCore.Http.Features\Microsoft.AspNetCore.Http.Features\FeatureReferences.cs
 using System;
+using System.Diagnostics.CodeAnalysis;
 using System.Runtime.CompilerServices;
 
 namespace Microsoft.AspNetCore.Http.Features
 {
 	public struct FeatureReferences<TCache>
 	{
-		private object _dummy;
-
-		private int _dummyPrimitive;
-
+		[AllowNull]
+		[MaybeNull]
 		public TCache Cache;
 
 		public IFeatureCollection Collection
 		{
 			[CompilerGenerated]
-			get
+			readonly get
 			{
 				throw null;
 			}
@@ -22358,7 +27902,7 @@ namespace Microsoft.AspNetCore.Http.Features
 		public int Revision
 		{
 			[CompilerGenerated]
-			get
+			readonly get
 			{
 				throw null;
 			}
@@ -22369,25 +27913,27 @@ namespace Microsoft.AspNetCore.Http.Features
 			throw null;
 		}
 
-		public TFeature Fetch<TFeature>(ref TFeature cached, Func<IFeatureCollection, TFeature> factory) where TFeature : class
-		{
-			throw null;
-		}
-
-		[MethodImpl(MethodImplOptions.AggressiveInlining)]
-		public TFeature Fetch<TFeature, TState>(ref TFeature cached, TState state, Func<TState, TFeature> factory) where TFeature : class
-		{
-			throw null;
-		}
-
 		[MethodImpl(MethodImplOptions.AggressiveInlining)]
 		public void Initalize(IFeatureCollection collection)
 		{
+			throw null;
 		}
 
 		[MethodImpl(MethodImplOptions.AggressiveInlining)]
 		public void Initalize(IFeatureCollection collection, int revision)
 		{
+			throw null;
+		}
+
+		[MethodImpl(MethodImplOptions.AggressiveInlining)]
+		public TFeature Fetch<TFeature, TState>([AllowNull] [MaybeNull] ref TFeature cached, TState state, Func<TState, TFeature> factory) where TFeature : class?
+		{
+			throw null;
+		}
+
+		public TFeature Fetch<TFeature>([AllowNull] [MaybeNull] ref TFeature cached, Func<IFeatureCollection, TFeature> factory) where TFeature : class?
+		{
+			throw null;
 		}
 	}
 }
@@ -22419,15 +27965,15 @@ namespace Microsoft.AspNetCore.Http.Features
 			get;
 		}
 
-		object this[Type key]
-		{
-			get;
-			set;
-		}
-
 		int Revision
 		{
 			get;
+		}
+
+		object? this[Type key]
+		{
+			get;
+			set;
 		}
 
 		TFeature Get<TFeature>();
@@ -22445,15 +27991,15 @@ namespace Microsoft.AspNetCore.Http.Features
 {
 	public interface IFormFeature
 	{
-		IFormCollection Form
-		{
-			get;
-			set;
-		}
-
 		bool HasFormContentType
 		{
 			get;
+		}
+
+		IFormCollection? Form
+		{
+			get;
+			set;
 		}
 
 		IFormCollection ReadForm();
@@ -22494,6 +28040,7 @@ namespace Microsoft.AspNetCore.Http.Features
 
 // Microsoft.AspNetCore.Http.Features\Microsoft.AspNetCore.Http.Features\IHttpConnectionFeature.cs
 using System.Net;
+using System.Runtime.CompilerServices;
 
 namespace Microsoft.AspNetCore.Http.Features
 {
@@ -22501,29 +28048,31 @@ namespace Microsoft.AspNetCore.Http.Features
 	{
 		string ConnectionId
 		{
+			[System.Runtime.CompilerServices.NullableContext(1)]
 			get;
+			[System.Runtime.CompilerServices.NullableContext(1)]
 			set;
 		}
 
-		IPAddress LocalIpAddress
+		IPAddress? RemoteIpAddress
 		{
 			get;
 			set;
 		}
 
-		int LocalPort
-		{
-			get;
-			set;
-		}
-
-		IPAddress RemoteIpAddress
+		IPAddress? LocalIpAddress
 		{
 			get;
 			set;
 		}
 
 		int RemotePort
+		{
+			get;
+			set;
+		}
+
+		int LocalPort
 		{
 			get;
 			set;
@@ -22558,13 +28107,13 @@ namespace Microsoft.AspNetCore.Http.Features
 {
 	public interface IHttpRequestFeature
 	{
-		Stream Body
+		string Protocol
 		{
 			get;
 			set;
 		}
 
-		IHeaderDictionary Headers
+		string Scheme
 		{
 			get;
 			set;
@@ -22576,19 +28125,13 @@ namespace Microsoft.AspNetCore.Http.Features
 			set;
 		}
 
-		string Path
-		{
-			get;
-			set;
-		}
-
 		string PathBase
 		{
 			get;
 			set;
 		}
 
-		string Protocol
+		string Path
 		{
 			get;
 			set;
@@ -22606,7 +28149,13 @@ namespace Microsoft.AspNetCore.Http.Features
 			set;
 		}
 
-		string Scheme
+		IHeaderDictionary Headers
+		{
+			get;
+			set;
+		}
+
+		Stream Body
 		{
 			get;
 			set;
@@ -22695,13 +28244,13 @@ namespace Microsoft.AspNetCore.Http.Features
 			get;
 		}
 
-		Task CompleteAsync();
-
 		void DisableBuffering();
+
+		Task StartAsync(CancellationToken cancellationToken = default(CancellationToken));
 
 		Task SendFileAsync(string path, long offset, long? count, CancellationToken cancellationToken = default(CancellationToken));
 
-		Task StartAsync(CancellationToken cancellationToken = default(CancellationToken));
+		Task CompleteAsync();
 	}
 }
 
@@ -22709,12 +28258,33 @@ namespace Microsoft.AspNetCore.Http.Features
 // Microsoft.AspNetCore.Http.Features\Microsoft.AspNetCore.Http.Features\IHttpResponseFeature.cs
 using System;
 using System.IO;
+using System.Runtime.CompilerServices;
 using System.Threading.Tasks;
 
 namespace Microsoft.AspNetCore.Http.Features
 {
 	public interface IHttpResponseFeature
 	{
+		int StatusCode
+		{
+			get;
+			set;
+		}
+
+		string? ReasonPhrase
+		{
+			[System.Runtime.CompilerServices.NullableContext(2)]
+			get;
+			[System.Runtime.CompilerServices.NullableContext(2)]
+			set;
+		}
+
+		IHeaderDictionary Headers
+		{
+			get;
+			set;
+		}
+
 		[Obsolete("Use IHttpResponseBodyFeature.Stream instead.", false)]
 		Stream Body
 		{
@@ -22727,27 +28297,9 @@ namespace Microsoft.AspNetCore.Http.Features
 			get;
 		}
 
-		IHeaderDictionary Headers
-		{
-			get;
-			set;
-		}
-
-		string ReasonPhrase
-		{
-			get;
-			set;
-		}
-
-		int StatusCode
-		{
-			get;
-			set;
-		}
+		void OnStarting(Func<object, Task> callback, object state);
 
 		void OnCompleted(Func<object, Task> callback, object state);
-
-		void OnStarting(Func<object, Task> callback, object state);
 	}
 }
 
@@ -22838,7 +28390,7 @@ namespace Microsoft.AspNetCore.Http.Features
 {
 	public interface IItemsFeature
 	{
-		IDictionary<object, object> Items
+		IDictionary<object, object?> Items
 		{
 			get;
 			set;
@@ -22956,13 +28508,13 @@ namespace Microsoft.AspNetCore.Http.Features
 {
 	public interface ITlsConnectionFeature
 	{
-		X509Certificate2 ClientCertificate
+		X509Certificate2? ClientCertificate
 		{
 			get;
 			set;
 		}
 
-		Task<X509Certificate2> GetClientCertificateAsync(CancellationToken cancellationToken);
+		Task<X509Certificate2?> GetClientCertificateAsync(CancellationToken cancellationToken);
 	}
 }
 
@@ -22984,7 +28536,7 @@ namespace Microsoft.AspNetCore.Http.Features
 {
 	public interface ITrackingConsentFeature
 	{
-		bool CanTrack
+		bool IsConsentNeeded
 		{
 			get;
 		}
@@ -22994,16 +28546,16 @@ namespace Microsoft.AspNetCore.Http.Features
 			get;
 		}
 
-		bool IsConsentNeeded
+		bool CanTrack
 		{
 			get;
 		}
 
-		string CreateConsentCookie();
-
 		void GrantConsent();
 
 		void WithdrawConsent();
+
+		string CreateConsentCookie();
 	}
 }
 
@@ -23015,7 +28567,7 @@ namespace Microsoft.AspNetCore.Http.Features.Authentication
 {
 	public interface IHttpAuthenticationFeature
 	{
-		ClaimsPrincipal User
+		ClaimsPrincipal? User
 		{
 			get;
 			set;
@@ -23065,19 +28617,6 @@ namespace Microsoft.AspNetCore.Builder
 {
 	public class ForwardedHeadersOptions
 	{
-		public IList<string> AllowedHosts
-		{
-			[CompilerGenerated]
-			get
-			{
-				throw null;
-			}
-			[CompilerGenerated]
-			set
-			{
-			}
-		}
-
 		public string ForwardedForHeaderName
 		{
 			[CompilerGenerated]
@@ -23088,19 +28627,7 @@ namespace Microsoft.AspNetCore.Builder
 			[CompilerGenerated]
 			set
 			{
-			}
-		}
-
-		public ForwardedHeaders ForwardedHeaders
-		{
-			[CompilerGenerated]
-			get
-			{
 				throw null;
-			}
-			[CompilerGenerated]
-			set
-			{
 			}
 		}
 
@@ -23114,6 +28641,7 @@ namespace Microsoft.AspNetCore.Builder
 			[CompilerGenerated]
 			set
 			{
+				throw null;
 			}
 		}
 
@@ -23126,36 +28654,6 @@ namespace Microsoft.AspNetCore.Builder
 			}
 			[CompilerGenerated]
 			set
-			{
-			}
-		}
-
-		public int? ForwardLimit
-		{
-			[CompilerGenerated]
-			get
-			{
-				throw null;
-			}
-			[CompilerGenerated]
-			set
-			{
-			}
-		}
-
-		public IList<IPNetwork> KnownNetworks
-		{
-			[CompilerGenerated]
-			get
-			{
-				throw null;
-			}
-		}
-
-		public IList<IPAddress> KnownProxies
-		{
-			[CompilerGenerated]
-			get
 			{
 				throw null;
 			}
@@ -23171,6 +28669,7 @@ namespace Microsoft.AspNetCore.Builder
 			[CompilerGenerated]
 			set
 			{
+				throw null;
 			}
 		}
 
@@ -23184,6 +28683,7 @@ namespace Microsoft.AspNetCore.Builder
 			[CompilerGenerated]
 			set
 			{
+				throw null;
 			}
 		}
 
@@ -23197,6 +28697,67 @@ namespace Microsoft.AspNetCore.Builder
 			[CompilerGenerated]
 			set
 			{
+				throw null;
+			}
+		}
+
+		public ForwardedHeaders ForwardedHeaders
+		{
+			[CompilerGenerated]
+			get
+			{
+				throw null;
+			}
+			[CompilerGenerated]
+			set
+			{
+				throw null;
+			}
+		}
+
+		public int? ForwardLimit
+		{
+			[CompilerGenerated]
+			get
+			{
+				throw null;
+			}
+			[CompilerGenerated]
+			set
+			{
+				throw null;
+			}
+		}
+
+		public IList<IPAddress> KnownProxies
+		{
+			[CompilerGenerated]
+			get
+			{
+				throw null;
+			}
+		}
+
+		public IList<IPNetwork> KnownNetworks
+		{
+			[CompilerGenerated]
+			get
+			{
+				throw null;
+			}
+		}
+
+		public IList<string> AllowedHosts
+		{
+			[CompilerGenerated]
+			get
+			{
+				throw null;
+			}
+			[CompilerGenerated]
+			set
+			{
+				throw null;
 			}
 		}
 
@@ -23210,7 +28771,13 @@ namespace Microsoft.AspNetCore.Builder
 			[CompilerGenerated]
 			set
 			{
+				throw null;
 			}
+		}
+
+		public ForwardedHeadersOptions()
+		{
+			throw null;
 		}
 	}
 }
@@ -23251,7 +28818,13 @@ namespace Microsoft.AspNetCore.Builder
 			[CompilerGenerated]
 			set
 			{
+				throw null;
 			}
+		}
+
+		public HttpMethodOverrideOptions()
+		{
+			throw null;
 		}
 	}
 }
@@ -23269,6 +28842,7 @@ namespace Microsoft.AspNetCore.HttpOverrides
 	{
 		public CertificateForwardingMiddleware(RequestDelegate next, ILoggerFactory loggerFactory, IOptions<CertificateForwardingOptions> options)
 		{
+			throw null;
 		}
 
 		public Task Invoke(HttpContext httpContext)
@@ -23300,7 +28874,13 @@ namespace Microsoft.AspNetCore.HttpOverrides
 			[CompilerGenerated]
 			set
 			{
+				throw null;
 			}
+		}
+
+		public CertificateForwardingOptions()
+		{
+			throw null;
 		}
 	}
 }
@@ -23392,21 +28972,35 @@ using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Http;
 using Microsoft.Extensions.Logging;
 using Microsoft.Extensions.Options;
+using System.Net;
 using System.Threading.Tasks;
 
 namespace Microsoft.AspNetCore.HttpOverrides
 {
 	public class ForwardedHeadersMiddleware
 	{
-		public ForwardedHeadersMiddleware(RequestDelegate next, ILoggerFactory loggerFactory, IOptions<ForwardedHeadersOptions> options)
+		private struct SetOfForwarders
 		{
+			public string IpAndPortText;
+
+			public IPEndPoint RemoteIpAndPort;
+
+			public string Host;
+
+			public string Scheme;
 		}
 
-		public void ApplyForwarders(HttpContext context)
+		public ForwardedHeadersMiddleware(RequestDelegate next, ILoggerFactory loggerFactory, IOptions<ForwardedHeadersOptions> options)
 		{
+			throw null;
 		}
 
 		public Task Invoke(HttpContext context)
+		{
+			throw null;
+		}
+
+		public void ApplyForwarders(HttpContext context)
 		{
 			throw null;
 		}
@@ -23419,6 +29013,7 @@ using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Http;
 using Microsoft.Extensions.Options;
 using System.Diagnostics;
+using System.Runtime.CompilerServices;
 using System.Threading.Tasks;
 
 namespace Microsoft.AspNetCore.HttpOverrides
@@ -23427,8 +29022,10 @@ namespace Microsoft.AspNetCore.HttpOverrides
 	{
 		public HttpMethodOverrideMiddleware(RequestDelegate next, IOptions<HttpMethodOverrideOptions> options)
 		{
+			throw null;
 		}
 
+		[AsyncStateMachine(typeof(_003CInvoke_003Ed__4))]
 		[DebuggerStepThrough]
 		public Task Invoke(HttpContext context)
 		{
@@ -23466,6 +29063,7 @@ namespace Microsoft.AspNetCore.HttpOverrides
 
 		public IPNetwork(IPAddress prefix, int prefixLength)
 		{
+			throw null;
 		}
 
 		public bool Contains(IPAddress address)
@@ -23562,12 +29160,14 @@ namespace Microsoft.AspNetCore.HttpsPolicy
 {
 	public class HstsMiddleware
 	{
-		public HstsMiddleware(RequestDelegate next, IOptions<HstsOptions> options)
-		{
-		}
-
 		public HstsMiddleware(RequestDelegate next, IOptions<HstsOptions> options, ILoggerFactory loggerFactory)
 		{
+			throw null;
+		}
+
+		public HstsMiddleware(RequestDelegate next, IOptions<HstsOptions> options)
+		{
+			throw null;
 		}
 
 		public Task Invoke(HttpContext context)
@@ -23587,10 +29187,15 @@ namespace Microsoft.AspNetCore.HttpsPolicy
 {
 	public class HstsOptions
 	{
-		public IList<string> ExcludedHosts
+		public TimeSpan MaxAge
 		{
 			[CompilerGenerated]
 			get
+			{
+				throw null;
+			}
+			[CompilerGenerated]
+			set
 			{
 				throw null;
 			}
@@ -23606,19 +29211,7 @@ namespace Microsoft.AspNetCore.HttpsPolicy
 			[CompilerGenerated]
 			set
 			{
-			}
-		}
-
-		public TimeSpan MaxAge
-		{
-			[CompilerGenerated]
-			get
-			{
 				throw null;
-			}
-			[CompilerGenerated]
-			set
-			{
 			}
 		}
 
@@ -23632,7 +29225,22 @@ namespace Microsoft.AspNetCore.HttpsPolicy
 			[CompilerGenerated]
 			set
 			{
+				throw null;
 			}
+		}
+
+		public IList<string> ExcludedHosts
+		{
+			[CompilerGenerated]
+			get
+			{
+				throw null;
+			}
+		}
+
+		public HstsOptions()
+		{
+			throw null;
 		}
 	}
 }
@@ -23652,10 +29260,12 @@ namespace Microsoft.AspNetCore.HttpsPolicy
 	{
 		public HttpsRedirectionMiddleware(RequestDelegate next, IOptions<HttpsRedirectionOptions> options, IConfiguration config, ILoggerFactory loggerFactory)
 		{
+			throw null;
 		}
 
 		public HttpsRedirectionMiddleware(RequestDelegate next, IOptions<HttpsRedirectionOptions> options, IConfiguration config, ILoggerFactory loggerFactory, IServerAddressesFeature serverAddressesFeature)
 		{
+			throw null;
 		}
 
 		public Task Invoke(HttpContext context)
@@ -23673,19 +29283,6 @@ namespace Microsoft.AspNetCore.HttpsPolicy
 {
 	public class HttpsRedirectionOptions
 	{
-		public int? HttpsPort
-		{
-			[CompilerGenerated]
-			get
-			{
-				throw null;
-			}
-			[CompilerGenerated]
-			set
-			{
-			}
-		}
-
 		public int RedirectStatusCode
 		{
 			[CompilerGenerated]
@@ -23696,7 +29293,27 @@ namespace Microsoft.AspNetCore.HttpsPolicy
 			[CompilerGenerated]
 			set
 			{
+				throw null;
 			}
+		}
+
+		public int? HttpsPort
+		{
+			[CompilerGenerated]
+			get
+			{
+				throw null;
+			}
+			[CompilerGenerated]
+			set
+			{
+				throw null;
+			}
+		}
+
+		public HttpsRedirectionOptions()
+		{
+			throw null;
 		}
 	}
 }
@@ -23722,8 +29339,8 @@ namespace Microsoft.AspNetCore.Identity
 		}
 
 		public AspNetRoleManager(IRoleStore<TRole> store, IEnumerable<IRoleValidator<TRole>> roleValidators, ILookupNormalizer keyNormalizer, IdentityErrorDescriber errors, ILogger<RoleManager<TRole>> logger, IHttpContextAccessor contextAccessor)
-			: base((IRoleStore<TRole>)null, (IEnumerable<IRoleValidator<TRole>>)null, (ILookupNormalizer)null, (IdentityErrorDescriber)null, (ILogger<RoleManager<TRole>>)null)
 		{
+			throw null;
 		}
 	}
 }
@@ -23749,8 +29366,8 @@ namespace Microsoft.AspNetCore.Identity
 		}
 
 		public AspNetUserManager(IUserStore<TUser> store, IOptions<IdentityOptions> optionsAccessor, IPasswordHasher<TUser> passwordHasher, IEnumerable<IUserValidator<TUser>> userValidators, IEnumerable<IPasswordValidator<TUser>> passwordValidators, ILookupNormalizer keyNormalizer, IdentityErrorDescriber errors, IServiceProvider services, ILogger<UserManager<TUser>> logger)
-			: base((IUserStore<TUser>)null, (IOptions<IdentityOptions>)null, (IPasswordHasher<TUser>)null, (IEnumerable<IUserValidator<TUser>>)null, (IEnumerable<IPasswordValidator<TUser>>)null, (ILookupNormalizer)null, (IdentityErrorDescriber)null, (IServiceProvider)null, (ILogger<UserManager<TUser>>)null)
 		{
+			throw null;
 		}
 	}
 }
@@ -23774,6 +29391,7 @@ namespace Microsoft.AspNetCore.Identity
 			[CompilerGenerated]
 			set
 			{
+				throw null;
 			}
 		}
 
@@ -23787,7 +29405,13 @@ namespace Microsoft.AspNetCore.Identity
 			[CompilerGenerated]
 			set
 			{
+				throw null;
 			}
+		}
+
+		public DataProtectionTokenProviderOptions()
+		{
+			throw null;
 		}
 	}
 }
@@ -23805,23 +29429,6 @@ namespace Microsoft.AspNetCore.Identity
 {
 	public class DataProtectorTokenProvider<TUser> : IUserTwoFactorTokenProvider<TUser> where TUser : class
 	{
-		public ILogger<DataProtectorTokenProvider<TUser>> Logger
-		{
-			[CompilerGenerated]
-			get
-			{
-				throw null;
-			}
-		}
-
-		public string Name
-		{
-			get
-			{
-				throw null;
-			}
-		}
-
 		protected DataProtectionTokenProviderOptions Options
 		{
 			[CompilerGenerated]
@@ -23840,23 +29447,43 @@ namespace Microsoft.AspNetCore.Identity
 			}
 		}
 
-		public DataProtectorTokenProvider(IDataProtectionProvider dataProtectionProvider, IOptions<DataProtectionTokenProviderOptions> options, ILogger<DataProtectorTokenProvider<TUser>> logger)
+		public string Name
 		{
+			get
+			{
+				throw null;
+			}
 		}
 
-		public virtual Task<bool> CanGenerateTwoFactorTokenAsync(UserManager<TUser> manager, TUser user)
+		public ILogger<DataProtectorTokenProvider<TUser>> Logger
+		{
+			[CompilerGenerated]
+			get
+			{
+				throw null;
+			}
+		}
+
+		public DataProtectorTokenProvider(IDataProtectionProvider dataProtectionProvider, IOptions<DataProtectionTokenProviderOptions> options, ILogger<DataProtectorTokenProvider<TUser>> logger)
 		{
 			throw null;
 		}
 
+		[AsyncStateMachine(typeof(DataProtectorTokenProvider<>._003CGenerateAsync_003Ed__14))]
 		[DebuggerStepThrough]
 		public virtual Task<string> GenerateAsync(string purpose, UserManager<TUser> manager, TUser user)
 		{
 			throw null;
 		}
 
+		[AsyncStateMachine(typeof(DataProtectorTokenProvider<>._003CValidateAsync_003Ed__15))]
 		[DebuggerStepThrough]
 		public virtual Task<bool> ValidateAsync(string purpose, string token, UserManager<TUser> manager, TUser user)
+		{
+			throw null;
+		}
+
+		public virtual Task<bool> CanGenerateTwoFactorTokenAsync(UserManager<TUser> manager, TUser user)
 		{
 			throw null;
 		}
@@ -23874,7 +29501,7 @@ namespace Microsoft.AspNetCore.Identity
 {
 	public class ExternalLoginInfo : UserLoginInfo
 	{
-		public AuthenticationProperties AuthenticationProperties
+		public ClaimsPrincipal Principal
 		{
 			[CompilerGenerated]
 			get
@@ -23884,6 +29511,7 @@ namespace Microsoft.AspNetCore.Identity
 			[CompilerGenerated]
 			set
 			{
+				throw null;
 			}
 		}
 
@@ -23897,10 +29525,11 @@ namespace Microsoft.AspNetCore.Identity
 			[CompilerGenerated]
 			set
 			{
+				throw null;
 			}
 		}
 
-		public ClaimsPrincipal Principal
+		public AuthenticationProperties AuthenticationProperties
 		{
 			[CompilerGenerated]
 			get
@@ -23910,12 +29539,13 @@ namespace Microsoft.AspNetCore.Identity
 			[CompilerGenerated]
 			set
 			{
+				throw null;
 			}
 		}
 
 		public ExternalLoginInfo(ClaimsPrincipal principal, string loginProvider, string providerKey, string displayName)
-			: base(null, null, null)
 		{
+			throw null;
 		}
 	}
 }
@@ -23956,6 +29586,11 @@ namespace Microsoft.AspNetCore.Identity
 		public static readonly string TwoFactorRememberMeScheme;
 
 		public static readonly string TwoFactorUserIdScheme;
+
+		public IdentityConstants()
+		{
+			throw null;
+		}
 	}
 }
 
@@ -23970,22 +29605,22 @@ namespace Microsoft.AspNetCore.Identity
 {
 	public static class IdentityCookieAuthenticationBuilderExtensions
 	{
-		public static OptionsBuilder<CookieAuthenticationOptions> AddApplicationCookie(this AuthenticationBuilder builder)
-		{
-			throw null;
-		}
-
-		public static OptionsBuilder<CookieAuthenticationOptions> AddExternalCookie(this AuthenticationBuilder builder)
-		{
-			throw null;
-		}
-
 		public static IdentityCookiesBuilder AddIdentityCookies(this AuthenticationBuilder builder)
 		{
 			throw null;
 		}
 
 		public static IdentityCookiesBuilder AddIdentityCookies(this AuthenticationBuilder builder, Action<IdentityCookiesBuilder> configureCookies)
+		{
+			throw null;
+		}
+
+		public static OptionsBuilder<CookieAuthenticationOptions> AddApplicationCookie(this AuthenticationBuilder builder)
+		{
+			throw null;
+		}
+
+		public static OptionsBuilder<CookieAuthenticationOptions> AddExternalCookie(this AuthenticationBuilder builder)
 		{
 			throw null;
 		}
@@ -24022,6 +29657,7 @@ namespace Microsoft.AspNetCore.Identity
 			[CompilerGenerated]
 			set
 			{
+				throw null;
 			}
 		}
 
@@ -24035,6 +29671,7 @@ namespace Microsoft.AspNetCore.Identity
 			[CompilerGenerated]
 			set
 			{
+				throw null;
 			}
 		}
 
@@ -24048,6 +29685,7 @@ namespace Microsoft.AspNetCore.Identity
 			[CompilerGenerated]
 			set
 			{
+				throw null;
 			}
 		}
 
@@ -24061,7 +29699,13 @@ namespace Microsoft.AspNetCore.Identity
 			[CompilerGenerated]
 			set
 			{
+				throw null;
 			}
+		}
+
+		public IdentityCookiesBuilder()
+		{
+			throw null;
 		}
 	}
 }
@@ -24107,6 +29751,7 @@ namespace Microsoft.AspNetCore.Identity
 			[CompilerGenerated]
 			set
 			{
+				throw null;
 			}
 		}
 
@@ -24120,7 +29765,13 @@ namespace Microsoft.AspNetCore.Identity
 			[CompilerGenerated]
 			set
 			{
+				throw null;
 			}
+		}
+
+		public SecurityStampRefreshingPrincipalContext()
+		{
+			throw null;
 		}
 	}
 }
@@ -24138,20 +29789,26 @@ using System.Threading.Tasks;
 
 namespace Microsoft.AspNetCore.Identity
 {
-	public static class SecurityStampValidator
-	{
-		public static Task ValidateAsync<TValidator>(CookieValidatePrincipalContext context) where TValidator : ISecurityStampValidator
-		{
-			throw null;
-		}
-
-		public static Task ValidatePrincipalAsync(CookieValidatePrincipalContext context)
-		{
-			throw null;
-		}
-	}
 	public class SecurityStampValidator<TUser> : ISecurityStampValidator where TUser : class
 	{
+		public SignInManager<TUser> SignInManager
+		{
+			[CompilerGenerated]
+			get
+			{
+				throw null;
+			}
+		}
+
+		public SecurityStampValidatorOptions Options
+		{
+			[CompilerGenerated]
+			get
+			{
+				throw null;
+			}
+		}
+
 		public ISystemClock Clock
 		{
 			[CompilerGenerated]
@@ -24171,44 +29828,42 @@ namespace Microsoft.AspNetCore.Identity
 			[CompilerGenerated]
 			set
 			{
-			}
-		}
-
-		public SecurityStampValidatorOptions Options
-		{
-			[CompilerGenerated]
-			get
-			{
-				throw null;
-			}
-		}
-
-		public SignInManager<TUser> SignInManager
-		{
-			[CompilerGenerated]
-			get
-			{
 				throw null;
 			}
 		}
 
 		public SecurityStampValidator(IOptions<SecurityStampValidatorOptions> options, SignInManager<TUser> signInManager, ISystemClock clock, ILoggerFactory logger)
 		{
+			throw null;
 		}
 
+		[AsyncStateMachine(typeof(SecurityStampValidator<>._003CSecurityStampVerified_003Ed__14))]
 		[DebuggerStepThrough]
 		protected virtual Task SecurityStampVerified(TUser user, CookieValidatePrincipalContext context)
 		{
 			throw null;
 		}
 
+		protected virtual Task<TUser> VerifySecurityStamp(ClaimsPrincipal principal)
+		{
+			throw null;
+		}
+
+		[AsyncStateMachine(typeof(SecurityStampValidator<>._003CValidateAsync_003Ed__16))]
 		[DebuggerStepThrough]
 		public virtual Task ValidateAsync(CookieValidatePrincipalContext context)
 		{
 			throw null;
 		}
+	}
+	public static class SecurityStampValidator
+	{
+		public static Task ValidatePrincipalAsync(CookieValidatePrincipalContext context)
+		{
+			throw null;
+		}
 
-		protected virtual Task<TUser> VerifySecurityStamp(ClaimsPrincipal principal)
+		public static Task ValidateAsync<TValidator>(CookieValidatePrincipalContext context) where TValidator : ISecurityStampValidator
 		{
 			throw null;
 		}
@@ -24225,19 +29880,6 @@ namespace Microsoft.AspNetCore.Identity
 {
 	public class SecurityStampValidatorOptions
 	{
-		public Func<SecurityStampRefreshingPrincipalContext, Task> OnRefreshingPrincipal
-		{
-			[CompilerGenerated]
-			get
-			{
-				throw null;
-			}
-			[CompilerGenerated]
-			set
-			{
-			}
-		}
-
 		public TimeSpan ValidationInterval
 		{
 			[CompilerGenerated]
@@ -24248,7 +29890,27 @@ namespace Microsoft.AspNetCore.Identity
 			[CompilerGenerated]
 			set
 			{
+				throw null;
 			}
+		}
+
+		public Func<SecurityStampRefreshingPrincipalContext, Task> OnRefreshingPrincipal
+		{
+			[CompilerGenerated]
+			get
+			{
+				throw null;
+			}
+			[CompilerGenerated]
+			set
+			{
+				throw null;
+			}
+		}
+
+		public SecurityStampValidatorOptions()
+		{
+			throw null;
 		}
 	}
 }
@@ -24264,19 +29926,19 @@ using System.Threading.Tasks;
 
 namespace Microsoft.AspNetCore.Identity
 {
-	public class TwoFactorSecurityStampValidator<TUser> : SecurityStampValidator<TUser>, ISecurityStampValidator, ITwoFactorSecurityStampValidator where TUser : class
+	public class TwoFactorSecurityStampValidator<TUser> : SecurityStampValidator<TUser>, ITwoFactorSecurityStampValidator, ISecurityStampValidator where TUser : class
 	{
 		public TwoFactorSecurityStampValidator(IOptions<SecurityStampValidatorOptions> options, SignInManager<TUser> signInManager, ISystemClock clock, ILoggerFactory logger)
-			: base((IOptions<SecurityStampValidatorOptions>)null, (SignInManager<TUser>)null, (ISystemClock)null, (ILoggerFactory)null)
-		{
-		}
-
-		protected override Task SecurityStampVerified(TUser user, CookieValidatePrincipalContext context)
 		{
 			throw null;
 		}
 
 		protected override Task<TUser> VerifySecurityStamp(ClaimsPrincipal principal)
+		{
+			throw null;
+		}
+
+		protected override Task SecurityStampVerified(TUser user, CookieValidatePrincipalContext context)
 		{
 			throw null;
 		}
@@ -24364,6 +30026,7 @@ namespace Microsoft.AspNetCore.Builder
 			}
 			set
 			{
+				throw null;
 			}
 		}
 
@@ -24377,6 +30040,7 @@ namespace Microsoft.AspNetCore.Builder
 			[CompilerGenerated]
 			set
 			{
+				throw null;
 			}
 		}
 
@@ -24390,10 +30054,11 @@ namespace Microsoft.AspNetCore.Builder
 			[CompilerGenerated]
 			set
 			{
+				throw null;
 			}
 		}
 
-		public IList<IRequestCultureProvider> RequestCultureProviders
+		public bool ApplyCurrentCultureToResponseHeaders
 		{
 			[CompilerGenerated]
 			get
@@ -24403,6 +30068,7 @@ namespace Microsoft.AspNetCore.Builder
 			[CompilerGenerated]
 			set
 			{
+				throw null;
 			}
 		}
 
@@ -24416,6 +30082,7 @@ namespace Microsoft.AspNetCore.Builder
 			[CompilerGenerated]
 			set
 			{
+				throw null;
 			}
 		}
 
@@ -24429,11 +30096,27 @@ namespace Microsoft.AspNetCore.Builder
 			[CompilerGenerated]
 			set
 			{
+				throw null;
+			}
+		}
+
+		public IList<IRequestCultureProvider> RequestCultureProviders
+		{
+			[CompilerGenerated]
+			get
+			{
+				throw null;
+			}
+			[CompilerGenerated]
+			set
+			{
+				throw null;
 			}
 		}
 
 		public RequestLocalizationOptions()
 		{
+			throw null;
 		}
 
 		public RequestLocalizationOptions AddSupportedCultures(params string[] cultures)
@@ -24488,10 +30171,16 @@ namespace Microsoft.AspNetCore.Localization
 			[CompilerGenerated]
 			set
 			{
+				throw null;
 			}
 		}
 
 		public override Task<ProviderCultureResult> DetermineProviderCultureResult(HttpContext httpContext)
+		{
+			throw null;
+		}
+
+		public AcceptLanguageHeaderRequestCultureProvider()
 		{
 			throw null;
 		}
@@ -24520,6 +30209,7 @@ namespace Microsoft.AspNetCore.Localization
 			[CompilerGenerated]
 			set
 			{
+				throw null;
 			}
 		}
 
@@ -24534,6 +30224,11 @@ namespace Microsoft.AspNetCore.Localization
 		}
 
 		public static ProviderCultureResult ParseCookieValue(string value)
+		{
+			throw null;
+		}
+
+		public CookieRequestCultureProvider()
 		{
 			throw null;
 		}
@@ -24552,6 +30247,7 @@ namespace Microsoft.AspNetCore.Localization
 	{
 		public CustomRequestCultureProvider(Func<HttpContext, Task<ProviderCultureResult>> provider)
 		{
+			throw null;
 		}
 
 		public override Task<ProviderCultureResult> DetermineProviderCultureResult(HttpContext httpContext)
@@ -24567,12 +30263,12 @@ namespace Microsoft.AspNetCore.Localization
 {
 	public interface IRequestCultureFeature
 	{
-		IRequestCultureProvider Provider
+		RequestCulture RequestCulture
 		{
 			get;
 		}
 
-		RequestCulture RequestCulture
+		IRequestCultureProvider Provider
 		{
 			get;
 		}
@@ -24622,18 +30318,22 @@ namespace Microsoft.AspNetCore.Localization
 
 		public ProviderCultureResult(StringSegment culture)
 		{
+			throw null;
 		}
 
 		public ProviderCultureResult(StringSegment culture, StringSegment uiCulture)
 		{
+			throw null;
 		}
 
 		public ProviderCultureResult(IList<StringSegment> cultures)
 		{
+			throw null;
 		}
 
 		public ProviderCultureResult(IList<StringSegment> cultures, IList<StringSegment> uiCultures)
 		{
+			throw null;
 		}
 	}
 }
@@ -24658,6 +30358,7 @@ namespace Microsoft.AspNetCore.Localization
 			[CompilerGenerated]
 			set
 			{
+				throw null;
 			}
 		}
 
@@ -24671,10 +30372,16 @@ namespace Microsoft.AspNetCore.Localization
 			[CompilerGenerated]
 			set
 			{
+				throw null;
 			}
 		}
 
 		public override Task<ProviderCultureResult> DetermineProviderCultureResult(HttpContext httpContext)
+		{
+			throw null;
+		}
+
+		public QueryStringRequestCultureProvider()
 		{
 			throw null;
 		}
@@ -24710,18 +30417,22 @@ namespace Microsoft.AspNetCore.Localization
 
 		public RequestCulture(CultureInfo culture)
 		{
-		}
-
-		public RequestCulture(CultureInfo culture, CultureInfo uiCulture)
-		{
+			throw null;
 		}
 
 		public RequestCulture(string culture)
 		{
+			throw null;
 		}
 
 		public RequestCulture(string culture, string uiCulture)
 		{
+			throw null;
+		}
+
+		public RequestCulture(CultureInfo culture, CultureInfo uiCulture)
+		{
+			throw null;
 		}
 	}
 }
@@ -24734,7 +30445,7 @@ namespace Microsoft.AspNetCore.Localization
 {
 	public class RequestCultureFeature : IRequestCultureFeature
 	{
-		public IRequestCultureProvider Provider
+		public RequestCulture RequestCulture
 		{
 			[CompilerGenerated]
 			get
@@ -24743,7 +30454,7 @@ namespace Microsoft.AspNetCore.Localization
 			}
 		}
 
-		public RequestCulture RequestCulture
+		public IRequestCultureProvider Provider
 		{
 			[CompilerGenerated]
 			get
@@ -24754,6 +30465,7 @@ namespace Microsoft.AspNetCore.Localization
 
 		public RequestCultureFeature(RequestCulture requestCulture, IRequestCultureProvider provider)
 		{
+			throw null;
 		}
 	}
 }
@@ -24781,10 +30493,16 @@ namespace Microsoft.AspNetCore.Localization
 			[CompilerGenerated]
 			set
 			{
+				throw null;
 			}
 		}
 
 		public abstract Task<ProviderCultureResult> DetermineProviderCultureResult(HttpContext httpContext);
+
+		protected RequestCultureProvider()
+		{
+			throw null;
+		}
 	}
 }
 
@@ -24792,29 +30510,45 @@ namespace Microsoft.AspNetCore.Localization
 // Microsoft.AspNetCore.Localization\Microsoft.AspNetCore.Localization\RequestLocalizationMiddleware.cs
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Http;
-using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Logging;
 using Microsoft.Extensions.Options;
-using System;
 using System.Diagnostics;
+using System.Runtime.CompilerServices;
 using System.Threading.Tasks;
 
 namespace Microsoft.AspNetCore.Localization
 {
 	public class RequestLocalizationMiddleware
 	{
-		[Obsolete("This constructor is obsolete and will be removed in a future version. Use RequestLocalizationMiddleware(RequestDelegate next, IOptions<RequestLocalizationOptions> options, ILoggerFactory loggerFactory) instead")]
-		public RequestLocalizationMiddleware(RequestDelegate next, IOptions<RequestLocalizationOptions> options)
-		{
-		}
-
-		[ActivatorUtilitiesConstructor]
 		public RequestLocalizationMiddleware(RequestDelegate next, IOptions<RequestLocalizationOptions> options, ILoggerFactory loggerFactory)
 		{
+			throw null;
 		}
 
+		[AsyncStateMachine(typeof(_003CInvoke_003Ed__5))]
 		[DebuggerStepThrough]
 		public Task Invoke(HttpContext context)
+		{
+			throw null;
+		}
+	}
+}
+
+
+// Microsoft.AspNetCore.Localization\Microsoft.Extensions.DependencyInjection\RequestLocalizationServiceCollectionExtensions.cs
+using Microsoft.AspNetCore.Builder;
+using System;
+
+namespace Microsoft.Extensions.DependencyInjection
+{
+	public static class RequestLocalizationServiceCollectionExtensions
+	{
+		public static IServiceCollection AddRequestLocalization(this IServiceCollection services, Action<RequestLocalizationOptions> configureOptions)
+		{
+			throw null;
+		}
+
+		public static IServiceCollection AddRequestLocalization<TService>(this IServiceCollection services, Action<RequestLocalizationOptions, TService> configureOptions) where TService : class
 		{
 			throw null;
 		}
@@ -24841,6 +30575,7 @@ namespace Microsoft.AspNetCore.Localization.Routing
 			[CompilerGenerated]
 			set
 			{
+				throw null;
 			}
 		}
 
@@ -24854,10 +30589,16 @@ namespace Microsoft.AspNetCore.Localization.Routing
 			[CompilerGenerated]
 			set
 			{
+				throw null;
 			}
 		}
 
 		public override Task<ProviderCultureResult> DetermineProviderCultureResult(HttpContext httpContext)
+		{
+			throw null;
+		}
+
+		public RouteDataRequestCultureProvider()
 		{
 			throw null;
 		}
@@ -24879,19 +30620,19 @@ namespace Microsoft.AspNetCore.Authorization
 {
 	public interface IAuthorizeData
 	{
-		string AuthenticationSchemes
+		string? Policy
 		{
 			get;
 			set;
 		}
 
-		string Policy
+		string? Roles
 		{
 			get;
 			set;
 		}
 
-		string Roles
+		string? AuthenticationSchemes
 		{
 			get;
 			set;
@@ -24910,27 +30651,7 @@ namespace Microsoft.AspNetCore.Builder
 {
 	public static class EndpointRouteBuilderExtensions
 	{
-		public static IEndpointConventionBuilder Map(this IEndpointRouteBuilder endpoints, RoutePattern pattern, RequestDelegate requestDelegate)
-		{
-			throw null;
-		}
-
-		public static IEndpointConventionBuilder Map(this IEndpointRouteBuilder endpoints, string pattern, RequestDelegate requestDelegate)
-		{
-			throw null;
-		}
-
-		public static IEndpointConventionBuilder MapDelete(this IEndpointRouteBuilder endpoints, string pattern, RequestDelegate requestDelegate)
-		{
-			throw null;
-		}
-
 		public static IEndpointConventionBuilder MapGet(this IEndpointRouteBuilder endpoints, string pattern, RequestDelegate requestDelegate)
-		{
-			throw null;
-		}
-
-		public static IEndpointConventionBuilder MapMethods(this IEndpointRouteBuilder endpoints, string pattern, IEnumerable<string> httpMethods, RequestDelegate requestDelegate)
 		{
 			throw null;
 		}
@@ -24941,6 +30662,26 @@ namespace Microsoft.AspNetCore.Builder
 		}
 
 		public static IEndpointConventionBuilder MapPut(this IEndpointRouteBuilder endpoints, string pattern, RequestDelegate requestDelegate)
+		{
+			throw null;
+		}
+
+		public static IEndpointConventionBuilder MapDelete(this IEndpointRouteBuilder endpoints, string pattern, RequestDelegate requestDelegate)
+		{
+			throw null;
+		}
+
+		public static IEndpointConventionBuilder MapMethods(this IEndpointRouteBuilder endpoints, string pattern, IEnumerable<string> httpMethods, RequestDelegate requestDelegate)
+		{
+			throw null;
+		}
+
+		public static IEndpointConventionBuilder Map(this IEndpointRouteBuilder endpoints, string pattern, RequestDelegate requestDelegate)
+		{
+			throw null;
+		}
+
+		public static IEndpointConventionBuilder Map(this IEndpointRouteBuilder endpoints, RoutePattern pattern, RequestDelegate requestDelegate)
 		{
 			throw null;
 		}
@@ -24956,12 +30697,12 @@ namespace Microsoft.AspNetCore.Builder
 {
 	public static class EndpointRoutingApplicationBuilderExtensions
 	{
-		public static IApplicationBuilder UseEndpoints(this IApplicationBuilder builder, Action<IEndpointRouteBuilder> configure)
+		public static IApplicationBuilder UseRouting(this IApplicationBuilder builder)
 		{
 			throw null;
 		}
 
-		public static IApplicationBuilder UseRouting(this IApplicationBuilder builder)
+		public static IApplicationBuilder UseEndpoints(this IApplicationBuilder builder, Action<IEndpointRouteBuilder> configure)
 		{
 			throw null;
 		}
@@ -24999,22 +30740,35 @@ namespace Microsoft.AspNetCore.Builder
 {
 	public static class MapRouteRouteBuilderExtensions
 	{
-		public static IRouteBuilder MapRoute(this IRouteBuilder routeBuilder, string name, string template)
+		private class BackCompatInlineConstraintResolver : IInlineConstraintResolver
+		{
+			public BackCompatInlineConstraintResolver(IInlineConstraintResolver inner, ParameterPolicyFactory parameterPolicyFactory)
+			{
+				throw null;
+			}
+
+			public IRouteConstraint? ResolveConstraint(string inlineConstraint)
+			{
+				throw null;
+			}
+		}
+
+		public static IRouteBuilder MapRoute(this IRouteBuilder routeBuilder, string? name, string? template)
 		{
 			throw null;
 		}
 
-		public static IRouteBuilder MapRoute(this IRouteBuilder routeBuilder, string name, string template, object defaults)
+		public static IRouteBuilder MapRoute(this IRouteBuilder routeBuilder, string? name, string? template, object? defaults)
 		{
 			throw null;
 		}
 
-		public static IRouteBuilder MapRoute(this IRouteBuilder routeBuilder, string name, string template, object defaults, object constraints)
+		public static IRouteBuilder MapRoute(this IRouteBuilder routeBuilder, string? name, string? template, object? defaults, object? constraints)
 		{
 			throw null;
 		}
 
-		public static IRouteBuilder MapRoute(this IRouteBuilder routeBuilder, string name, string template, object defaults, object constraints, object dataTokens)
+		public static IRouteBuilder MapRoute(this IRouteBuilder routeBuilder, string? name, string? template, object? defaults, object? constraints, object? dataTokens)
 		{
 			throw null;
 		}
@@ -25027,6 +30781,7 @@ using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Routing;
 using Microsoft.Extensions.Logging;
 using System.Diagnostics;
+using System.Runtime.CompilerServices;
 using System.Threading.Tasks;
 
 namespace Microsoft.AspNetCore.Builder
@@ -25035,8 +30790,10 @@ namespace Microsoft.AspNetCore.Builder
 	{
 		public RouterMiddleware(RequestDelegate next, ILoggerFactory loggerFactory, IRouter router)
 		{
+			throw null;
 		}
 
+		[AsyncStateMachine(typeof(_003CInvoke_003Ed__4))]
 		[DebuggerStepThrough]
 		public Task Invoke(HttpContext httpContext)
 		{
@@ -25079,12 +30836,12 @@ namespace Microsoft.AspNetCore.Builder
 			throw null;
 		}
 
-		public static TBuilder WithDisplayName<TBuilder>(this TBuilder builder, Func<EndpointBuilder, string> func) where TBuilder : IEndpointConventionBuilder
+		public static TBuilder WithDisplayName<TBuilder>(this TBuilder builder, string displayName) where TBuilder : IEndpointConventionBuilder
 		{
 			throw null;
 		}
 
-		public static TBuilder WithDisplayName<TBuilder>(this TBuilder builder, string displayName) where TBuilder : IEndpointConventionBuilder
+		public static TBuilder WithDisplayName<TBuilder>(this TBuilder builder, Func<EndpointBuilder, string> func) where TBuilder : IEndpointConventionBuilder
 		{
 			throw null;
 		}
@@ -25097,10 +30854,89 @@ namespace Microsoft.AspNetCore.Builder
 }
 
 
+// Microsoft.AspNetCore.Routing\Microsoft.AspNetCore.Routing\ArrayBuilder.cs
+namespace Microsoft.AspNetCore.Routing
+{
+	internal struct ArrayBuilder<T>
+	{
+		private const int DefaultCapacity = 4;
+
+		private const int MaxCoreClrArrayLength = 2146435071;
+
+		private T[] _array;
+
+		private int _count;
+
+		public int Capacity
+		{
+			get
+			{
+				throw null;
+			}
+		}
+
+		public T[] Buffer
+		{
+			get
+			{
+				throw null;
+			}
+		}
+
+		public int Count
+		{
+			get
+			{
+				throw null;
+			}
+		}
+
+		public T this[int index]
+		{
+			get
+			{
+				throw null;
+			}
+		}
+
+		public ArrayBuilder(int capacity)
+		{
+			throw null;
+		}
+
+		public void Add(T item)
+		{
+			throw null;
+		}
+
+		public T First()
+		{
+			throw null;
+		}
+
+		public T Last()
+		{
+			throw null;
+		}
+
+		public T[] ToArray()
+		{
+			throw null;
+		}
+
+		public void UncheckedAdd(T item)
+		{
+			throw null;
+		}
+	}
+}
+
+
 // Microsoft.AspNetCore.Routing\Microsoft.AspNetCore.Routing\CompositeEndpointDataSource.cs
 using Microsoft.AspNetCore.Http;
 using Microsoft.Extensions.Primitives;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using System.Diagnostics;
 
 namespace Microsoft.AspNetCore.Routing
@@ -25124,8 +30960,14 @@ namespace Microsoft.AspNetCore.Routing
 			}
 		}
 
+		internal CompositeEndpointDataSource(ObservableCollection<EndpointDataSource> dataSources)
+		{
+			throw null;
+		}
+
 		public CompositeEndpointDataSource(IEnumerable<EndpointDataSource> endpointDataSources)
 		{
+			throw null;
 		}
 
 		public override IChangeToken GetChangeToken()
@@ -25155,6 +30997,7 @@ namespace Microsoft.AspNetCore.Routing
 
 		public DataTokensMetadata(IReadOnlyDictionary<string, object> dataTokens)
 		{
+			throw null;
 		}
 	}
 }
@@ -25179,10 +31022,12 @@ namespace Microsoft.AspNetCore.Routing
 
 		public DefaultEndpointDataSource(params Endpoint[] endpoints)
 		{
+			throw null;
 		}
 
 		public DefaultEndpointDataSource(IEnumerable<Endpoint> endpoints)
 		{
+			throw null;
 		}
 
 		public override IChangeToken GetChangeToken()
@@ -25203,9 +31048,10 @@ namespace Microsoft.AspNetCore.Routing
 	{
 		public DefaultInlineConstraintResolver(IOptions<RouteOptions> routeOptions, IServiceProvider serviceProvider)
 		{
+			throw null;
 		}
 
-		public virtual IRouteConstraint ResolveConstraint(string inlineConstraint)
+		public virtual IRouteConstraint? ResolveConstraint(string inlineConstraint)
 		{
 			throw null;
 		}
@@ -25228,6 +31074,11 @@ namespace Microsoft.AspNetCore.Routing
 		}
 
 		public abstract IChangeToken GetChangeToken();
+
+		protected EndpointDataSource()
+		{
+			throw null;
+		}
 	}
 }
 
@@ -25250,6 +31101,7 @@ namespace Microsoft.AspNetCore.Routing
 
 		public EndpointNameMetadata(string endpointName)
 		{
+			throw null;
 		}
 	}
 }
@@ -25263,8 +31115,8 @@ using System.Runtime.CompilerServices;
 
 namespace Microsoft.AspNetCore.Routing
 {
-	[AttributeUsage(AttributeTargets.Class | AttributeTargets.Method, AllowMultiple = false, Inherited = false)]
 	[DebuggerDisplay("{DebuggerToString(),nq}")]
+	[AttributeUsage(AttributeTargets.Class | AttributeTargets.Method, AllowMultiple = false, Inherited = false)]
 	public sealed class HostAttribute : Attribute, IHostMetadata
 	{
 		public IReadOnlyList<string> Hosts
@@ -25278,10 +31130,12 @@ namespace Microsoft.AspNetCore.Routing
 
 		public HostAttribute(string host)
 		{
+			throw null;
 		}
 
 		public HostAttribute(params string[] hosts)
 		{
+			throw null;
 		}
 	}
 }
@@ -25317,10 +31171,12 @@ namespace Microsoft.AspNetCore.Routing
 
 		public HttpMethodMetadata(IEnumerable<string> httpMethods)
 		{
+			throw null;
 		}
 
 		public HttpMethodMetadata(IEnumerable<string> httpMethods, bool acceptCorsPreflight)
 		{
+			throw null;
 		}
 	}
 }
@@ -25389,12 +31245,12 @@ namespace Microsoft.AspNetCore.Routing
 {
 	public interface IEndpointRouteBuilder
 	{
-		ICollection<EndpointDataSource> DataSources
+		IServiceProvider ServiceProvider
 		{
 			get;
 		}
 
-		IServiceProvider ServiceProvider
+		ICollection<EndpointDataSource> DataSources
 		{
 			get;
 		}
@@ -25444,7 +31300,7 @@ namespace Microsoft.AspNetCore.Routing
 {
 	public interface IInlineConstraintResolver
 	{
-		IRouteConstraint ResolveConstraint(string inlineConstraint);
+		IRouteConstraint? ResolveConstraint(string inlineConstraint);
 	}
 }
 
@@ -25454,7 +31310,7 @@ namespace Microsoft.AspNetCore.Routing
 {
 	public interface INamedRouter : IRouter
 	{
-		string Name
+		string? Name
 		{
 			get;
 		}
@@ -25464,11 +31320,32 @@ namespace Microsoft.AspNetCore.Routing
 
 // Microsoft.AspNetCore.Routing\Microsoft.AspNetCore.Routing\InlineRouteParameterParser.cs
 using Microsoft.AspNetCore.Routing.Template;
+using System.Collections.Generic;
 
 namespace Microsoft.AspNetCore.Routing
 {
 	public static class InlineRouteParameterParser
 	{
+		private enum ParseState
+		{
+			Start,
+			ParsingName,
+			InsideParenthesis,
+			End
+		}
+
+		private readonly struct ConstraintParseResults
+		{
+			public readonly int CurrentIndex;
+
+			public readonly IEnumerable<InlineConstraint> Constraints;
+
+			public ConstraintParseResults(int currentIndex, IEnumerable<InlineConstraint> constraints)
+			{
+				throw null;
+			}
+		}
+
 		public static TemplatePart ParseRouteParameter(string routeParameter)
 		{
 			throw null;
@@ -25481,6 +31358,7 @@ namespace Microsoft.AspNetCore.Routing
 using Microsoft.AspNetCore.Builder;
 using System;
 using System.Collections.Generic;
+using System.Runtime.CompilerServices;
 
 namespace Microsoft.AspNetCore.Routing
 {
@@ -25491,18 +31369,20 @@ namespace Microsoft.AspNetCore.Routing
 			get;
 		}
 
-		IRouter DefaultHandler
+		IRouter? DefaultHandler
 		{
+			[System.Runtime.CompilerServices.NullableContext(2)]
 			get;
+			[System.Runtime.CompilerServices.NullableContext(2)]
 			set;
 		}
 
-		IList<IRouter> Routes
+		IServiceProvider ServiceProvider
 		{
 			get;
 		}
 
-		IServiceProvider ServiceProvider
+		IList<IRouter> Routes
 		{
 			get;
 		}
@@ -25568,22 +31448,22 @@ namespace Microsoft.AspNetCore.Routing
 {
 	public static class LinkGeneratorEndpointNameAddressExtensions
 	{
-		public static string GetPathByName(this LinkGenerator generator, HttpContext httpContext, string endpointName, object values, PathString? pathBase = null, FragmentString fragment = default(FragmentString), LinkOptions options = null)
+		public static string? GetPathByName(this LinkGenerator generator, HttpContext httpContext, string endpointName, object? values, PathString? pathBase = null, FragmentString fragment = default(FragmentString), LinkOptions? options = null)
 		{
 			throw null;
 		}
 
-		public static string GetPathByName(this LinkGenerator generator, string endpointName, object values, PathString pathBase = default(PathString), FragmentString fragment = default(FragmentString), LinkOptions options = null)
+		public static string? GetPathByName(this LinkGenerator generator, string endpointName, object? values, PathString pathBase = default(PathString), FragmentString fragment = default(FragmentString), LinkOptions? options = null)
 		{
 			throw null;
 		}
 
-		public static string GetUriByName(this LinkGenerator generator, HttpContext httpContext, string endpointName, object values, string scheme = null, HostString? host = null, PathString? pathBase = null, FragmentString fragment = default(FragmentString), LinkOptions options = null)
+		public static string? GetUriByName(this LinkGenerator generator, HttpContext httpContext, string endpointName, object? values, string? scheme = null, HostString? host = null, PathString? pathBase = null, FragmentString fragment = default(FragmentString), LinkOptions? options = null)
 		{
 			throw null;
 		}
 
-		public static string GetUriByName(this LinkGenerator generator, string endpointName, object values, string scheme, HostString host, PathString pathBase = default(PathString), FragmentString fragment = default(FragmentString), LinkOptions options = null)
+		public static string? GetUriByName(this LinkGenerator generator, string endpointName, object? values, string scheme, HostString host, PathString pathBase = default(PathString), FragmentString fragment = default(FragmentString), LinkOptions? options = null)
 		{
 			throw null;
 		}
@@ -25598,22 +31478,22 @@ namespace Microsoft.AspNetCore.Routing
 {
 	public static class LinkGeneratorRouteValuesAddressExtensions
 	{
-		public static string GetPathByRouteValues(this LinkGenerator generator, HttpContext httpContext, string routeName, object values, PathString? pathBase = null, FragmentString fragment = default(FragmentString), LinkOptions options = null)
+		public static string? GetPathByRouteValues(this LinkGenerator generator, HttpContext httpContext, string? routeName, object? values, PathString? pathBase = null, FragmentString fragment = default(FragmentString), LinkOptions? options = null)
 		{
 			throw null;
 		}
 
-		public static string GetPathByRouteValues(this LinkGenerator generator, string routeName, object values, PathString pathBase = default(PathString), FragmentString fragment = default(FragmentString), LinkOptions options = null)
+		public static string? GetPathByRouteValues(this LinkGenerator generator, string? routeName, object? values, PathString pathBase = default(PathString), FragmentString fragment = default(FragmentString), LinkOptions? options = null)
 		{
 			throw null;
 		}
 
-		public static string GetUriByRouteValues(this LinkGenerator generator, HttpContext httpContext, string routeName, object values, string scheme = null, HostString? host = null, PathString? pathBase = null, FragmentString fragment = default(FragmentString), LinkOptions options = null)
+		public static string? GetUriByRouteValues(this LinkGenerator generator, HttpContext httpContext, string? routeName, object? values, string? scheme = null, HostString? host = null, PathString? pathBase = null, FragmentString fragment = default(FragmentString), LinkOptions? options = null)
 		{
 			throw null;
 		}
 
-		public static string GetUriByRouteValues(this LinkGenerator generator, string routeName, object values, string scheme, HostString host, PathString pathBase = default(PathString), FragmentString fragment = default(FragmentString), LinkOptions options = null)
+		public static string? GetUriByRouteValues(this LinkGenerator generator, string? routeName, object? values, string scheme, HostString host, PathString pathBase = default(PathString), FragmentString fragment = default(FragmentString), LinkOptions? options = null)
 		{
 			throw null;
 		}
@@ -25628,7 +31508,12 @@ namespace Microsoft.AspNetCore.Routing
 {
 	public abstract class LinkParser
 	{
-		public abstract RouteValueDictionary ParsePathByAddress<TAddress>(TAddress address, PathString path);
+		public abstract RouteValueDictionary? ParsePathByAddress<TAddress>(TAddress address, PathString path);
+
+		protected LinkParser()
+		{
+			throw null;
+		}
 	}
 }
 
@@ -25640,7 +31525,7 @@ namespace Microsoft.AspNetCore.Routing
 {
 	public static class LinkParserEndpointNameAddressExtensions
 	{
-		public static RouteValueDictionary ParsePathByEndpointName(this LinkParser parser, string endpointName, PathString path)
+		public static RouteValueDictionary? ParsePathByEndpointName(this LinkParser parser, string endpointName, PathString path)
 		{
 			throw null;
 		}
@@ -25665,6 +31550,11 @@ namespace Microsoft.AspNetCore.Routing
 		{
 			throw null;
 		}
+
+		protected MatcherPolicy()
+		{
+			throw null;
+		}
 	}
 }
 
@@ -25676,14 +31566,19 @@ namespace Microsoft.AspNetCore.Routing
 {
 	public abstract class ParameterPolicyFactory
 	{
-		public abstract IParameterPolicy Create(RoutePatternParameterPart parameter, IParameterPolicy parameterPolicy);
+		public abstract IParameterPolicy Create(RoutePatternParameterPart? parameter, string inlineText);
 
-		public IParameterPolicy Create(RoutePatternParameterPart parameter, RoutePatternParameterPolicyReference reference)
+		public abstract IParameterPolicy Create(RoutePatternParameterPart? parameter, IParameterPolicy parameterPolicy);
+
+		public IParameterPolicy Create(RoutePatternParameterPart? parameter, RoutePatternParameterPolicyReference reference)
 		{
 			throw null;
 		}
 
-		public abstract IParameterPolicy Create(RoutePatternParameterPart parameter, string inlineText);
+		protected ParameterPolicyFactory()
+		{
+			throw null;
+		}
 	}
 }
 
@@ -25697,7 +31592,7 @@ using System.Collections.Generic;
 
 namespace Microsoft.AspNetCore.Routing
 {
-	internal struct PathTokenizer : IEnumerable<StringSegment>, IEnumerable, IReadOnlyCollection<StringSegment>, IReadOnlyList<StringSegment>
+	internal struct PathTokenizer : IReadOnlyList<StringSegment>, IEnumerable<StringSegment>, IEnumerable, IReadOnlyCollection<StringSegment>
 	{
 		public struct Enumerator : IEnumerator<StringSegment>, IEnumerator, IDisposable
 		{
@@ -25730,6 +31625,7 @@ namespace Microsoft.AspNetCore.Routing
 
 			public void Dispose()
 			{
+				throw null;
 			}
 
 			public bool MoveNext()
@@ -25739,6 +31635,7 @@ namespace Microsoft.AspNetCore.Routing
 
 			public void Reset()
 			{
+				throw null;
 			}
 		}
 
@@ -25795,7 +31692,22 @@ namespace Microsoft.AspNetCore.Routing
 {
 	public static class RequestDelegateRouteBuilderExtensions
 	{
+		public static IRouteBuilder MapRoute(this IRouteBuilder builder, string template, RequestDelegate handler)
+		{
+			throw null;
+		}
+
+		public static IRouteBuilder MapMiddlewareRoute(this IRouteBuilder builder, string template, Action<IApplicationBuilder> action)
+		{
+			throw null;
+		}
+
 		public static IRouteBuilder MapDelete(this IRouteBuilder builder, string template, RequestDelegate handler)
+		{
+			throw null;
+		}
+
+		public static IRouteBuilder MapMiddlewareDelete(this IRouteBuilder builder, string template, Action<IApplicationBuilder> action)
 		{
 			throw null;
 		}
@@ -25810,42 +31722,22 @@ namespace Microsoft.AspNetCore.Routing
 			throw null;
 		}
 
-		public static IRouteBuilder MapGet(this IRouteBuilder builder, string template, Func<HttpRequest, HttpResponse, RouteData, Task> handler)
-		{
-			throw null;
-		}
-
-		public static IRouteBuilder MapMiddlewareDelete(this IRouteBuilder builder, string template, Action<IApplicationBuilder> action)
-		{
-			throw null;
-		}
-
 		public static IRouteBuilder MapMiddlewareGet(this IRouteBuilder builder, string template, Action<IApplicationBuilder> action)
 		{
 			throw null;
 		}
 
-		public static IRouteBuilder MapMiddlewarePost(this IRouteBuilder builder, string template, Action<IApplicationBuilder> action)
-		{
-			throw null;
-		}
-
-		public static IRouteBuilder MapMiddlewarePut(this IRouteBuilder builder, string template, Action<IApplicationBuilder> action)
-		{
-			throw null;
-		}
-
-		public static IRouteBuilder MapMiddlewareRoute(this IRouteBuilder builder, string template, Action<IApplicationBuilder> action)
-		{
-			throw null;
-		}
-
-		public static IRouteBuilder MapMiddlewareVerb(this IRouteBuilder builder, string verb, string template, Action<IApplicationBuilder> action)
+		public static IRouteBuilder MapGet(this IRouteBuilder builder, string template, Func<HttpRequest, HttpResponse, RouteData, Task> handler)
 		{
 			throw null;
 		}
 
 		public static IRouteBuilder MapPost(this IRouteBuilder builder, string template, RequestDelegate handler)
+		{
+			throw null;
+		}
+
+		public static IRouteBuilder MapMiddlewarePost(this IRouteBuilder builder, string template, Action<IApplicationBuilder> action)
 		{
 			throw null;
 		}
@@ -25860,12 +31752,17 @@ namespace Microsoft.AspNetCore.Routing
 			throw null;
 		}
 
+		public static IRouteBuilder MapMiddlewarePut(this IRouteBuilder builder, string template, Action<IApplicationBuilder> action)
+		{
+			throw null;
+		}
+
 		public static IRouteBuilder MapPut(this IRouteBuilder builder, string template, Func<HttpRequest, HttpResponse, RouteData, Task> handler)
 		{
 			throw null;
 		}
 
-		public static IRouteBuilder MapRoute(this IRouteBuilder builder, string template, RequestDelegate handler)
+		public static IRouteBuilder MapVerb(this IRouteBuilder builder, string verb, string template, Func<HttpRequest, HttpResponse, RouteData, Task> handler)
 		{
 			throw null;
 		}
@@ -25875,7 +31772,7 @@ namespace Microsoft.AspNetCore.Routing
 			throw null;
 		}
 
-		public static IRouteBuilder MapVerb(this IRouteBuilder builder, string verb, string template, Func<HttpRequest, HttpResponse, RouteData, Task> handler)
+		public static IRouteBuilder MapMiddlewareVerb(this IRouteBuilder builder, string verb, string template, Action<IApplicationBuilder> action)
 		{
 			throw null;
 		}
@@ -25885,14 +31782,16 @@ namespace Microsoft.AspNetCore.Routing
 
 // Microsoft.AspNetCore.Routing\Microsoft.AspNetCore.Routing\Route.cs
 using System.Collections.Generic;
+using System.Runtime.CompilerServices;
 using System.Threading.Tasks;
 
 namespace Microsoft.AspNetCore.Routing
 {
 	public class Route : RouteBase
 	{
-		public string RouteTemplate
+		public string? RouteTemplate
 		{
+			[System.Runtime.CompilerServices.NullableContext(2)]
 			get
 			{
 				throw null;
@@ -25900,18 +31799,19 @@ namespace Microsoft.AspNetCore.Routing
 		}
 
 		public Route(IRouter target, string routeTemplate, IInlineConstraintResolver inlineConstraintResolver)
-			: base(null, null, null, null, null, null)
 		{
+			throw null;
 		}
 
-		public Route(IRouter target, string routeTemplate, RouteValueDictionary defaults, IDictionary<string, object> constraints, RouteValueDictionary dataTokens, IInlineConstraintResolver inlineConstraintResolver)
-			: base(null, null, null, null, null, null)
+		public Route(IRouter target, string routeTemplate, RouteValueDictionary? defaults, IDictionary<string, object>? constraints, RouteValueDictionary? dataTokens, IInlineConstraintResolver inlineConstraintResolver)
 		{
+			throw null;
 		}
 
-		public Route(IRouter target, string routeName, string routeTemplate, RouteValueDictionary defaults, IDictionary<string, object> constraints, RouteValueDictionary dataTokens, IInlineConstraintResolver inlineConstraintResolver)
-			: base(null, null, null, null, null, null)
+		[System.Runtime.CompilerServices.NullableContext(2)]
+		public Route(IRouter target, string? routeName, string? routeTemplate, RouteValueDictionary? defaults, IDictionary<string, object>? constraints, RouteValueDictionary? dataTokens, IInlineConstraintResolver inlineConstraintResolver)
 		{
+			throw null;
 		}
 
 		protected override Task OnRouteMatched(RouteContext context)
@@ -25919,7 +31819,7 @@ namespace Microsoft.AspNetCore.Routing
 			throw null;
 		}
 
-		protected override VirtualPathData OnVirtualPathGenerated(VirtualPathContext context)
+		protected override VirtualPathData? OnVirtualPathGenerated(VirtualPathContext context)
 		{
 			throw null;
 		}
@@ -25935,21 +31835,8 @@ using System.Threading.Tasks;
 
 namespace Microsoft.AspNetCore.Routing
 {
-	public abstract class RouteBase : INamedRouter, IRouter
+	public abstract class RouteBase : IRouter, INamedRouter
 	{
-		protected virtual IInlineConstraintResolver ConstraintResolver
-		{
-			[CompilerGenerated]
-			get
-			{
-				throw null;
-			}
-			[CompilerGenerated]
-			set
-			{
-			}
-		}
-
 		public virtual IDictionary<string, IRouteConstraint> Constraints
 		{
 			[CompilerGenerated]
@@ -25960,6 +31847,21 @@ namespace Microsoft.AspNetCore.Routing
 			[CompilerGenerated]
 			protected set
 			{
+				throw null;
+			}
+		}
+
+		protected virtual IInlineConstraintResolver ConstraintResolver
+		{
+			[CompilerGenerated]
+			get
+			{
+				throw null;
+			}
+			[CompilerGenerated]
+			set
+			{
+				throw null;
 			}
 		}
 
@@ -25973,6 +31875,7 @@ namespace Microsoft.AspNetCore.Routing
 			[CompilerGenerated]
 			protected set
 			{
+				throw null;
 			}
 		}
 
@@ -25986,19 +31889,23 @@ namespace Microsoft.AspNetCore.Routing
 			[CompilerGenerated]
 			protected set
 			{
+				throw null;
 			}
 		}
 
-		public virtual string Name
+		public virtual string? Name
 		{
+			[System.Runtime.CompilerServices.NullableContext(2)]
 			[CompilerGenerated]
 			get
 			{
 				throw null;
 			}
+			[System.Runtime.CompilerServices.NullableContext(2)]
 			[CompilerGenerated]
 			protected set
 			{
+				throw null;
 			}
 		}
 
@@ -26012,33 +31919,36 @@ namespace Microsoft.AspNetCore.Routing
 			[CompilerGenerated]
 			protected set
 			{
+				throw null;
 			}
 		}
 
-		public RouteBase(string template, string name, IInlineConstraintResolver constraintResolver, RouteValueDictionary defaults, IDictionary<string, object> constraints, RouteValueDictionary dataTokens)
-		{
-		}
-
-		protected static IDictionary<string, IRouteConstraint> GetConstraints(IInlineConstraintResolver inlineConstraintResolver, RouteTemplate parsedTemplate, IDictionary<string, object> constraints)
-		{
-			throw null;
-		}
-
-		protected static RouteValueDictionary GetDefaults(RouteTemplate parsedTemplate, RouteValueDictionary defaults)
-		{
-			throw null;
-		}
-
-		public virtual VirtualPathData GetVirtualPath(VirtualPathContext context)
+		[System.Runtime.CompilerServices.NullableContext(2)]
+		public RouteBase(string? template, string? name, IInlineConstraintResolver constraintResolver, RouteValueDictionary? defaults, IDictionary<string, object>? constraints, RouteValueDictionary? dataTokens)
 		{
 			throw null;
 		}
 
 		protected abstract Task OnRouteMatched(RouteContext context);
 
-		protected abstract VirtualPathData OnVirtualPathGenerated(VirtualPathContext context);
+		protected abstract VirtualPathData? OnVirtualPathGenerated(VirtualPathContext context);
 
 		public virtual Task RouteAsync(RouteContext context)
+		{
+			throw null;
+		}
+
+		public virtual VirtualPathData? GetVirtualPath(VirtualPathContext context)
+		{
+			throw null;
+		}
+
+		protected static IDictionary<string, IRouteConstraint> GetConstraints(IInlineConstraintResolver inlineConstraintResolver, RouteTemplate parsedTemplate, IDictionary<string, object>? constraints)
+		{
+			throw null;
+		}
+
+		protected static RouteValueDictionary GetDefaults(RouteTemplate parsedTemplate, RouteValueDictionary? defaults)
 		{
 			throw null;
 		}
@@ -26070,23 +31980,17 @@ namespace Microsoft.AspNetCore.Routing
 			}
 		}
 
-		public IRouter DefaultHandler
+		public IRouter? DefaultHandler
 		{
+			[System.Runtime.CompilerServices.NullableContext(2)]
 			[CompilerGenerated]
 			get
 			{
 				throw null;
 			}
+			[System.Runtime.CompilerServices.NullableContext(2)]
 			[CompilerGenerated]
 			set
-			{
-			}
-		}
-
-		public IList<IRouter> Routes
-		{
-			[CompilerGenerated]
-			get
 			{
 				throw null;
 			}
@@ -26101,12 +32005,23 @@ namespace Microsoft.AspNetCore.Routing
 			}
 		}
 
-		public RouteBuilder(IApplicationBuilder applicationBuilder)
+		public IList<IRouter> Routes
 		{
+			[CompilerGenerated]
+			get
+			{
+				throw null;
+			}
 		}
 
-		public RouteBuilder(IApplicationBuilder applicationBuilder, IRouter defaultHandler)
+		public RouteBuilder(IApplicationBuilder applicationBuilder)
 		{
+			throw null;
+		}
+
+		public RouteBuilder(IApplicationBuilder applicationBuilder, IRouter? defaultHandler)
+		{
+			throw null;
 		}
 
 		public IRouter Build()
@@ -26119,13 +32034,14 @@ namespace Microsoft.AspNetCore.Routing
 
 // Microsoft.AspNetCore.Routing\Microsoft.AspNetCore.Routing\RouteCollection.cs
 using System.Diagnostics;
+using System.Runtime.CompilerServices;
 using System.Threading.Tasks;
 
 namespace Microsoft.AspNetCore.Routing
 {
 	public class RouteCollection : IRouteCollection, IRouter
 	{
-		public int Count
+		public IRouter this[int index]
 		{
 			get
 			{
@@ -26133,7 +32049,7 @@ namespace Microsoft.AspNetCore.Routing
 			}
 		}
 
-		public IRouter this[int index]
+		public int Count
 		{
 			get
 			{
@@ -26143,15 +32059,22 @@ namespace Microsoft.AspNetCore.Routing
 
 		public void Add(IRouter router)
 		{
+			throw null;
 		}
 
-		public virtual VirtualPathData GetVirtualPath(VirtualPathContext context)
+		[AsyncStateMachine(typeof(_003CRouteAsync_003Ed__10))]
+		[DebuggerStepThrough]
+		public virtual Task RouteAsync(RouteContext context)
 		{
 			throw null;
 		}
 
-		[DebuggerStepThrough]
-		public virtual Task RouteAsync(RouteContext context)
+		public virtual VirtualPathData? GetVirtualPath(VirtualPathContext context)
+		{
+			throw null;
+		}
+
+		public RouteCollection()
 		{
 			throw null;
 		}
@@ -26168,14 +32091,7 @@ namespace Microsoft.AspNetCore.Routing
 	{
 		public RouteConstraintBuilder(IInlineConstraintResolver inlineConstraintResolver, string displayName)
 		{
-		}
-
-		public void AddConstraint(string key, object value)
-		{
-		}
-
-		public void AddResolvedConstraint(string key, string constraintText)
-		{
+			throw null;
 		}
 
 		public IDictionary<string, IRouteConstraint> Build()
@@ -26183,8 +32099,19 @@ namespace Microsoft.AspNetCore.Routing
 			throw null;
 		}
 
+		public void AddConstraint(string key, object value)
+		{
+			throw null;
+		}
+
+		public void AddResolvedConstraint(string key, string constraintText)
+		{
+			throw null;
+		}
+
 		public void SetOptional(string key)
 		{
+			throw null;
 		}
 	}
 }
@@ -26216,10 +32143,12 @@ namespace Microsoft.AspNetCore.Routing
 	{
 		public RouteCreationException(string message)
 		{
+			throw null;
 		}
 
 		public RouteCreationException(string message, Exception innerException)
 		{
+			throw null;
 		}
 	}
 }
@@ -26252,9 +32181,9 @@ namespace Microsoft.AspNetCore.Routing
 			}
 		}
 
-		public RouteEndpoint(RequestDelegate requestDelegate, RoutePattern routePattern, int order, EndpointMetadataCollection metadata, string displayName)
-			: base(null, null, null)
+		public RouteEndpoint(RequestDelegate requestDelegate, RoutePattern routePattern, int order, EndpointMetadataCollection? metadata, string? displayName)
 		{
+			throw null;
 		}
 	}
 }
@@ -26270,19 +32199,6 @@ namespace Microsoft.AspNetCore.Routing
 {
 	public sealed class RouteEndpointBuilder : EndpointBuilder
 	{
-		public int Order
-		{
-			[CompilerGenerated]
-			get
-			{
-				throw null;
-			}
-			[CompilerGenerated]
-			set
-			{
-			}
-		}
-
 		public RoutePattern RoutePattern
 		{
 			[CompilerGenerated]
@@ -26293,11 +32209,27 @@ namespace Microsoft.AspNetCore.Routing
 			[CompilerGenerated]
 			set
 			{
+				throw null;
+			}
+		}
+
+		public int Order
+		{
+			[CompilerGenerated]
+			get
+			{
+				throw null;
+			}
+			[CompilerGenerated]
+			set
+			{
+				throw null;
 			}
 		}
 
 		public RouteEndpointBuilder(RequestDelegate requestDelegate, RoutePattern routePattern, int order)
 		{
+			throw null;
 		}
 
 		public override Endpoint Build()
@@ -26318,6 +32250,7 @@ namespace Microsoft.AspNetCore.Routing
 	{
 		public RouteHandler(RequestDelegate requestDelegate)
 		{
+			throw null;
 		}
 
 		public RequestDelegate GetRequestHandler(HttpContext httpContext, RouteData routeData)
@@ -26325,7 +32258,7 @@ namespace Microsoft.AspNetCore.Routing
 			throw null;
 		}
 
-		public VirtualPathData GetVirtualPath(VirtualPathContext context)
+		public VirtualPathData? GetVirtualPath(VirtualPathContext context)
 		{
 			throw null;
 		}
@@ -26358,6 +32291,12 @@ namespace Microsoft.AspNetCore.Routing
 
 		public RouteNameMetadata(string routeName)
 		{
+			throw null;
+		}
+
+		internal string DebuggerToString()
+		{
+			throw null;
 		}
 	}
 }
@@ -26372,20 +32311,7 @@ namespace Microsoft.AspNetCore.Routing
 {
 	public class RouteOptions
 	{
-		public bool AppendTrailingSlash
-		{
-			[CompilerGenerated]
-			get
-			{
-				throw null;
-			}
-			[CompilerGenerated]
-			set
-			{
-			}
-		}
-
-		public IDictionary<string, Type> ConstraintMap
+		internal ICollection<EndpointDataSource> EndpointDataSources
 		{
 			get
 			{
@@ -26393,19 +32319,7 @@ namespace Microsoft.AspNetCore.Routing
 			}
 			set
 			{
-			}
-		}
-
-		public bool LowercaseQueryStrings
-		{
-			[CompilerGenerated]
-			get
-			{
 				throw null;
-			}
-			[CompilerGenerated]
-			set
-			{
 			}
 		}
 
@@ -26419,6 +32333,35 @@ namespace Microsoft.AspNetCore.Routing
 			[CompilerGenerated]
 			set
 			{
+				throw null;
+			}
+		}
+
+		public bool LowercaseQueryStrings
+		{
+			[CompilerGenerated]
+			get
+			{
+				throw null;
+			}
+			[CompilerGenerated]
+			set
+			{
+				throw null;
+			}
+		}
+
+		public bool AppendTrailingSlash
+		{
+			[CompilerGenerated]
+			get
+			{
+				throw null;
+			}
+			[CompilerGenerated]
+			set
+			{
+				throw null;
 			}
 		}
 
@@ -26432,10 +32375,11 @@ namespace Microsoft.AspNetCore.Routing
 			[CompilerGenerated]
 			set
 			{
+				throw null;
 			}
 		}
 
-		internal ICollection<EndpointDataSource> EndpointDataSources
+		public IDictionary<string, Type> ConstraintMap
 		{
 			get
 			{
@@ -26443,7 +32387,13 @@ namespace Microsoft.AspNetCore.Routing
 			}
 			set
 			{
+				throw null;
 			}
+		}
+
+		public RouteOptions()
+		{
+			throw null;
 		}
 	}
 }
@@ -26454,16 +32404,21 @@ using System.Collections.Generic;
 
 namespace Microsoft.AspNetCore.Routing
 {
-	public class RouteValueEqualityComparer : IEqualityComparer<object>
+	public class RouteValueEqualityComparer : IEqualityComparer<object?>
 	{
 		public static readonly RouteValueEqualityComparer Default;
 
-		public new bool Equals(object x, object y)
+		public new bool Equals(object? x, object? y)
 		{
 			throw null;
 		}
 
 		public int GetHashCode(object obj)
+		{
+			throw null;
+		}
+
+		public RouteValueEqualityComparer()
 		{
 			throw null;
 		}
@@ -26478,7 +32433,7 @@ namespace Microsoft.AspNetCore.Routing
 {
 	public class RouteValuesAddress
 	{
-		public RouteValueDictionary AmbientValues
+		public string? RouteName
 		{
 			[CompilerGenerated]
 			get
@@ -26488,23 +32443,27 @@ namespace Microsoft.AspNetCore.Routing
 			[CompilerGenerated]
 			set
 			{
+				throw null;
 			}
 		}
 
 		public RouteValueDictionary ExplicitValues
 		{
+			[System.Runtime.CompilerServices.NullableContext(1)]
 			[CompilerGenerated]
 			get
 			{
 				throw null;
 			}
+			[System.Runtime.CompilerServices.NullableContext(1)]
 			[CompilerGenerated]
 			set
 			{
+				throw null;
 			}
 		}
 
-		public string RouteName
+		public RouteValueDictionary? AmbientValues
 		{
 			[CompilerGenerated]
 			get
@@ -26514,7 +32473,13 @@ namespace Microsoft.AspNetCore.Routing
 			[CompilerGenerated]
 			set
 			{
+				throw null;
 			}
+		}
+
+		public RouteValuesAddress()
+		{
+			throw null;
 		}
 	}
 }
@@ -26527,7 +32492,7 @@ namespace Microsoft.AspNetCore.Routing
 {
 	public class RoutingFeature : IRoutingFeature
 	{
-		public RouteData RouteData
+		public RouteData? RouteData
 		{
 			[CompilerGenerated]
 			get
@@ -26537,8 +32502,25 @@ namespace Microsoft.AspNetCore.Routing
 			[CompilerGenerated]
 			set
 			{
+				throw null;
 			}
 		}
+
+		public RoutingFeature()
+		{
+			throw null;
+		}
+	}
+}
+
+
+// Microsoft.AspNetCore.Routing\Microsoft.AspNetCore.Routing\SegmentState.cs
+namespace Microsoft.AspNetCore.Routing
+{
+	internal enum SegmentState
+	{
+		Beginning,
+		Inside
 	}
 }
 
@@ -26554,6 +32536,11 @@ namespace Microsoft.AspNetCore.Routing
 			{
 				throw null;
 			}
+		}
+
+		public SuppressLinkGenerationMetadata()
+		{
+			throw null;
 		}
 	}
 }
@@ -26571,20 +32558,23 @@ namespace Microsoft.AspNetCore.Routing
 				throw null;
 			}
 		}
+
+		public SuppressMatchingMetadata()
+		{
+			throw null;
+		}
 	}
 }
 
 
 // Microsoft.AspNetCore.Routing\Microsoft.AspNetCore.Routing.Constraints\AlphaRouteConstraint.cs
-using System.Text.RegularExpressions;
-
 namespace Microsoft.AspNetCore.Routing.Constraints
 {
 	public class AlphaRouteConstraint : RegexRouteConstraint
 	{
 		public AlphaRouteConstraint()
-			: base((Regex)null)
 		{
+			throw null;
 		}
 	}
 }
@@ -26595,9 +32585,14 @@ using Microsoft.AspNetCore.Http;
 
 namespace Microsoft.AspNetCore.Routing.Constraints
 {
-	public class BoolRouteConstraint : IParameterPolicy, IRouteConstraint
+	public class BoolRouteConstraint : IRouteConstraint, IParameterPolicy
 	{
-		public bool Match(HttpContext httpContext, IRouter route, string routeKey, RouteValueDictionary values, RouteDirection routeDirection)
+		public bool Match(HttpContext? httpContext, IRouter? route, string routeKey, RouteValueDictionary values, RouteDirection routeDirection)
+		{
+			throw null;
+		}
+
+		public BoolRouteConstraint()
 		{
 			throw null;
 		}
@@ -26612,7 +32607,7 @@ using System.Runtime.CompilerServices;
 
 namespace Microsoft.AspNetCore.Routing.Constraints
 {
-	public class CompositeRouteConstraint : IParameterPolicy, IRouteConstraint
+	public class CompositeRouteConstraint : IRouteConstraint, IParameterPolicy
 	{
 		public IEnumerable<IRouteConstraint> Constraints
 		{
@@ -26625,9 +32620,10 @@ namespace Microsoft.AspNetCore.Routing.Constraints
 
 		public CompositeRouteConstraint(IEnumerable<IRouteConstraint> constraints)
 		{
+			throw null;
 		}
 
-		public bool Match(HttpContext httpContext, IRouter route, string routeKey, RouteValueDictionary values, RouteDirection routeDirection)
+		public bool Match(HttpContext? httpContext, IRouter? route, string routeKey, RouteValueDictionary values, RouteDirection routeDirection)
 		{
 			throw null;
 		}
@@ -26640,9 +32636,14 @@ using Microsoft.AspNetCore.Http;
 
 namespace Microsoft.AspNetCore.Routing.Constraints
 {
-	public class DateTimeRouteConstraint : IParameterPolicy, IRouteConstraint
+	public class DateTimeRouteConstraint : IRouteConstraint, IParameterPolicy
 	{
-		public bool Match(HttpContext httpContext, IRouter route, string routeKey, RouteValueDictionary values, RouteDirection routeDirection)
+		public bool Match(HttpContext? httpContext, IRouter? route, string routeKey, RouteValueDictionary values, RouteDirection routeDirection)
+		{
+			throw null;
+		}
+
+		public DateTimeRouteConstraint()
 		{
 			throw null;
 		}
@@ -26655,9 +32656,14 @@ using Microsoft.AspNetCore.Http;
 
 namespace Microsoft.AspNetCore.Routing.Constraints
 {
-	public class DecimalRouteConstraint : IParameterPolicy, IRouteConstraint
+	public class DecimalRouteConstraint : IRouteConstraint, IParameterPolicy
 	{
-		public bool Match(HttpContext httpContext, IRouter route, string routeKey, RouteValueDictionary values, RouteDirection routeDirection)
+		public bool Match(HttpContext? httpContext, IRouter? route, string routeKey, RouteValueDictionary values, RouteDirection routeDirection)
+		{
+			throw null;
+		}
+
+		public DecimalRouteConstraint()
 		{
 			throw null;
 		}
@@ -26670,9 +32676,14 @@ using Microsoft.AspNetCore.Http;
 
 namespace Microsoft.AspNetCore.Routing.Constraints
 {
-	public class DoubleRouteConstraint : IParameterPolicy, IRouteConstraint
+	public class DoubleRouteConstraint : IRouteConstraint, IParameterPolicy
 	{
-		public bool Match(HttpContext httpContext, IRouter route, string routeKey, RouteValueDictionary values, RouteDirection routeDirection)
+		public bool Match(HttpContext? httpContext, IRouter? route, string routeKey, RouteValueDictionary values, RouteDirection routeDirection)
+		{
+			throw null;
+		}
+
+		public DoubleRouteConstraint()
 		{
 			throw null;
 		}
@@ -26682,12 +32693,23 @@ namespace Microsoft.AspNetCore.Routing.Constraints
 
 // Microsoft.AspNetCore.Routing\Microsoft.AspNetCore.Routing.Constraints\FileNameRouteConstraint.cs
 using Microsoft.AspNetCore.Http;
+using System;
 
 namespace Microsoft.AspNetCore.Routing.Constraints
 {
-	public class FileNameRouteConstraint : IParameterPolicy, IRouteConstraint
+	public class FileNameRouteConstraint : IRouteConstraint, IParameterPolicy
 	{
-		public bool Match(HttpContext httpContext, IRouter route, string routeKey, RouteValueDictionary values, RouteDirection routeDirection)
+		public bool Match(HttpContext? httpContext, IRouter? route, string routeKey, RouteValueDictionary values, RouteDirection routeDirection)
+		{
+			throw null;
+		}
+
+		internal static bool IsFileName(ReadOnlySpan<char> value)
+		{
+			throw null;
+		}
+
+		public FileNameRouteConstraint()
 		{
 			throw null;
 		}
@@ -26700,9 +32722,14 @@ using Microsoft.AspNetCore.Http;
 
 namespace Microsoft.AspNetCore.Routing.Constraints
 {
-	public class FloatRouteConstraint : IParameterPolicy, IRouteConstraint
+	public class FloatRouteConstraint : IRouteConstraint, IParameterPolicy
 	{
-		public bool Match(HttpContext httpContext, IRouter route, string routeKey, RouteValueDictionary values, RouteDirection routeDirection)
+		public bool Match(HttpContext? httpContext, IRouter? route, string routeKey, RouteValueDictionary values, RouteDirection routeDirection)
+		{
+			throw null;
+		}
+
+		public FloatRouteConstraint()
 		{
 			throw null;
 		}
@@ -26715,9 +32742,14 @@ using Microsoft.AspNetCore.Http;
 
 namespace Microsoft.AspNetCore.Routing.Constraints
 {
-	public class GuidRouteConstraint : IParameterPolicy, IRouteConstraint
+	public class GuidRouteConstraint : IRouteConstraint, IParameterPolicy
 	{
-		public bool Match(HttpContext httpContext, IRouter route, string routeKey, RouteValueDictionary values, RouteDirection routeDirection)
+		public bool Match(HttpContext? httpContext, IRouter? route, string routeKey, RouteValueDictionary values, RouteDirection routeDirection)
+		{
+			throw null;
+		}
+
+		public GuidRouteConstraint()
 		{
 			throw null;
 		}
@@ -26732,7 +32764,7 @@ using System.Runtime.CompilerServices;
 
 namespace Microsoft.AspNetCore.Routing.Constraints
 {
-	public class HttpMethodRouteConstraint : IParameterPolicy, IRouteConstraint
+	public class HttpMethodRouteConstraint : IRouteConstraint, IParameterPolicy
 	{
 		public IList<string> AllowedMethods
 		{
@@ -26745,9 +32777,10 @@ namespace Microsoft.AspNetCore.Routing.Constraints
 
 		public HttpMethodRouteConstraint(params string[] allowedMethods)
 		{
+			throw null;
 		}
 
-		public virtual bool Match(HttpContext httpContext, IRouter route, string routeKey, RouteValueDictionary values, RouteDirection routeDirection)
+		public virtual bool Match(HttpContext? httpContext, IRouter? route, string routeKey, RouteValueDictionary values, RouteDirection routeDirection)
 		{
 			throw null;
 		}
@@ -26760,9 +32793,14 @@ using Microsoft.AspNetCore.Http;
 
 namespace Microsoft.AspNetCore.Routing.Constraints
 {
-	public class IntRouteConstraint : IParameterPolicy, IRouteConstraint
+	public class IntRouteConstraint : IRouteConstraint, IParameterPolicy
 	{
-		public bool Match(HttpContext httpContext, IRouter route, string routeKey, RouteValueDictionary values, RouteDirection routeDirection)
+		public bool Match(HttpContext? httpContext, IRouter? route, string routeKey, RouteValueDictionary values, RouteDirection routeDirection)
+		{
+			throw null;
+		}
+
+		public IntRouteConstraint()
 		{
 			throw null;
 		}
@@ -26776,9 +32814,9 @@ using System.Runtime.CompilerServices;
 
 namespace Microsoft.AspNetCore.Routing.Constraints
 {
-	public class LengthRouteConstraint : IParameterPolicy, IRouteConstraint
+	public class LengthRouteConstraint : IRouteConstraint, IParameterPolicy
 	{
-		public int MaxLength
+		public int MinLength
 		{
 			[CompilerGenerated]
 			get
@@ -26787,7 +32825,7 @@ namespace Microsoft.AspNetCore.Routing.Constraints
 			}
 		}
 
-		public int MinLength
+		public int MaxLength
 		{
 			[CompilerGenerated]
 			get
@@ -26798,13 +32836,15 @@ namespace Microsoft.AspNetCore.Routing.Constraints
 
 		public LengthRouteConstraint(int length)
 		{
+			throw null;
 		}
 
 		public LengthRouteConstraint(int minLength, int maxLength)
 		{
+			throw null;
 		}
 
-		public bool Match(HttpContext httpContext, IRouter route, string routeKey, RouteValueDictionary values, RouteDirection routeDirection)
+		public bool Match(HttpContext? httpContext, IRouter? route, string routeKey, RouteValueDictionary values, RouteDirection routeDirection)
 		{
 			throw null;
 		}
@@ -26817,9 +32857,14 @@ using Microsoft.AspNetCore.Http;
 
 namespace Microsoft.AspNetCore.Routing.Constraints
 {
-	public class LongRouteConstraint : IParameterPolicy, IRouteConstraint
+	public class LongRouteConstraint : IRouteConstraint, IParameterPolicy
 	{
-		public bool Match(HttpContext httpContext, IRouter route, string routeKey, RouteValueDictionary values, RouteDirection routeDirection)
+		public bool Match(HttpContext? httpContext, IRouter? route, string routeKey, RouteValueDictionary values, RouteDirection routeDirection)
+		{
+			throw null;
+		}
+
+		public LongRouteConstraint()
 		{
 			throw null;
 		}
@@ -26833,7 +32878,7 @@ using System.Runtime.CompilerServices;
 
 namespace Microsoft.AspNetCore.Routing.Constraints
 {
-	public class MaxLengthRouteConstraint : IParameterPolicy, IRouteConstraint
+	public class MaxLengthRouteConstraint : IRouteConstraint, IParameterPolicy
 	{
 		public int MaxLength
 		{
@@ -26846,9 +32891,10 @@ namespace Microsoft.AspNetCore.Routing.Constraints
 
 		public MaxLengthRouteConstraint(int maxLength)
 		{
+			throw null;
 		}
 
-		public bool Match(HttpContext httpContext, IRouter route, string routeKey, RouteValueDictionary values, RouteDirection routeDirection)
+		public bool Match(HttpContext? httpContext, IRouter? route, string routeKey, RouteValueDictionary values, RouteDirection routeDirection)
 		{
 			throw null;
 		}
@@ -26862,7 +32908,7 @@ using System.Runtime.CompilerServices;
 
 namespace Microsoft.AspNetCore.Routing.Constraints
 {
-	public class MaxRouteConstraint : IParameterPolicy, IRouteConstraint
+	public class MaxRouteConstraint : IRouteConstraint, IParameterPolicy
 	{
 		public long Max
 		{
@@ -26875,9 +32921,10 @@ namespace Microsoft.AspNetCore.Routing.Constraints
 
 		public MaxRouteConstraint(long max)
 		{
+			throw null;
 		}
 
-		public bool Match(HttpContext httpContext, IRouter route, string routeKey, RouteValueDictionary values, RouteDirection routeDirection)
+		public bool Match(HttpContext? httpContext, IRouter? route, string routeKey, RouteValueDictionary values, RouteDirection routeDirection)
 		{
 			throw null;
 		}
@@ -26891,7 +32938,7 @@ using System.Runtime.CompilerServices;
 
 namespace Microsoft.AspNetCore.Routing.Constraints
 {
-	public class MinLengthRouteConstraint : IParameterPolicy, IRouteConstraint
+	public class MinLengthRouteConstraint : IRouteConstraint, IParameterPolicy
 	{
 		public int MinLength
 		{
@@ -26904,9 +32951,10 @@ namespace Microsoft.AspNetCore.Routing.Constraints
 
 		public MinLengthRouteConstraint(int minLength)
 		{
+			throw null;
 		}
 
-		public bool Match(HttpContext httpContext, IRouter route, string routeKey, RouteValueDictionary values, RouteDirection routeDirection)
+		public bool Match(HttpContext? httpContext, IRouter? route, string routeKey, RouteValueDictionary values, RouteDirection routeDirection)
 		{
 			throw null;
 		}
@@ -26920,7 +32968,7 @@ using System.Runtime.CompilerServices;
 
 namespace Microsoft.AspNetCore.Routing.Constraints
 {
-	public class MinRouteConstraint : IParameterPolicy, IRouteConstraint
+	public class MinRouteConstraint : IRouteConstraint, IParameterPolicy
 	{
 		public long Min
 		{
@@ -26933,9 +32981,10 @@ namespace Microsoft.AspNetCore.Routing.Constraints
 
 		public MinRouteConstraint(long min)
 		{
+			throw null;
 		}
 
-		public bool Match(HttpContext httpContext, IRouter route, string routeKey, RouteValueDictionary values, RouteDirection routeDirection)
+		public bool Match(HttpContext? httpContext, IRouter? route, string routeKey, RouteValueDictionary values, RouteDirection routeDirection)
 		{
 			throw null;
 		}
@@ -26948,9 +32997,14 @@ using Microsoft.AspNetCore.Http;
 
 namespace Microsoft.AspNetCore.Routing.Constraints
 {
-	public class NonFileNameRouteConstraint : IParameterPolicy, IRouteConstraint
+	public class NonFileNameRouteConstraint : IRouteConstraint, IParameterPolicy
 	{
-		public bool Match(HttpContext httpContext, IRouter route, string routeKey, RouteValueDictionary values, RouteDirection routeDirection)
+		public bool Match(HttpContext? httpContext, IRouter? route, string routeKey, RouteValueDictionary values, RouteDirection routeDirection)
+		{
+			throw null;
+		}
+
+		public NonFileNameRouteConstraint()
 		{
 			throw null;
 		}
@@ -26964,7 +33018,7 @@ using System.Runtime.CompilerServices;
 
 namespace Microsoft.AspNetCore.Routing.Constraints
 {
-	public class OptionalRouteConstraint : IParameterPolicy, IRouteConstraint
+	public class OptionalRouteConstraint : IRouteConstraint, IParameterPolicy
 	{
 		public IRouteConstraint InnerConstraint
 		{
@@ -26977,9 +33031,10 @@ namespace Microsoft.AspNetCore.Routing.Constraints
 
 		public OptionalRouteConstraint(IRouteConstraint innerConstraint)
 		{
+			throw null;
 		}
 
-		public bool Match(HttpContext httpContext, IRouter route, string routeKey, RouteValueDictionary values, RouteDirection routeDirection)
+		public bool Match(HttpContext? httpContext, IRouter? route, string routeKey, RouteValueDictionary values, RouteDirection routeDirection)
 		{
 			throw null;
 		}
@@ -26993,9 +33048,9 @@ using System.Runtime.CompilerServices;
 
 namespace Microsoft.AspNetCore.Routing.Constraints
 {
-	public class RangeRouteConstraint : IParameterPolicy, IRouteConstraint
+	public class RangeRouteConstraint : IRouteConstraint, IParameterPolicy
 	{
-		public long Max
+		public long Min
 		{
 			[CompilerGenerated]
 			get
@@ -27004,7 +33059,7 @@ namespace Microsoft.AspNetCore.Routing.Constraints
 			}
 		}
 
-		public long Min
+		public long Max
 		{
 			[CompilerGenerated]
 			get
@@ -27015,9 +33070,10 @@ namespace Microsoft.AspNetCore.Routing.Constraints
 
 		public RangeRouteConstraint(long min, long max)
 		{
+			throw null;
 		}
 
-		public bool Match(HttpContext httpContext, IRouter route, string routeKey, RouteValueDictionary values, RouteDirection routeDirection)
+		public bool Match(HttpContext? httpContext, IRouter? route, string routeKey, RouteValueDictionary values, RouteDirection routeDirection)
 		{
 			throw null;
 		}
@@ -27026,15 +33082,16 @@ namespace Microsoft.AspNetCore.Routing.Constraints
 
 
 // Microsoft.AspNetCore.Routing\Microsoft.AspNetCore.Routing.Constraints\RegexInlineRouteConstraint.cs
-using System.Text.RegularExpressions;
+using System.Runtime.CompilerServices;
 
 namespace Microsoft.AspNetCore.Routing.Constraints
 {
 	public class RegexInlineRouteConstraint : RegexRouteConstraint
 	{
+		[System.Runtime.CompilerServices.NullableContext(1)]
 		public RegexInlineRouteConstraint(string regexPattern)
-			: base((Regex)null)
 		{
+			throw null;
 		}
 	}
 }
@@ -27047,7 +33104,7 @@ using System.Text.RegularExpressions;
 
 namespace Microsoft.AspNetCore.Routing.Constraints
 {
-	public class RegexRouteConstraint : IParameterPolicy, IRouteConstraint
+	public class RegexRouteConstraint : IRouteConstraint, IParameterPolicy
 	{
 		public Regex Constraint
 		{
@@ -27058,15 +33115,17 @@ namespace Microsoft.AspNetCore.Routing.Constraints
 			}
 		}
 
-		public RegexRouteConstraint(string regexPattern)
-		{
-		}
-
 		public RegexRouteConstraint(Regex regex)
 		{
+			throw null;
 		}
 
-		public bool Match(HttpContext httpContext, IRouter route, string routeKey, RouteValueDictionary values, RouteDirection routeDirection)
+		public RegexRouteConstraint(string regexPattern)
+		{
+			throw null;
+		}
+
+		public bool Match(HttpContext? httpContext, IRouter? route, string routeKey, RouteValueDictionary values, RouteDirection routeDirection)
 		{
 			throw null;
 		}
@@ -27079,9 +33138,14 @@ using Microsoft.AspNetCore.Http;
 
 namespace Microsoft.AspNetCore.Routing.Constraints
 {
-	public class RequiredRouteConstraint : IParameterPolicy, IRouteConstraint
+	public class RequiredRouteConstraint : IRouteConstraint, IParameterPolicy
 	{
-		public bool Match(HttpContext httpContext, IRouter route, string routeKey, RouteValueDictionary values, RouteDirection routeDirection)
+		public bool Match(HttpContext? httpContext, IRouter? route, string routeKey, RouteValueDictionary values, RouteDirection routeDirection)
+		{
+			throw null;
+		}
+
+		public RequiredRouteConstraint()
 		{
 			throw null;
 		}
@@ -27091,16 +33155,19 @@ namespace Microsoft.AspNetCore.Routing.Constraints
 
 // Microsoft.AspNetCore.Routing\Microsoft.AspNetCore.Routing.Constraints\StringRouteConstraint.cs
 using Microsoft.AspNetCore.Http;
+using System.Runtime.CompilerServices;
 
 namespace Microsoft.AspNetCore.Routing.Constraints
 {
-	public class StringRouteConstraint : IParameterPolicy, IRouteConstraint
+	public class StringRouteConstraint : IRouteConstraint, IParameterPolicy
 	{
+		[System.Runtime.CompilerServices.NullableContext(1)]
 		public StringRouteConstraint(string value)
 		{
+			throw null;
 		}
 
-		public bool Match(HttpContext httpContext, IRouter route, string routeKey, RouteValueDictionary values, RouteDirection routeDirection)
+		public bool Match(HttpContext? httpContext, IRouter? route, string routeKey, RouteValueDictionary values, RouteDirection routeDirection)
 		{
 			throw null;
 		}
@@ -27158,10 +33225,12 @@ namespace Microsoft.AspNetCore.Routing.Internal
 	{
 		public DfaGraphWriter(IServiceProvider services)
 		{
+			throw null;
 		}
 
 		public void Write(EndpointDataSource dataSource, TextWriter writer)
 		{
+			throw null;
 		}
 	}
 }
@@ -27210,7 +33279,7 @@ namespace Microsoft.AspNetCore.Routing.Matching
 			throw null;
 		}
 
-		public Candidate(Endpoint endpoint, int score, KeyValuePair<string, object>[] slots, (string, int, int)[] captures, in (string parameterName, int segmentIndex, int slotIndex) catchAll, (RoutePatternPathSegment, int)[] complexSegments, KeyValuePair<string, IRouteConstraint>[] constraints)
+		public Candidate(Endpoint endpoint, int score, KeyValuePair<string, object>[] slots, (string parameterName, int segmentIndex, int slotIndex)[] captures, in (string parameterName, int segmentIndex, int slotIndex) catchAll, (RoutePatternPathSegment pathSegment, int segmentIndex)[] complexSegments, KeyValuePair<string, IRouteConstraint>[] constraints)
 		{
 			throw null;
 		}
@@ -27248,10 +33317,17 @@ namespace Microsoft.AspNetCore.Routing.Matching
 
 		public CandidateSet(Endpoint[] endpoints, RouteValueDictionary[] values, int[] scores)
 		{
+			throw null;
 		}
 
-		public void ExpandEndpoint(int index, IReadOnlyList<Endpoint> endpoints, IComparer<Endpoint> comparer)
+		internal CandidateSet(Candidate[] candidates)
 		{
+			throw null;
+		}
+
+		internal CandidateSet(CandidateState[] candidates)
+		{
+			throw null;
 		}
 
 		public bool IsValidCandidate(int index)
@@ -27259,29 +33335,29 @@ namespace Microsoft.AspNetCore.Routing.Matching
 			throw null;
 		}
 
-		public void ReplaceEndpoint(int index, Endpoint endpoint, RouteValueDictionary values)
+		internal static bool IsValidCandidate(ref CandidateState candidate)
 		{
+			throw null;
 		}
 
 		public void SetValidity(int index, bool value)
-		{
-		}
-
-		internal CandidateSet(CandidateState[] candidates)
-		{
-		}
-
-		internal CandidateSet(Candidate[] candidates)
-		{
-		}
-
-		internal static bool IsValidCandidate(ref CandidateState candidate)
 		{
 			throw null;
 		}
 
 		internal static void SetValidity(ref CandidateState candidate, bool value)
 		{
+			throw null;
+		}
+
+		public void ReplaceEndpoint(int index, Endpoint? endpoint, RouteValueDictionary? values)
+		{
+			throw null;
+		}
+
+		public void ExpandEndpoint(int index, IReadOnlyList<Endpoint> endpoints, IComparer<Endpoint> comparer)
+		{
+			throw null;
 		}
 	}
 }
@@ -27295,14 +33371,10 @@ namespace Microsoft.AspNetCore.Routing.Matching
 {
 	public struct CandidateState
 	{
-		private object _dummy;
-
-		private int _dummyPrimitive;
-
 		public Endpoint Endpoint
 		{
 			[CompilerGenerated]
-			get
+			readonly get
 			{
 				throw null;
 			}
@@ -27311,23 +33383,36 @@ namespace Microsoft.AspNetCore.Routing.Matching
 		public int Score
 		{
 			[CompilerGenerated]
-			get
+			readonly get
 			{
 				throw null;
 			}
 		}
 
-		public RouteValueDictionary Values
+		public RouteValueDictionary? Values
 		{
+			[System.Runtime.CompilerServices.NullableContext(2)]
 			[CompilerGenerated]
-			get
+			readonly get
 			{
 				throw null;
 			}
+			[System.Runtime.CompilerServices.NullableContext(2)]
 			[CompilerGenerated]
 			internal set
 			{
+				throw null;
 			}
+		}
+
+		internal CandidateState(Endpoint endpoint, int score)
+		{
+			throw null;
+		}
+
+		internal CandidateState(Endpoint endpoint, RouteValueDictionary? values, int score)
+		{
+			throw null;
 		}
 	}
 }
@@ -27371,34 +33456,44 @@ namespace Microsoft.AspNetCore.Routing.Matching
 {
 	public sealed class EndpointMetadataComparer : IComparer<Endpoint>
 	{
-		internal EndpointMetadataComparer()
-		{
-		}
-
-		int IComparer<Endpoint>.Compare(Endpoint x, Endpoint y)
+		internal EndpointMetadataComparer(IServiceProvider services)
 		{
 			throw null;
 		}
 
-		internal EndpointMetadataComparer(IServiceProvider services)
+		int IComparer<Endpoint>.Compare(Endpoint? x, Endpoint? y)
 		{
+			throw null;
 		}
 	}
 	public abstract class EndpointMetadataComparer<TMetadata> : IComparer<Endpoint> where TMetadata : class
 	{
+		private class DefaultComparer<T> : EndpointMetadataComparer<T> where T : class
+		{
+			public DefaultComparer()
+			{
+				throw null;
+			}
+		}
+
 		public static readonly EndpointMetadataComparer<TMetadata> Default;
 
-		public int Compare(Endpoint x, Endpoint y)
+		public int Compare(Endpoint? x, Endpoint? y)
 		{
 			throw null;
 		}
 
-		protected virtual int CompareMetadata(TMetadata x, TMetadata y)
+		protected virtual TMetadata? GetMetadata(Endpoint endpoint)
 		{
 			throw null;
 		}
 
-		protected virtual TMetadata GetMetadata(Endpoint endpoint)
+		protected virtual int CompareMetadata(TMetadata? x, TMetadata? y)
+		{
+			throw null;
+		}
+
+		protected EndpointMetadataComparer()
 		{
 			throw null;
 		}
@@ -27415,24 +33510,132 @@ namespace Microsoft.AspNetCore.Routing.Matching
 	public abstract class EndpointSelector
 	{
 		public abstract Task SelectAsync(HttpContext httpContext, CandidateSet candidates);
+
+		protected EndpointSelector()
+		{
+			throw null;
+		}
 	}
 }
 
 
 // Microsoft.AspNetCore.Routing\Microsoft.AspNetCore.Routing.Matching\HostMatcherPolicy.cs
 using Microsoft.AspNetCore.Http;
+using System;
 using System.Collections.Generic;
 using System.Runtime.CompilerServices;
 using System.Threading.Tasks;
 
 namespace Microsoft.AspNetCore.Routing.Matching
 {
-	public sealed class HostMatcherPolicy : MatcherPolicy, IEndpointComparerPolicy, IEndpointSelectorPolicy, INodeBuilderPolicy
+	public sealed class HostMatcherPolicy : MatcherPolicy, IEndpointComparerPolicy, INodeBuilderPolicy, IEndpointSelectorPolicy
 	{
-		public IComparer<Endpoint> Comparer
+		private class HostMetadataEndpointComparer : EndpointMetadataComparer<IHostMetadata>
 		{
-			[CompilerGenerated]
-			get
+			protected override int CompareMetadata(IHostMetadata? x, IHostMetadata? y)
+			{
+				throw null;
+			}
+
+			public HostMetadataEndpointComparer()
+			{
+				throw null;
+			}
+		}
+
+		private class HostPolicyJumpTable : PolicyJumpTable
+		{
+			public HostPolicyJumpTable(int exitDestination, (EdgeKey host, int destination)[] destinations)
+			{
+				throw null;
+			}
+
+			public override int GetDestination(HttpContext httpContext)
+			{
+				throw null;
+			}
+		}
+
+		private readonly struct EdgeKey : IEquatable<EdgeKey>, IComparable<EdgeKey>, IComparable
+		{
+			internal static readonly EdgeKey WildcardEdgeKey;
+
+			public readonly int? Port;
+
+			public readonly string Host;
+
+			private readonly string? _wildcardEndsWith;
+
+			public bool HasHostWildcard
+			{
+				[CompilerGenerated]
+				get
+				{
+					throw null;
+				}
+			}
+
+			public bool MatchesHost
+			{
+				get
+				{
+					throw null;
+				}
+			}
+
+			public bool MatchesPort
+			{
+				get
+				{
+					throw null;
+				}
+			}
+
+			public bool MatchesAll
+			{
+				get
+				{
+					throw null;
+				}
+			}
+
+			[System.Runtime.CompilerServices.NullableContext(2)]
+			public EdgeKey(string? host, int? port)
+			{
+				throw null;
+			}
+
+			public int CompareTo(EdgeKey other)
+			{
+				throw null;
+			}
+
+			public int CompareTo(object? obj)
+			{
+				throw null;
+			}
+
+			public bool Equals(EdgeKey other)
+			{
+				throw null;
+			}
+
+			public bool MatchHost(string host)
+			{
+				throw null;
+			}
+
+			public override int GetHashCode()
+			{
+				throw null;
+			}
+
+			public override bool Equals(object? obj)
+			{
+				throw null;
+			}
+
+			public override string ToString()
 			{
 				throw null;
 			}
@@ -27447,17 +33650,16 @@ namespace Microsoft.AspNetCore.Routing.Matching
 			}
 		}
 
-		public Task ApplyAsync(HttpContext httpContext, CandidateSet candidates)
+		public IComparer<Endpoint> Comparer
 		{
-			throw null;
+			[CompilerGenerated]
+			get
+			{
+				throw null;
+			}
 		}
 
-		public PolicyJumpTable BuildJumpTable(int exitDestination, IReadOnlyList<PolicyJumpTableEdge> edges)
-		{
-			throw null;
-		}
-
-		public IReadOnlyList<PolicyNodeEdge> GetEdges(IReadOnlyList<Endpoint> endpoints)
+		bool INodeBuilderPolicy.AppliesToEndpoints(IReadOnlyList<Endpoint> endpoints)
 		{
 			throw null;
 		}
@@ -27467,7 +33669,22 @@ namespace Microsoft.AspNetCore.Routing.Matching
 			throw null;
 		}
 
-		bool INodeBuilderPolicy.AppliesToEndpoints(IReadOnlyList<Endpoint> endpoints)
+		public Task ApplyAsync(HttpContext httpContext, CandidateSet candidates)
+		{
+			throw null;
+		}
+
+		public IReadOnlyList<PolicyNodeEdge> GetEdges(IReadOnlyList<Endpoint> endpoints)
+		{
+			throw null;
+		}
+
+		public PolicyJumpTable BuildJumpTable(int exitDestination, IReadOnlyList<PolicyJumpTableEdge> edges)
+		{
+			throw null;
+		}
+
+		public HostMatcherPolicy()
 		{
 			throw null;
 		}
@@ -27479,18 +33696,46 @@ namespace Microsoft.AspNetCore.Routing.Matching
 using Microsoft.AspNetCore.Http;
 using System;
 using System.Collections.Generic;
+using System.Runtime.CompilerServices;
 using System.Threading.Tasks;
 
 namespace Microsoft.AspNetCore.Routing.Matching
 {
-	public sealed class HttpMethodMatcherPolicy : MatcherPolicy, IEndpointComparerPolicy, IEndpointSelectorPolicy, INodeBuilderPolicy
+	public sealed class HttpMethodMatcherPolicy : MatcherPolicy, IEndpointComparerPolicy, INodeBuilderPolicy, IEndpointSelectorPolicy
 	{
-		internal readonly struct EdgeKey : IComparable, IComparable<EdgeKey>, IEquatable<EdgeKey>
+		private class HttpMethodPolicyJumpTable : PolicyJumpTable
+		{
+			public HttpMethodPolicyJumpTable(int exitDestination, Dictionary<string, int>? destinations, int corsPreflightExitDestination, Dictionary<string, int>? corsPreflightDestinations)
+			{
+				throw null;
+			}
+
+			public override int GetDestination(HttpContext httpContext)
+			{
+				throw null;
+			}
+		}
+
+		private class HttpMethodMetadataEndpointComparer : EndpointMetadataComparer<IHttpMethodMetadata>
+		{
+			protected override int CompareMetadata(IHttpMethodMetadata? x, IHttpMethodMetadata? y)
+			{
+				throw null;
+			}
+
+			public HttpMethodMetadataEndpointComparer()
+			{
+				throw null;
+			}
+		}
+
+		internal readonly struct EdgeKey : IEquatable<EdgeKey>, IComparable<EdgeKey>, IComparable
 		{
 			public readonly bool IsCorsPreflightRequest;
 
 			public readonly string HttpMethod;
 
+			[System.Runtime.CompilerServices.NullableContext(1)]
 			public EdgeKey(string httpMethod, bool isCorsPreflightRequest)
 			{
 				throw null;
@@ -27501,7 +33746,7 @@ namespace Microsoft.AspNetCore.Routing.Matching
 				throw null;
 			}
 
-			public int CompareTo(object obj)
+			public int CompareTo(object? obj)
 			{
 				throw null;
 			}
@@ -27511,7 +33756,7 @@ namespace Microsoft.AspNetCore.Routing.Matching
 				throw null;
 			}
 
-			public override bool Equals(object obj)
+			public override bool Equals(object? obj)
 			{
 				throw null;
 			}
@@ -27527,15 +33772,15 @@ namespace Microsoft.AspNetCore.Routing.Matching
 			}
 		}
 
+		internal static readonly string OriginHeader;
+
 		internal static readonly string AccessControlRequestMethod;
 
-		internal const string AnyMethod = "*";
+		internal static readonly string PreflightHttpMethod;
 
 		internal const string Http405EndpointDisplayName = "405 HTTP Method Not Supported";
 
-		internal static readonly string OriginHeader;
-
-		internal static readonly string PreflightHttpMethod;
+		internal const string AnyMethod = "*";
 
 		public IComparer<Endpoint> Comparer
 		{
@@ -27553,17 +33798,7 @@ namespace Microsoft.AspNetCore.Routing.Matching
 			}
 		}
 
-		public Task ApplyAsync(HttpContext httpContext, CandidateSet candidates)
-		{
-			throw null;
-		}
-
-		public PolicyJumpTable BuildJumpTable(int exitDestination, IReadOnlyList<PolicyJumpTableEdge> edges)
-		{
-			throw null;
-		}
-
-		public IReadOnlyList<PolicyNodeEdge> GetEdges(IReadOnlyList<Endpoint> endpoints)
+		bool INodeBuilderPolicy.AppliesToEndpoints(IReadOnlyList<Endpoint> endpoints)
 		{
 			throw null;
 		}
@@ -27573,7 +33808,22 @@ namespace Microsoft.AspNetCore.Routing.Matching
 			throw null;
 		}
 
-		bool INodeBuilderPolicy.AppliesToEndpoints(IReadOnlyList<Endpoint> endpoints)
+		public Task ApplyAsync(HttpContext httpContext, CandidateSet candidates)
+		{
+			throw null;
+		}
+
+		public IReadOnlyList<PolicyNodeEdge> GetEdges(IReadOnlyList<Endpoint> endpoints)
+		{
+			throw null;
+		}
+
+		public PolicyJumpTable BuildJumpTable(int exitDestination, IReadOnlyList<PolicyJumpTableEdge> edges)
+		{
+			throw null;
+		}
+
+		public HttpMethodMatcherPolicy()
 		{
 			throw null;
 		}
@@ -27623,9 +33873,9 @@ namespace Microsoft.AspNetCore.Routing.Matching
 	{
 		bool AppliesToEndpoints(IReadOnlyList<Endpoint> endpoints);
 
-		PolicyJumpTable BuildJumpTable(int exitDestination, IReadOnlyList<PolicyJumpTableEdge> edges);
-
 		IReadOnlyList<PolicyNodeEdge> GetEdges(IReadOnlyList<Endpoint> endpoints);
+
+		PolicyJumpTable BuildJumpTable(int exitDestination, IReadOnlyList<PolicyJumpTableEdge> edges);
 	}
 }
 
@@ -27638,12 +33888,17 @@ namespace Microsoft.AspNetCore.Routing.Matching
 	[DebuggerDisplay("{DebuggerToString(),nq}")]
 	internal abstract class JumpTable
 	{
+		public abstract int GetDestination(string path, PathSegment segment);
+
 		public virtual string DebuggerToString()
 		{
 			throw null;
 		}
 
-		public abstract int GetDestination(string path, PathSegment segment);
+		protected JumpTable()
+		{
+			throw null;
+		}
 	}
 }
 
@@ -27657,6 +33912,11 @@ namespace Microsoft.AspNetCore.Routing.Matching
 	internal abstract class Matcher
 	{
 		public abstract Task MatchAsync(HttpContext httpContext);
+
+		protected Matcher()
+		{
+			throw null;
+		}
 	}
 }
 
@@ -27669,6 +33929,11 @@ namespace Microsoft.AspNetCore.Routing.Matching
 		public abstract void AddEndpoint(RouteEndpoint endpoint);
 
 		public abstract Matcher Build();
+
+		protected MatcherBuilder()
+		{
+			throw null;
+		}
 	}
 }
 
@@ -27679,6 +33944,11 @@ namespace Microsoft.AspNetCore.Routing.Matching
 	internal abstract class MatcherFactory
 	{
 		public abstract Matcher CreateMatcher(EndpointDataSource dataSource);
+
+		protected MatcherFactory()
+		{
+			throw null;
+		}
 	}
 }
 
@@ -27699,12 +33969,12 @@ namespace Microsoft.AspNetCore.Routing.Matching
 			throw null;
 		}
 
-		public bool Equals(PathSegment other)
+		public override bool Equals(object? obj)
 		{
 			throw null;
 		}
 
-		public override bool Equals(object obj)
+		public bool Equals(PathSegment other)
 		{
 			throw null;
 		}
@@ -27730,6 +34000,16 @@ namespace Microsoft.AspNetCore.Routing.Matching
 	public abstract class PolicyJumpTable
 	{
 		public abstract int GetDestination(HttpContext httpContext);
+
+		internal virtual string DebuggerToString()
+		{
+			throw null;
+		}
+
+		protected PolicyJumpTable()
+		{
+			throw null;
+		}
 	}
 }
 
@@ -27741,11 +34021,7 @@ namespace Microsoft.AspNetCore.Routing.Matching
 {
 	public readonly struct PolicyJumpTableEdge
 	{
-		private readonly object _dummy;
-
-		private readonly int _dummyPrimitive;
-
-		public int Destination
+		public object State
 		{
 			[CompilerGenerated]
 			get
@@ -27754,7 +34030,7 @@ namespace Microsoft.AspNetCore.Routing.Matching
 			}
 		}
 
-		public object State
+		public int Destination
 		{
 			[CompilerGenerated]
 			get
@@ -27780,8 +34056,6 @@ namespace Microsoft.AspNetCore.Routing.Matching
 {
 	public readonly struct PolicyNodeEdge
 	{
-		private readonly object _dummy;
-
 		public IReadOnlyList<Endpoint> Endpoints
 		{
 			[CompilerGenerated]
@@ -27818,9 +34092,36 @@ namespace Microsoft.AspNetCore.Routing.Patterns
 	[DebuggerDisplay("{DebuggerToString()}")]
 	public sealed class RoutePattern
 	{
+		[DebuggerDisplay("{DebuggerToString(),nq}")]
+		private class RequiredValueAnySentinal
+		{
+			public RequiredValueAnySentinal()
+			{
+				throw null;
+			}
+		}
+
 		public static readonly object RequiredValueAny;
 
-		public IReadOnlyDictionary<string, object> Defaults
+		public IReadOnlyDictionary<string, object?> Defaults
+		{
+			[CompilerGenerated]
+			get
+			{
+				throw null;
+			}
+		}
+
+		public IReadOnlyDictionary<string, IReadOnlyList<RoutePatternParameterPolicyReference>> ParameterPolicies
+		{
+			[CompilerGenerated]
+			get
+			{
+				throw null;
+			}
+		}
+
+		public IReadOnlyDictionary<string, object?> RequiredValues
 		{
 			[CompilerGenerated]
 			get
@@ -27847,8 +34148,9 @@ namespace Microsoft.AspNetCore.Routing.Patterns
 			}
 		}
 
-		public IReadOnlyDictionary<string, IReadOnlyList<RoutePatternParameterPolicyReference>> ParameterPolicies
+		public string? RawText
 		{
+			[System.Runtime.CompilerServices.NullableContext(2)]
 			[CompilerGenerated]
 			get
 			{
@@ -27874,29 +34176,22 @@ namespace Microsoft.AspNetCore.Routing.Patterns
 			}
 		}
 
-		public string RawText
+		internal static bool IsRequiredValueAny(object? value)
 		{
-			[CompilerGenerated]
-			get
-			{
-				throw null;
-			}
+			throw null;
 		}
 
-		public IReadOnlyDictionary<string, object> RequiredValues
+		internal RoutePattern(string? rawText, IReadOnlyDictionary<string, object?> defaults, IReadOnlyDictionary<string, IReadOnlyList<RoutePatternParameterPolicyReference>> parameterPolicies, IReadOnlyDictionary<string, object?> requiredValues, IReadOnlyList<RoutePatternParameterPart> parameters, IReadOnlyList<RoutePatternPathSegment> pathSegments)
 		{
-			[CompilerGenerated]
-			get
-			{
-				throw null;
-			}
+			throw null;
 		}
 
-		internal RoutePattern()
+		public RoutePatternParameterPart? GetParameter(string name)
 		{
+			throw null;
 		}
 
-		public RoutePatternParameterPart GetParameter(string name)
+		internal string DebuggerToString()
 		{
 			throw null;
 		}
@@ -27911,6 +34206,7 @@ using System.Runtime.Serialization;
 
 namespace Microsoft.AspNetCore.Routing.Patterns
 {
+	[Serializable]
 	public sealed class RoutePatternException : Exception
 	{
 		public string Pattern
@@ -27924,10 +34220,12 @@ namespace Microsoft.AspNetCore.Routing.Patterns
 
 		public RoutePatternException(string pattern, string message)
 		{
+			throw null;
 		}
 
 		public override void GetObjectData(SerializationInfo info, StreamingContext context)
 		{
+			throw null;
 		}
 	}
 }
@@ -27940,22 +34238,77 @@ namespace Microsoft.AspNetCore.Routing.Patterns
 {
 	public static class RoutePatternFactory
 	{
-		public static RoutePatternParameterPolicyReference Constraint(IRouteConstraint constraint)
+		public static RoutePattern Parse(string pattern)
 		{
 			throw null;
 		}
 
-		public static RoutePatternParameterPolicyReference Constraint(object constraint)
+		public static RoutePattern Parse(string pattern, object? defaults, object? parameterPolicies)
 		{
 			throw null;
 		}
 
-		public static RoutePatternParameterPolicyReference Constraint(string constraint)
+		public static RoutePattern Parse(string pattern, object? defaults, object? parameterPolicies, object? requiredValues)
+		{
+			throw null;
+		}
+
+		public static RoutePattern Pattern(IEnumerable<RoutePatternPathSegment> segments)
+		{
+			throw null;
+		}
+
+		public static RoutePattern Pattern(string? rawText, IEnumerable<RoutePatternPathSegment> segments)
+		{
+			throw null;
+		}
+
+		public static RoutePattern Pattern(object? defaults, object? parameterPolicies, IEnumerable<RoutePatternPathSegment> segments)
+		{
+			throw null;
+		}
+
+		public static RoutePattern Pattern(string? rawText, object? defaults, object? parameterPolicies, IEnumerable<RoutePatternPathSegment> segments)
+		{
+			throw null;
+		}
+
+		public static RoutePattern Pattern(params RoutePatternPathSegment[] segments)
+		{
+			throw null;
+		}
+
+		public static RoutePattern Pattern(string rawText, params RoutePatternPathSegment[] segments)
+		{
+			throw null;
+		}
+
+		public static RoutePattern Pattern(object? defaults, object? parameterPolicies, params RoutePatternPathSegment[] segments)
+		{
+			throw null;
+		}
+
+		public static RoutePattern Pattern(string? rawText, object? defaults, object? parameterPolicies, params RoutePatternPathSegment[] segments)
+		{
+			throw null;
+		}
+
+		public static RoutePatternPathSegment Segment(IEnumerable<RoutePatternPart> parts)
+		{
+			throw null;
+		}
+
+		public static RoutePatternPathSegment Segment(params RoutePatternPart[] parts)
 		{
 			throw null;
 		}
 
 		public static RoutePatternLiteralPart LiteralPart(string content)
+		{
+			throw null;
+		}
+
+		public static RoutePatternSeparatorPart SeparatorPart(string content)
 		{
 			throw null;
 		}
@@ -27970,17 +34323,32 @@ namespace Microsoft.AspNetCore.Routing.Patterns
 			throw null;
 		}
 
-		public static RoutePatternParameterPart ParameterPart(string parameterName, object @default, RoutePatternParameterKind parameterKind)
+		public static RoutePatternParameterPart ParameterPart(string parameterName, object? @default, RoutePatternParameterKind parameterKind)
 		{
 			throw null;
 		}
 
-		public static RoutePatternParameterPart ParameterPart(string parameterName, object @default, RoutePatternParameterKind parameterKind, params RoutePatternParameterPolicyReference[] parameterPolicies)
+		public static RoutePatternParameterPart ParameterPart(string parameterName, object? @default, RoutePatternParameterKind parameterKind, IEnumerable<RoutePatternParameterPolicyReference> parameterPolicies)
 		{
 			throw null;
 		}
 
-		public static RoutePatternParameterPart ParameterPart(string parameterName, object @default, RoutePatternParameterKind parameterKind, IEnumerable<RoutePatternParameterPolicyReference> parameterPolicies)
+		public static RoutePatternParameterPart ParameterPart(string parameterName, object? @default, RoutePatternParameterKind parameterKind, params RoutePatternParameterPolicyReference[] parameterPolicies)
+		{
+			throw null;
+		}
+
+		public static RoutePatternParameterPolicyReference Constraint(object constraint)
+		{
+			throw null;
+		}
+
+		public static RoutePatternParameterPolicyReference Constraint(IRouteConstraint constraint)
+		{
+			throw null;
+		}
+
+		public static RoutePatternParameterPolicyReference Constraint(string constraint)
 		{
 			throw null;
 		}
@@ -27991,76 +34359,6 @@ namespace Microsoft.AspNetCore.Routing.Patterns
 		}
 
 		public static RoutePatternParameterPolicyReference ParameterPolicy(string parameterPolicy)
-		{
-			throw null;
-		}
-
-		public static RoutePattern Parse(string pattern)
-		{
-			throw null;
-		}
-
-		public static RoutePattern Parse(string pattern, object defaults, object parameterPolicies)
-		{
-			throw null;
-		}
-
-		public static RoutePattern Parse(string pattern, object defaults, object parameterPolicies, object requiredValues)
-		{
-			throw null;
-		}
-
-		public static RoutePattern Pattern(params RoutePatternPathSegment[] segments)
-		{
-			throw null;
-		}
-
-		public static RoutePattern Pattern(IEnumerable<RoutePatternPathSegment> segments)
-		{
-			throw null;
-		}
-
-		public static RoutePattern Pattern(object defaults, object parameterPolicies, params RoutePatternPathSegment[] segments)
-		{
-			throw null;
-		}
-
-		public static RoutePattern Pattern(object defaults, object parameterPolicies, IEnumerable<RoutePatternPathSegment> segments)
-		{
-			throw null;
-		}
-
-		public static RoutePattern Pattern(string rawText, params RoutePatternPathSegment[] segments)
-		{
-			throw null;
-		}
-
-		public static RoutePattern Pattern(string rawText, IEnumerable<RoutePatternPathSegment> segments)
-		{
-			throw null;
-		}
-
-		public static RoutePattern Pattern(string rawText, object defaults, object parameterPolicies, params RoutePatternPathSegment[] segments)
-		{
-			throw null;
-		}
-
-		public static RoutePattern Pattern(string rawText, object defaults, object parameterPolicies, IEnumerable<RoutePatternPathSegment> segments)
-		{
-			throw null;
-		}
-
-		public static RoutePatternPathSegment Segment(params RoutePatternPart[] parts)
-		{
-			throw null;
-		}
-
-		public static RoutePatternPathSegment Segment(IEnumerable<RoutePatternPart> parts)
-		{
-			throw null;
-		}
-
-		public static RoutePatternSeparatorPart SeparatorPart(string content)
 		{
 			throw null;
 		}
@@ -28086,8 +34384,14 @@ namespace Microsoft.AspNetCore.Routing.Patterns
 			}
 		}
 
-		internal RoutePatternLiteralPart()
+		internal RoutePatternLiteralPart(string content)
 		{
+			throw null;
+		}
+
+		internal override string DebuggerToString()
+		{
+			throw null;
 		}
 	}
 }
@@ -28115,7 +34419,7 @@ namespace Microsoft.AspNetCore.Routing.Patterns
 	[DebuggerDisplay("{DebuggerToString()}")]
 	public sealed class RoutePatternParameterPart : RoutePatternPart
 	{
-		public object Default
+		public IReadOnlyList<RoutePatternParameterPolicyReference> ParameterPolicies
 		{
 			[CompilerGenerated]
 			get
@@ -28126,6 +34430,16 @@ namespace Microsoft.AspNetCore.Routing.Patterns
 
 		public bool EncodeSlashes
 		{
+			[CompilerGenerated]
+			get
+			{
+				throw null;
+			}
+		}
+
+		public object? Default
+		{
+			[System.Runtime.CompilerServices.NullableContext(2)]
 			[CompilerGenerated]
 			get
 			{
@@ -28149,15 +34463,6 @@ namespace Microsoft.AspNetCore.Routing.Patterns
 			}
 		}
 
-		public string Name
-		{
-			[CompilerGenerated]
-			get
-			{
-				throw null;
-			}
-		}
-
 		public RoutePatternParameterKind ParameterKind
 		{
 			[CompilerGenerated]
@@ -28167,7 +34472,7 @@ namespace Microsoft.AspNetCore.Routing.Patterns
 			}
 		}
 
-		public IReadOnlyList<RoutePatternParameterPolicyReference> ParameterPolicies
+		public string Name
 		{
 			[CompilerGenerated]
 			get
@@ -28176,8 +34481,19 @@ namespace Microsoft.AspNetCore.Routing.Patterns
 			}
 		}
 
-		internal RoutePatternParameterPart()
+		internal RoutePatternParameterPart(string parameterName, object? @default, RoutePatternParameterKind parameterKind, RoutePatternParameterPolicyReference[] parameterPolicies)
 		{
+			throw null;
+		}
+
+		internal RoutePatternParameterPart(string parameterName, object? @default, RoutePatternParameterKind parameterKind, RoutePatternParameterPolicyReference[] parameterPolicies, bool encodeSlashes)
+		{
+			throw null;
+		}
+
+		internal override string DebuggerToString()
+		{
+			throw null;
 		}
 	}
 }
@@ -28192,7 +34508,7 @@ namespace Microsoft.AspNetCore.Routing.Patterns
 	[DebuggerDisplay("{DebuggerToString()}")]
 	public sealed class RoutePatternParameterPolicyReference
 	{
-		public string Content
+		public string? Content
 		{
 			[CompilerGenerated]
 			get
@@ -28201,7 +34517,7 @@ namespace Microsoft.AspNetCore.Routing.Patterns
 			}
 		}
 
-		public IParameterPolicy ParameterPolicy
+		public IParameterPolicy? ParameterPolicy
 		{
 			[CompilerGenerated]
 			get
@@ -28210,8 +34526,16 @@ namespace Microsoft.AspNetCore.Routing.Patterns
 			}
 		}
 
-		internal RoutePatternParameterPolicyReference()
+		[System.Runtime.CompilerServices.NullableContext(1)]
+		internal RoutePatternParameterPolicyReference(string content)
 		{
+			throw null;
+		}
+
+		[System.Runtime.CompilerServices.NullableContext(1)]
+		internal RoutePatternParameterPolicyReference(IParameterPolicy parameterPolicy)
+		{
+			throw null;
 		}
 	}
 }
@@ -28224,6 +34548,15 @@ namespace Microsoft.AspNetCore.Routing.Patterns
 {
 	public abstract class RoutePatternPart
 	{
+		public RoutePatternPartKind PartKind
+		{
+			[CompilerGenerated]
+			get
+			{
+				throw null;
+			}
+		}
+
 		public bool IsLiteral
 		{
 			get
@@ -28248,18 +34581,12 @@ namespace Microsoft.AspNetCore.Routing.Patterns
 			}
 		}
 
-		public RoutePatternPartKind PartKind
+		private protected RoutePatternPart(RoutePatternPartKind partKind)
 		{
-			[CompilerGenerated]
-			get
-			{
-				throw null;
-			}
+			throw null;
 		}
 
-		internal RoutePatternPart()
-		{
-		}
+		internal abstract string DebuggerToString();
 	}
 }
 
@@ -28284,7 +34611,6 @@ using System.Runtime.CompilerServices;
 namespace Microsoft.AspNetCore.Routing.Patterns
 {
 	[DebuggerDisplay("{DebuggerToString()}")]
-	[DebuggerDisplay("{DebuggerToString()}")]
 	public sealed class RoutePatternPathSegment
 	{
 		public bool IsSimple
@@ -28304,12 +34630,9 @@ namespace Microsoft.AspNetCore.Routing.Patterns
 			}
 		}
 
-		internal RoutePatternPathSegment()
-		{
-		}
-
 		internal RoutePatternPathSegment(IReadOnlyList<RoutePatternPart> parts)
 		{
+			throw null;
 		}
 
 		internal string DebuggerToString()
@@ -28343,8 +34666,14 @@ namespace Microsoft.AspNetCore.Routing.Patterns
 			}
 		}
 
-		internal RoutePatternSeparatorPart()
+		internal RoutePatternSeparatorPart(string content)
 		{
+			throw null;
+		}
+
+		internal override string DebuggerToString()
+		{
+			throw null;
 		}
 	}
 }
@@ -28355,7 +34684,12 @@ namespace Microsoft.AspNetCore.Routing.Patterns
 {
 	public abstract class RoutePatternTransformer
 	{
-		public abstract RoutePattern SubstituteRequiredValues(RoutePattern original, object requiredValues);
+		public abstract RoutePattern? SubstituteRequiredValues(RoutePattern original, object requiredValues);
+
+		protected RoutePatternTransformer()
+		{
+			throw null;
+		}
 	}
 }
 
@@ -28377,12 +34711,14 @@ namespace Microsoft.AspNetCore.Routing.Template
 			}
 		}
 
-		public InlineConstraint(RoutePatternParameterPolicyReference other)
-		{
-		}
-
 		public InlineConstraint(string constraint)
 		{
+			throw null;
+		}
+
+		public InlineConstraint(RoutePatternParameterPolicyReference other)
+		{
+			throw null;
 		}
 	}
 }
@@ -28400,17 +34736,22 @@ namespace Microsoft.AspNetCore.Routing.Template
 			throw null;
 		}
 
-		public static decimal ComputeOutbound(RouteTemplate template)
-		{
-			throw null;
-		}
-
 		internal static decimal ComputeInbound(RoutePattern routePattern)
 		{
 			throw null;
 		}
 
+		public static decimal ComputeOutbound(RouteTemplate template)
+		{
+			throw null;
+		}
+
 		internal static decimal ComputeOutbound(RoutePattern routePattern)
+		{
+			throw null;
+		}
+
+		internal static int ComputeInboundPrecedenceDigit(RoutePattern routePattern, RoutePatternPathSegment pathSegment)
 		{
 			throw null;
 		}
@@ -28429,6 +34770,16 @@ namespace Microsoft.AspNetCore.Routing.Template
 	[DebuggerDisplay("{DebuggerToString()}")]
 	public class RouteTemplate
 	{
+		public string? TemplateText
+		{
+			[System.Runtime.CompilerServices.NullableContext(2)]
+			[CompilerGenerated]
+			get
+			{
+				throw null;
+			}
+		}
+
 		public IList<TemplatePart> Parameters
 		{
 			[CompilerGenerated]
@@ -28447,29 +34798,22 @@ namespace Microsoft.AspNetCore.Routing.Template
 			}
 		}
 
-		public string TemplateText
-		{
-			[CompilerGenerated]
-			get
-			{
-				throw null;
-			}
-		}
-
 		public RouteTemplate(RoutePattern other)
-		{
-		}
-
-		public RouteTemplate(string template, List<TemplateSegment> segments)
-		{
-		}
-
-		public TemplatePart GetParameter(string name)
 		{
 			throw null;
 		}
 
-		public TemplateSegment GetSegment(int index)
+		public RouteTemplate(string template, List<TemplateSegment> segments)
+		{
+			throw null;
+		}
+
+		public TemplateSegment? GetSegment(int index)
+		{
+			throw null;
+		}
+
+		public TemplatePart? GetParameter(string name)
 		{
 			throw null;
 		}
@@ -28487,49 +34831,60 @@ using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Routing.Patterns;
 using Microsoft.Extensions.ObjectPool;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.Text.Encodings.Web;
 
 namespace Microsoft.AspNetCore.Routing.Template
 {
 	public class TemplateBinder
 	{
-		internal TemplateBinder()
+		[DebuggerDisplay("explicit null")]
+		private class SentinullValue
 		{
-		}
+			public static object Instance;
 
-		public string BindValues(RouteValueDictionary acceptedValues)
-		{
-			throw null;
-		}
-
-		public TemplateValuesResult GetValues(RouteValueDictionary ambientValues, RouteValueDictionary values)
-		{
-			throw null;
-		}
-
-		public static bool RoutePartsEqual(object a, object b)
-		{
-			throw null;
-		}
-
-		public bool TryProcessConstraints(HttpContext httpContext, RouteValueDictionary combinedValues, out string parameterName, out IRouteConstraint constraint)
-		{
-			throw null;
-		}
-
-		internal TemplateBinder(UrlEncoder urlEncoder, ObjectPool<UriBuildingContext> pool, RoutePattern pattern, RouteValueDictionary defaults, IEnumerable<string> requiredKeys, IEnumerable<(string, IParameterPolicy)> parameterPolicies)
-		{
-		}
-
-		internal TemplateBinder(UrlEncoder urlEncoder, ObjectPool<UriBuildingContext> pool, RoutePattern pattern, IEnumerable<(string, IParameterPolicy)> parameterPolicies)
-		{
+			public override string ToString()
+			{
+				throw null;
+			}
 		}
 
 		internal TemplateBinder(UrlEncoder urlEncoder, ObjectPool<UriBuildingContext> pool, RouteTemplate template, RouteValueDictionary defaults)
 		{
+			throw null;
 		}
 
-		internal bool TryBindValues(RouteValueDictionary acceptedValues, LinkOptions options, LinkOptions globalOptions, out (PathString path, QueryString query) result)
+		internal TemplateBinder(UrlEncoder urlEncoder, ObjectPool<UriBuildingContext> pool, RoutePattern pattern, RouteValueDictionary? defaults, IEnumerable<string>? requiredKeys, IEnumerable<(string parameterName, IParameterPolicy policy)>? parameterPolicies)
+		{
+			throw null;
+		}
+
+		internal TemplateBinder(UrlEncoder urlEncoder, ObjectPool<UriBuildingContext> pool, RoutePattern pattern, IEnumerable<(string parameterName, IParameterPolicy policy)> parameterPolicies)
+		{
+			throw null;
+		}
+
+		public TemplateValuesResult? GetValues(RouteValueDictionary? ambientValues, RouteValueDictionary values)
+		{
+			throw null;
+		}
+
+		public bool TryProcessConstraints(HttpContext? httpContext, RouteValueDictionary combinedValues, out string? parameterName, out IRouteConstraint? constraint)
+		{
+			throw null;
+		}
+
+		public string? BindValues(RouteValueDictionary acceptedValues)
+		{
+			throw null;
+		}
+
+		internal bool TryBindValues(RouteValueDictionary acceptedValues, LinkOptions? options, LinkOptions globalOptions, out (PathString path, QueryString query) result)
+		{
+			throw null;
+		}
+
+		public static bool RoutePartsEqual(object? a, object? b)
 		{
 			throw null;
 		}
@@ -28544,9 +34899,14 @@ namespace Microsoft.AspNetCore.Routing.Template
 {
 	public abstract class TemplateBinderFactory
 	{
+		public abstract TemplateBinder Create(RouteTemplate template, RouteValueDictionary defaults);
+
 		public abstract TemplateBinder Create(RoutePattern pattern);
 
-		public abstract TemplateBinder Create(RouteTemplate template, RouteValueDictionary defaults);
+		protected TemplateBinderFactory()
+		{
+			throw null;
+		}
 	}
 }
 
@@ -28579,6 +34939,7 @@ namespace Microsoft.AspNetCore.Routing.Template
 
 		public TemplateMatcher(RouteTemplate template, RouteValueDictionary defaults)
 		{
+			throw null;
 		}
 
 		public bool TryMatch(PathString path, RouteValueDictionary values)
@@ -28613,24 +34974,6 @@ namespace Microsoft.AspNetCore.Routing.Template
 	[DebuggerDisplay("{DebuggerToString()}")]
 	public class TemplatePart
 	{
-		public object DefaultValue
-		{
-			[CompilerGenerated]
-			get
-			{
-				throw null;
-			}
-		}
-
-		public IEnumerable<InlineConstraint> InlineConstraints
-		{
-			[CompilerGenerated]
-			get
-			{
-				throw null;
-			}
-		}
-
 		public bool IsCatchAll
 		{
 			[CompilerGenerated]
@@ -28641,6 +34984,15 @@ namespace Microsoft.AspNetCore.Routing.Template
 		}
 
 		public bool IsLiteral
+		{
+			[CompilerGenerated]
+			get
+			{
+				throw null;
+			}
+		}
+
+		public bool IsParameter
 		{
 			[CompilerGenerated]
 			get
@@ -28668,10 +35020,11 @@ namespace Microsoft.AspNetCore.Routing.Template
 			[CompilerGenerated]
 			set
 			{
+				throw null;
 			}
 		}
 
-		public bool IsParameter
+		public string? Name
 		{
 			[CompilerGenerated]
 			get
@@ -28680,7 +35033,7 @@ namespace Microsoft.AspNetCore.Routing.Template
 			}
 		}
 
-		public string Name
+		public string? Text
 		{
 			[CompilerGenerated]
 			get
@@ -28689,8 +35042,18 @@ namespace Microsoft.AspNetCore.Routing.Template
 			}
 		}
 
-		public string Text
+		public object? DefaultValue
 		{
+			[CompilerGenerated]
+			get
+			{
+				throw null;
+			}
+		}
+
+		public IEnumerable<InlineConstraint> InlineConstraints
+		{
+			[System.Runtime.CompilerServices.NullableContext(1)]
 			[CompilerGenerated]
 			get
 			{
@@ -28700,10 +35063,13 @@ namespace Microsoft.AspNetCore.Routing.Template
 
 		public TemplatePart()
 		{
+			throw null;
 		}
 
+		[System.Runtime.CompilerServices.NullableContext(1)]
 		public TemplatePart(RoutePatternPart other)
 		{
+			throw null;
 		}
 
 		public static TemplatePart CreateLiteral(string text)
@@ -28711,7 +35077,12 @@ namespace Microsoft.AspNetCore.Routing.Template
 			throw null;
 		}
 
-		public static TemplatePart CreateParameter(string name, bool isCatchAll, bool isOptional, object defaultValue, IEnumerable<InlineConstraint> inlineConstraints)
+		public static TemplatePart CreateParameter(string name, bool isCatchAll, bool isOptional, object? defaultValue, IEnumerable<InlineConstraint>? inlineConstraints)
+		{
+			throw null;
+		}
+
+		internal string? DebuggerToString()
 		{
 			throw null;
 		}
@@ -28754,10 +35125,17 @@ namespace Microsoft.AspNetCore.Routing.Template
 
 		public TemplateSegment()
 		{
+			throw null;
 		}
 
 		public TemplateSegment(RoutePatternPathSegment other)
 		{
+			throw null;
+		}
+
+		internal string DebuggerToString()
+		{
+			throw null;
 		}
 
 		public RoutePatternPathSegment ToRoutePatternPathSegment()
@@ -28785,6 +35163,7 @@ namespace Microsoft.AspNetCore.Routing.Template
 			[CompilerGenerated]
 			set
 			{
+				throw null;
 			}
 		}
 
@@ -28798,7 +35177,13 @@ namespace Microsoft.AspNetCore.Routing.Template
 			[CompilerGenerated]
 			set
 			{
+				throw null;
 			}
+		}
+
+		public TemplateValuesResult()
+		{
+			throw null;
 		}
 	}
 }
@@ -28824,6 +35209,7 @@ namespace Microsoft.AspNetCore.Routing.Tree
 			[CompilerGenerated]
 			set
 			{
+				throw null;
 			}
 		}
 
@@ -28837,7 +35223,13 @@ namespace Microsoft.AspNetCore.Routing.Tree
 			[CompilerGenerated]
 			set
 			{
+				throw null;
 			}
+		}
+
+		public InboundMatch()
+		{
+			throw null;
 		}
 	}
 }
@@ -28862,6 +35254,7 @@ namespace Microsoft.AspNetCore.Routing.Tree
 			[CompilerGenerated]
 			set
 			{
+				throw null;
 			}
 		}
 
@@ -28875,6 +35268,7 @@ namespace Microsoft.AspNetCore.Routing.Tree
 			[CompilerGenerated]
 			set
 			{
+				throw null;
 			}
 		}
 
@@ -28888,6 +35282,7 @@ namespace Microsoft.AspNetCore.Routing.Tree
 			[CompilerGenerated]
 			set
 			{
+				throw null;
 			}
 		}
 
@@ -28901,6 +35296,7 @@ namespace Microsoft.AspNetCore.Routing.Tree
 			[CompilerGenerated]
 			set
 			{
+				throw null;
 			}
 		}
 
@@ -28914,6 +35310,7 @@ namespace Microsoft.AspNetCore.Routing.Tree
 			[CompilerGenerated]
 			set
 			{
+				throw null;
 			}
 		}
 
@@ -28927,6 +35324,7 @@ namespace Microsoft.AspNetCore.Routing.Tree
 			[CompilerGenerated]
 			set
 			{
+				throw null;
 			}
 		}
 
@@ -28940,7 +35338,13 @@ namespace Microsoft.AspNetCore.Routing.Tree
 			[CompilerGenerated]
 			set
 			{
+				throw null;
 			}
+		}
+
+		public InboundRouteEntry()
+		{
+			throw null;
 		}
 	}
 }
@@ -28964,6 +35368,7 @@ namespace Microsoft.AspNetCore.Routing.Tree
 			[CompilerGenerated]
 			set
 			{
+				throw null;
 			}
 		}
 
@@ -28977,7 +35382,13 @@ namespace Microsoft.AspNetCore.Routing.Tree
 			[CompilerGenerated]
 			set
 			{
+				throw null;
 			}
+		}
+
+		public OutboundMatch()
+		{
+			throw null;
 		}
 	}
 }
@@ -28990,11 +35401,7 @@ namespace Microsoft.AspNetCore.Routing.Tree
 {
 	internal readonly struct OutboundMatchResult
 	{
-		private readonly object _dummy;
-
-		private readonly int _dummyPrimitive;
-
-		public bool IsFallbackMatch
+		public OutboundMatch Match
 		{
 			[CompilerGenerated]
 			get
@@ -29003,7 +35410,7 @@ namespace Microsoft.AspNetCore.Routing.Tree
 			}
 		}
 
-		public OutboundMatch Match
+		public bool IsFallbackMatch
 		{
 			[CompilerGenerated]
 			get
@@ -29039,19 +35446,7 @@ namespace Microsoft.AspNetCore.Routing.Tree
 			[CompilerGenerated]
 			set
 			{
-			}
-		}
-
-		public object Data
-		{
-			[CompilerGenerated]
-			get
-			{
 				throw null;
-			}
-			[CompilerGenerated]
-			set
-			{
 			}
 		}
 
@@ -29065,6 +35460,7 @@ namespace Microsoft.AspNetCore.Routing.Tree
 			[CompilerGenerated]
 			set
 			{
+				throw null;
 			}
 		}
 
@@ -29078,6 +35474,7 @@ namespace Microsoft.AspNetCore.Routing.Tree
 			[CompilerGenerated]
 			set
 			{
+				throw null;
 			}
 		}
 
@@ -29091,6 +35488,7 @@ namespace Microsoft.AspNetCore.Routing.Tree
 			[CompilerGenerated]
 			set
 			{
+				throw null;
 			}
 		}
 
@@ -29104,19 +35502,7 @@ namespace Microsoft.AspNetCore.Routing.Tree
 			[CompilerGenerated]
 			set
 			{
-			}
-		}
-
-		public RouteValueDictionary RequiredLinkValues
-		{
-			[CompilerGenerated]
-			get
-			{
 				throw null;
-			}
-			[CompilerGenerated]
-			set
-			{
 			}
 		}
 
@@ -29130,6 +35516,21 @@ namespace Microsoft.AspNetCore.Routing.Tree
 			[CompilerGenerated]
 			set
 			{
+				throw null;
+			}
+		}
+
+		public RouteValueDictionary RequiredLinkValues
+		{
+			[CompilerGenerated]
+			get
+			{
+				throw null;
+			}
+			[CompilerGenerated]
+			set
+			{
+				throw null;
 			}
 		}
 
@@ -29143,7 +35544,81 @@ namespace Microsoft.AspNetCore.Routing.Tree
 			[CompilerGenerated]
 			set
 			{
+				throw null;
 			}
+		}
+
+		public object Data
+		{
+			[CompilerGenerated]
+			get
+			{
+				throw null;
+			}
+			[CompilerGenerated]
+			set
+			{
+				throw null;
+			}
+		}
+
+		public OutboundRouteEntry()
+		{
+			throw null;
+		}
+	}
+}
+
+
+// Microsoft.AspNetCore.Routing\Microsoft.AspNetCore.Routing.Tree\TreeEnumerator.cs
+using System;
+using System.Collections;
+using System.Collections.Generic;
+using System.Runtime.CompilerServices;
+
+namespace Microsoft.AspNetCore.Routing.Tree
+{
+	internal struct TreeEnumerator : IEnumerator<UrlMatchingNode>, IEnumerator, IDisposable
+	{
+		private readonly Stack<UrlMatchingNode> _stack;
+
+		private readonly PathTokenizer _tokenizer;
+
+		public UrlMatchingNode Current
+		{
+			[CompilerGenerated]
+			readonly get
+			{
+				throw null;
+			}
+		}
+
+		object IEnumerator.Current
+		{
+			get
+			{
+				throw null;
+			}
+		}
+
+		public TreeEnumerator(UrlMatchingNode root, PathTokenizer tokenizer)
+		{
+			throw null;
+		}
+
+		public void Dispose()
+		{
+			throw null;
+		}
+
+		public bool MoveNext()
+		{
+			throw null;
+		}
+
+		public void Reset()
+		{
+			throw null;
 		}
 	}
 }
@@ -29178,8 +35653,19 @@ namespace Microsoft.AspNetCore.Routing.Tree
 			}
 		}
 
-		internal TreeRouteBuilder()
+		internal TreeRouteBuilder(ILoggerFactory loggerFactory, ObjectPool<UriBuildingContext> objectPool, IInlineConstraintResolver constraintResolver)
 		{
+			throw null;
+		}
+
+		public InboundRouteEntry MapInbound(IRouter handler, RouteTemplate routeTemplate, string routeName, int order)
+		{
+			throw null;
+		}
+
+		public OutboundRouteEntry MapOutbound(IRouter handler, RouteTemplate routeTemplate, RouteValueDictionary requiredLinkValues, string routeName, int order)
+		{
+			throw null;
 		}
 
 		public TreeRouter Build()
@@ -29194,20 +35680,7 @@ namespace Microsoft.AspNetCore.Routing.Tree
 
 		public void Clear()
 		{
-		}
-
-		public InboundRouteEntry MapInbound(IRouter handler, RouteTemplate routeTemplate, string routeName, int order)
-		{
 			throw null;
-		}
-
-		public OutboundRouteEntry MapOutbound(IRouter handler, RouteTemplate routeTemplate, RouteValueDictionary requiredLinkValues, string routeName, int order)
-		{
-			throw null;
-		}
-
-		internal TreeRouteBuilder(ILoggerFactory loggerFactory, ObjectPool<UriBuildingContext> objectPool, IInlineConstraintResolver constraintResolver)
-		{
 		}
 	}
 }
@@ -29245,8 +35718,9 @@ namespace Microsoft.AspNetCore.Routing.Tree
 			}
 		}
 
-		internal TreeRouter()
+		internal TreeRouter(UrlMatchingTree[] trees, IEnumerable<OutboundRouteEntry> linkGenerationEntries, UrlEncoder urlEncoder, ObjectPool<UriBuildingContext> objectPool, ILogger routeLogger, ILogger constraintLogger, int version)
 		{
+			throw null;
 		}
 
 		public VirtualPathData GetVirtualPath(VirtualPathContext context)
@@ -29254,14 +35728,11 @@ namespace Microsoft.AspNetCore.Routing.Tree
 			throw null;
 		}
 
+		[AsyncStateMachine(typeof(_003CRouteAsync_003Ed__13))]
 		[DebuggerStepThrough]
 		public Task RouteAsync(RouteContext context)
 		{
 			throw null;
-		}
-
-		internal TreeRouter(UrlMatchingTree[] trees, IEnumerable<OutboundRouteEntry> linkGenerationEntries, UrlEncoder urlEncoder, ObjectPool<UriBuildingContext> objectPool, ILogger routeLogger, ILogger constraintLogger, int version)
-		{
 		}
 	}
 }
@@ -29277,45 +35748,6 @@ namespace Microsoft.AspNetCore.Routing.Tree
 	[DebuggerDisplay("{DebuggerToString(),nq}")]
 	public class UrlMatchingNode
 	{
-		public UrlMatchingNode CatchAlls
-		{
-			[CompilerGenerated]
-			get
-			{
-				throw null;
-			}
-			[CompilerGenerated]
-			set
-			{
-			}
-		}
-
-		public UrlMatchingNode ConstrainedCatchAlls
-		{
-			[CompilerGenerated]
-			get
-			{
-				throw null;
-			}
-			[CompilerGenerated]
-			set
-			{
-			}
-		}
-
-		public UrlMatchingNode ConstrainedParameters
-		{
-			[CompilerGenerated]
-			get
-			{
-				throw null;
-			}
-			[CompilerGenerated]
-			set
-			{
-			}
-		}
-
 		public int Depth
 		{
 			[CompilerGenerated]
@@ -29335,6 +35767,16 @@ namespace Microsoft.AspNetCore.Routing.Tree
 			[CompilerGenerated]
 			set
 			{
+				throw null;
+			}
+		}
+
+		public List<InboundMatch> Matches
+		{
+			[CompilerGenerated]
+			get
+			{
+				throw null;
 			}
 		}
 
@@ -29347,10 +35789,15 @@ namespace Microsoft.AspNetCore.Routing.Tree
 			}
 		}
 
-		public List<InboundMatch> Matches
+		public UrlMatchingNode ConstrainedParameters
 		{
 			[CompilerGenerated]
 			get
+			{
+				throw null;
+			}
+			[CompilerGenerated]
+			set
 			{
 				throw null;
 			}
@@ -29366,11 +35813,41 @@ namespace Microsoft.AspNetCore.Routing.Tree
 			[CompilerGenerated]
 			set
 			{
+				throw null;
+			}
+		}
+
+		public UrlMatchingNode ConstrainedCatchAlls
+		{
+			[CompilerGenerated]
+			get
+			{
+				throw null;
+			}
+			[CompilerGenerated]
+			set
+			{
+				throw null;
+			}
+		}
+
+		public UrlMatchingNode CatchAlls
+		{
+			[CompilerGenerated]
+			get
+			{
+				throw null;
+			}
+			[CompilerGenerated]
+			set
+			{
+				throw null;
 			}
 		}
 
 		public UrlMatchingNode(int length)
 		{
+			throw null;
 		}
 	}
 }
@@ -29403,6 +35880,12 @@ namespace Microsoft.AspNetCore.Routing.Tree
 
 		public UrlMatchingTree(int order)
 		{
+			throw null;
+		}
+
+		internal void AddEntry(InboundRouteEntry entry)
+		{
+			throw null;
 		}
 	}
 }
@@ -29445,70 +35928,50 @@ namespace Microsoft.Extensions.Internal
 			[MethodImpl(MethodImplOptions.AggressiveInlining)]
 			get
 			{
-				return _combinedHash64.GetHashCode();
+				throw null;
 			}
-		}
-
-		[MethodImpl(MethodImplOptions.AggressiveInlining)]
-		private HashCodeCombiner(long seed)
-		{
-			_combinedHash64 = seed;
 		}
 
 		[MethodImpl(MethodImplOptions.AggressiveInlining)]
 		public void Add(IEnumerable e)
 		{
-			if (e == null)
-			{
-				Add(0);
-				return;
-			}
-			int num = 0;
-			foreach (object? item in e)
-			{
-				Add(item);
-				num++;
-			}
-			Add(num);
+			throw null;
 		}
 
 		[MethodImpl(MethodImplOptions.AggressiveInlining)]
 		public static implicit operator int(HashCodeCombiner self)
 		{
-			return self.CombinedHash;
+			throw null;
 		}
 
 		[MethodImpl(MethodImplOptions.AggressiveInlining)]
 		public void Add(int i)
 		{
-			_combinedHash64 = (((_combinedHash64 << 5) + _combinedHash64) ^ i);
+			throw null;
 		}
 
 		[MethodImpl(MethodImplOptions.AggressiveInlining)]
-		public void Add(string s)
+		public void Add(string? s)
 		{
-			int i = s?.GetHashCode() ?? 0;
-			Add(i);
+			throw null;
 		}
 
 		[MethodImpl(MethodImplOptions.AggressiveInlining)]
-		public void Add(object o)
+		public void Add(object? o)
 		{
-			int i = o?.GetHashCode() ?? 0;
-			Add(i);
+			throw null;
 		}
 
 		[MethodImpl(MethodImplOptions.AggressiveInlining)]
 		public void Add<TValue>(TValue value, IEqualityComparer<TValue> comparer)
 		{
-			int i = (value != null) ? comparer.GetHashCode(value) : 0;
-			Add(i);
+			throw null;
 		}
 
 		[MethodImpl(MethodImplOptions.AggressiveInlining)]
 		public static HashCodeCombiner Start()
 		{
-			return new HashCodeCombiner(5381L);
+			throw null;
 		}
 	}
 }
@@ -29519,7 +35982,7 @@ namespace Microsoft.AspNetCore.Routing
 {
 	public interface IOutboundParameterTransformer : IParameterPolicy
 	{
-		string TransformOutbound(object value);
+		string? TransformOutbound(object? value);
 	}
 }
 
@@ -29540,7 +36003,7 @@ namespace Microsoft.AspNetCore.Routing
 {
 	public interface IRouteConstraint : IParameterPolicy
 	{
-		bool Match(HttpContext httpContext, IRouter route, string routeKey, RouteValueDictionary values, RouteDirection routeDirection);
+		bool Match(HttpContext? httpContext, IRouter? route, string routeKey, RouteValueDictionary values, RouteDirection routeDirection);
 	}
 }
 
@@ -29564,9 +36027,9 @@ namespace Microsoft.AspNetCore.Routing
 {
 	public interface IRouter
 	{
-		VirtualPathData GetVirtualPath(VirtualPathContext context);
-
 		Task RouteAsync(RouteContext context);
+
+		VirtualPathData? GetVirtualPath(VirtualPathContext context);
 	}
 }
 
@@ -29576,7 +36039,7 @@ namespace Microsoft.AspNetCore.Routing
 {
 	public interface IRoutingFeature
 	{
-		RouteData RouteData
+		RouteData? RouteData
 		{
 			get;
 			set;
@@ -29592,13 +36055,18 @@ namespace Microsoft.AspNetCore.Routing
 {
 	public abstract class LinkGenerator
 	{
-		public abstract string GetPathByAddress<TAddress>(HttpContext httpContext, TAddress address, RouteValueDictionary values, RouteValueDictionary ambientValues = null, PathString? pathBase = null, FragmentString fragment = default(FragmentString), LinkOptions options = null);
+		public abstract string? GetPathByAddress<TAddress>(HttpContext httpContext, TAddress address, RouteValueDictionary values, RouteValueDictionary? ambientValues = null, PathString? pathBase = null, FragmentString fragment = default(FragmentString), LinkOptions? options = null);
 
-		public abstract string GetPathByAddress<TAddress>(TAddress address, RouteValueDictionary values, PathString pathBase = default(PathString), FragmentString fragment = default(FragmentString), LinkOptions options = null);
+		public abstract string? GetPathByAddress<TAddress>(TAddress address, RouteValueDictionary values, PathString pathBase = default(PathString), FragmentString fragment = default(FragmentString), LinkOptions? options = null);
 
-		public abstract string GetUriByAddress<TAddress>(HttpContext httpContext, TAddress address, RouteValueDictionary values, RouteValueDictionary ambientValues = null, string scheme = null, HostString? host = null, PathString? pathBase = null, FragmentString fragment = default(FragmentString), LinkOptions options = null);
+		public abstract string? GetUriByAddress<TAddress>(HttpContext httpContext, TAddress address, RouteValueDictionary values, RouteValueDictionary? ambientValues = null, string? scheme = null, HostString? host = null, PathString? pathBase = null, FragmentString fragment = default(FragmentString), LinkOptions? options = null);
 
-		public abstract string GetUriByAddress<TAddress>(TAddress address, RouteValueDictionary values, string scheme, HostString host, PathString pathBase = default(PathString), FragmentString fragment = default(FragmentString), LinkOptions options = null);
+		public abstract string? GetUriByAddress<TAddress>(TAddress address, RouteValueDictionary values, string scheme, HostString host, PathString pathBase = default(PathString), FragmentString fragment = default(FragmentString), LinkOptions? options = null);
+
+		protected LinkGenerator()
+		{
+			throw null;
+		}
 	}
 }
 
@@ -29610,7 +36078,7 @@ namespace Microsoft.AspNetCore.Routing
 {
 	public class LinkOptions
 	{
-		public bool? AppendTrailingSlash
+		public bool? LowercaseUrls
 		{
 			[CompilerGenerated]
 			get
@@ -29620,6 +36088,7 @@ namespace Microsoft.AspNetCore.Routing
 			[CompilerGenerated]
 			set
 			{
+				throw null;
 			}
 		}
 
@@ -29633,10 +36102,11 @@ namespace Microsoft.AspNetCore.Routing
 			[CompilerGenerated]
 			set
 			{
+				throw null;
 			}
 		}
 
-		public bool? LowercaseUrls
+		public bool? AppendTrailingSlash
 		{
 			[CompilerGenerated]
 			get
@@ -29646,7 +36116,13 @@ namespace Microsoft.AspNetCore.Routing
 			[CompilerGenerated]
 			set
 			{
+				throw null;
 			}
+		}
+
+		public LinkOptions()
+		{
+			throw null;
 		}
 	}
 }
@@ -29660,16 +36136,19 @@ namespace Microsoft.AspNetCore.Routing
 {
 	public class RouteContext
 	{
-		public RequestDelegate Handler
+		public RequestDelegate? Handler
 		{
+			[System.Runtime.CompilerServices.NullableContext(2)]
 			[CompilerGenerated]
 			get
 			{
 				throw null;
 			}
+			[System.Runtime.CompilerServices.NullableContext(2)]
 			[CompilerGenerated]
 			set
 			{
+				throw null;
 			}
 		}
 
@@ -29690,11 +36169,13 @@ namespace Microsoft.AspNetCore.Routing
 			}
 			set
 			{
+				throw null;
 			}
 		}
 
 		public RouteContext(HttpContext httpContext)
 		{
+			throw null;
 		}
 	}
 }
@@ -29709,15 +36190,22 @@ namespace Microsoft.AspNetCore.Routing
 	{
 		public readonly struct RouteDataSnapshot
 		{
-			private readonly object _dummy;
+			private readonly RouteData _routeData;
 
-			public RouteDataSnapshot(RouteData routeData, RouteValueDictionary dataTokens, IList<IRouter> routers, RouteValueDictionary values)
+			private readonly RouteValueDictionary? _dataTokens;
+
+			private readonly IList<IRouter>? _routers;
+
+			private readonly RouteValueDictionary? _values;
+
+			public RouteDataSnapshot(RouteData routeData, RouteValueDictionary? dataTokens, IList<IRouter>? routers, RouteValueDictionary? values)
 			{
 				throw null;
 			}
 
 			public void Restore()
 			{
+				throw null;
 			}
 		}
 
@@ -29747,17 +36235,20 @@ namespace Microsoft.AspNetCore.Routing
 
 		public RouteData()
 		{
+			throw null;
 		}
 
 		public RouteData(RouteData other)
 		{
+			throw null;
 		}
 
 		public RouteData(RouteValueDictionary values)
 		{
+			throw null;
 		}
 
-		public RouteDataSnapshot PushState(IRouter router, RouteValueDictionary values, RouteValueDictionary dataTokens)
+		public RouteDataSnapshot PushState(IRouter? router, RouteValueDictionary? values, RouteValueDictionary? dataTokens)
 		{
 			throw null;
 		}
@@ -29788,7 +36279,7 @@ namespace Microsoft.AspNetCore.Routing
 			throw null;
 		}
 
-		public static object GetRouteValue(this HttpContext httpContext, string key)
+		public static object? GetRouteValue(this HttpContext httpContext, string key)
 		{
 			throw null;
 		}
@@ -29822,8 +36313,9 @@ namespace Microsoft.AspNetCore.Routing
 			}
 		}
 
-		public string RouteName
+		public string? RouteName
 		{
+			[System.Runtime.CompilerServices.NullableContext(2)]
 			[CompilerGenerated]
 			get
 			{
@@ -29841,15 +36333,18 @@ namespace Microsoft.AspNetCore.Routing
 			[CompilerGenerated]
 			set
 			{
+				throw null;
 			}
 		}
 
 		public VirtualPathContext(HttpContext httpContext, RouteValueDictionary ambientValues, RouteValueDictionary values)
 		{
+			throw null;
 		}
 
-		public VirtualPathContext(HttpContext httpContext, RouteValueDictionary ambientValues, RouteValueDictionary values, string routeName)
+		public VirtualPathContext(HttpContext httpContext, RouteValueDictionary ambientValues, RouteValueDictionary values, string? routeName)
 		{
+			throw null;
 		}
 	}
 }
@@ -29880,6 +36375,7 @@ namespace Microsoft.AspNetCore.Routing
 			[CompilerGenerated]
 			set
 			{
+				throw null;
 			}
 		}
 
@@ -29891,15 +36387,18 @@ namespace Microsoft.AspNetCore.Routing
 			}
 			set
 			{
+				throw null;
 			}
 		}
 
 		public VirtualPathData(IRouter router, string virtualPath)
 		{
+			throw null;
 		}
 
 		public VirtualPathData(IRouter router, string virtualPath, RouteValueDictionary dataTokens)
 		{
+			throw null;
 		}
 	}
 }
@@ -29932,6 +36431,26 @@ namespace Microsoft.AspNetCore.Builder
 {
 	public class SessionOptions
 	{
+		private class SessionCookieBuilder : CookieBuilder
+		{
+			public override TimeSpan? Expiration
+			{
+				get
+				{
+					throw null;
+				}
+				set
+				{
+					throw null;
+				}
+			}
+
+			public SessionCookieBuilder()
+			{
+				throw null;
+			}
+		}
+
 		public CookieBuilder Cookie
 		{
 			get
@@ -29940,6 +36459,7 @@ namespace Microsoft.AspNetCore.Builder
 			}
 			set
 			{
+				throw null;
 			}
 		}
 
@@ -29953,6 +36473,7 @@ namespace Microsoft.AspNetCore.Builder
 			[CompilerGenerated]
 			set
 			{
+				throw null;
 			}
 		}
 
@@ -29966,7 +36487,13 @@ namespace Microsoft.AspNetCore.Builder
 			[CompilerGenerated]
 			set
 			{
+				throw null;
 			}
+		}
+
+		public SessionOptions()
+		{
+			throw null;
 		}
 	}
 }
@@ -29979,6 +36506,7 @@ using Microsoft.Extensions.Logging;
 using System;
 using System.Collections.Generic;
 using System.Diagnostics;
+using System.Runtime.CompilerServices;
 using System.Threading;
 using System.Threading.Tasks;
 
@@ -29986,7 +36514,7 @@ namespace Microsoft.AspNetCore.Session
 {
 	public class DistributedSession : ISession
 	{
-		public string Id
+		public bool IsAvailable
 		{
 			get
 			{
@@ -29994,7 +36522,7 @@ namespace Microsoft.AspNetCore.Session
 			}
 		}
 
-		public bool IsAvailable
+		public string Id
 		{
 			get
 			{
@@ -30012,33 +36540,39 @@ namespace Microsoft.AspNetCore.Session
 
 		public DistributedSession(IDistributedCache cache, string sessionKey, TimeSpan idleTimeout, TimeSpan ioTimeout, Func<bool> tryEstablishSession, ILoggerFactory loggerFactory, bool isNewSessionKey)
 		{
+			throw null;
 		}
 
-		public void Clear()
-		{
-		}
-
-		[DebuggerStepThrough]
-		public Task CommitAsync(CancellationToken cancellationToken = default(CancellationToken))
+		public bool TryGetValue(string key, out byte[] value)
 		{
 			throw null;
 		}
 
-		[DebuggerStepThrough]
-		public Task LoadAsync(CancellationToken cancellationToken = default(CancellationToken))
+		public void Set(string key, byte[] value)
 		{
 			throw null;
 		}
 
 		public void Remove(string key)
 		{
+			throw null;
 		}
 
-		public void Set(string key, byte[] value)
+		public void Clear()
 		{
+			throw null;
 		}
 
-		public bool TryGetValue(string key, out byte[] value)
+		[AsyncStateMachine(typeof(_003CLoadAsync_003Ed__30))]
+		[DebuggerStepThrough]
+		public Task LoadAsync(CancellationToken cancellationToken = default(CancellationToken))
+		{
+			throw null;
+		}
+
+		[AsyncStateMachine(typeof(_003CCommitAsync_003Ed__31))]
+		[DebuggerStepThrough]
+		public Task CommitAsync(CancellationToken cancellationToken = default(CancellationToken))
 		{
 			throw null;
 		}
@@ -30058,6 +36592,7 @@ namespace Microsoft.AspNetCore.Session
 	{
 		public DistributedSessionStore(IDistributedCache cache, ILoggerFactory loggerFactory)
 		{
+			throw null;
 		}
 
 		public ISession Create(string sessionKey, TimeSpan idleTimeout, TimeSpan ioTimeout, Func<bool> tryEstablishSession, bool isNewSessionKey)
@@ -30112,7 +36647,13 @@ namespace Microsoft.AspNetCore.Session
 			[CompilerGenerated]
 			set
 			{
+				throw null;
 			}
+		}
+
+		public SessionFeature()
+		{
+			throw null;
 		}
 	}
 }
@@ -30125,16 +36666,27 @@ using Microsoft.AspNetCore.Http;
 using Microsoft.Extensions.Logging;
 using Microsoft.Extensions.Options;
 using System.Diagnostics;
+using System.Runtime.CompilerServices;
 using System.Threading.Tasks;
 
 namespace Microsoft.AspNetCore.Session
 {
 	public class SessionMiddleware
 	{
-		public SessionMiddleware(RequestDelegate next, ILoggerFactory loggerFactory, IDataProtectionProvider dataProtectionProvider, ISessionStore sessionStore, IOptions<SessionOptions> options)
+		private class SessionEstablisher
 		{
+			public SessionEstablisher(HttpContext context, string cookieValue, SessionOptions options)
+			{
+				throw null;
+			}
 		}
 
+		public SessionMiddleware(RequestDelegate next, ILoggerFactory loggerFactory, IDataProtectionProvider dataProtectionProvider, ISessionStore sessionStore, IOptions<SessionOptions> options)
+		{
+			throw null;
+		}
+
+		[AsyncStateMachine(typeof(_003CInvoke_003Ed__8))]
 		[DebuggerStepThrough]
 		public Task Invoke(HttpContext context)
 		{
@@ -30170,14 +36722,11 @@ using System;
 
 namespace Microsoft.AspNetCore.Builder
 {
-	public sealed class HubEndpointConventionBuilder : IEndpointConventionBuilder, IHubEndpointConventionBuilder
+	public sealed class HubEndpointConventionBuilder : IHubEndpointConventionBuilder, IEndpointConventionBuilder
 	{
-		internal HubEndpointConventionBuilder()
-		{
-		}
-
 		public void Add(Action<EndpointBuilder> convention)
 		{
+			throw null;
 		}
 	}
 }
@@ -30188,17 +36737,18 @@ using Microsoft.AspNetCore.Http.Connections;
 using Microsoft.AspNetCore.Routing;
 using Microsoft.AspNetCore.SignalR;
 using System;
+using System.Diagnostics.CodeAnalysis;
 
 namespace Microsoft.AspNetCore.Builder
 {
 	public static class HubEndpointRouteBuilderExtensions
 	{
-		public static HubEndpointConventionBuilder MapHub<THub>(this IEndpointRouteBuilder endpoints, string pattern) where THub : Hub
+		public static HubEndpointConventionBuilder MapHub<[DynamicallyAccessedMembers((DynamicallyAccessedMemberTypes)11)] THub>(this IEndpointRouteBuilder endpoints, string pattern) where THub : Hub
 		{
 			throw null;
 		}
 
-		public static HubEndpointConventionBuilder MapHub<THub>(this IEndpointRouteBuilder endpoints, string pattern, Action<HttpConnectionDispatcherOptions> configureOptions) where THub : Hub
+		public static HubEndpointConventionBuilder MapHub<[DynamicallyAccessedMembers((DynamicallyAccessedMemberTypes)11)] THub>(this IEndpointRouteBuilder endpoints, string pattern, Action<HttpConnectionDispatcherOptions> configureOptions) where THub : Hub
 		{
 			throw null;
 		}
@@ -30211,23 +36761,6 @@ namespace Microsoft.AspNetCore.Builder
 {
 	public interface IHubEndpointConventionBuilder : IEndpointConventionBuilder
 	{
-	}
-}
-
-
-// Microsoft.AspNetCore.SignalR\Microsoft.AspNetCore.Builder\SignalRAppBuilderExtensions.cs
-using Microsoft.AspNetCore.SignalR;
-using System;
-
-namespace Microsoft.AspNetCore.Builder
-{
-	public static class SignalRAppBuilderExtensions
-	{
-		[Obsolete("This method is obsolete and will be removed in a future version. The recommended alternative is to use MapHub<THub> inside Microsoft.AspNetCore.Builder.UseEndpoints(...).")]
-		public static IApplicationBuilder UseSignalR(this IApplicationBuilder app, Action<HubRouteBuilder> configure)
-		{
-			throw null;
-		}
 	}
 }
 
@@ -30247,31 +36780,6 @@ namespace Microsoft.AspNetCore.SignalR
 		public static HttpContext GetHttpContext(this HubConnectionContext connection)
 		{
 			throw null;
-		}
-	}
-}
-
-
-// Microsoft.AspNetCore.SignalR\Microsoft.AspNetCore.SignalR\HubRouteBuilder.cs
-using Microsoft.AspNetCore.Http;
-using Microsoft.AspNetCore.Http.Connections;
-using System;
-
-namespace Microsoft.AspNetCore.SignalR
-{
-	[Obsolete("This class is obsolete and will be removed in a future version. The recommended alternative is to use MapHub<THub> inside Microsoft.AspNetCore.Builder.UseEndpoints(...).")]
-	public class HubRouteBuilder
-	{
-		public HubRouteBuilder(ConnectionsRouteBuilder routes)
-		{
-		}
-
-		public void MapHub<THub>(PathString path) where THub : Hub
-		{
-		}
-
-		public void MapHub<THub>(PathString path, Action<HttpConnectionDispatcherOptions> configureOptions) where THub : Hub
-		{
 		}
 	}
 }
@@ -30305,26 +36813,33 @@ namespace Microsoft.Extensions.DependencyInjection
 
 // Microsoft.AspNetCore.SignalR.Common\Microsoft.AspNetCore.SignalR\HubException.cs
 using System;
+using System.Runtime.CompilerServices;
 using System.Runtime.Serialization;
 
 namespace Microsoft.AspNetCore.SignalR
 {
+	[Serializable]
 	public class HubException : Exception
 	{
 		public HubException()
 		{
+			throw null;
 		}
 
+		public HubException(string? message)
+		{
+			throw null;
+		}
+
+		public HubException(string? message, Exception? innerException)
+		{
+			throw null;
+		}
+
+		[System.Runtime.CompilerServices.NullableContext(1)]
 		public HubException(SerializationInfo info, StreamingContext context)
 		{
-		}
-
-		public HubException(string message)
-		{
-		}
-
-		public HubException(string message, Exception innerException)
-		{
+			throw null;
 		}
 	}
 }
@@ -30338,9 +36853,9 @@ namespace Microsoft.AspNetCore.SignalR
 {
 	public interface IInvocationBinder
 	{
-		IReadOnlyList<Type> GetParameterTypes(string methodName);
-
 		Type GetReturnType(string invocationId);
+
+		IReadOnlyList<Type> GetParameterTypes(string methodName);
 
 		Type GetStreamItemType(string streamId);
 	}
@@ -30363,13 +36878,16 @@ namespace Microsoft.AspNetCore.SignalR
 
 
 // Microsoft.AspNetCore.SignalR.Common\Microsoft.AspNetCore.SignalR.Protocol\CancelInvocationMessage.cs
+using System.Runtime.CompilerServices;
+
 namespace Microsoft.AspNetCore.SignalR.Protocol
 {
 	public class CancelInvocationMessage : HubInvocationMessage
 	{
+		[System.Runtime.CompilerServices.NullableContext(1)]
 		public CancelInvocationMessage(string invocationId)
-			: base(null)
 		{
+			throw null;
 		}
 	}
 }
@@ -30384,6 +36902,15 @@ namespace Microsoft.AspNetCore.SignalR.Protocol
 	{
 		public static readonly CloseMessage Empty;
 
+		public string? Error
+		{
+			[CompilerGenerated]
+			get
+			{
+				throw null;
+			}
+		}
+
 		public bool AllowReconnect
 		{
 			[CompilerGenerated]
@@ -30393,21 +36920,14 @@ namespace Microsoft.AspNetCore.SignalR.Protocol
 			}
 		}
 
-		public string Error
+		public CloseMessage(string? error)
 		{
-			[CompilerGenerated]
-			get
-			{
-				throw null;
-			}
+			throw null;
 		}
 
-		public CloseMessage(string error)
+		public CloseMessage(string? error, bool allowReconnect)
 		{
-		}
-
-		public CloseMessage(string error, bool allowReconnect)
-		{
+			throw null;
 		}
 	}
 }
@@ -30420,7 +36940,16 @@ namespace Microsoft.AspNetCore.SignalR.Protocol
 {
 	public class CompletionMessage : HubInvocationMessage
 	{
-		public string Error
+		public string? Error
+		{
+			[CompilerGenerated]
+			get
+			{
+				throw null;
+			}
+		}
+
+		public object? Result
 		{
 			[CompilerGenerated]
 			get
@@ -30438,21 +36967,7 @@ namespace Microsoft.AspNetCore.SignalR.Protocol
 			}
 		}
 
-		public object Result
-		{
-			[CompilerGenerated]
-			get
-			{
-				throw null;
-			}
-		}
-
-		public CompletionMessage(string invocationId, string error, object result, bool hasResult)
-			: base(null)
-		{
-		}
-
-		public static CompletionMessage Empty(string invocationId)
+		public CompletionMessage(string invocationId, string? error, object? result, bool hasResult)
 		{
 			throw null;
 		}
@@ -30471,6 +36986,11 @@ namespace Microsoft.AspNetCore.SignalR.Protocol
 		{
 			throw null;
 		}
+
+		public static CompletionMessage Empty(string invocationId)
+		{
+			throw null;
+		}
 	}
 }
 
@@ -30478,6 +36998,7 @@ namespace Microsoft.AspNetCore.SignalR.Protocol
 // Microsoft.AspNetCore.SignalR.Common\Microsoft.AspNetCore.SignalR.Protocol\HandshakeProtocol.cs
 using System;
 using System.Buffers;
+using System.Diagnostics.CodeAnalysis;
 
 namespace Microsoft.AspNetCore.SignalR.Protocol
 {
@@ -30488,22 +37009,24 @@ namespace Microsoft.AspNetCore.SignalR.Protocol
 			throw null;
 		}
 
-		public static bool TryParseRequestMessage(ref ReadOnlySequence<byte> buffer, out HandshakeRequestMessage requestMessage)
-		{
-			throw null;
-		}
-
-		public static bool TryParseResponseMessage(ref ReadOnlySequence<byte> buffer, out HandshakeResponseMessage responseMessage)
-		{
-			throw null;
-		}
-
 		public static void WriteRequestMessage(HandshakeRequestMessage requestMessage, IBufferWriter<byte> output)
 		{
+			throw null;
 		}
 
 		public static void WriteResponseMessage(HandshakeResponseMessage responseMessage, IBufferWriter<byte> output)
 		{
+			throw null;
+		}
+
+		public static bool TryParseResponseMessage(ref ReadOnlySequence<byte> buffer, [NotNullWhen(true)] out HandshakeResponseMessage? responseMessage)
+		{
+			throw null;
+		}
+
+		public static bool TryParseRequestMessage(ref ReadOnlySequence<byte> buffer, [NotNullWhen(true)] out HandshakeRequestMessage? requestMessage)
+		{
+			throw null;
 		}
 	}
 }
@@ -30536,6 +37059,7 @@ namespace Microsoft.AspNetCore.SignalR.Protocol
 
 		public HandshakeRequestMessage(string protocol, int version)
 		{
+			throw null;
 		}
 	}
 }
@@ -30550,7 +37074,7 @@ namespace Microsoft.AspNetCore.SignalR.Protocol
 	{
 		public static readonly HandshakeResponseMessage Empty;
 
-		public string Error
+		public string? Error
 		{
 			[CompilerGenerated]
 			get
@@ -30559,8 +37083,9 @@ namespace Microsoft.AspNetCore.SignalR.Protocol
 			}
 		}
 
-		public HandshakeResponseMessage(string error)
+		public HandshakeResponseMessage(string? error)
 		{
+			throw null;
 		}
 	}
 }
@@ -30574,7 +37099,7 @@ namespace Microsoft.AspNetCore.SignalR.Protocol
 {
 	public abstract class HubInvocationMessage : HubMessage
 	{
-		public IDictionary<string, string> Headers
+		public IDictionary<string, string>? Headers
 		{
 			[CompilerGenerated]
 			get
@@ -30584,10 +37109,11 @@ namespace Microsoft.AspNetCore.SignalR.Protocol
 			[CompilerGenerated]
 			set
 			{
+				throw null;
 			}
 		}
 
-		public string InvocationId
+		public string? InvocationId
 		{
 			[CompilerGenerated]
 			get
@@ -30596,8 +37122,9 @@ namespace Microsoft.AspNetCore.SignalR.Protocol
 			}
 		}
 
-		protected HubInvocationMessage(string invocationId)
+		protected HubInvocationMessage(string? invocationId)
 		{
+			throw null;
 		}
 	}
 }
@@ -30608,6 +37135,10 @@ namespace Microsoft.AspNetCore.SignalR.Protocol
 {
 	public abstract class HubMessage
 	{
+		protected HubMessage()
+		{
+			throw null;
+		}
 	}
 }
 
@@ -30619,26 +37150,9 @@ namespace Microsoft.AspNetCore.SignalR.Protocol
 {
 	public abstract class HubMethodInvocationMessage : HubInvocationMessage
 	{
-		public object[] Arguments
-		{
-			[CompilerGenerated]
-			get
-			{
-				throw null;
-			}
-		}
-
-		public string[] StreamIds
-		{
-			[CompilerGenerated]
-			get
-			{
-				throw null;
-			}
-		}
-
 		public string Target
 		{
+			[System.Runtime.CompilerServices.NullableContext(1)]
 			[CompilerGenerated]
 			get
 			{
@@ -30646,14 +37160,32 @@ namespace Microsoft.AspNetCore.SignalR.Protocol
 			}
 		}
 
-		protected HubMethodInvocationMessage(string invocationId, string target, object[] arguments)
-			: base(null)
+		public object?[]? Arguments
 		{
+			[CompilerGenerated]
+			get
+			{
+				throw null;
+			}
 		}
 
-		protected HubMethodInvocationMessage(string invocationId, string target, object[] arguments, string[] streamIds)
-			: base(null)
+		public string[]? StreamIds
 		{
+			[CompilerGenerated]
+			get
+			{
+				throw null;
+			}
+		}
+
+		protected HubMethodInvocationMessage(string? invocationId, string target, object?[]? arguments, string[]? streamIds)
+		{
+			throw null;
+		}
+
+		protected HubMethodInvocationMessage(string? invocationId, string target, object?[]? arguments)
+		{
+			throw null;
 		}
 	}
 }
@@ -30664,19 +37196,19 @@ namespace Microsoft.AspNetCore.SignalR.Protocol
 {
 	public static class HubProtocolConstants
 	{
-		public const int CancelInvocationMessageType = 5;
+		public const int InvocationMessageType = 1;
 
-		public const int CloseMessageType = 7;
+		public const int StreamItemMessageType = 2;
 
 		public const int CompletionMessageType = 3;
 
-		public const int InvocationMessageType = 1;
+		public const int StreamInvocationMessageType = 4;
+
+		public const int CancelInvocationMessageType = 5;
 
 		public const int PingMessageType = 6;
 
-		public const int StreamInvocationMessageType = 4;
-
-		public const int StreamItemMessageType = 2;
+		public const int CloseMessageType = 7;
 	}
 }
 
@@ -30698,6 +37230,7 @@ namespace Microsoft.AspNetCore.SignalR.Protocol
 using Microsoft.AspNetCore.Connections;
 using System;
 using System.Buffers;
+using System.Diagnostics.CodeAnalysis;
 
 namespace Microsoft.AspNetCore.SignalR.Protocol
 {
@@ -30708,23 +37241,23 @@ namespace Microsoft.AspNetCore.SignalR.Protocol
 			get;
 		}
 
-		TransferFormat TransferFormat
-		{
-			get;
-		}
-
 		int Version
 		{
 			get;
 		}
 
+		TransferFormat TransferFormat
+		{
+			get;
+		}
+
+		bool TryParseMessage(ref ReadOnlySequence<byte> input, IInvocationBinder binder, [NotNullWhen(true)] out HubMessage message);
+
+		void WriteMessage(HubMessage message, IBufferWriter<byte> output);
+
 		ReadOnlyMemory<byte> GetMessageBytes(HubMessage message);
 
 		bool IsVersionSupported(int version);
-
-		bool TryParseMessage(ref ReadOnlySequence<byte> input, IInvocationBinder binder, out HubMessage message);
-
-		void WriteMessage(HubMessage message, IBufferWriter<byte> output);
 	}
 }
 
@@ -30756,31 +37289,35 @@ namespace Microsoft.AspNetCore.SignalR.Protocol
 		}
 
 		public InvocationBindingFailureMessage(string invocationId, string target, ExceptionDispatchInfo bindingFailure)
-			: base(null)
 		{
+			throw null;
 		}
 	}
 }
 
 
 // Microsoft.AspNetCore.SignalR.Common\Microsoft.AspNetCore.SignalR.Protocol\InvocationMessage.cs
+using System.Runtime.CompilerServices;
+
 namespace Microsoft.AspNetCore.SignalR.Protocol
 {
 	public class InvocationMessage : HubMethodInvocationMessage
 	{
-		public InvocationMessage(string target, object[] arguments)
-			: base(null, null, null, null)
+		public InvocationMessage(string target, object?[]? arguments)
 		{
+			throw null;
 		}
 
-		public InvocationMessage(string invocationId, string target, object[] arguments)
-			: base(null, null, null, null)
+		[System.Runtime.CompilerServices.NullableContext(2)]
+		public InvocationMessage(string? invocationId, string target, object?[]? arguments)
 		{
+			throw null;
 		}
 
-		public InvocationMessage(string invocationId, string target, object[] arguments, string[] streamIds)
-			: base(null, null, null, null)
+		[System.Runtime.CompilerServices.NullableContext(2)]
+		public InvocationMessage(string? invocationId, string target, object?[]? arguments, string[]? streamIds)
 		{
+			throw null;
 		}
 
 		public override string ToString()
@@ -30797,10 +37334,6 @@ namespace Microsoft.AspNetCore.SignalR.Protocol
 	public class PingMessage : HubMessage
 	{
 		public static readonly PingMessage Instance;
-
-		internal PingMessage()
-		{
-		}
 	}
 }
 
@@ -30813,7 +37346,7 @@ namespace Microsoft.AspNetCore.SignalR.Protocol
 {
 	public class StreamBindingFailureMessage : HubMessage
 	{
-		public ExceptionDispatchInfo BindingFailure
+		public string Id
 		{
 			[CompilerGenerated]
 			get
@@ -30822,7 +37355,7 @@ namespace Microsoft.AspNetCore.SignalR.Protocol
 			}
 		}
 
-		public string Id
+		public ExceptionDispatchInfo BindingFailure
 		{
 			[CompilerGenerated]
 			get
@@ -30833,6 +37366,7 @@ namespace Microsoft.AspNetCore.SignalR.Protocol
 
 		public StreamBindingFailureMessage(string id, ExceptionDispatchInfo bindingFailure)
 		{
+			throw null;
 		}
 	}
 }
@@ -30844,13 +37378,13 @@ namespace Microsoft.AspNetCore.SignalR.Protocol
 	public class StreamInvocationMessage : HubMethodInvocationMessage
 	{
 		public StreamInvocationMessage(string invocationId, string target, object[] arguments)
-			: base(null, null, null, null)
 		{
+			throw null;
 		}
 
 		public StreamInvocationMessage(string invocationId, string target, object[] arguments, string[] streamIds)
-			: base(null, null, null, null)
 		{
+			throw null;
 		}
 
 		public override string ToString()
@@ -30868,7 +37402,7 @@ namespace Microsoft.AspNetCore.SignalR.Protocol
 {
 	public class StreamItemMessage : HubInvocationMessage
 	{
-		public object Item
+		public object? Item
 		{
 			[CompilerGenerated]
 			get
@@ -30877,14 +37411,40 @@ namespace Microsoft.AspNetCore.SignalR.Protocol
 			}
 		}
 
-		public StreamItemMessage(string invocationId, object item)
-			: base(null)
+		[System.Runtime.CompilerServices.NullableContext(1)]
+		public StreamItemMessage(string invocationId, object? item)
 		{
+			throw null;
 		}
 
 		public override string ToString()
 		{
 			throw null;
+		}
+	}
+}
+
+
+// Microsoft.AspNetCore.SignalR.Core\Microsoft.AspNetCore.Internal\ISystemClock.cs
+using System;
+
+namespace Microsoft.AspNetCore.Internal
+{
+	internal interface ISystemClock
+	{
+		DateTimeOffset UtcNow
+		{
+			get;
+		}
+
+		long UtcNowTicks
+		{
+			get;
+		}
+
+		DateTimeOffset UtcNowUnsynchronized
+		{
+			get;
 		}
 	}
 }
@@ -30898,57 +37458,57 @@ namespace Microsoft.AspNetCore.SignalR
 {
 	public static class ClientProxyExtensions
 	{
-		public static Task SendAsync(this IClientProxy clientProxy, string method, object arg1, object arg2, object arg3, object arg4, object arg5, object arg6, object arg7, object arg8, object arg9, object arg10, CancellationToken cancellationToken = default(CancellationToken))
-		{
-			throw null;
-		}
-
-		public static Task SendAsync(this IClientProxy clientProxy, string method, object arg1, object arg2, object arg3, object arg4, object arg5, object arg6, object arg7, object arg8, object arg9, CancellationToken cancellationToken = default(CancellationToken))
-		{
-			throw null;
-		}
-
-		public static Task SendAsync(this IClientProxy clientProxy, string method, object arg1, object arg2, object arg3, object arg4, object arg5, object arg6, object arg7, object arg8, CancellationToken cancellationToken = default(CancellationToken))
-		{
-			throw null;
-		}
-
-		public static Task SendAsync(this IClientProxy clientProxy, string method, object arg1, object arg2, object arg3, object arg4, object arg5, object arg6, object arg7, CancellationToken cancellationToken = default(CancellationToken))
-		{
-			throw null;
-		}
-
-		public static Task SendAsync(this IClientProxy clientProxy, string method, object arg1, object arg2, object arg3, object arg4, object arg5, object arg6, CancellationToken cancellationToken = default(CancellationToken))
-		{
-			throw null;
-		}
-
-		public static Task SendAsync(this IClientProxy clientProxy, string method, object arg1, object arg2, object arg3, object arg4, object arg5, CancellationToken cancellationToken = default(CancellationToken))
-		{
-			throw null;
-		}
-
-		public static Task SendAsync(this IClientProxy clientProxy, string method, object arg1, object arg2, object arg3, object arg4, CancellationToken cancellationToken = default(CancellationToken))
-		{
-			throw null;
-		}
-
-		public static Task SendAsync(this IClientProxy clientProxy, string method, object arg1, object arg2, object arg3, CancellationToken cancellationToken = default(CancellationToken))
-		{
-			throw null;
-		}
-
-		public static Task SendAsync(this IClientProxy clientProxy, string method, object arg1, object arg2, CancellationToken cancellationToken = default(CancellationToken))
-		{
-			throw null;
-		}
-
-		public static Task SendAsync(this IClientProxy clientProxy, string method, object arg1, CancellationToken cancellationToken = default(CancellationToken))
-		{
-			throw null;
-		}
-
 		public static Task SendAsync(this IClientProxy clientProxy, string method, CancellationToken cancellationToken = default(CancellationToken))
+		{
+			throw null;
+		}
+
+		public static Task SendAsync(this IClientProxy clientProxy, string method, object? arg1, CancellationToken cancellationToken = default(CancellationToken))
+		{
+			throw null;
+		}
+
+		public static Task SendAsync(this IClientProxy clientProxy, string method, object? arg1, object? arg2, CancellationToken cancellationToken = default(CancellationToken))
+		{
+			throw null;
+		}
+
+		public static Task SendAsync(this IClientProxy clientProxy, string method, object? arg1, object? arg2, object? arg3, CancellationToken cancellationToken = default(CancellationToken))
+		{
+			throw null;
+		}
+
+		public static Task SendAsync(this IClientProxy clientProxy, string method, object? arg1, object? arg2, object? arg3, object? arg4, CancellationToken cancellationToken = default(CancellationToken))
+		{
+			throw null;
+		}
+
+		public static Task SendAsync(this IClientProxy clientProxy, string method, object? arg1, object? arg2, object? arg3, object? arg4, object? arg5, CancellationToken cancellationToken = default(CancellationToken))
+		{
+			throw null;
+		}
+
+		public static Task SendAsync(this IClientProxy clientProxy, string method, object? arg1, object? arg2, object? arg3, object? arg4, object? arg5, object? arg6, CancellationToken cancellationToken = default(CancellationToken))
+		{
+			throw null;
+		}
+
+		public static Task SendAsync(this IClientProxy clientProxy, string method, object? arg1, object? arg2, object? arg3, object? arg4, object? arg5, object? arg6, object? arg7, CancellationToken cancellationToken = default(CancellationToken))
+		{
+			throw null;
+		}
+
+		public static Task SendAsync(this IClientProxy clientProxy, string method, object? arg1, object? arg2, object? arg3, object? arg4, object? arg5, object? arg6, object? arg7, object? arg8, CancellationToken cancellationToken = default(CancellationToken))
+		{
+			throw null;
+		}
+
+		public static Task SendAsync(this IClientProxy clientProxy, string method, object? arg1, object? arg2, object? arg3, object? arg4, object? arg5, object? arg6, object? arg7, object? arg8, object? arg9, CancellationToken cancellationToken = default(CancellationToken))
+		{
+			throw null;
+		}
+
+		public static Task SendAsync(this IClientProxy clientProxy, string method, object? arg1, object? arg2, object? arg3, object? arg4, object? arg5, object? arg6, object? arg7, object? arg8, object? arg9, object? arg10, CancellationToken cancellationToken = default(CancellationToken))
 		{
 			throw null;
 		}
@@ -30968,9 +37528,45 @@ namespace Microsoft.AspNetCore.SignalR
 	{
 		public DefaultHubLifetimeManager(ILogger<DefaultHubLifetimeManager<THub>> logger)
 		{
+			throw null;
 		}
 
 		public override Task AddToGroupAsync(string connectionId, string groupName, CancellationToken cancellationToken = default(CancellationToken))
+		{
+			throw null;
+		}
+
+		public override Task RemoveFromGroupAsync(string connectionId, string groupName, CancellationToken cancellationToken = default(CancellationToken))
+		{
+			throw null;
+		}
+
+		public override Task SendAllAsync(string methodName, object?[]? args, CancellationToken cancellationToken = default(CancellationToken))
+		{
+			throw null;
+		}
+
+		public override Task SendConnectionAsync(string connectionId, string methodName, object?[]? args, CancellationToken cancellationToken = default(CancellationToken))
+		{
+			throw null;
+		}
+
+		public override Task SendGroupAsync(string groupName, string methodName, object?[]? args, CancellationToken cancellationToken = default(CancellationToken))
+		{
+			throw null;
+		}
+
+		public override Task SendGroupsAsync(IReadOnlyList<string> groupNames, string methodName, object?[]? args, CancellationToken cancellationToken = default(CancellationToken))
+		{
+			throw null;
+		}
+
+		public override Task SendGroupExceptAsync(string groupName, string methodName, object?[]? args, IReadOnlyList<string> excludedConnectionIds, CancellationToken cancellationToken = default(CancellationToken))
+		{
+			throw null;
+		}
+
+		public override Task SendUserAsync(string userId, string methodName, object?[]? args, CancellationToken cancellationToken = default(CancellationToken))
 		{
 			throw null;
 		}
@@ -30985,52 +37581,17 @@ namespace Microsoft.AspNetCore.SignalR
 			throw null;
 		}
 
-		public override Task RemoveFromGroupAsync(string connectionId, string groupName, CancellationToken cancellationToken = default(CancellationToken))
+		public override Task SendAllExceptAsync(string methodName, object?[]? args, IReadOnlyList<string> excludedConnectionIds, CancellationToken cancellationToken = default(CancellationToken))
 		{
 			throw null;
 		}
 
-		public override Task SendAllAsync(string methodName, object[] args, CancellationToken cancellationToken = default(CancellationToken))
+		public override Task SendConnectionsAsync(IReadOnlyList<string> connectionIds, string methodName, object?[]? args, CancellationToken cancellationToken = default(CancellationToken))
 		{
 			throw null;
 		}
 
-		public override Task SendAllExceptAsync(string methodName, object[] args, IReadOnlyList<string> excludedConnectionIds, CancellationToken cancellationToken = default(CancellationToken))
-		{
-			throw null;
-		}
-
-		public override Task SendConnectionAsync(string connectionId, string methodName, object[] args, CancellationToken cancellationToken = default(CancellationToken))
-		{
-			throw null;
-		}
-
-		public override Task SendConnectionsAsync(IReadOnlyList<string> connectionIds, string methodName, object[] args, CancellationToken cancellationToken = default(CancellationToken))
-		{
-			throw null;
-		}
-
-		public override Task SendGroupAsync(string groupName, string methodName, object[] args, CancellationToken cancellationToken = default(CancellationToken))
-		{
-			throw null;
-		}
-
-		public override Task SendGroupExceptAsync(string groupName, string methodName, object[] args, IReadOnlyList<string> excludedConnectionIds, CancellationToken cancellationToken = default(CancellationToken))
-		{
-			throw null;
-		}
-
-		public override Task SendGroupsAsync(IReadOnlyList<string> groupNames, string methodName, object[] args, CancellationToken cancellationToken = default(CancellationToken))
-		{
-			throw null;
-		}
-
-		public override Task SendUserAsync(string userId, string methodName, object[] args, CancellationToken cancellationToken = default(CancellationToken))
-		{
-			throw null;
-		}
-
-		public override Task SendUsersAsync(IReadOnlyList<string> userIds, string methodName, object[] args, CancellationToken cancellationToken = default(CancellationToken))
+		public override Task SendUsersAsync(IReadOnlyList<string> userIds, string methodName, object?[]? args, CancellationToken cancellationToken = default(CancellationToken))
 		{
 			throw null;
 		}
@@ -31043,7 +37604,12 @@ namespace Microsoft.AspNetCore.SignalR
 {
 	public class DefaultUserIdProvider : IUserIdProvider
 	{
-		public virtual string GetUserId(HubConnectionContext connection)
+		public virtual string? GetUserId(HubConnectionContext connection)
+		{
+			throw null;
+		}
+
+		public DefaultUserIdProvider()
 		{
 			throw null;
 		}
@@ -31064,7 +37630,13 @@ namespace Microsoft.AspNetCore.SignalR
 			}
 			set
 			{
+				throw null;
 			}
+		}
+
+		protected DynamicHub()
+		{
+			throw null;
 		}
 	}
 }
@@ -31103,6 +37675,7 @@ namespace Microsoft.AspNetCore.SignalR
 
 		public DynamicHubClients(IHubCallerClients clients)
 		{
+			throw null;
 		}
 
 		public dynamic AllExcept(IReadOnlyList<string> excludedConnectionIds)
@@ -31125,12 +37698,12 @@ namespace Microsoft.AspNetCore.SignalR
 			throw null;
 		}
 
-		public dynamic GroupExcept(string groupName, IReadOnlyList<string> excludedConnectionIds)
+		public dynamic Groups(IReadOnlyList<string> groupNames)
 		{
 			throw null;
 		}
 
-		public dynamic Groups(IReadOnlyList<string> groupNames)
+		public dynamic GroupExcept(string groupName, IReadOnlyList<string> excludedConnectionIds)
 		{
 			throw null;
 		}
@@ -31169,6 +37742,7 @@ namespace Microsoft.AspNetCore.SignalR
 			}
 			set
 			{
+				throw null;
 			}
 		}
 
@@ -31180,6 +37754,7 @@ namespace Microsoft.AspNetCore.SignalR
 			}
 			set
 			{
+				throw null;
 			}
 		}
 
@@ -31191,15 +37766,8 @@ namespace Microsoft.AspNetCore.SignalR
 			}
 			set
 			{
+				throw null;
 			}
-		}
-
-		public void Dispose()
-		{
-		}
-
-		protected virtual void Dispose(bool disposing)
-		{
 		}
 
 		public virtual Task OnConnectedAsync()
@@ -31207,7 +37775,22 @@ namespace Microsoft.AspNetCore.SignalR
 			throw null;
 		}
 
-		public virtual Task OnDisconnectedAsync(Exception exception)
+		public virtual Task OnDisconnectedAsync(Exception? exception)
+		{
+			throw null;
+		}
+
+		protected virtual void Dispose(bool disposing)
+		{
+			throw null;
+		}
+
+		public void Dispose()
+		{
+			throw null;
+		}
+
+		protected Hub()
 		{
 			throw null;
 		}
@@ -31222,7 +37805,13 @@ namespace Microsoft.AspNetCore.SignalR
 			}
 			set
 			{
+				throw null;
 			}
+		}
+
+		protected Hub()
+		{
+			throw null;
 		}
 	}
 }
@@ -31231,6 +37820,7 @@ namespace Microsoft.AspNetCore.SignalR
 // Microsoft.AspNetCore.SignalR.Core\Microsoft.AspNetCore.SignalR\HubCallerContext.cs
 using Microsoft.AspNetCore.Http.Features;
 using System.Collections.Generic;
+using System.Runtime.CompilerServices;
 using System.Security.Claims;
 using System.Threading;
 
@@ -31238,12 +37828,24 @@ namespace Microsoft.AspNetCore.SignalR
 {
 	public abstract class HubCallerContext
 	{
-		public abstract CancellationToken ConnectionAborted
+		public abstract string ConnectionId
 		{
 			get;
 		}
 
-		public abstract string ConnectionId
+		public abstract string? UserIdentifier
+		{
+			[System.Runtime.CompilerServices.NullableContext(2)]
+			get;
+		}
+
+		public abstract ClaimsPrincipal? User
+		{
+			[System.Runtime.CompilerServices.NullableContext(2)]
+			get;
+		}
+
+		public abstract IDictionary<object, object?> Items
 		{
 			get;
 		}
@@ -31253,27 +37855,24 @@ namespace Microsoft.AspNetCore.SignalR
 			get;
 		}
 
-		public abstract IDictionary<object, object> Items
-		{
-			get;
-		}
-
-		public abstract ClaimsPrincipal User
-		{
-			get;
-		}
-
-		public abstract string UserIdentifier
+		public abstract CancellationToken ConnectionAborted
 		{
 			get;
 		}
 
 		public abstract void Abort();
+
+		protected HubCallerContext()
+		{
+			throw null;
+		}
 	}
 }
 
 
 // Microsoft.AspNetCore.SignalR.Core\Microsoft.AspNetCore.SignalR\HubClientsExtensions.cs
+using System.Collections.Generic;
+
 namespace Microsoft.AspNetCore.SignalR
 {
 	public static class HubClientsExtensions
@@ -31318,6 +37917,11 @@ namespace Microsoft.AspNetCore.SignalR
 			throw null;
 		}
 
+		public static T AllExcept<T>(this IHubClients<T> hubClients, IEnumerable<string> excludedConnectionIds)
+		{
+			throw null;
+		}
+
 		public static T Clients<T>(this IHubClients<T> hubClients, string connection1)
 		{
 			throw null;
@@ -31358,42 +37962,7 @@ namespace Microsoft.AspNetCore.SignalR
 			throw null;
 		}
 
-		public static T GroupExcept<T>(this IHubClients<T> hubClients, string groupName, string excludedConnectionId1)
-		{
-			throw null;
-		}
-
-		public static T GroupExcept<T>(this IHubClients<T> hubClients, string groupName, string excludedConnectionId1, string excludedConnectionId2)
-		{
-			throw null;
-		}
-
-		public static T GroupExcept<T>(this IHubClients<T> hubClients, string groupName, string excludedConnectionId1, string excludedConnectionId2, string excludedConnectionId3)
-		{
-			throw null;
-		}
-
-		public static T GroupExcept<T>(this IHubClients<T> hubClients, string groupName, string excludedConnectionId1, string excludedConnectionId2, string excludedConnectionId3, string excludedConnectionId4)
-		{
-			throw null;
-		}
-
-		public static T GroupExcept<T>(this IHubClients<T> hubClients, string groupName, string excludedConnectionId1, string excludedConnectionId2, string excludedConnectionId3, string excludedConnectionId4, string excludedConnectionId5)
-		{
-			throw null;
-		}
-
-		public static T GroupExcept<T>(this IHubClients<T> hubClients, string groupName, string excludedConnectionId1, string excludedConnectionId2, string excludedConnectionId3, string excludedConnectionId4, string excludedConnectionId5, string excludedConnectionId6)
-		{
-			throw null;
-		}
-
-		public static T GroupExcept<T>(this IHubClients<T> hubClients, string groupName, string excludedConnectionId1, string excludedConnectionId2, string excludedConnectionId3, string excludedConnectionId4, string excludedConnectionId5, string excludedConnectionId6, string excludedConnectionId7)
-		{
-			throw null;
-		}
-
-		public static T GroupExcept<T>(this IHubClients<T> hubClients, string groupName, string excludedConnectionId1, string excludedConnectionId2, string excludedConnectionId3, string excludedConnectionId4, string excludedConnectionId5, string excludedConnectionId6, string excludedConnectionId7, string excludedConnectionId8)
+		public static T Clients<T>(this IHubClients<T> hubClients, IEnumerable<string> connectionIds)
 		{
 			throw null;
 		}
@@ -31438,6 +38007,56 @@ namespace Microsoft.AspNetCore.SignalR
 			throw null;
 		}
 
+		public static T Groups<T>(this IHubClients<T> hubClients, IEnumerable<string> groupNames)
+		{
+			throw null;
+		}
+
+		public static T GroupExcept<T>(this IHubClients<T> hubClients, string groupName, string excludedConnectionId1)
+		{
+			throw null;
+		}
+
+		public static T GroupExcept<T>(this IHubClients<T> hubClients, string groupName, string excludedConnectionId1, string excludedConnectionId2)
+		{
+			throw null;
+		}
+
+		public static T GroupExcept<T>(this IHubClients<T> hubClients, string groupName, string excludedConnectionId1, string excludedConnectionId2, string excludedConnectionId3)
+		{
+			throw null;
+		}
+
+		public static T GroupExcept<T>(this IHubClients<T> hubClients, string groupName, string excludedConnectionId1, string excludedConnectionId2, string excludedConnectionId3, string excludedConnectionId4)
+		{
+			throw null;
+		}
+
+		public static T GroupExcept<T>(this IHubClients<T> hubClients, string groupName, string excludedConnectionId1, string excludedConnectionId2, string excludedConnectionId3, string excludedConnectionId4, string excludedConnectionId5)
+		{
+			throw null;
+		}
+
+		public static T GroupExcept<T>(this IHubClients<T> hubClients, string groupName, string excludedConnectionId1, string excludedConnectionId2, string excludedConnectionId3, string excludedConnectionId4, string excludedConnectionId5, string excludedConnectionId6)
+		{
+			throw null;
+		}
+
+		public static T GroupExcept<T>(this IHubClients<T> hubClients, string groupName, string excludedConnectionId1, string excludedConnectionId2, string excludedConnectionId3, string excludedConnectionId4, string excludedConnectionId5, string excludedConnectionId6, string excludedConnectionId7)
+		{
+			throw null;
+		}
+
+		public static T GroupExcept<T>(this IHubClients<T> hubClients, string groupName, string excludedConnectionId1, string excludedConnectionId2, string excludedConnectionId3, string excludedConnectionId4, string excludedConnectionId5, string excludedConnectionId6, string excludedConnectionId7, string excludedConnectionId8)
+		{
+			throw null;
+		}
+
+		public static T GroupExcept<T>(this IHubClients<T> hubClients, string groupName, IEnumerable<string> excludedConnectionIds)
+		{
+			throw null;
+		}
+
 		public static T Users<T>(this IHubClients<T> hubClients, string user1)
 		{
 			throw null;
@@ -31477,6 +38096,11 @@ namespace Microsoft.AspNetCore.SignalR
 		{
 			throw null;
 		}
+
+		public static T Users<T>(this IHubClients<T> hubClients, IEnumerable<string> userIds)
+		{
+			throw null;
+		}
 	}
 }
 
@@ -31486,7 +38110,11 @@ using Microsoft.AspNetCore.Connections;
 using Microsoft.AspNetCore.Http.Features;
 using Microsoft.AspNetCore.SignalR.Protocol;
 using Microsoft.Extensions.Logging;
+using System;
+using System.Collections.Concurrent;
 using System.Collections.Generic;
+using System.Diagnostics;
+using System.IO.Pipelines;
 using System.Runtime.CompilerServices;
 using System.Security.Claims;
 using System.Threading;
@@ -31496,6 +38124,86 @@ namespace Microsoft.AspNetCore.SignalR
 {
 	public class HubConnectionContext
 	{
+		private static class Log
+		{
+			public static void HandshakeComplete(ILogger logger, string hubProtocol)
+			{
+				throw null;
+			}
+
+			public static void HandshakeCanceled(ILogger logger)
+			{
+				throw null;
+			}
+
+			public static void SentPing(ILogger logger)
+			{
+				throw null;
+			}
+
+			public static void TransportBufferFull(ILogger logger)
+			{
+				throw null;
+			}
+
+			public static void HandshakeFailed(ILogger logger, Exception exception)
+			{
+				throw null;
+			}
+
+			public static void FailedWritingMessage(ILogger logger, Exception exception)
+			{
+				throw null;
+			}
+
+			public static void ProtocolVersionFailed(ILogger logger, string protocolName, int version)
+			{
+				throw null;
+			}
+
+			public static void AbortFailed(ILogger logger, Exception exception)
+			{
+				throw null;
+			}
+
+			public static void ClientTimeout(ILogger logger, TimeSpan timeout)
+			{
+				throw null;
+			}
+
+			public static void HandshakeSizeLimitExceeded(ILogger logger, long maxMessageSize)
+			{
+				throw null;
+			}
+		}
+
+		internal StreamTracker StreamTracker
+		{
+			get
+			{
+				throw null;
+			}
+		}
+
+		internal HubCallerContext HubCallerContext
+		{
+			[CompilerGenerated]
+			get
+			{
+				throw null;
+			}
+		}
+
+		internal Exception? CloseException
+		{
+			[System.Runtime.CompilerServices.NullableContext(2)]
+			[CompilerGenerated]
+			get
+			{
+				throw null;
+			}
+		}
+
 		public virtual CancellationToken ConnectionAborted
 		{
 			[CompilerGenerated]
@@ -31513,6 +38221,15 @@ namespace Microsoft.AspNetCore.SignalR
 			}
 		}
 
+		public virtual ClaimsPrincipal? User
+		{
+			[System.Runtime.CompilerServices.NullableContext(2)]
+			get
+			{
+				throw null;
+			}
+		}
+
 		public virtual IFeatureCollection Features
 		{
 			get
@@ -31521,9 +38238,41 @@ namespace Microsoft.AspNetCore.SignalR
 			}
 		}
 
-		public virtual IDictionary<object, object> Items
+		public virtual IDictionary<object, object?> Items
 		{
 			get
+			{
+				throw null;
+			}
+		}
+
+		internal bool AllowReconnect
+		{
+			get
+			{
+				throw null;
+			}
+		}
+
+		internal PipeReader Input
+		{
+			get
+			{
+				throw null;
+			}
+		}
+
+		public string? UserIdentifier
+		{
+			[System.Runtime.CompilerServices.NullableContext(2)]
+			[CompilerGenerated]
+			get
+			{
+				throw null;
+			}
+			[System.Runtime.CompilerServices.NullableContext(2)]
+			[CompilerGenerated]
+			set
 			{
 				throw null;
 			}
@@ -31539,36 +38288,22 @@ namespace Microsoft.AspNetCore.SignalR
 			[CompilerGenerated]
 			set
 			{
-			}
-		}
-
-		public virtual ClaimsPrincipal User
-		{
-			get
-			{
 				throw null;
 			}
 		}
 
-		public string UserIdentifier
+		internal ConcurrentDictionary<string, CancellationTokenSource> ActiveRequestCancellationSources
 		{
 			[CompilerGenerated]
 			get
 			{
 				throw null;
-			}
-			[CompilerGenerated]
-			set
-			{
 			}
 		}
 
 		public HubConnectionContext(ConnectionContext connectionContext, HubConnectionContextOptions contextOptions, ILoggerFactory loggerFactory)
 		{
-		}
-
-		public virtual void Abort()
-		{
+			throw null;
 		}
 
 		public virtual ValueTask WriteAsync(HubMessage message, CancellationToken cancellationToken = default(CancellationToken))
@@ -31580,11 +38315,49 @@ namespace Microsoft.AspNetCore.SignalR
 		{
 			throw null;
 		}
+
+		public virtual void Abort()
+		{
+			throw null;
+		}
+
+		[AsyncStateMachine(typeof(_003CHandshakeAsync_003Ed__71))]
+		[DebuggerStepThrough]
+		internal Task<bool> HandshakeAsync(TimeSpan timeout, IReadOnlyList<string>? supportedProtocols, IHubProtocolResolver protocolResolver, IUserIdProvider userIdProvider, bool enableDetailedErrors)
+		{
+			throw null;
+		}
+
+		internal Task AbortAsync()
+		{
+			throw null;
+		}
+
+		internal void StartClientTimeout()
+		{
+			throw null;
+		}
+
+		internal void BeginClientTimeout()
+		{
+			throw null;
+		}
+
+		internal void StopClientTimeout()
+		{
+			throw null;
+		}
+
+		internal void Cleanup()
+		{
+			throw null;
+		}
 	}
 }
 
 
 // Microsoft.AspNetCore.SignalR.Core\Microsoft.AspNetCore.SignalR\HubConnectionContextOptions.cs
+using Microsoft.AspNetCore.Internal;
 using System;
 using System.Runtime.CompilerServices;
 
@@ -31592,19 +38365,6 @@ namespace Microsoft.AspNetCore.SignalR
 {
 	public class HubConnectionContextOptions
 	{
-		public TimeSpan ClientTimeoutInterval
-		{
-			[CompilerGenerated]
-			get
-			{
-				throw null;
-			}
-			[CompilerGenerated]
-			set
-			{
-			}
-		}
-
 		public TimeSpan KeepAliveInterval
 		{
 			[CompilerGenerated]
@@ -31615,10 +38375,11 @@ namespace Microsoft.AspNetCore.SignalR
 			[CompilerGenerated]
 			set
 			{
+				throw null;
 			}
 		}
 
-		public long? MaximumReceiveMessageSize
+		public TimeSpan ClientTimeoutInterval
 		{
 			[CompilerGenerated]
 			get
@@ -31628,6 +38389,7 @@ namespace Microsoft.AspNetCore.SignalR
 			[CompilerGenerated]
 			set
 			{
+				throw null;
 			}
 		}
 
@@ -31641,7 +38403,41 @@ namespace Microsoft.AspNetCore.SignalR
 			[CompilerGenerated]
 			set
 			{
+				throw null;
 			}
+		}
+
+		public long? MaximumReceiveMessageSize
+		{
+			[CompilerGenerated]
+			get
+			{
+				throw null;
+			}
+			[CompilerGenerated]
+			set
+			{
+				throw null;
+			}
+		}
+
+		internal ISystemClock SystemClock
+		{
+			[CompilerGenerated]
+			get
+			{
+				throw null;
+			}
+			[CompilerGenerated]
+			set
+			{
+				throw null;
+			}
+		}
+
+		public HubConnectionContextOptions()
+		{
+			throw null;
 		}
 	}
 }
@@ -31649,20 +38445,72 @@ namespace Microsoft.AspNetCore.SignalR
 
 // Microsoft.AspNetCore.SignalR.Core\Microsoft.AspNetCore.SignalR\HubConnectionHandler.cs
 using Microsoft.AspNetCore.Connections;
+using Microsoft.AspNetCore.Internal;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Logging;
 using Microsoft.Extensions.Options;
+using System;
 using System.Diagnostics;
+using System.Runtime.CompilerServices;
 using System.Threading.Tasks;
 
 namespace Microsoft.AspNetCore.SignalR
 {
 	public class HubConnectionHandler<THub> : ConnectionHandler where THub : Hub
 	{
-		public HubConnectionHandler(HubLifetimeManager<THub> lifetimeManager, IHubProtocolResolver protocolResolver, IOptions<HubOptions> globalHubOptions, IOptions<HubOptions<THub>> hubOptions, ILoggerFactory loggerFactory, IUserIdProvider userIdProvider, IServiceScopeFactory serviceScopeFactory)
+		private static class Log
 		{
+			public static void ErrorDispatchingHubEvent(ILogger logger, string hubMethod, Exception exception)
+			{
+				throw null;
+			}
+
+			public static void ErrorProcessingRequest(ILogger logger, Exception exception)
+			{
+				throw null;
+			}
+
+			public static void AbortFailed(ILogger logger, Exception exception)
+			{
+				throw null;
+			}
+
+			public static void ErrorSendingClose(ILogger logger, Exception exception)
+			{
+				throw null;
+			}
+
+			public static void ConnectedStarting(ILogger logger)
+			{
+				throw null;
+			}
+
+			public static void ConnectedEnding(ILogger logger)
+			{
+				throw null;
+			}
 		}
 
+		internal ISystemClock SystemClock
+		{
+			[CompilerGenerated]
+			get
+			{
+				throw null;
+			}
+			[CompilerGenerated]
+			set
+			{
+				throw null;
+			}
+		}
+
+		public HubConnectionHandler(HubLifetimeManager<THub> lifetimeManager, IHubProtocolResolver protocolResolver, IOptions<HubOptions> globalHubOptions, IOptions<HubOptions<THub>> hubOptions, ILoggerFactory loggerFactory, IUserIdProvider userIdProvider, IServiceScopeFactory serviceScopeFactory)
+		{
+			throw null;
+		}
+
+		[AsyncStateMachine(typeof(HubConnectionHandler<>._003COnConnectedAsync_003Ed__15))]
 		[DebuggerStepThrough]
 		public override Task OnConnectedAsync(ConnectionContext connection)
 		{
@@ -31683,7 +38531,7 @@ namespace Microsoft.AspNetCore.SignalR
 	{
 		public readonly struct Enumerator : IEnumerator<HubConnectionContext>, IEnumerator, IDisposable
 		{
-			private readonly object _dummy;
+			private readonly IEnumerator<KeyValuePair<string, HubConnectionContext>> _enumerator;
 
 			public HubConnectionContext Current
 			{
@@ -31708,6 +38556,7 @@ namespace Microsoft.AspNetCore.SignalR
 
 			public void Dispose()
 			{
+				throw null;
 			}
 
 			public bool MoveNext()
@@ -31717,6 +38566,15 @@ namespace Microsoft.AspNetCore.SignalR
 
 			public void Reset()
 			{
+				throw null;
+			}
+		}
+
+		public HubConnectionContext? this[string connectionId]
+		{
+			get
+			{
+				throw null;
 			}
 		}
 
@@ -31728,16 +38586,14 @@ namespace Microsoft.AspNetCore.SignalR
 			}
 		}
 
-		public HubConnectionContext this[string connectionId]
-		{
-			get
-			{
-				throw null;
-			}
-		}
-
 		public void Add(HubConnectionContext connection)
 		{
+			throw null;
+		}
+
+		public void Remove(HubConnectionContext connection)
+		{
+			throw null;
 		}
 
 		public Enumerator GetEnumerator()
@@ -31745,21 +38601,34 @@ namespace Microsoft.AspNetCore.SignalR
 			throw null;
 		}
 
-		public void Remove(HubConnectionContext connection)
+		public HubConnectionStore()
 		{
+			throw null;
 		}
 	}
 }
 
 
 // Microsoft.AspNetCore.SignalR.Core\Microsoft.AspNetCore.SignalR\HubInvocationContext.cs
+using Microsoft.Extensions.Internal;
+using System;
 using System.Collections.Generic;
+using System.Reflection;
 using System.Runtime.CompilerServices;
 
 namespace Microsoft.AspNetCore.SignalR
 {
 	public class HubInvocationContext
 	{
+		internal ObjectMethodExecutor ObjectMethodExecutor
+		{
+			[CompilerGenerated]
+			get
+			{
+				throw null;
+			}
+		}
+
 		public HubCallerContext Context
 		{
 			[CompilerGenerated]
@@ -31769,7 +38638,7 @@ namespace Microsoft.AspNetCore.SignalR
 			}
 		}
 
-		public IReadOnlyList<object> HubMethodArguments
+		public Hub Hub
 		{
 			[CompilerGenerated]
 			get
@@ -31780,6 +38649,14 @@ namespace Microsoft.AspNetCore.SignalR
 
 		public string HubMethodName
 		{
+			get
+			{
+				throw null;
+			}
+		}
+
+		public IReadOnlyList<object?> HubMethodArguments
+		{
 			[CompilerGenerated]
 			get
 			{
@@ -31787,8 +38664,81 @@ namespace Microsoft.AspNetCore.SignalR
 			}
 		}
 
-		public HubInvocationContext(HubCallerContext context, string hubMethodName, object[] hubMethodArguments)
+		public IServiceProvider ServiceProvider
 		{
+			[CompilerGenerated]
+			get
+			{
+				throw null;
+			}
+		}
+
+		public MethodInfo HubMethod
+		{
+			[CompilerGenerated]
+			get
+			{
+				throw null;
+			}
+		}
+
+		public HubInvocationContext(HubCallerContext context, IServiceProvider serviceProvider, Hub hub, MethodInfo hubMethod, IReadOnlyList<object?> hubMethodArguments)
+		{
+			throw null;
+		}
+
+		[Obsolete("This constructor is obsolete and will be removed in a future version. The recommended alternative is to use the other constructor.")]
+		public HubInvocationContext(HubCallerContext context, string hubMethodName, object?[] hubMethodArguments)
+		{
+			throw null;
+		}
+
+		internal HubInvocationContext(ObjectMethodExecutor objectMethodExecutor, HubCallerContext context, IServiceProvider serviceProvider, Hub hub, object?[] hubMethodArguments)
+		{
+			throw null;
+		}
+	}
+}
+
+
+// Microsoft.AspNetCore.SignalR.Core\Microsoft.AspNetCore.SignalR\HubLifetimeContext.cs
+using System;
+using System.Runtime.CompilerServices;
+
+namespace Microsoft.AspNetCore.SignalR
+{
+	public sealed class HubLifetimeContext
+	{
+		public HubCallerContext Context
+		{
+			[CompilerGenerated]
+			get
+			{
+				throw null;
+			}
+		}
+
+		public Hub Hub
+		{
+			[CompilerGenerated]
+			get
+			{
+				throw null;
+			}
+		}
+
+		public IServiceProvider ServiceProvider
+		{
+			[CompilerGenerated]
+			get
+			{
+				throw null;
+			}
+		}
+
+		public HubLifetimeContext(HubCallerContext context, IServiceProvider serviceProvider, Hub hub)
+		{
+			throw null;
 		}
 	}
 }
@@ -31803,31 +38753,36 @@ namespace Microsoft.AspNetCore.SignalR
 {
 	public abstract class HubLifetimeManager<THub> where THub : Hub
 	{
-		public abstract Task AddToGroupAsync(string connectionId, string groupName, CancellationToken cancellationToken = default(CancellationToken));
-
 		public abstract Task OnConnectedAsync(HubConnectionContext connection);
 
 		public abstract Task OnDisconnectedAsync(HubConnectionContext connection);
 
+		public abstract Task SendAllAsync(string methodName, object?[]? args, CancellationToken cancellationToken = default(CancellationToken));
+
+		public abstract Task SendAllExceptAsync(string methodName, object?[]? args, IReadOnlyList<string> excludedConnectionIds, CancellationToken cancellationToken = default(CancellationToken));
+
+		public abstract Task SendConnectionAsync(string connectionId, string methodName, object?[]? args, CancellationToken cancellationToken = default(CancellationToken));
+
+		public abstract Task SendConnectionsAsync(IReadOnlyList<string> connectionIds, string methodName, object?[]? args, CancellationToken cancellationToken = default(CancellationToken));
+
+		public abstract Task SendGroupAsync(string groupName, string methodName, object?[]? args, CancellationToken cancellationToken = default(CancellationToken));
+
+		public abstract Task SendGroupsAsync(IReadOnlyList<string> groupNames, string methodName, object?[]? args, CancellationToken cancellationToken = default(CancellationToken));
+
+		public abstract Task SendGroupExceptAsync(string groupName, string methodName, object?[]? args, IReadOnlyList<string> excludedConnectionIds, CancellationToken cancellationToken = default(CancellationToken));
+
+		public abstract Task SendUserAsync(string userId, string methodName, object?[]? args, CancellationToken cancellationToken = default(CancellationToken));
+
+		public abstract Task SendUsersAsync(IReadOnlyList<string> userIds, string methodName, object?[]? args, CancellationToken cancellationToken = default(CancellationToken));
+
+		public abstract Task AddToGroupAsync(string connectionId, string groupName, CancellationToken cancellationToken = default(CancellationToken));
+
 		public abstract Task RemoveFromGroupAsync(string connectionId, string groupName, CancellationToken cancellationToken = default(CancellationToken));
 
-		public abstract Task SendAllAsync(string methodName, object[] args, CancellationToken cancellationToken = default(CancellationToken));
-
-		public abstract Task SendAllExceptAsync(string methodName, object[] args, IReadOnlyList<string> excludedConnectionIds, CancellationToken cancellationToken = default(CancellationToken));
-
-		public abstract Task SendConnectionAsync(string connectionId, string methodName, object[] args, CancellationToken cancellationToken = default(CancellationToken));
-
-		public abstract Task SendConnectionsAsync(IReadOnlyList<string> connectionIds, string methodName, object[] args, CancellationToken cancellationToken = default(CancellationToken));
-
-		public abstract Task SendGroupAsync(string groupName, string methodName, object[] args, CancellationToken cancellationToken = default(CancellationToken));
-
-		public abstract Task SendGroupExceptAsync(string groupName, string methodName, object[] args, IReadOnlyList<string> excludedConnectionIds, CancellationToken cancellationToken = default(CancellationToken));
-
-		public abstract Task SendGroupsAsync(IReadOnlyList<string> groupNames, string methodName, object[] args, CancellationToken cancellationToken = default(CancellationToken));
-
-		public abstract Task SendUserAsync(string userId, string methodName, object[] args, CancellationToken cancellationToken = default(CancellationToken));
-
-		public abstract Task SendUsersAsync(IReadOnlyList<string> userIds, string methodName, object[] args, CancellationToken cancellationToken = default(CancellationToken));
+		protected HubLifetimeManager()
+		{
+			throw null;
+		}
 	}
 }
 
@@ -31851,6 +38806,7 @@ namespace Microsoft.AspNetCore.SignalR
 
 		public HubMetadata(Type hubType)
 		{
+			throw null;
 		}
 	}
 }
@@ -31876,6 +38832,7 @@ namespace Microsoft.AspNetCore.SignalR
 
 		public HubMethodNameAttribute(string name)
 		{
+			throw null;
 		}
 	}
 }
@@ -31890,32 +38847,6 @@ namespace Microsoft.AspNetCore.SignalR
 {
 	public class HubOptions
 	{
-		public TimeSpan? ClientTimeoutInterval
-		{
-			[CompilerGenerated]
-			get
-			{
-				throw null;
-			}
-			[CompilerGenerated]
-			set
-			{
-			}
-		}
-
-		public bool? EnableDetailedErrors
-		{
-			[CompilerGenerated]
-			get
-			{
-				throw null;
-			}
-			[CompilerGenerated]
-			set
-			{
-			}
-		}
-
 		public TimeSpan? HandshakeTimeout
 		{
 			[CompilerGenerated]
@@ -31926,6 +38857,7 @@ namespace Microsoft.AspNetCore.SignalR
 			[CompilerGenerated]
 			set
 			{
+				throw null;
 			}
 		}
 
@@ -31939,6 +38871,35 @@ namespace Microsoft.AspNetCore.SignalR
 			[CompilerGenerated]
 			set
 			{
+				throw null;
+			}
+		}
+
+		public TimeSpan? ClientTimeoutInterval
+		{
+			[CompilerGenerated]
+			get
+			{
+				throw null;
+			}
+			[CompilerGenerated]
+			set
+			{
+				throw null;
+			}
+		}
+
+		public IList<string>? SupportedProtocols
+		{
+			[CompilerGenerated]
+			get
+			{
+				throw null;
+			}
+			[CompilerGenerated]
+			set
+			{
+				throw null;
 			}
 		}
 
@@ -31952,6 +38913,21 @@ namespace Microsoft.AspNetCore.SignalR
 			[CompilerGenerated]
 			set
 			{
+				throw null;
+			}
+		}
+
+		public bool? EnableDetailedErrors
+		{
+			[CompilerGenerated]
+			get
+			{
+				throw null;
+			}
+			[CompilerGenerated]
+			set
+			{
+				throw null;
 			}
 		}
 
@@ -31965,10 +38941,11 @@ namespace Microsoft.AspNetCore.SignalR
 			[CompilerGenerated]
 			set
 			{
+				throw null;
 			}
 		}
 
-		public IList<string> SupportedProtocols
+		internal List<IHubFilter>? HubFilters
 		{
 			[CompilerGenerated]
 			get
@@ -31978,11 +38955,61 @@ namespace Microsoft.AspNetCore.SignalR
 			[CompilerGenerated]
 			set
 			{
+				throw null;
 			}
+		}
+
+		public HubOptions()
+		{
+			throw null;
 		}
 	}
 	public class HubOptions<THub> : HubOptions where THub : Hub
 	{
+		internal bool UserHasSetValues
+		{
+			[CompilerGenerated]
+			get
+			{
+				throw null;
+			}
+			[CompilerGenerated]
+			set
+			{
+				throw null;
+			}
+		}
+
+		public HubOptions()
+		{
+			throw null;
+		}
+	}
+}
+
+
+// Microsoft.AspNetCore.SignalR.Core\Microsoft.AspNetCore.SignalR\HubOptionsExtensions.cs
+using System;
+using System.Diagnostics.CodeAnalysis;
+
+namespace Microsoft.AspNetCore.SignalR
+{
+	public static class HubOptionsExtensions
+	{
+		public static void AddFilter(this HubOptions options, IHubFilter hubFilter)
+		{
+			throw null;
+		}
+
+		public static void AddFilter<[DynamicallyAccessedMembers(DynamicallyAccessedMemberTypes.PublicConstructors)] TFilter>(this HubOptions options) where TFilter : IHubFilter
+		{
+			throw null;
+		}
+
+		public static void AddFilter(this HubOptions options, [DynamicallyAccessedMembers(DynamicallyAccessedMemberTypes.PublicConstructors)] Type filterType)
+		{
+			throw null;
+		}
 	}
 }
 
@@ -31990,28 +39017,61 @@ namespace Microsoft.AspNetCore.SignalR
 // Microsoft.AspNetCore.SignalR.Core\Microsoft.AspNetCore.SignalR\HubOptionsSetup.cs
 using Microsoft.AspNetCore.SignalR.Protocol;
 using Microsoft.Extensions.Options;
+using System;
 using System.Collections.Generic;
 
 namespace Microsoft.AspNetCore.SignalR
 {
 	public class HubOptionsSetup : IConfigureOptions<HubOptions>
 	{
+		internal const int DefaultMaximumMessageSize = 32768;
+
+		internal const int DefaultStreamBufferCapacity = 10;
+
+		internal static TimeSpan DefaultHandshakeTimeout
+		{
+			get
+			{
+				throw null;
+			}
+		}
+
+		internal static TimeSpan DefaultKeepAliveInterval
+		{
+			get
+			{
+				throw null;
+			}
+		}
+
+		internal static TimeSpan DefaultClientTimeoutInterval
+		{
+			get
+			{
+				throw null;
+			}
+		}
+
 		public HubOptionsSetup(IEnumerable<IHubProtocol> protocols)
 		{
+			throw null;
 		}
 
 		public void Configure(HubOptions options)
 		{
+			throw null;
 		}
 	}
 	public class HubOptionsSetup<THub> : IConfigureOptions<HubOptions<THub>> where THub : Hub
 	{
 		public HubOptionsSetup(IOptions<HubOptions> options)
 		{
+			throw null;
 		}
 
 		public void Configure(HubOptions<THub> options)
 		{
+			throw null;
 		}
 	}
 }
@@ -32025,7 +39085,7 @@ namespace Microsoft.AspNetCore.SignalR
 {
 	public interface IClientProxy
 	{
-		Task SendCoreAsync(string method, object[] args, CancellationToken cancellationToken = default(CancellationToken));
+		Task SendCoreAsync(string method, object?[]? args, CancellationToken cancellationToken = default(CancellationToken));
 	}
 }
 
@@ -32103,9 +39163,9 @@ namespace Microsoft.AspNetCore.SignalR
 
 		T Group(string groupName);
 
-		T GroupExcept(string groupName, IReadOnlyList<string> excludedConnectionIds);
-
 		T Groups(IReadOnlyList<string> groupNames);
+
+		T GroupExcept(string groupName, IReadOnlyList<string> excludedConnectionIds);
 
 		T User(string userId);
 
@@ -32144,6 +39204,32 @@ namespace Microsoft.AspNetCore.SignalR
 }
 
 
+// Microsoft.AspNetCore.SignalR.Core\Microsoft.AspNetCore.SignalR\IHubFilter.cs
+using System;
+using System.Threading.Tasks;
+
+namespace Microsoft.AspNetCore.SignalR
+{
+	public interface IHubFilter
+	{
+		ValueTask<object?> InvokeMethodAsync(HubInvocationContext invocationContext, Func<HubInvocationContext, ValueTask<object?>> next)
+		{
+			throw null;
+		}
+
+		Task OnConnectedAsync(HubLifetimeContext context, Func<HubLifetimeContext, Task> next)
+		{
+			throw null;
+		}
+
+		Task OnDisconnectedAsync(HubLifetimeContext context, Exception? exception, Func<HubLifetimeContext, Exception?, Task> next)
+		{
+			throw null;
+		}
+	}
+}
+
+
 // Microsoft.AspNetCore.SignalR.Core\Microsoft.AspNetCore.SignalR\IHubProtocolResolver.cs
 using Microsoft.AspNetCore.SignalR.Protocol;
 using System.Collections.Generic;
@@ -32157,7 +39243,7 @@ namespace Microsoft.AspNetCore.SignalR
 			get;
 		}
 
-		IHubProtocol GetProtocol(string protocolName, IReadOnlyList<string> supportedProtocols);
+		IHubProtocol? GetProtocol(string protocolName, IReadOnlyList<string>? supportedProtocols);
 	}
 }
 
@@ -32176,7 +39262,7 @@ namespace Microsoft.AspNetCore.SignalR
 {
 	public interface IUserIdProvider
 	{
-		string GetUserId(HubConnectionContext connection);
+		string? GetUserId(HubConnectionContext connection);
 	}
 }
 
@@ -32191,8 +39277,9 @@ namespace Microsoft.AspNetCore.SignalR
 {
 	public class SerializedHubMessage
 	{
-		public HubMessage Message
+		public HubMessage? Message
 		{
+			[System.Runtime.CompilerServices.NullableContext(2)]
 			[CompilerGenerated]
 			get
 			{
@@ -32200,15 +39287,24 @@ namespace Microsoft.AspNetCore.SignalR
 			}
 		}
 
-		public SerializedHubMessage(HubMessage message)
-		{
-		}
-
+		[System.Runtime.CompilerServices.NullableContext(1)]
 		public SerializedHubMessage(IReadOnlyList<SerializedMessage> messages)
 		{
+			throw null;
+		}
+
+		[System.Runtime.CompilerServices.NullableContext(1)]
+		public SerializedHubMessage(HubMessage message)
+		{
+			throw null;
 		}
 
 		public ReadOnlyMemory<byte> GetSerializedMessage(IHubProtocol protocol)
+		{
+			throw null;
+		}
+
+		internal IReadOnlyList<SerializedMessage> GetAllSerializations()
 		{
 			throw null;
 		}
@@ -32224,10 +39320,9 @@ namespace Microsoft.AspNetCore.SignalR
 {
 	public readonly struct SerializedMessage
 	{
-		private readonly object _dummy;
-
 		public string ProtocolName
 		{
+			[System.Runtime.CompilerServices.NullableContext(1)]
 			[CompilerGenerated]
 			get
 			{
@@ -32254,12 +39349,39 @@ namespace Microsoft.AspNetCore.SignalR
 
 // Microsoft.AspNetCore.SignalR.Core\Microsoft.AspNetCore.SignalR\SignalRConnectionBuilderExtensions.cs
 using Microsoft.AspNetCore.Connections;
+using System.Diagnostics.CodeAnalysis;
 
 namespace Microsoft.AspNetCore.SignalR
 {
 	public static class SignalRConnectionBuilderExtensions
 	{
-		public static IConnectionBuilder UseHub<THub>(this IConnectionBuilder connectionBuilder) where THub : Hub
+		public static IConnectionBuilder UseHub<[DynamicallyAccessedMembers((DynamicallyAccessedMemberTypes)11)] THub>(this IConnectionBuilder connectionBuilder) where THub : Hub
+		{
+			throw null;
+		}
+	}
+}
+
+
+// Microsoft.AspNetCore.SignalR.Core\Microsoft.AspNetCore.SignalR.Internal\HubDispatcher.cs
+using Microsoft.AspNetCore.SignalR.Protocol;
+using System;
+using System.Collections.Generic;
+using System.Threading.Tasks;
+
+namespace Microsoft.AspNetCore.SignalR.Internal
+{
+	internal abstract class HubDispatcher<THub> where THub : Hub
+	{
+		public abstract Task OnConnectedAsync(HubConnectionContext connection);
+
+		public abstract Task OnDisconnectedAsync(HubConnectionContext connection, Exception? exception);
+
+		public abstract Task DispatchMessageAsync(HubConnectionContext connection, HubMessage hubMessage);
+
+		public abstract IReadOnlyList<Type> GetParameterTypes(string name);
+
+		protected HubDispatcher()
 		{
 			throw null;
 		}
@@ -32275,6 +39397,227 @@ namespace Microsoft.Extensions.DependencyInjection
 	public static class SignalRDependencyInjectionExtensions
 	{
 		public static ISignalRServerBuilder AddSignalRCore(this IServiceCollection services)
+		{
+			throw null;
+		}
+	}
+}
+
+
+// Microsoft.AspNetCore.SignalR.Core\Microsoft.Extensions.Internal\AwaitableInfo.cs
+using System;
+using System.Reflection;
+using System.Runtime.CompilerServices;
+
+namespace Microsoft.Extensions.Internal
+{
+	internal readonly struct AwaitableInfo
+	{
+		public Type AwaiterType
+		{
+			[CompilerGenerated]
+			get
+			{
+				throw null;
+			}
+		}
+
+		public PropertyInfo AwaiterIsCompletedProperty
+		{
+			[CompilerGenerated]
+			get
+			{
+				throw null;
+			}
+		}
+
+		public MethodInfo AwaiterGetResultMethod
+		{
+			[CompilerGenerated]
+			get
+			{
+				throw null;
+			}
+		}
+
+		public MethodInfo AwaiterOnCompletedMethod
+		{
+			[CompilerGenerated]
+			get
+			{
+				throw null;
+			}
+		}
+
+		public MethodInfo AwaiterUnsafeOnCompletedMethod
+		{
+			[CompilerGenerated]
+			get
+			{
+				throw null;
+			}
+		}
+
+		public Type ResultType
+		{
+			[CompilerGenerated]
+			get
+			{
+				throw null;
+			}
+		}
+
+		public MethodInfo GetAwaiterMethod
+		{
+			[CompilerGenerated]
+			get
+			{
+				throw null;
+			}
+		}
+
+		public AwaitableInfo(Type awaiterType, PropertyInfo awaiterIsCompletedProperty, MethodInfo awaiterGetResultMethod, MethodInfo awaiterOnCompletedMethod, MethodInfo awaiterUnsafeOnCompletedMethod, Type resultType, MethodInfo getAwaiterMethod)
+		{
+			throw null;
+		}
+
+		public static bool IsTypeAwaitable(Type type, out AwaitableInfo awaitableInfo)
+		{
+			throw null;
+		}
+	}
+}
+
+
+// Microsoft.AspNetCore.SignalR.Core\Microsoft.Extensions.Internal\CoercedAwaitableInfo.cs
+using System;
+using System.Linq.Expressions;
+using System.Runtime.CompilerServices;
+
+namespace Microsoft.Extensions.Internal
+{
+	internal readonly struct CoercedAwaitableInfo
+	{
+		public AwaitableInfo AwaitableInfo
+		{
+			[CompilerGenerated]
+			get
+			{
+				throw null;
+			}
+		}
+
+		public Expression CoercerExpression
+		{
+			[CompilerGenerated]
+			get
+			{
+				throw null;
+			}
+		}
+
+		public Type CoercerResultType
+		{
+			[CompilerGenerated]
+			get
+			{
+				throw null;
+			}
+		}
+
+		public bool RequiresCoercion
+		{
+			get
+			{
+				throw null;
+			}
+		}
+
+		public CoercedAwaitableInfo(AwaitableInfo awaitableInfo)
+		{
+			throw null;
+		}
+
+		public CoercedAwaitableInfo(Expression coercerExpression, Type coercerResultType, AwaitableInfo coercedAwaitableInfo)
+		{
+			throw null;
+		}
+
+		public static bool IsTypeAwaitable(Type type, out CoercedAwaitableInfo info)
+		{
+			throw null;
+		}
+	}
+}
+
+
+// Microsoft.AspNetCore.SignalR.Core\Microsoft.Extensions.Internal\ObjectMethodExecutorAwaitable.cs
+using System;
+using System.Runtime.CompilerServices;
+
+namespace Microsoft.Extensions.Internal
+{
+	internal readonly struct ObjectMethodExecutorAwaitable
+	{
+		public readonly struct Awaiter : ICriticalNotifyCompletion, INotifyCompletion
+		{
+			private readonly object _customAwaiter;
+
+			private readonly Func<object, bool> _isCompletedMethod;
+
+			private readonly Func<object, object> _getResultMethod;
+
+			private readonly Action<object, Action> _onCompletedMethod;
+
+			private readonly Action<object, Action> _unsafeOnCompletedMethod;
+
+			public bool IsCompleted
+			{
+				get
+				{
+					throw null;
+				}
+			}
+
+			public Awaiter(object customAwaiter, Func<object, bool> isCompletedMethod, Func<object, object> getResultMethod, Action<object, Action> onCompletedMethod, Action<object, Action> unsafeOnCompletedMethod)
+			{
+				throw null;
+			}
+
+			public object GetResult()
+			{
+				throw null;
+			}
+
+			public void OnCompleted(Action continuation)
+			{
+				throw null;
+			}
+
+			public void UnsafeOnCompleted(Action continuation)
+			{
+				throw null;
+			}
+		}
+
+		private readonly object _customAwaitable;
+
+		private readonly Func<object, object> _getAwaiterMethod;
+
+		private readonly Func<object, bool> _isCompletedMethod;
+
+		private readonly Func<object, object> _getResultMethod;
+
+		private readonly Action<object, Action> _onCompletedMethod;
+
+		private readonly Action<object, Action> _unsafeOnCompletedMethod;
+
+		public ObjectMethodExecutorAwaitable(object customAwaitable, Func<object, object> getAwaiterMethod, Func<object, bool> isCompletedMethod, Func<object, object> getResultMethod, Action<object, Action> onCompletedMethod, Action<object, Action> unsafeOnCompletedMethod)
+		{
+			throw null;
+		}
+
+		public Awaiter GetAwaiter()
 		{
 			throw null;
 		}
@@ -32300,7 +39643,13 @@ namespace Microsoft.AspNetCore.SignalR
 			[CompilerGenerated]
 			set
 			{
+				throw null;
 			}
+		}
+
+		public JsonHubProtocolOptions()
+		{
+			throw null;
 		}
 	}
 }
@@ -32324,7 +39673,7 @@ namespace Microsoft.AspNetCore.SignalR.Protocol
 			}
 		}
 
-		public TransferFormat TransferFormat
+		public int Version
 		{
 			get
 			{
@@ -32332,7 +39681,7 @@ namespace Microsoft.AspNetCore.SignalR.Protocol
 			}
 		}
 
-		public int Version
+		public TransferFormat TransferFormat
 		{
 			get
 			{
@@ -32342,13 +39691,10 @@ namespace Microsoft.AspNetCore.SignalR.Protocol
 
 		public JsonHubProtocol()
 		{
+			throw null;
 		}
 
 		public JsonHubProtocol(IOptions<JsonHubProtocolOptions> options)
-		{
-		}
-
-		public ReadOnlyMemory<byte> GetMessageBytes(HubMessage message)
 		{
 			throw null;
 		}
@@ -32365,6 +39711,12 @@ namespace Microsoft.AspNetCore.SignalR.Protocol
 
 		public void WriteMessage(HubMessage message, IBufferWriter<byte> output)
 		{
+			throw null;
+		}
+
+		public ReadOnlyMemory<byte> GetMessageBytes(HubMessage message)
+		{
+			throw null;
 		}
 	}
 }
@@ -32391,17 +39743,1098 @@ namespace Microsoft.Extensions.DependencyInjection
 }
 
 
+// Microsoft.AspNetCore.StaticFiles\Microsoft.AspNetCore.Builder\DefaultFilesExtensions.cs
+namespace Microsoft.AspNetCore.Builder
+{
+	public static class DefaultFilesExtensions
+	{
+		public static IApplicationBuilder UseDefaultFiles(this IApplicationBuilder app)
+		{
+			throw null;
+		}
+
+		public static IApplicationBuilder UseDefaultFiles(this IApplicationBuilder app, string requestPath)
+		{
+			throw null;
+		}
+
+		public static IApplicationBuilder UseDefaultFiles(this IApplicationBuilder app, DefaultFilesOptions options)
+		{
+			throw null;
+		}
+	}
+}
+
+
+// Microsoft.AspNetCore.StaticFiles\Microsoft.AspNetCore.Builder\DefaultFilesOptions.cs
+using Microsoft.AspNetCore.StaticFiles.Infrastructure;
+using System.Collections.Generic;
+using System.Runtime.CompilerServices;
+
+namespace Microsoft.AspNetCore.Builder
+{
+	public class DefaultFilesOptions : SharedOptionsBase
+	{
+		public IList<string> DefaultFileNames
+		{
+			[CompilerGenerated]
+			get
+			{
+				throw null;
+			}
+			[CompilerGenerated]
+			set
+			{
+				throw null;
+			}
+		}
+
+		public DefaultFilesOptions()
+		{
+			throw null;
+		}
+
+		public DefaultFilesOptions(SharedOptions sharedOptions)
+		{
+			throw null;
+		}
+	}
+}
+
+
+// Microsoft.AspNetCore.StaticFiles\Microsoft.AspNetCore.Builder\DirectoryBrowserExtensions.cs
+namespace Microsoft.AspNetCore.Builder
+{
+	public static class DirectoryBrowserExtensions
+	{
+		public static IApplicationBuilder UseDirectoryBrowser(this IApplicationBuilder app)
+		{
+			throw null;
+		}
+
+		public static IApplicationBuilder UseDirectoryBrowser(this IApplicationBuilder app, string requestPath)
+		{
+			throw null;
+		}
+
+		public static IApplicationBuilder UseDirectoryBrowser(this IApplicationBuilder app, DirectoryBrowserOptions options)
+		{
+			throw null;
+		}
+	}
+}
+
+
+// Microsoft.AspNetCore.StaticFiles\Microsoft.AspNetCore.Builder\DirectoryBrowserOptions.cs
+using Microsoft.AspNetCore.StaticFiles;
+using Microsoft.AspNetCore.StaticFiles.Infrastructure;
+using System.Runtime.CompilerServices;
+
+namespace Microsoft.AspNetCore.Builder
+{
+	public class DirectoryBrowserOptions : SharedOptionsBase
+	{
+		public IDirectoryFormatter Formatter
+		{
+			[CompilerGenerated]
+			get
+			{
+				throw null;
+			}
+			[CompilerGenerated]
+			set
+			{
+				throw null;
+			}
+		}
+
+		public DirectoryBrowserOptions()
+		{
+			throw null;
+		}
+
+		public DirectoryBrowserOptions(SharedOptions sharedOptions)
+		{
+			throw null;
+		}
+	}
+}
+
+
+// Microsoft.AspNetCore.StaticFiles\Microsoft.AspNetCore.Builder\FileServerExtensions.cs
+namespace Microsoft.AspNetCore.Builder
+{
+	public static class FileServerExtensions
+	{
+		public static IApplicationBuilder UseFileServer(this IApplicationBuilder app)
+		{
+			throw null;
+		}
+
+		public static IApplicationBuilder UseFileServer(this IApplicationBuilder app, bool enableDirectoryBrowsing)
+		{
+			throw null;
+		}
+
+		public static IApplicationBuilder UseFileServer(this IApplicationBuilder app, string requestPath)
+		{
+			throw null;
+		}
+
+		public static IApplicationBuilder UseFileServer(this IApplicationBuilder app, FileServerOptions options)
+		{
+			throw null;
+		}
+	}
+}
+
+
+// Microsoft.AspNetCore.StaticFiles\Microsoft.AspNetCore.Builder\FileServerOptions.cs
+using Microsoft.AspNetCore.StaticFiles.Infrastructure;
+using System.Runtime.CompilerServices;
+
+namespace Microsoft.AspNetCore.Builder
+{
+	public class FileServerOptions : SharedOptionsBase
+	{
+		public StaticFileOptions StaticFileOptions
+		{
+			[CompilerGenerated]
+			get
+			{
+				throw null;
+			}
+		}
+
+		public DirectoryBrowserOptions DirectoryBrowserOptions
+		{
+			[CompilerGenerated]
+			get
+			{
+				throw null;
+			}
+		}
+
+		public DefaultFilesOptions DefaultFilesOptions
+		{
+			[CompilerGenerated]
+			get
+			{
+				throw null;
+			}
+		}
+
+		public bool EnableDirectoryBrowsing
+		{
+			[CompilerGenerated]
+			get
+			{
+				throw null;
+			}
+			[CompilerGenerated]
+			set
+			{
+				throw null;
+			}
+		}
+
+		public bool EnableDefaultFiles
+		{
+			[CompilerGenerated]
+			get
+			{
+				throw null;
+			}
+			[CompilerGenerated]
+			set
+			{
+				throw null;
+			}
+		}
+
+		public FileServerOptions()
+		{
+			throw null;
+		}
+	}
+}
+
+
+// Microsoft.AspNetCore.StaticFiles\Microsoft.AspNetCore.Builder\StaticFileExtensions.cs
+namespace Microsoft.AspNetCore.Builder
+{
+	public static class StaticFileExtensions
+	{
+		public static IApplicationBuilder UseStaticFiles(this IApplicationBuilder app)
+		{
+			throw null;
+		}
+
+		public static IApplicationBuilder UseStaticFiles(this IApplicationBuilder app, string requestPath)
+		{
+			throw null;
+		}
+
+		public static IApplicationBuilder UseStaticFiles(this IApplicationBuilder app, StaticFileOptions options)
+		{
+			throw null;
+		}
+	}
+}
+
+
+// Microsoft.AspNetCore.StaticFiles\Microsoft.AspNetCore.Builder\StaticFileOptions.cs
+using Microsoft.AspNetCore.Http.Features;
+using Microsoft.AspNetCore.StaticFiles;
+using Microsoft.AspNetCore.StaticFiles.Infrastructure;
+using System;
+using System.Runtime.CompilerServices;
+
+namespace Microsoft.AspNetCore.Builder
+{
+	public class StaticFileOptions : SharedOptionsBase
+	{
+		public IContentTypeProvider ContentTypeProvider
+		{
+			[CompilerGenerated]
+			get
+			{
+				throw null;
+			}
+			[CompilerGenerated]
+			set
+			{
+				throw null;
+			}
+		}
+
+		public string DefaultContentType
+		{
+			[CompilerGenerated]
+			get
+			{
+				throw null;
+			}
+			[CompilerGenerated]
+			set
+			{
+				throw null;
+			}
+		}
+
+		public bool ServeUnknownFileTypes
+		{
+			[CompilerGenerated]
+			get
+			{
+				throw null;
+			}
+			[CompilerGenerated]
+			set
+			{
+				throw null;
+			}
+		}
+
+		public HttpsCompressionMode HttpsCompression
+		{
+			[CompilerGenerated]
+			get
+			{
+				throw null;
+			}
+			[CompilerGenerated]
+			set
+			{
+				throw null;
+			}
+		}
+
+		public Action<StaticFileResponseContext> OnPrepareResponse
+		{
+			[CompilerGenerated]
+			get
+			{
+				throw null;
+			}
+			[CompilerGenerated]
+			set
+			{
+				throw null;
+			}
+		}
+
+		public StaticFileOptions()
+		{
+			throw null;
+		}
+
+		public StaticFileOptions(SharedOptions sharedOptions)
+		{
+			throw null;
+		}
+	}
+}
+
+
+// Microsoft.AspNetCore.StaticFiles\Microsoft.AspNetCore.Builder\StaticFilesEndpointRouteBuilderExtensions.cs
+using Microsoft.AspNetCore.Routing;
+
+namespace Microsoft.AspNetCore.Builder
+{
+	public static class StaticFilesEndpointRouteBuilderExtensions
+	{
+		public static IEndpointConventionBuilder MapFallbackToFile(this IEndpointRouteBuilder endpoints, string filePath)
+		{
+			throw null;
+		}
+
+		public static IEndpointConventionBuilder MapFallbackToFile(this IEndpointRouteBuilder endpoints, string filePath, StaticFileOptions options)
+		{
+			throw null;
+		}
+
+		public static IEndpointConventionBuilder MapFallbackToFile(this IEndpointRouteBuilder endpoints, string pattern, string filePath)
+		{
+			throw null;
+		}
+
+		public static IEndpointConventionBuilder MapFallbackToFile(this IEndpointRouteBuilder endpoints, string pattern, string filePath, StaticFileOptions options)
+		{
+			throw null;
+		}
+	}
+}
+
+
+// Microsoft.AspNetCore.StaticFiles\Microsoft.AspNetCore.StaticFiles\DefaultFilesMiddleware.cs
+using Microsoft.AspNetCore.Builder;
+using Microsoft.AspNetCore.Hosting;
+using Microsoft.AspNetCore.Http;
+using Microsoft.Extensions.Options;
+using System.Threading.Tasks;
+
+namespace Microsoft.AspNetCore.StaticFiles
+{
+	public class DefaultFilesMiddleware
+	{
+		public DefaultFilesMiddleware(RequestDelegate next, IWebHostEnvironment hostingEnv, IOptions<DefaultFilesOptions> options)
+		{
+			throw null;
+		}
+
+		public Task Invoke(HttpContext context)
+		{
+			throw null;
+		}
+	}
+}
+
+
+// Microsoft.AspNetCore.StaticFiles\Microsoft.AspNetCore.StaticFiles\DirectoryBrowserMiddleware.cs
+using Microsoft.AspNetCore.Builder;
+using Microsoft.AspNetCore.Hosting;
+using Microsoft.AspNetCore.Http;
+using Microsoft.Extensions.Options;
+using System.Text.Encodings.Web;
+using System.Threading.Tasks;
+
+namespace Microsoft.AspNetCore.StaticFiles
+{
+	public class DirectoryBrowserMiddleware
+	{
+		public DirectoryBrowserMiddleware(RequestDelegate next, IWebHostEnvironment hostingEnv, IOptions<DirectoryBrowserOptions> options)
+		{
+			throw null;
+		}
+
+		public DirectoryBrowserMiddleware(RequestDelegate next, IWebHostEnvironment hostingEnv, HtmlEncoder encoder, IOptions<DirectoryBrowserOptions> options)
+		{
+			throw null;
+		}
+
+		public Task Invoke(HttpContext context)
+		{
+			throw null;
+		}
+	}
+}
+
+
+// Microsoft.AspNetCore.StaticFiles\Microsoft.AspNetCore.StaticFiles\FileExtensionContentTypeProvider.cs
+using System.Collections.Generic;
+using System.Runtime.CompilerServices;
+
+namespace Microsoft.AspNetCore.StaticFiles
+{
+	public class FileExtensionContentTypeProvider : IContentTypeProvider
+	{
+		public IDictionary<string, string> Mappings
+		{
+			[CompilerGenerated]
+			get
+			{
+				throw null;
+			}
+		}
+
+		public FileExtensionContentTypeProvider()
+		{
+			throw null;
+		}
+
+		public FileExtensionContentTypeProvider(IDictionary<string, string> mapping)
+		{
+			throw null;
+		}
+
+		public bool TryGetContentType(string subpath, out string contentType)
+		{
+			throw null;
+		}
+	}
+}
+
+
+// Microsoft.AspNetCore.StaticFiles\Microsoft.AspNetCore.StaticFiles\HtmlDirectoryFormatter.cs
+using Microsoft.AspNetCore.Http;
+using Microsoft.Extensions.FileProviders;
+using System.Collections.Generic;
+using System.Text.Encodings.Web;
+using System.Threading.Tasks;
+
+namespace Microsoft.AspNetCore.StaticFiles
+{
+	public class HtmlDirectoryFormatter : IDirectoryFormatter
+	{
+		public HtmlDirectoryFormatter(HtmlEncoder encoder)
+		{
+			throw null;
+		}
+
+		public virtual Task GenerateContentAsync(HttpContext context, IEnumerable<IFileInfo> contents)
+		{
+			throw null;
+		}
+	}
+}
+
+
+// Microsoft.AspNetCore.StaticFiles\Microsoft.AspNetCore.StaticFiles\IContentTypeProvider.cs
+namespace Microsoft.AspNetCore.StaticFiles
+{
+	public interface IContentTypeProvider
+	{
+		bool TryGetContentType(string subpath, out string contentType);
+	}
+}
+
+
+// Microsoft.AspNetCore.StaticFiles\Microsoft.AspNetCore.StaticFiles\IDirectoryFormatter.cs
+using Microsoft.AspNetCore.Http;
+using Microsoft.Extensions.FileProviders;
+using System.Collections.Generic;
+using System.Threading.Tasks;
+
+namespace Microsoft.AspNetCore.StaticFiles
+{
+	public interface IDirectoryFormatter
+	{
+		Task GenerateContentAsync(HttpContext context, IEnumerable<IFileInfo> contents);
+	}
+}
+
+
+// Microsoft.AspNetCore.StaticFiles\Microsoft.AspNetCore.StaticFiles\StaticFileContext.cs
+using Microsoft.AspNetCore.Builder;
+using Microsoft.AspNetCore.Http;
+using Microsoft.AspNetCore.Http.Headers;
+using Microsoft.Extensions.FileProviders;
+using Microsoft.Extensions.Logging;
+using Microsoft.Net.Http.Headers;
+using System;
+using System.Diagnostics;
+using System.Runtime.CompilerServices;
+using System.Threading.Tasks;
+
+namespace Microsoft.AspNetCore.StaticFiles
+{
+	internal struct StaticFileContext
+	{
+		internal enum PreconditionState : byte
+		{
+			Unspecified,
+			NotModified,
+			ShouldProcess,
+			PreconditionFailed
+		}
+
+		[Flags]
+		private enum RequestType : byte
+		{
+			Unspecified = 0x0,
+			IsHead = 0x1,
+			IsGet = 0x2,
+			IsRange = 0x4
+		}
+
+		private readonly HttpContext _context;
+
+		private readonly StaticFileOptions _options;
+
+		private readonly HttpRequest _request;
+
+		private readonly HttpResponse _response;
+
+		private readonly ILogger _logger;
+
+		private readonly IFileProvider _fileProvider;
+
+		private readonly string _method;
+
+		private readonly string _contentType;
+
+		private IFileInfo _fileInfo;
+
+		private EntityTagHeaderValue _etag;
+
+		private RequestHeaders _requestHeaders;
+
+		private ResponseHeaders _responseHeaders;
+
+		private RangeItemHeaderValue _range;
+
+		private long _length;
+
+		private readonly PathString _subPath;
+
+		private DateTimeOffset _lastModified;
+
+		private PreconditionState _ifMatchState;
+
+		private PreconditionState _ifNoneMatchState;
+
+		private PreconditionState _ifModifiedSinceState;
+
+		private PreconditionState _ifUnmodifiedSinceState;
+
+		private RequestType _requestType;
+
+		public bool IsHeadMethod
+		{
+			get
+			{
+				throw null;
+			}
+		}
+
+		public bool IsGetMethod
+		{
+			get
+			{
+				throw null;
+			}
+		}
+
+		public bool IsRangeRequest
+		{
+			get
+			{
+				throw null;
+			}
+		}
+
+		public string SubPath
+		{
+			get
+			{
+				throw null;
+			}
+		}
+
+		public string PhysicalPath
+		{
+			get
+			{
+				throw null;
+			}
+		}
+
+		public StaticFileContext(HttpContext context, StaticFileOptions options, ILogger logger, IFileProvider fileProvider, string contentType, PathString subPath)
+		{
+			throw null;
+		}
+
+		public bool LookupFileInfo()
+		{
+			throw null;
+		}
+
+		public void ComprehendRequestHeaders()
+		{
+			throw null;
+		}
+
+		public void ApplyResponseHeaders(int statusCode)
+		{
+			throw null;
+		}
+
+		public PreconditionState GetPreconditionState()
+		{
+			throw null;
+		}
+
+		public Task SendStatusAsync(int statusCode)
+		{
+			throw null;
+		}
+
+		[AsyncStateMachine(typeof(_003CServeStaticFile_003Ed__47))]
+		[DebuggerStepThrough]
+		public Task ServeStaticFile(HttpContext context, RequestDelegate next)
+		{
+			throw null;
+		}
+
+		[AsyncStateMachine(typeof(_003CSendAsync_003Ed__48))]
+		[DebuggerStepThrough]
+		public Task SendAsync()
+		{
+			throw null;
+		}
+
+		[AsyncStateMachine(typeof(_003CSendRangeAsync_003Ed__49))]
+		[DebuggerStepThrough]
+		internal Task SendRangeAsync()
+		{
+			throw null;
+		}
+	}
+}
+
+
+// Microsoft.AspNetCore.StaticFiles\Microsoft.AspNetCore.StaticFiles\StaticFileMiddleware.cs
+using Microsoft.AspNetCore.Builder;
+using Microsoft.AspNetCore.Hosting;
+using Microsoft.AspNetCore.Http;
+using Microsoft.Extensions.Logging;
+using Microsoft.Extensions.Options;
+using System.Threading.Tasks;
+
+namespace Microsoft.AspNetCore.StaticFiles
+{
+	public class StaticFileMiddleware
+	{
+		public StaticFileMiddleware(RequestDelegate next, IWebHostEnvironment hostingEnv, IOptions<StaticFileOptions> options, ILoggerFactory loggerFactory)
+		{
+			throw null;
+		}
+
+		public Task Invoke(HttpContext context)
+		{
+			throw null;
+		}
+
+		internal static bool ValidatePath(HttpContext context, PathString matchUrl, out PathString subPath)
+		{
+			throw null;
+		}
+
+		internal static bool LookupContentType(IContentTypeProvider contentTypeProvider, StaticFileOptions options, PathString subPath, out string contentType)
+		{
+			throw null;
+		}
+	}
+}
+
+
+// Microsoft.AspNetCore.StaticFiles\Microsoft.AspNetCore.StaticFiles\StaticFileResponseContext.cs
+using Microsoft.AspNetCore.Http;
+using Microsoft.Extensions.FileProviders;
+using System;
+using System.Runtime.CompilerServices;
+
+namespace Microsoft.AspNetCore.StaticFiles
+{
+	public class StaticFileResponseContext
+	{
+		public HttpContext Context
+		{
+			[CompilerGenerated]
+			get
+			{
+				throw null;
+			}
+		}
+
+		public IFileInfo File
+		{
+			[CompilerGenerated]
+			get
+			{
+				throw null;
+			}
+		}
+
+		[Obsolete("Use the constructor that passes in the HttpContext and IFileInfo parameters: StaticFileResponseContext(HttpContext context, IFileInfo file)", false)]
+		public StaticFileResponseContext()
+		{
+			throw null;
+		}
+
+		public StaticFileResponseContext(HttpContext context, IFileInfo file)
+		{
+			throw null;
+		}
+	}
+}
+
+
+// Microsoft.AspNetCore.StaticFiles\Microsoft.AspNetCore.StaticFiles.Infrastructure\SharedOptions.cs
+using Microsoft.AspNetCore.Http;
+using Microsoft.Extensions.FileProviders;
+using System.Runtime.CompilerServices;
+
+namespace Microsoft.AspNetCore.StaticFiles.Infrastructure
+{
+	public class SharedOptions
+	{
+		public PathString RequestPath
+		{
+			get
+			{
+				throw null;
+			}
+			set
+			{
+				throw null;
+			}
+		}
+
+		public IFileProvider FileProvider
+		{
+			[CompilerGenerated]
+			get
+			{
+				throw null;
+			}
+			[CompilerGenerated]
+			set
+			{
+				throw null;
+			}
+		}
+
+		public bool RedirectToAppendTrailingSlash
+		{
+			[CompilerGenerated]
+			get
+			{
+				throw null;
+			}
+			[CompilerGenerated]
+			set
+			{
+				throw null;
+			}
+		}
+
+		public SharedOptions()
+		{
+			throw null;
+		}
+	}
+}
+
+
+// Microsoft.AspNetCore.StaticFiles\Microsoft.AspNetCore.StaticFiles.Infrastructure\SharedOptionsBase.cs
+using Microsoft.AspNetCore.Http;
+using Microsoft.Extensions.FileProviders;
+using System.Runtime.CompilerServices;
+
+namespace Microsoft.AspNetCore.StaticFiles.Infrastructure
+{
+	public abstract class SharedOptionsBase
+	{
+		protected SharedOptions SharedOptions
+		{
+			[CompilerGenerated]
+			get
+			{
+				throw null;
+			}
+		}
+
+		public PathString RequestPath
+		{
+			get
+			{
+				throw null;
+			}
+			set
+			{
+				throw null;
+			}
+		}
+
+		public IFileProvider FileProvider
+		{
+			get
+			{
+				throw null;
+			}
+			set
+			{
+				throw null;
+			}
+		}
+
+		public bool RedirectToAppendTrailingSlash
+		{
+			get
+			{
+				throw null;
+			}
+			set
+			{
+				throw null;
+			}
+		}
+
+		protected SharedOptionsBase(SharedOptions sharedOptions)
+		{
+			throw null;
+		}
+	}
+}
+
+
+// Microsoft.AspNetCore.StaticFiles\Microsoft.Extensions.DependencyInjection\DirectoryBrowserServiceExtensions.cs
+namespace Microsoft.Extensions.DependencyInjection
+{
+	public static class DirectoryBrowserServiceExtensions
+	{
+		public static IServiceCollection AddDirectoryBrowser(this IServiceCollection services)
+		{
+			throw null;
+		}
+	}
+}
+
+
+// Microsoft.AspNetCore.WebSockets\Microsoft.AspNetCore.Builder\WebSocketMiddlewareExtensions.cs
+namespace Microsoft.AspNetCore.Builder
+{
+	public static class WebSocketMiddlewareExtensions
+	{
+		public static IApplicationBuilder UseWebSockets(this IApplicationBuilder app)
+		{
+			throw null;
+		}
+
+		public static IApplicationBuilder UseWebSockets(this IApplicationBuilder app, WebSocketOptions options)
+		{
+			throw null;
+		}
+	}
+}
+
+
+// Microsoft.AspNetCore.WebSockets\Microsoft.AspNetCore.Builder\WebSocketOptions.cs
+using System;
+using System.Collections.Generic;
+using System.Runtime.CompilerServices;
+
+namespace Microsoft.AspNetCore.Builder
+{
+	public class WebSocketOptions
+	{
+		public TimeSpan KeepAliveInterval
+		{
+			[CompilerGenerated]
+			get
+			{
+				throw null;
+			}
+			[CompilerGenerated]
+			set
+			{
+				throw null;
+			}
+		}
+
+		[Obsolete("Setting this property has no effect. It will be removed in a future version.")]
+		public int ReceiveBufferSize
+		{
+			[CompilerGenerated]
+			get
+			{
+				throw null;
+			}
+			[CompilerGenerated]
+			set
+			{
+				throw null;
+			}
+		}
+
+		public IList<string> AllowedOrigins
+		{
+			[CompilerGenerated]
+			get
+			{
+				throw null;
+			}
+		}
+
+		public WebSocketOptions()
+		{
+			throw null;
+		}
+	}
+}
+
+
+// Microsoft.AspNetCore.WebSockets\Microsoft.AspNetCore.WebSockets\ExtendedWebSocketAcceptContext.cs
+using Microsoft.AspNetCore.Http;
+using System;
+using System.Runtime.CompilerServices;
+
+namespace Microsoft.AspNetCore.WebSockets
+{
+	public class ExtendedWebSocketAcceptContext : WebSocketAcceptContext
+	{
+		public override string SubProtocol
+		{
+			[CompilerGenerated]
+			get
+			{
+				throw null;
+			}
+			[CompilerGenerated]
+			set
+			{
+				throw null;
+			}
+		}
+
+		[Obsolete("Setting this property has no effect. It will be removed in a future version.")]
+		public int? ReceiveBufferSize
+		{
+			[CompilerGenerated]
+			get
+			{
+				throw null;
+			}
+			[CompilerGenerated]
+			set
+			{
+				throw null;
+			}
+		}
+
+		public TimeSpan? KeepAliveInterval
+		{
+			[CompilerGenerated]
+			get
+			{
+				throw null;
+			}
+			[CompilerGenerated]
+			set
+			{
+				throw null;
+			}
+		}
+
+		public ExtendedWebSocketAcceptContext()
+		{
+			throw null;
+		}
+	}
+}
+
+
+// Microsoft.AspNetCore.WebSockets\Microsoft.AspNetCore.WebSockets\WebSocketMiddleware.cs
+using Microsoft.AspNetCore.Builder;
+using Microsoft.AspNetCore.Http;
+using Microsoft.AspNetCore.Http.Features;
+using Microsoft.Extensions.Logging;
+using Microsoft.Extensions.Options;
+using System.Diagnostics;
+using System.Net.WebSockets;
+using System.Runtime.CompilerServices;
+using System.Threading.Tasks;
+
+namespace Microsoft.AspNetCore.WebSockets
+{
+	public class WebSocketMiddleware
+	{
+		private class UpgradeHandshake : IHttpWebSocketFeature
+		{
+			public bool IsWebSocketRequest
+			{
+				get
+				{
+					throw null;
+				}
+			}
+
+			public UpgradeHandshake(HttpContext context, IHttpUpgradeFeature upgradeFeature, WebSocketOptions options)
+			{
+				throw null;
+			}
+
+			[AsyncStateMachine(typeof(_003CAcceptAsync_003Ed__7))]
+			[DebuggerStepThrough]
+			public Task<WebSocket> AcceptAsync(WebSocketAcceptContext acceptContext)
+			{
+				throw null;
+			}
+		}
+
+		public WebSocketMiddleware(RequestDelegate next, IOptions<WebSocketOptions> options, ILoggerFactory loggerFactory)
+		{
+			throw null;
+		}
+
+		public Task Invoke(HttpContext context)
+		{
+			throw null;
+		}
+	}
+}
+
+
+// Microsoft.AspNetCore.WebSockets\Microsoft.AspNetCore.WebSockets\WebSocketsDependencyInjectionExtensions.cs
+using Microsoft.AspNetCore.Builder;
+using Microsoft.Extensions.DependencyInjection;
+using System;
+
+namespace Microsoft.AspNetCore.WebSockets
+{
+	public static class WebSocketsDependencyInjectionExtensions
+	{
+		public static IServiceCollection AddWebSockets(this IServiceCollection services, Action<WebSocketOptions> configure)
+		{
+			throw null;
+		}
+	}
+}
+
+
 // Microsoft.AspNetCore.WebUtilities\Microsoft.AspNetCore.WebUtilities\Base64UrlTextEncoder.cs
 namespace Microsoft.AspNetCore.WebUtilities
 {
 	public static class Base64UrlTextEncoder
 	{
-		public static byte[] Decode(string text)
+		public static string Encode(byte[] data)
 		{
 			throw null;
 		}
 
-		public static string Encode(byte[] data)
+		public static byte[] Decode(string text)
 		{
 			throw null;
 		}
@@ -32414,6 +40847,7 @@ using System;
 using System.Buffers;
 using System.Diagnostics;
 using System.IO;
+using System.Runtime.CompilerServices;
 using System.Threading;
 using System.Threading.Tasks;
 
@@ -32423,6 +40857,7 @@ namespace Microsoft.AspNetCore.WebUtilities
 	{
 		public ArraySegment<byte> BufferedData
 		{
+			[System.Runtime.CompilerServices.NullableContext(0)]
 			get
 			{
 				throw null;
@@ -32477,70 +40912,16 @@ namespace Microsoft.AspNetCore.WebUtilities
 			}
 			set
 			{
+				throw null;
 			}
 		}
 
 		public BufferedReadStream(Stream inner, int bufferSize)
 		{
+			throw null;
 		}
 
 		public BufferedReadStream(Stream inner, int bufferSize, ArrayPool<byte> bytePool)
-		{
-		}
-
-		protected override void Dispose(bool disposing)
-		{
-		}
-
-		public bool EnsureBuffered()
-		{
-			throw null;
-		}
-
-		public bool EnsureBuffered(int minCount)
-		{
-			throw null;
-		}
-
-		[DebuggerStepThrough]
-		public Task<bool> EnsureBufferedAsync(int minCount, CancellationToken cancellationToken)
-		{
-			throw null;
-		}
-
-		[DebuggerStepThrough]
-		public Task<bool> EnsureBufferedAsync(CancellationToken cancellationToken)
-		{
-			throw null;
-		}
-
-		public override void Flush()
-		{
-		}
-
-		public override Task FlushAsync(CancellationToken cancellationToken)
-		{
-			throw null;
-		}
-
-		public override int Read(byte[] buffer, int offset, int count)
-		{
-			throw null;
-		}
-
-		[DebuggerStepThrough]
-		public override Task<int> ReadAsync(byte[] buffer, int offset, int count, CancellationToken cancellationToken)
-		{
-			throw null;
-		}
-
-		public string ReadLine(int lengthLimit)
-		{
-			throw null;
-		}
-
-		[DebuggerStepThrough]
-		public Task<string> ReadLineAsync(int lengthLimit, CancellationToken cancellationToken)
 		{
 			throw null;
 		}
@@ -32552,13 +40933,78 @@ namespace Microsoft.AspNetCore.WebUtilities
 
 		public override void SetLength(long value)
 		{
+			throw null;
+		}
+
+		protected override void Dispose(bool disposing)
+		{
+			throw null;
+		}
+
+		public override void Flush()
+		{
+			throw null;
+		}
+
+		public override Task FlushAsync(CancellationToken cancellationToken)
+		{
+			throw null;
 		}
 
 		public override void Write(byte[] buffer, int offset, int count)
 		{
+			throw null;
 		}
 
 		public override Task WriteAsync(byte[] buffer, int offset, int count, CancellationToken cancellationToken)
+		{
+			throw null;
+		}
+
+		public override int Read(byte[] buffer, int offset, int count)
+		{
+			throw null;
+		}
+
+		[AsyncStateMachine(typeof(_003CReadAsync_003Ed__33))]
+		[DebuggerStepThrough]
+		public override Task<int> ReadAsync(byte[] buffer, int offset, int count, CancellationToken cancellationToken)
+		{
+			throw null;
+		}
+
+		public bool EnsureBuffered()
+		{
+			throw null;
+		}
+
+		[AsyncStateMachine(typeof(_003CEnsureBufferedAsync_003Ed__35))]
+		[DebuggerStepThrough]
+		public Task<bool> EnsureBufferedAsync(CancellationToken cancellationToken)
+		{
+			throw null;
+		}
+
+		public bool EnsureBuffered(int minCount)
+		{
+			throw null;
+		}
+
+		[AsyncStateMachine(typeof(_003CEnsureBufferedAsync_003Ed__37))]
+		[DebuggerStepThrough]
+		public Task<bool> EnsureBufferedAsync(int minCount, CancellationToken cancellationToken)
+		{
+			throw null;
+		}
+
+		public string ReadLine(int lengthLimit)
+		{
+			throw null;
+		}
+
+		[AsyncStateMachine(typeof(_003CReadLineAsync_003Ed__39))]
+		[DebuggerStepThrough]
+		public Task<string> ReadLineAsync(int lengthLimit, CancellationToken cancellationToken)
 		{
 			throw null;
 		}
@@ -32571,6 +41017,7 @@ using System;
 using System.Buffers;
 using System.Diagnostics;
 using System.IO;
+using System.Runtime.CompilerServices;
 using System.Threading;
 using System.Threading.Tasks;
 
@@ -32578,6 +41025,23 @@ namespace Microsoft.AspNetCore.WebUtilities
 {
 	public class FileBufferingReadStream : Stream
 	{
+		public bool InMemory
+		{
+			get
+			{
+				throw null;
+			}
+		}
+
+		public string? TempFileName
+		{
+			[System.Runtime.CompilerServices.NullableContext(2)]
+			get
+			{
+				throw null;
+			}
+		}
+
 		public override bool CanRead
 		{
 			get
@@ -32602,14 +41066,6 @@ namespace Microsoft.AspNetCore.WebUtilities
 			}
 		}
 
-		public bool InMemory
-		{
-			get
-			{
-				throw null;
-			}
-		}
-
 		public override long Length
 		{
 			get
@@ -32626,58 +41082,31 @@ namespace Microsoft.AspNetCore.WebUtilities
 			}
 			set
 			{
-			}
-		}
-
-		public string TempFileName
-		{
-			get
-			{
 				throw null;
 			}
 		}
 
 		public FileBufferingReadStream(Stream inner, int memoryThreshold)
 		{
+			throw null;
 		}
 
 		public FileBufferingReadStream(Stream inner, int memoryThreshold, long? bufferLimit, Func<string> tempFileDirectoryAccessor)
 		{
+			throw null;
 		}
 
 		public FileBufferingReadStream(Stream inner, int memoryThreshold, long? bufferLimit, Func<string> tempFileDirectoryAccessor, ArrayPool<byte> bytePool)
 		{
+			throw null;
 		}
 
 		public FileBufferingReadStream(Stream inner, int memoryThreshold, long? bufferLimit, string tempFileDirectory)
 		{
+			throw null;
 		}
 
 		public FileBufferingReadStream(Stream inner, int memoryThreshold, long? bufferLimit, string tempFileDirectory, ArrayPool<byte> bytePool)
-		{
-		}
-
-		protected override void Dispose(bool disposing)
-		{
-		}
-
-		[DebuggerStepThrough]
-		public override ValueTask DisposeAsync()
-		{
-			throw null;
-		}
-
-		public override void Flush()
-		{
-		}
-
-		public override int Read(byte[] buffer, int offset, int count)
-		{
-			throw null;
-		}
-
-		[DebuggerStepThrough]
-		public override Task<int> ReadAsync(byte[] buffer, int offset, int count, CancellationToken cancellationToken)
 		{
 			throw null;
 		}
@@ -32687,15 +41116,61 @@ namespace Microsoft.AspNetCore.WebUtilities
 			throw null;
 		}
 
-		public override void SetLength(long value)
+		public override int Read(Span<byte> buffer)
 		{
+			throw null;
+		}
+
+		public override int Read(byte[] buffer, int offset, int count)
+		{
+			throw null;
+		}
+
+		public override Task<int> ReadAsync(byte[] buffer, int offset, int count, CancellationToken cancellationToken)
+		{
+			throw null;
+		}
+
+		[AsyncStateMachine(typeof(_003CReadAsync_003Ed__38))]
+		[DebuggerStepThrough]
+		public override ValueTask<int> ReadAsync(Memory<byte> buffer, CancellationToken cancellationToken = default(CancellationToken))
+		{
+			throw null;
 		}
 
 		public override void Write(byte[] buffer, int offset, int count)
 		{
+			throw null;
 		}
 
 		public override Task WriteAsync(byte[] buffer, int offset, int count, CancellationToken cancellationToken)
+		{
+			throw null;
+		}
+
+		public override void SetLength(long value)
+		{
+			throw null;
+		}
+
+		public override void Flush()
+		{
+			throw null;
+		}
+
+		public override Task CopyToAsync(Stream destination, int bufferSize, CancellationToken cancellationToken)
+		{
+			throw null;
+		}
+
+		protected override void Dispose(bool disposing)
+		{
+			throw null;
+		}
+
+		[AsyncStateMachine(typeof(_003CDisposeAsync_003Ed__45))]
+		[DebuggerStepThrough]
+		public override ValueTask DisposeAsync()
 		{
 			throw null;
 		}
@@ -32707,6 +41182,7 @@ namespace Microsoft.AspNetCore.WebUtilities
 using System;
 using System.Diagnostics;
 using System.IO;
+using System.IO.Pipelines;
 using System.Runtime.CompilerServices;
 using System.Threading;
 using System.Threading.Tasks;
@@ -32755,23 +41231,6 @@ namespace Microsoft.AspNetCore.WebUtilities
 			}
 			set
 			{
-			}
-		}
-
-		internal bool Disposed
-		{
-			[CompilerGenerated]
-			get
-			{
-				throw null;
-			}
-		}
-
-		internal FileStream FileStream
-		{
-			[CompilerGenerated]
-			get
-			{
 				throw null;
 			}
 		}
@@ -32785,31 +41244,31 @@ namespace Microsoft.AspNetCore.WebUtilities
 			}
 		}
 
-		public FileBufferingWriteStream(int memoryThreshold = 32768, long? bufferLimit = null, Func<string> tempFileDirectoryAccessor = null)
+		internal FileStream? FileStream
 		{
+			[System.Runtime.CompilerServices.NullableContext(2)]
+			[CompilerGenerated]
+			get
+			{
+				throw null;
+			}
 		}
 
-		protected override void Dispose(bool disposing)
+		internal bool Disposed
 		{
+			[CompilerGenerated]
+			get
+			{
+				throw null;
+			}
 		}
 
-		[DebuggerStepThrough]
-		public override ValueTask DisposeAsync()
+		public FileBufferingWriteStream(int memoryThreshold = 32768, long? bufferLimit = null, Func<string>? tempFileDirectoryAccessor = null)
 		{
 			throw null;
 		}
 
-		[DebuggerStepThrough]
-		public Task DrainBufferAsync(Stream destination, CancellationToken cancellationToken = default(CancellationToken))
-		{
-			throw null;
-		}
-
-		public override void Flush()
-		{
-		}
-
-		public override Task FlushAsync(CancellationToken cancellationToken)
+		public override long Seek(long offset, SeekOrigin origin)
 		{
 			throw null;
 		}
@@ -32824,21 +41283,55 @@ namespace Microsoft.AspNetCore.WebUtilities
 			throw null;
 		}
 
-		public override long Seek(long offset, SeekOrigin origin)
+		public override void Write(byte[] buffer, int offset, int count)
+		{
+			throw null;
+		}
+
+		[AsyncStateMachine(typeof(_003CWriteAsync_003Ed__31))]
+		[DebuggerStepThrough]
+		public override Task WriteAsync(byte[] buffer, int offset, int count, CancellationToken cancellationToken)
+		{
+			throw null;
+		}
+
+		public override void Flush()
+		{
+			throw null;
+		}
+
+		public override Task FlushAsync(CancellationToken cancellationToken)
 		{
 			throw null;
 		}
 
 		public override void SetLength(long value)
 		{
+			throw null;
 		}
 
-		public override void Write(byte[] buffer, int offset, int count)
-		{
-		}
-
+		[AsyncStateMachine(typeof(_003CDrainBufferAsync_003Ed__35))]
 		[DebuggerStepThrough]
-		public override Task WriteAsync(byte[] buffer, int offset, int count, CancellationToken cancellationToken)
+		public Task DrainBufferAsync(Stream destination, CancellationToken cancellationToken = default(CancellationToken))
+		{
+			throw null;
+		}
+
+		[AsyncStateMachine(typeof(_003CDrainBufferAsync_003Ed__36))]
+		[DebuggerStepThrough]
+		public Task DrainBufferAsync(PipeWriter destination, CancellationToken cancellationToken = default(CancellationToken))
+		{
+			throw null;
+		}
+
+		protected override void Dispose(bool disposing)
+		{
+			throw null;
+		}
+
+		[AsyncStateMachine(typeof(_003CDisposeAsync_003Ed__38))]
+		[DebuggerStepThrough]
+		public override ValueTask DisposeAsync()
 		{
 			throw null;
 		}
@@ -32855,7 +41348,7 @@ namespace Microsoft.AspNetCore.WebUtilities
 {
 	public class FileMultipartSection
 	{
-		public string FileName
+		public MultipartSection Section
 		{
 			[CompilerGenerated]
 			get
@@ -32864,8 +41357,9 @@ namespace Microsoft.AspNetCore.WebUtilities
 			}
 		}
 
-		public Stream FileStream
+		public Stream? FileStream
 		{
+			[System.Runtime.CompilerServices.NullableContext(2)]
 			get
 			{
 				throw null;
@@ -32881,7 +41375,7 @@ namespace Microsoft.AspNetCore.WebUtilities
 			}
 		}
 
-		public MultipartSection Section
+		public string FileName
 		{
 			[CompilerGenerated]
 			get
@@ -32892,10 +41386,12 @@ namespace Microsoft.AspNetCore.WebUtilities
 
 		public FileMultipartSection(MultipartSection section)
 		{
+			throw null;
 		}
 
-		public FileMultipartSection(MultipartSection section, ContentDispositionHeaderValue header)
+		public FileMultipartSection(MultipartSection section, ContentDispositionHeaderValue? header)
 		{
+			throw null;
 		}
 	}
 }
@@ -32910,7 +41406,7 @@ namespace Microsoft.AspNetCore.WebUtilities
 {
 	public class FormMultipartSection
 	{
-		public string Name
+		public MultipartSection Section
 		{
 			[CompilerGenerated]
 			get
@@ -32919,7 +41415,7 @@ namespace Microsoft.AspNetCore.WebUtilities
 			}
 		}
 
-		public MultipartSection Section
+		public string Name
 		{
 			[CompilerGenerated]
 			get
@@ -32930,10 +41426,12 @@ namespace Microsoft.AspNetCore.WebUtilities
 
 		public FormMultipartSection(MultipartSection section)
 		{
+			throw null;
 		}
 
-		public FormMultipartSection(MultipartSection section, ContentDispositionHeaderValue header)
+		public FormMultipartSection(MultipartSection section, ContentDispositionHeaderValue? header)
 		{
+			throw null;
 		}
 
 		public Task<string> GetValueAsync()
@@ -32959,19 +41457,6 @@ namespace Microsoft.AspNetCore.WebUtilities
 {
 	public class FormPipeReader
 	{
-		public int KeyLengthLimit
-		{
-			[CompilerGenerated]
-			get
-			{
-				throw null;
-			}
-			[CompilerGenerated]
-			set
-			{
-			}
-		}
-
 		public int ValueCountLimit
 		{
 			[CompilerGenerated]
@@ -32982,6 +41467,21 @@ namespace Microsoft.AspNetCore.WebUtilities
 			[CompilerGenerated]
 			set
 			{
+				throw null;
+			}
+		}
+
+		public int KeyLengthLimit
+		{
+			[CompilerGenerated]
+			get
+			{
+				throw null;
+			}
+			[CompilerGenerated]
+			set
+			{
+				throw null;
 			}
 		}
 
@@ -32995,17 +41495,23 @@ namespace Microsoft.AspNetCore.WebUtilities
 			[CompilerGenerated]
 			set
 			{
+				throw null;
 			}
 		}
 
+		[System.Runtime.CompilerServices.NullableContext(1)]
 		public FormPipeReader(PipeReader pipeReader)
 		{
+			throw null;
 		}
 
+		[System.Runtime.CompilerServices.NullableContext(1)]
 		public FormPipeReader(PipeReader pipeReader, Encoding encoding)
 		{
+			throw null;
 		}
 
+		[AsyncStateMachine(typeof(_003CReadFormAsync_003Ed__26))]
 		[DebuggerStepThrough]
 		public Task<Dictionary<string, StringValues>> ReadFormAsync(CancellationToken cancellationToken = default(CancellationToken))
 		{
@@ -33015,6 +41521,7 @@ namespace Microsoft.AspNetCore.WebUtilities
 		[MethodImpl(MethodImplOptions.NoInlining)]
 		internal void ParseFormValues(ref ReadOnlySequence<byte> buffer, ref KeyValueAccumulator accumulator, bool isFinalBlock)
 		{
+			throw null;
 		}
 	}
 }
@@ -33036,24 +41543,11 @@ namespace Microsoft.AspNetCore.WebUtilities
 {
 	public class FormReader : IDisposable
 	{
-		public const int DefaultKeyLengthLimit = 2048;
-
 		public const int DefaultValueCountLimit = 1024;
 
-		public const int DefaultValueLengthLimit = 4194304;
+		public const int DefaultKeyLengthLimit = 2048;
 
-		public int KeyLengthLimit
-		{
-			[CompilerGenerated]
-			get
-			{
-				throw null;
-			}
-			[CompilerGenerated]
-			set
-			{
-			}
-		}
+		public const int DefaultValueLengthLimit = 4194304;
 
 		public int ValueCountLimit
 		{
@@ -33065,6 +41559,21 @@ namespace Microsoft.AspNetCore.WebUtilities
 			[CompilerGenerated]
 			set
 			{
+				throw null;
+			}
+		}
+
+		public int KeyLengthLimit
+		{
+			[CompilerGenerated]
+			get
+			{
+				throw null;
+			}
+			[CompilerGenerated]
+			set
+			{
+				throw null;
 			}
 		}
 
@@ -33078,40 +41587,31 @@ namespace Microsoft.AspNetCore.WebUtilities
 			[CompilerGenerated]
 			set
 			{
+				throw null;
 			}
-		}
-
-		public FormReader(Stream stream)
-		{
-		}
-
-		public FormReader(Stream stream, Encoding encoding)
-		{
-		}
-
-		public FormReader(Stream stream, Encoding encoding, ArrayPool<char> charPool)
-		{
 		}
 
 		public FormReader(string data)
 		{
+			throw null;
 		}
 
 		public FormReader(string data, ArrayPool<char> charPool)
 		{
+			throw null;
 		}
 
-		public void Dispose()
-		{
-		}
-
-		public Dictionary<string, StringValues> ReadForm()
+		public FormReader(Stream stream)
 		{
 			throw null;
 		}
 
-		[DebuggerStepThrough]
-		public Task<Dictionary<string, StringValues>> ReadFormAsync(CancellationToken cancellationToken = default(CancellationToken))
+		public FormReader(Stream stream, Encoding encoding)
+		{
+			throw null;
+		}
+
+		public FormReader(Stream stream, Encoding encoding, ArrayPool<char> charPool)
 		{
 			throw null;
 		}
@@ -33121,8 +41621,26 @@ namespace Microsoft.AspNetCore.WebUtilities
 			throw null;
 		}
 
+		[AsyncStateMachine(typeof(_003CReadNextPairAsync_003Ed__33))]
 		[DebuggerStepThrough]
 		public Task<KeyValuePair<string, string>?> ReadNextPairAsync(CancellationToken cancellationToken = default(CancellationToken))
+		{
+			throw null;
+		}
+
+		public Dictionary<string, StringValues> ReadForm()
+		{
+			throw null;
+		}
+
+		[AsyncStateMachine(typeof(_003CReadFormAsync_003Ed__43))]
+		[DebuggerStepThrough]
+		public Task<Dictionary<string, StringValues>> ReadFormAsync(CancellationToken cancellationToken = default(CancellationToken))
+		{
+			throw null;
+		}
+
+		public void Dispose()
 		{
 			throw null;
 		}
@@ -33131,30 +41649,67 @@ namespace Microsoft.AspNetCore.WebUtilities
 
 
 // Microsoft.AspNetCore.WebUtilities\Microsoft.AspNetCore.WebUtilities\HttpRequestStreamReader.cs
+using System;
 using System.Buffers;
 using System.Diagnostics;
 using System.IO;
+using System.Runtime.CompilerServices;
 using System.Text;
+using System.Threading;
 using System.Threading.Tasks;
 
 namespace Microsoft.AspNetCore.WebUtilities
 {
 	public class HttpRequestStreamReader : TextReader
 	{
+		private readonly struct ReadLineStepResult
+		{
+			public static readonly ReadLineStepResult Done;
+
+			public static readonly ReadLineStepResult Continue;
+
+			public bool Completed
+			{
+				[CompilerGenerated]
+				get
+				{
+					throw null;
+				}
+			}
+
+			public string? Result
+			{
+				[CompilerGenerated]
+				get
+				{
+					throw null;
+				}
+			}
+
+			public static ReadLineStepResult FromResult(string value)
+			{
+				throw null;
+			}
+		}
+
 		public HttpRequestStreamReader(Stream stream, Encoding encoding)
 		{
+			throw null;
 		}
 
 		public HttpRequestStreamReader(Stream stream, Encoding encoding, int bufferSize)
 		{
+			throw null;
 		}
 
 		public HttpRequestStreamReader(Stream stream, Encoding encoding, int bufferSize, ArrayPool<byte> bytePool, ArrayPool<char> charPool)
 		{
+			throw null;
 		}
 
 		protected override void Dispose(bool disposing)
 		{
+			throw null;
 		}
 
 		public override int Peek()
@@ -33172,8 +41727,38 @@ namespace Microsoft.AspNetCore.WebUtilities
 			throw null;
 		}
 
-		[DebuggerStepThrough]
+		public override int Read(Span<char> buffer)
+		{
+			throw null;
+		}
+
 		public override Task<int> ReadAsync(char[] buffer, int index, int count)
+		{
+			throw null;
+		}
+
+		[AsyncStateMachine(typeof(_003CReadAsync_003Ed__25))]
+		[DebuggerStepThrough]
+		public override ValueTask<int> ReadAsync(Memory<char> buffer, CancellationToken cancellationToken = default(CancellationToken))
+		{
+			throw null;
+		}
+
+		[AsyncStateMachine(typeof(_003CReadLineAsync_003Ed__26))]
+		[DebuggerStepThrough]
+		public override Task<string?> ReadLineAsync()
+		{
+			throw null;
+		}
+
+		public override string? ReadLine()
+		{
+			throw null;
+		}
+
+		[AsyncStateMachine(typeof(_003CReadToEndAsync_003Ed__31))]
+		[DebuggerStepThrough]
+		public override Task<string> ReadToEndAsync()
 		{
 			throw null;
 		}
@@ -33182,11 +41767,13 @@ namespace Microsoft.AspNetCore.WebUtilities
 
 
 // Microsoft.AspNetCore.WebUtilities\Microsoft.AspNetCore.WebUtilities\HttpResponseStreamWriter.cs
+using System;
 using System.Buffers;
 using System.Diagnostics;
 using System.IO;
 using System.Runtime.CompilerServices;
 using System.Text;
+using System.Threading;
 using System.Threading.Tasks;
 
 namespace Microsoft.AspNetCore.WebUtilities
@@ -33206,45 +41793,42 @@ namespace Microsoft.AspNetCore.WebUtilities
 
 		public HttpResponseStreamWriter(Stream stream, Encoding encoding)
 		{
+			throw null;
 		}
 
 		public HttpResponseStreamWriter(Stream stream, Encoding encoding, int bufferSize)
 		{
-		}
-
-		public HttpResponseStreamWriter(Stream stream, Encoding encoding, int bufferSize, ArrayPool<byte> bytePool, ArrayPool<char> charPool)
-		{
-		}
-
-		protected override void Dispose(bool disposing)
-		{
-		}
-
-		[DebuggerStepThrough]
-		public override ValueTask DisposeAsync()
-		{
 			throw null;
 		}
 
-		public override void Flush()
-		{
-		}
-
-		public override Task FlushAsync()
+		public HttpResponseStreamWriter(Stream stream, Encoding encoding, int bufferSize, ArrayPool<byte> bytePool, ArrayPool<char> charPool)
 		{
 			throw null;
 		}
 
 		public override void Write(char value)
 		{
+			throw null;
 		}
 
 		public override void Write(char[] values, int index, int count)
 		{
+			throw null;
 		}
 
-		public override void Write(string value)
+		public override void Write(ReadOnlySpan<char> value)
 		{
+			throw null;
+		}
+
+		public override void Write(string? value)
+		{
+			throw null;
+		}
+
+		public override void WriteLine(ReadOnlySpan<char> value)
+		{
+			throw null;
 		}
 
 		public override Task WriteAsync(char value)
@@ -33257,7 +41841,39 @@ namespace Microsoft.AspNetCore.WebUtilities
 			throw null;
 		}
 
-		public override Task WriteAsync(string value)
+		public override Task WriteAsync(string? value)
+		{
+			throw null;
+		}
+
+		public override Task WriteAsync(ReadOnlyMemory<char> value, CancellationToken cancellationToken = default(CancellationToken))
+		{
+			throw null;
+		}
+
+		public override Task WriteLineAsync(ReadOnlyMemory<char> value, CancellationToken cancellationToken = default(CancellationToken))
+		{
+			throw null;
+		}
+
+		public override void Flush()
+		{
+			throw null;
+		}
+
+		public override Task FlushAsync()
+		{
+			throw null;
+		}
+
+		protected override void Dispose(bool disposing)
+		{
+			throw null;
+		}
+
+		[AsyncStateMachine(typeof(_003CDisposeAsync_003Ed__35))]
+		[DebuggerStepThrough]
+		public override ValueTask DisposeAsync()
 		{
 			throw null;
 		}
@@ -33274,9 +41890,9 @@ namespace Microsoft.AspNetCore.WebUtilities
 {
 	public struct KeyValueAccumulator
 	{
-		private object _dummy;
+		private Dictionary<string, StringValues> _accumulator;
 
-		private int _dummyPrimitive;
+		private Dictionary<string, List<string>> _expandingAccumulator;
 
 		public bool HasValues
 		{
@@ -33297,7 +41913,7 @@ namespace Microsoft.AspNetCore.WebUtilities
 		public int ValueCount
 		{
 			[CompilerGenerated]
-			get
+			readonly get
 			{
 				throw null;
 			}
@@ -33305,6 +41921,7 @@ namespace Microsoft.AspNetCore.WebUtilities
 
 		public void Append(string key, string value)
 		{
+			throw null;
 		}
 
 		public Dictionary<string, StringValues> GetResults()
@@ -33330,19 +41947,6 @@ namespace Microsoft.AspNetCore.WebUtilities
 
 		public const int DefaultHeadersLengthLimit = 16384;
 
-		public long? BodyLengthLimit
-		{
-			[CompilerGenerated]
-			get
-			{
-				throw null;
-			}
-			[CompilerGenerated]
-			set
-			{
-			}
-		}
-
 		public int HeadersCountLimit
 		{
 			[CompilerGenerated]
@@ -33353,6 +41957,7 @@ namespace Microsoft.AspNetCore.WebUtilities
 			[CompilerGenerated]
 			set
 			{
+				throw null;
 			}
 		}
 
@@ -33366,19 +41971,37 @@ namespace Microsoft.AspNetCore.WebUtilities
 			[CompilerGenerated]
 			set
 			{
+				throw null;
+			}
+		}
+
+		public long? BodyLengthLimit
+		{
+			[CompilerGenerated]
+			get
+			{
+				throw null;
+			}
+			[CompilerGenerated]
+			set
+			{
+				throw null;
 			}
 		}
 
 		public MultipartReader(string boundary, Stream stream)
 		{
+			throw null;
 		}
 
 		public MultipartReader(string boundary, Stream stream, int bufferSize)
 		{
+			throw null;
 		}
 
+		[AsyncStateMachine(typeof(_003CReadNextSectionAsync_003Ed__20))]
 		[DebuggerStepThrough]
-		public Task<MultipartSection> ReadNextSectionAsync(CancellationToken cancellationToken = default(CancellationToken))
+		public Task<MultipartSection?> ReadNextSectionAsync(CancellationToken cancellationToken = default(CancellationToken))
 		{
 			throw null;
 		}
@@ -33396,7 +42019,25 @@ namespace Microsoft.AspNetCore.WebUtilities
 {
 	public class MultipartSection
 	{
-		public long? BaseStreamOffset
+		public string? ContentType
+		{
+			[System.Runtime.CompilerServices.NullableContext(2)]
+			get
+			{
+				throw null;
+			}
+		}
+
+		public string? ContentDisposition
+		{
+			[System.Runtime.CompilerServices.NullableContext(2)]
+			get
+			{
+				throw null;
+			}
+		}
+
+		public Dictionary<string, StringValues>? Headers
 		{
 			[CompilerGenerated]
 			get
@@ -33406,6 +42047,7 @@ namespace Microsoft.AspNetCore.WebUtilities
 			[CompilerGenerated]
 			set
 			{
+				throw null;
 			}
 		}
 
@@ -33419,26 +42061,11 @@ namespace Microsoft.AspNetCore.WebUtilities
 			[CompilerGenerated]
 			set
 			{
-			}
-		}
-
-		public string ContentDisposition
-		{
-			get
-			{
 				throw null;
 			}
 		}
 
-		public string ContentType
-		{
-			get
-			{
-				throw null;
-			}
-		}
-
-		public Dictionary<string, StringValues> Headers
+		public long? BaseStreamOffset
 		{
 			[CompilerGenerated]
 			get
@@ -33448,7 +42075,13 @@ namespace Microsoft.AspNetCore.WebUtilities
 			[CompilerGenerated]
 			set
 			{
+				throw null;
 			}
+		}
+
+		public MultipartSection()
+		{
+			throw null;
 		}
 	}
 }
@@ -33461,17 +42094,17 @@ namespace Microsoft.AspNetCore.WebUtilities
 {
 	public static class MultipartSectionConverterExtensions
 	{
-		public static FileMultipartSection AsFileSection(this MultipartSection section)
+		public static FileMultipartSection? AsFileSection(this MultipartSection section)
 		{
 			throw null;
 		}
 
-		public static FormMultipartSection AsFormDataSection(this MultipartSection section)
+		public static FormMultipartSection? AsFormDataSection(this MultipartSection section)
 		{
 			throw null;
 		}
 
-		public static ContentDispositionHeaderValue GetContentDispositionHeader(this MultipartSection section)
+		public static ContentDispositionHeaderValue? GetContentDispositionHeader(this MultipartSection section)
 		{
 			throw null;
 		}
@@ -33481,12 +42114,14 @@ namespace Microsoft.AspNetCore.WebUtilities
 
 // Microsoft.AspNetCore.WebUtilities\Microsoft.AspNetCore.WebUtilities\MultipartSectionStreamExtensions.cs
 using System.Diagnostics;
+using System.Runtime.CompilerServices;
 using System.Threading.Tasks;
 
 namespace Microsoft.AspNetCore.WebUtilities
 {
 	public static class MultipartSectionStreamExtensions
 	{
+		[AsyncStateMachine(typeof(_003CReadAsStringAsync_003Ed__0))]
 		[DebuggerStepThrough]
 		public static Task<string> ReadAsStringAsync(this MultipartSection section)
 		{
@@ -33504,22 +42139,32 @@ namespace Microsoft.AspNetCore.WebUtilities
 {
 	public static class QueryHelpers
 	{
-		public static string AddQueryString(string uri, IDictionary<string, string> queryString)
-		{
-			throw null;
-		}
-
 		public static string AddQueryString(string uri, string name, string value)
 		{
 			throw null;
 		}
 
-		public static Dictionary<string, StringValues> ParseNullableQuery(string queryString)
+		public static string AddQueryString(string uri, IDictionary<string, string?> queryString)
+		{
+			throw null;
+		}
+
+		public static string AddQueryString(string uri, IEnumerable<KeyValuePair<string, StringValues>> queryString)
+		{
+			throw null;
+		}
+
+		public static string AddQueryString(string uri, IEnumerable<KeyValuePair<string, string?>> queryString)
 		{
 			throw null;
 		}
 
 		public static Dictionary<string, StringValues> ParseQuery(string queryString)
+		{
+			throw null;
+		}
+
+		public static Dictionary<string, StringValues>? ParseNullableQuery(string queryString)
 		{
 			throw null;
 		}
@@ -33544,6 +42189,7 @@ namespace Microsoft.AspNetCore.WebUtilities
 using System.Buffers;
 using System.Diagnostics;
 using System.IO;
+using System.Runtime.CompilerServices;
 using System.Threading;
 using System.Threading.Tasks;
 
@@ -33551,8 +42197,7 @@ namespace Microsoft.AspNetCore.WebUtilities
 {
 	public static class StreamHelperExtensions
 	{
-		[DebuggerStepThrough]
-		public static Task DrainAsync(this Stream stream, ArrayPool<byte> bytePool, long? limit, CancellationToken cancellationToken)
+		public static Task DrainAsync(this Stream stream, CancellationToken cancellationToken)
 		{
 			throw null;
 		}
@@ -33562,7 +42207,9 @@ namespace Microsoft.AspNetCore.WebUtilities
 			throw null;
 		}
 
-		public static Task DrainAsync(this Stream stream, CancellationToken cancellationToken)
+		[AsyncStateMachine(typeof(_003CDrainAsync_003Ed__3))]
+		[DebuggerStepThrough]
+		public static Task DrainAsync(this Stream stream, ArrayPool<byte> bytePool, long? limit, CancellationToken cancellationToken)
 		{
 			throw null;
 		}
@@ -33582,32 +42229,12 @@ namespace Microsoft.AspNetCore.WebUtilities
 			throw null;
 		}
 
-		public static byte[] Base64UrlDecode(string input, int offset, char[] buffer, int bufferOffset, int count)
-		{
-			throw null;
-		}
-
 		public static byte[] Base64UrlDecode(string input, int offset, int count)
 		{
 			throw null;
 		}
 
-		public static string Base64UrlEncode(byte[] input)
-		{
-			throw null;
-		}
-
-		public static int Base64UrlEncode(byte[] input, int offset, char[] output, int outputOffset, int count)
-		{
-			throw null;
-		}
-
-		public static string Base64UrlEncode(byte[] input, int offset, int count)
-		{
-			throw null;
-		}
-
-		public static string Base64UrlEncode(ReadOnlySpan<byte> input)
+		public static byte[] Base64UrlDecode(string input, int offset, char[] buffer, int bufferOffset, int count)
 		{
 			throw null;
 		}
@@ -33617,7 +42244,27 @@ namespace Microsoft.AspNetCore.WebUtilities
 			throw null;
 		}
 
+		public static string Base64UrlEncode(byte[] input)
+		{
+			throw null;
+		}
+
+		public static string Base64UrlEncode(byte[] input, int offset, int count)
+		{
+			throw null;
+		}
+
+		public static int Base64UrlEncode(byte[] input, int offset, char[] output, int outputOffset, int count)
+		{
+			throw null;
+		}
+
 		public static int GetArraySizeRequiredToEncode(int count)
+		{
+			throw null;
+		}
+
+		public static string Base64UrlEncode(ReadOnlySpan<byte> input)
 		{
 			throw null;
 		}
@@ -33626,20 +42273,16 @@ namespace Microsoft.AspNetCore.WebUtilities
 
 
 // Microsoft.Extensions.Hosting\Microsoft.Extensions.Hosting\ConsoleLifetimeOptions.cs
-using System.Runtime.CompilerServices;
-
 namespace Microsoft.Extensions.Hosting
 {
 	public class ConsoleLifetimeOptions
 	{
 		public bool SuppressStatusMessages
 		{
-			[CompilerGenerated]
 			get
 			{
 				throw null;
 			}
-			[CompilerGenerated]
 			set
 			{
 			}
@@ -33671,7 +42314,6 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using System;
 using System.Collections.Generic;
-using System.Runtime.CompilerServices;
 
 namespace Microsoft.Extensions.Hosting
 {
@@ -33679,7 +42321,6 @@ namespace Microsoft.Extensions.Hosting
 	{
 		public IDictionary<object, object> Properties
 		{
-			[CompilerGenerated]
 			get
 			{
 				throw null;
@@ -33806,7 +42447,6 @@ namespace Microsoft.Extensions.Hosting
 
 // Microsoft.Extensions.Hosting\Microsoft.Extensions.Hosting\HostOptions.cs
 using System;
-using System.Runtime.CompilerServices;
 
 namespace Microsoft.Extensions.Hosting
 {
@@ -33814,12 +42454,10 @@ namespace Microsoft.Extensions.Hosting
 	{
 		public TimeSpan ShutdownTimeout
 		{
-			[CompilerGenerated]
 			get
 			{
 				throw null;
 			}
-			[CompilerGenerated]
 			set
 			{
 			}
@@ -33917,7 +42555,6 @@ namespace Microsoft.Extensions.Hosting.Internal
 
 // Microsoft.Extensions.Hosting\Microsoft.Extensions.Hosting.Internal\HostingEnvironment.cs
 using Microsoft.Extensions.FileProviders;
-using System.Runtime.CompilerServices;
 
 namespace Microsoft.Extensions.Hosting.Internal
 {
@@ -33925,12 +42562,10 @@ namespace Microsoft.Extensions.Hosting.Internal
 	{
 		public string ApplicationName
 		{
-			[CompilerGenerated]
 			get
 			{
 				throw null;
 			}
-			[CompilerGenerated]
 			set
 			{
 			}
@@ -33938,12 +42573,10 @@ namespace Microsoft.Extensions.Hosting.Internal
 
 		public IFileProvider ContentRootFileProvider
 		{
-			[CompilerGenerated]
 			get
 			{
 				throw null;
 			}
-			[CompilerGenerated]
 			set
 			{
 			}
@@ -33951,12 +42584,10 @@ namespace Microsoft.Extensions.Hosting.Internal
 
 		public string ContentRootPath
 		{
-			[CompilerGenerated]
 			get
 			{
 				throw null;
 			}
-			[CompilerGenerated]
 			set
 			{
 			}
@@ -33964,12 +42595,10 @@ namespace Microsoft.Extensions.Hosting.Internal
 
 		public string EnvironmentName
 		{
-			[CompilerGenerated]
 			get
 			{
 				throw null;
 			}
-			[CompilerGenerated]
 			set
 			{
 			}
@@ -33981,12 +42610,13 @@ namespace Microsoft.Extensions.Hosting.Internal
 // Microsoft.Extensions.Hosting.Abstractions\Microsoft.Extensions.DependencyInjection\ServiceCollectionHostedServiceExtensions.cs
 using Microsoft.Extensions.Hosting;
 using System;
+using System.Diagnostics.CodeAnalysis;
 
 namespace Microsoft.Extensions.DependencyInjection
 {
 	public static class ServiceCollectionHostedServiceExtensions
 	{
-		public static IServiceCollection AddHostedService<THostedService>(this IServiceCollection services) where THostedService : class, IHostedService
+		public static IServiceCollection AddHostedService<[System.Diagnostics.CodeAnalysis.DynamicallyAccessedMembers(System.Diagnostics.CodeAnalysis.DynamicallyAccessedMemberTypes.PublicConstructors)] THostedService>(this IServiceCollection services) where THostedService : class, IHostedService
 		{
 			throw null;
 		}
@@ -34001,7 +42631,6 @@ namespace Microsoft.Extensions.DependencyInjection
 
 // Microsoft.Extensions.Hosting.Abstractions\Microsoft.Extensions.Hosting\BackgroundService.cs
 using System;
-using System.Diagnostics;
 using System.Threading;
 using System.Threading.Tasks;
 
@@ -34020,7 +42649,6 @@ namespace Microsoft.Extensions.Hosting
 			throw null;
 		}
 
-		[DebuggerStepThrough]
 		public virtual Task StopAsync(CancellationToken cancellationToken)
 		{
 			throw null;
@@ -34063,7 +42691,6 @@ namespace Microsoft.Extensions.Hosting
 // Microsoft.Extensions.Hosting.Abstractions\Microsoft.Extensions.Hosting\HostBuilderContext.cs
 using Microsoft.Extensions.Configuration;
 using System.Collections.Generic;
-using System.Runtime.CompilerServices;
 
 namespace Microsoft.Extensions.Hosting
 {
@@ -34071,12 +42698,10 @@ namespace Microsoft.Extensions.Hosting
 	{
 		public IConfiguration Configuration
 		{
-			[CompilerGenerated]
 			get
 			{
 				throw null;
 			}
-			[CompilerGenerated]
 			set
 			{
 			}
@@ -34084,12 +42709,10 @@ namespace Microsoft.Extensions.Hosting
 
 		public IHostEnvironment HostingEnvironment
 		{
-			[CompilerGenerated]
 			get
 			{
 				throw null;
 			}
-			[CompilerGenerated]
 			set
 			{
 			}
@@ -34097,7 +42720,6 @@ namespace Microsoft.Extensions.Hosting
 
 		public IDictionary<object, object> Properties
 		{
-			[CompilerGenerated]
 			get
 			{
 				throw null;
@@ -34154,7 +42776,6 @@ namespace Microsoft.Extensions.Hosting
 
 
 // Microsoft.Extensions.Hosting.Abstractions\Microsoft.Extensions.Hosting\HostingAbstractionsHostBuilderExtensions.cs
-using System.Diagnostics;
 using System.Threading;
 using System.Threading.Tasks;
 
@@ -34167,7 +42788,6 @@ namespace Microsoft.Extensions.Hosting
 			throw null;
 		}
 
-		[DebuggerStepThrough]
 		public static Task<IHost> StartAsync(this IHostBuilder hostBuilder, CancellationToken cancellationToken = default(CancellationToken))
 		{
 			throw null;
@@ -34178,7 +42798,6 @@ namespace Microsoft.Extensions.Hosting
 
 // Microsoft.Extensions.Hosting.Abstractions\Microsoft.Extensions.Hosting\HostingAbstractionsHostExtensions.cs
 using System;
-using System.Diagnostics;
 using System.Threading;
 using System.Threading.Tasks;
 
@@ -34190,7 +42809,6 @@ namespace Microsoft.Extensions.Hosting
 		{
 		}
 
-		[DebuggerStepThrough]
 		public static Task RunAsync(this IHost host, CancellationToken token = default(CancellationToken))
 		{
 			throw null;
@@ -34209,7 +42827,6 @@ namespace Microsoft.Extensions.Hosting
 		{
 		}
 
-		[DebuggerStepThrough]
 		public static Task WaitForShutdownAsync(this IHost host, CancellationToken token = default(CancellationToken))
 		{
 			throw null;
@@ -34455,9 +43072,36 @@ namespace Microsoft.Extensions.Hosting
 }
 
 
+// Microsoft.Extensions.Hosting.Abstractions\System.Diagnostics.CodeAnalysis\DynamicallyAccessedMemberTypes.cs
+namespace System.Diagnostics.CodeAnalysis
+{
+	[Flags]
+	internal enum DynamicallyAccessedMemberTypes
+	{
+		None = 0x0,
+		PublicParameterlessConstructor = 0x1,
+		PublicConstructors = 0x3,
+		NonPublicConstructors = 0x4,
+		PublicMethods = 0x8,
+		NonPublicMethods = 0x10,
+		PublicFields = 0x20,
+		NonPublicFields = 0x40,
+		PublicNestedTypes = 0x80,
+		NonPublicNestedTypes = 0x100,
+		PublicProperties = 0x200,
+		NonPublicProperties = 0x400,
+		PublicEvents = 0x800,
+		NonPublicEvents = 0x1000,
+		All = -1
+	}
+}
+
+
 // Microsoft.Extensions.Http\Microsoft.Extensions.DependencyInjection\HttpClientBuilderExtensions.cs
 using Microsoft.Extensions.Http;
 using System;
+using System.Collections.Generic;
+using System.Diagnostics.CodeAnalysis;
 using System.Net.Http;
 
 namespace Microsoft.Extensions.DependencyInjection
@@ -34479,7 +43123,7 @@ namespace Microsoft.Extensions.DependencyInjection
 			throw null;
 		}
 
-		public static IHttpClientBuilder AddTypedClient<TClient>(this IHttpClientBuilder builder) where TClient : class
+		public static IHttpClientBuilder AddTypedClient<[System.Diagnostics.CodeAnalysis.DynamicallyAccessedMembers(System.Diagnostics.CodeAnalysis.DynamicallyAccessedMemberTypes.PublicConstructors)] TClient>(this IHttpClientBuilder builder) where TClient : class
 		{
 			throw null;
 		}
@@ -34494,7 +43138,7 @@ namespace Microsoft.Extensions.DependencyInjection
 			throw null;
 		}
 
-		public static IHttpClientBuilder AddTypedClient<TClient, TImplementation>(this IHttpClientBuilder builder) where TClient : class where TImplementation : class, TClient
+		public static IHttpClientBuilder AddTypedClient<TClient, [System.Diagnostics.CodeAnalysis.DynamicallyAccessedMembers(System.Diagnostics.CodeAnalysis.DynamicallyAccessedMemberTypes.PublicConstructors)] TImplementation>(this IHttpClientBuilder builder) where TClient : class where TImplementation : class, TClient
 		{
 			throw null;
 		}
@@ -34529,6 +43173,16 @@ namespace Microsoft.Extensions.DependencyInjection
 			throw null;
 		}
 
+		public static IHttpClientBuilder RedactLoggedHeaders(this IHttpClientBuilder builder, IEnumerable<string> redactedLoggedHeaderNames)
+		{
+			throw null;
+		}
+
+		public static IHttpClientBuilder RedactLoggedHeaders(this IHttpClientBuilder builder, Func<string, bool> shouldRedactHeaderValue)
+		{
+			throw null;
+		}
+
 		public static IHttpClientBuilder SetHandlerLifetime(this IHttpClientBuilder builder, TimeSpan handlerLifetime)
 		{
 			throw null;
@@ -34539,6 +43193,7 @@ namespace Microsoft.Extensions.DependencyInjection
 
 // Microsoft.Extensions.Http\Microsoft.Extensions.DependencyInjection\HttpClientFactoryServiceCollectionExtensions.cs
 using System;
+using System.Diagnostics.CodeAnalysis;
 using System.Net.Http;
 
 namespace Microsoft.Extensions.DependencyInjection
@@ -34565,62 +43220,82 @@ namespace Microsoft.Extensions.DependencyInjection
 			throw null;
 		}
 
-		public static IHttpClientBuilder AddHttpClient<TClient>(this IServiceCollection services) where TClient : class
+		public static IHttpClientBuilder AddHttpClient<[System.Diagnostics.CodeAnalysis.DynamicallyAccessedMembers(System.Diagnostics.CodeAnalysis.DynamicallyAccessedMemberTypes.PublicConstructors)] TClient>(this IServiceCollection services) where TClient : class
 		{
 			throw null;
 		}
 
-		public static IHttpClientBuilder AddHttpClient<TClient>(this IServiceCollection services, Action<IServiceProvider, HttpClient> configureClient) where TClient : class
+		public static IHttpClientBuilder AddHttpClient<[System.Diagnostics.CodeAnalysis.DynamicallyAccessedMembers(System.Diagnostics.CodeAnalysis.DynamicallyAccessedMemberTypes.PublicConstructors)] TClient>(this IServiceCollection services, Action<IServiceProvider, HttpClient> configureClient) where TClient : class
 		{
 			throw null;
 		}
 
-		public static IHttpClientBuilder AddHttpClient<TClient>(this IServiceCollection services, Action<HttpClient> configureClient) where TClient : class
+		public static IHttpClientBuilder AddHttpClient<[System.Diagnostics.CodeAnalysis.DynamicallyAccessedMembers(System.Diagnostics.CodeAnalysis.DynamicallyAccessedMemberTypes.PublicConstructors)] TClient>(this IServiceCollection services, Action<HttpClient> configureClient) where TClient : class
 		{
 			throw null;
 		}
 
-		public static IHttpClientBuilder AddHttpClient<TClient>(this IServiceCollection services, string name) where TClient : class
+		public static IHttpClientBuilder AddHttpClient<[System.Diagnostics.CodeAnalysis.DynamicallyAccessedMembers(System.Diagnostics.CodeAnalysis.DynamicallyAccessedMemberTypes.PublicConstructors)] TClient>(this IServiceCollection services, string name) where TClient : class
 		{
 			throw null;
 		}
 
-		public static IHttpClientBuilder AddHttpClient<TClient>(this IServiceCollection services, string name, Action<IServiceProvider, HttpClient> configureClient) where TClient : class
+		public static IHttpClientBuilder AddHttpClient<[System.Diagnostics.CodeAnalysis.DynamicallyAccessedMembers(System.Diagnostics.CodeAnalysis.DynamicallyAccessedMemberTypes.PublicConstructors)] TClient>(this IServiceCollection services, string name, Action<IServiceProvider, HttpClient> configureClient) where TClient : class
 		{
 			throw null;
 		}
 
-		public static IHttpClientBuilder AddHttpClient<TClient>(this IServiceCollection services, string name, Action<HttpClient> configureClient) where TClient : class
+		public static IHttpClientBuilder AddHttpClient<[System.Diagnostics.CodeAnalysis.DynamicallyAccessedMembers(System.Diagnostics.CodeAnalysis.DynamicallyAccessedMemberTypes.PublicConstructors)] TClient>(this IServiceCollection services, string name, Action<HttpClient> configureClient) where TClient : class
 		{
 			throw null;
 		}
 
-		public static IHttpClientBuilder AddHttpClient<TClient, TImplementation>(this IServiceCollection services) where TClient : class where TImplementation : class, TClient
+		public static IHttpClientBuilder AddHttpClient<TClient, [System.Diagnostics.CodeAnalysis.DynamicallyAccessedMembers(System.Diagnostics.CodeAnalysis.DynamicallyAccessedMemberTypes.PublicConstructors)] TImplementation>(this IServiceCollection services) where TClient : class where TImplementation : class, TClient
 		{
 			throw null;
 		}
 
-		public static IHttpClientBuilder AddHttpClient<TClient, TImplementation>(this IServiceCollection services, Action<IServiceProvider, HttpClient> configureClient) where TClient : class where TImplementation : class, TClient
+		public static IHttpClientBuilder AddHttpClient<TClient, [System.Diagnostics.CodeAnalysis.DynamicallyAccessedMembers(System.Diagnostics.CodeAnalysis.DynamicallyAccessedMemberTypes.PublicConstructors)] TImplementation>(this IServiceCollection services, Action<IServiceProvider, HttpClient> configureClient) where TClient : class where TImplementation : class, TClient
 		{
 			throw null;
 		}
 
-		public static IHttpClientBuilder AddHttpClient<TClient, TImplementation>(this IServiceCollection services, Action<HttpClient> configureClient) where TClient : class where TImplementation : class, TClient
+		public static IHttpClientBuilder AddHttpClient<TClient, [System.Diagnostics.CodeAnalysis.DynamicallyAccessedMembers(System.Diagnostics.CodeAnalysis.DynamicallyAccessedMemberTypes.PublicConstructors)] TImplementation>(this IServiceCollection services, Action<HttpClient> configureClient) where TClient : class where TImplementation : class, TClient
 		{
 			throw null;
 		}
 
-		public static IHttpClientBuilder AddHttpClient<TClient, TImplementation>(this IServiceCollection services, string name) where TClient : class where TImplementation : class, TClient
+		public static IHttpClientBuilder AddHttpClient<TClient, TImplementation>(this IServiceCollection services, Func<HttpClient, IServiceProvider, TImplementation> factory) where TClient : class where TImplementation : class, TClient
 		{
 			throw null;
 		}
 
-		public static IHttpClientBuilder AddHttpClient<TClient, TImplementation>(this IServiceCollection services, string name, Action<IServiceProvider, HttpClient> configureClient) where TClient : class where TImplementation : class, TClient
+		public static IHttpClientBuilder AddHttpClient<TClient, TImplementation>(this IServiceCollection services, Func<HttpClient, TImplementation> factory) where TClient : class where TImplementation : class, TClient
 		{
 			throw null;
 		}
 
-		public static IHttpClientBuilder AddHttpClient<TClient, TImplementation>(this IServiceCollection services, string name, Action<HttpClient> configureClient) where TClient : class where TImplementation : class, TClient
+		public static IHttpClientBuilder AddHttpClient<TClient, [System.Diagnostics.CodeAnalysis.DynamicallyAccessedMembers(System.Diagnostics.CodeAnalysis.DynamicallyAccessedMemberTypes.PublicConstructors)] TImplementation>(this IServiceCollection services, string name) where TClient : class where TImplementation : class, TClient
+		{
+			throw null;
+		}
+
+		public static IHttpClientBuilder AddHttpClient<TClient, [System.Diagnostics.CodeAnalysis.DynamicallyAccessedMembers(System.Diagnostics.CodeAnalysis.DynamicallyAccessedMemberTypes.PublicConstructors)] TImplementation>(this IServiceCollection services, string name, Action<IServiceProvider, HttpClient> configureClient) where TClient : class where TImplementation : class, TClient
+		{
+			throw null;
+		}
+
+		public static IHttpClientBuilder AddHttpClient<TClient, [System.Diagnostics.CodeAnalysis.DynamicallyAccessedMembers(System.Diagnostics.CodeAnalysis.DynamicallyAccessedMemberTypes.PublicConstructors)] TImplementation>(this IServiceCollection services, string name, Action<HttpClient> configureClient) where TClient : class where TImplementation : class, TClient
+		{
+			throw null;
+		}
+
+		public static IHttpClientBuilder AddHttpClient<TClient, TImplementation>(this IServiceCollection services, string name, Func<HttpClient, IServiceProvider, TImplementation> factory) where TClient : class where TImplementation : class, TClient
+		{
+			throw null;
+		}
+
+		public static IHttpClientBuilder AddHttpClient<TClient, TImplementation>(this IServiceCollection services, string name, Func<HttpClient, TImplementation> factory) where TClient : class where TImplementation : class, TClient
 		{
 			throw null;
 		}
@@ -34682,6 +43357,19 @@ namespace Microsoft.Extensions.Http
 			get
 			{
 				throw null;
+			}
+		}
+
+		public Func<string, bool> ShouldRedactHeaderValue
+		{
+			[CompilerGenerated]
+			get
+			{
+				throw null;
+			}
+			[CompilerGenerated]
+			set
+			{
 			}
 		}
 
@@ -34760,11 +43448,12 @@ namespace Microsoft.Extensions.Http
 
 
 // Microsoft.Extensions.Http\Microsoft.Extensions.Http\ITypedHttpClientFactory.cs
+using System.Diagnostics.CodeAnalysis;
 using System.Net.Http;
 
 namespace Microsoft.Extensions.Http
 {
-	public interface ITypedHttpClientFactory<TClient>
+	public interface ITypedHttpClientFactory<[System.Diagnostics.CodeAnalysis.DynamicallyAccessedMembers(System.Diagnostics.CodeAnalysis.DynamicallyAccessedMemberTypes.PublicConstructors)] TClient>
 	{
 		TClient CreateClient(HttpClient httpClient);
 	}
@@ -34783,6 +43472,10 @@ namespace Microsoft.Extensions.Http.Logging
 	public class LoggingHttpMessageHandler : DelegatingHandler
 	{
 		public LoggingHttpMessageHandler(ILogger logger)
+		{
+		}
+
+		public LoggingHttpMessageHandler(ILogger logger, HttpClientFactoryOptions options)
 		{
 		}
 
@@ -34810,11 +43503,40 @@ namespace Microsoft.Extensions.Http.Logging
 		{
 		}
 
+		public LoggingScopeHttpMessageHandler(ILogger logger, HttpClientFactoryOptions options)
+		{
+		}
+
 		[DebuggerStepThrough]
 		protected override Task<HttpResponseMessage> SendAsync(HttpRequestMessage request, CancellationToken cancellationToken)
 		{
 			throw null;
 		}
+	}
+}
+
+
+// Microsoft.Extensions.Http\System.Diagnostics.CodeAnalysis\DynamicallyAccessedMemberTypes.cs
+namespace System.Diagnostics.CodeAnalysis
+{
+	[Flags]
+	internal enum DynamicallyAccessedMemberTypes
+	{
+		None = 0x0,
+		PublicParameterlessConstructor = 0x1,
+		PublicConstructors = 0x3,
+		NonPublicConstructors = 0x4,
+		PublicMethods = 0x8,
+		NonPublicMethods = 0x10,
+		PublicFields = 0x20,
+		NonPublicFields = 0x40,
+		PublicNestedTypes = 0x80,
+		NonPublicNestedTypes = 0x100,
+		PublicProperties = 0x200,
+		NonPublicProperties = 0x400,
+		PublicEvents = 0x800,
+		NonPublicEvents = 0x1000,
+		All = -1
 	}
 }
 
@@ -34882,6 +43604,16 @@ namespace Microsoft.Extensions.DependencyInjection
 		{
 			throw null;
 		}
+
+		internal static void AddLocalizationServices(IServiceCollection services)
+		{
+			throw null;
+		}
+
+		internal static void AddLocalizationServices(IServiceCollection services, Action<LocalizationOptions> setupAction)
+		{
+			throw null;
+		}
 	}
 }
 
@@ -34894,7 +43626,20 @@ namespace Microsoft.Extensions.Localization
 {
 	public interface IResourceNamesCache
 	{
-		IList<string> GetOrAdd(string name, Func<string, IList<string>> valueFactory);
+		IList<string>? GetOrAdd(string name, Func<string, IList<string>?> valueFactory);
+	}
+}
+
+
+// Microsoft.Extensions.Localization\Microsoft.Extensions.Localization\IResourceStringProvider.cs
+using System.Collections.Generic;
+using System.Globalization;
+
+namespace Microsoft.Extensions.Localization
+{
+	internal interface IResourceStringProvider
+	{
+		IList<string>? GetAllResourceStrings(CultureInfo culture, bool throwOnMissing);
 	}
 }
 
@@ -34916,11 +43661,13 @@ namespace Microsoft.Extensions.Localization
 			[CompilerGenerated]
 			set
 			{
+				throw null;
 			}
 		}
 
 		public LocalizationOptions()
 		{
+			throw null;
 		}
 	}
 }
@@ -34946,19 +43693,19 @@ namespace Microsoft.Extensions.Localization
 
 		public ResourceLocationAttribute(string resourceLocation)
 		{
+			throw null;
 		}
 	}
 }
 
 
 // Microsoft.Extensions.Localization\Microsoft.Extensions.Localization\ResourceManagerStringLocalizer.cs
-using Microsoft.Extensions.Localization.Internal;
 using Microsoft.Extensions.Logging;
-using System;
 using System.Collections.Generic;
 using System.Globalization;
 using System.Reflection;
 using System.Resources;
+using System.Runtime.CompilerServices;
 
 namespace Microsoft.Extensions.Localization
 {
@@ -34980,16 +43727,19 @@ namespace Microsoft.Extensions.Localization
 			}
 		}
 
-		public ResourceManagerStringLocalizer(ResourceManager resourceManager, AssemblyWrapper resourceAssemblyWrapper, string baseName, IResourceNamesCache resourceNamesCache, ILogger logger)
-		{
-		}
-
-		public ResourceManagerStringLocalizer(ResourceManager resourceManager, IResourceStringProvider resourceStringProvider, string baseName, IResourceNamesCache resourceNamesCache, ILogger logger)
-		{
-		}
-
 		public ResourceManagerStringLocalizer(ResourceManager resourceManager, Assembly resourceAssembly, string baseName, IResourceNamesCache resourceNamesCache, ILogger logger)
 		{
+			throw null;
+		}
+
+		internal ResourceManagerStringLocalizer(ResourceManager resourceManager, AssemblyWrapper resourceAssemblyWrapper, string baseName, IResourceNamesCache resourceNamesCache, ILogger logger)
+		{
+			throw null;
+		}
+
+		internal ResourceManagerStringLocalizer(ResourceManager resourceManager, IResourceStringProvider resourceStringProvider, string baseName, IResourceNamesCache resourceNamesCache, ILogger logger)
+		{
+			throw null;
 		}
 
 		public virtual IEnumerable<LocalizedString> GetAllStrings(bool includeParentCultures)
@@ -34997,18 +43747,13 @@ namespace Microsoft.Extensions.Localization
 			throw null;
 		}
 
+		[IteratorStateMachine(typeof(_003CGetAllStrings_003Ed__14))]
 		protected IEnumerable<LocalizedString> GetAllStrings(bool includeParentCultures, CultureInfo culture)
 		{
 			throw null;
 		}
 
-		protected string GetStringSafely(string name, CultureInfo culture)
-		{
-			throw null;
-		}
-
-		[Obsolete("This method is obsolete. Use `CurrentCulture` and `CurrentUICulture` instead.")]
-		public IStringLocalizer WithCulture(CultureInfo culture)
+		protected string? GetStringSafely(string name, CultureInfo? culture)
 		{
 			throw null;
 		}
@@ -35028,25 +43773,6 @@ namespace Microsoft.Extensions.Localization
 	{
 		public ResourceManagerStringLocalizerFactory(IOptions<LocalizationOptions> localizationOptions, ILoggerFactory loggerFactory)
 		{
-		}
-
-		public IStringLocalizer Create(string baseName, string location)
-		{
-			throw null;
-		}
-
-		public IStringLocalizer Create(Type resourceSource)
-		{
-			throw null;
-		}
-
-		protected virtual ResourceManagerStringLocalizer CreateResourceManagerStringLocalizer(Assembly assembly, string baseName)
-		{
-			throw null;
-		}
-
-		protected virtual ResourceLocationAttribute GetResourceLocationAttribute(Assembly assembly)
-		{
 			throw null;
 		}
 
@@ -35055,7 +43781,7 @@ namespace Microsoft.Extensions.Localization
 			throw null;
 		}
 
-		protected virtual string GetResourcePrefix(TypeInfo typeInfo, string baseNamespace, string resourcesRelativePath)
+		protected virtual string GetResourcePrefix(TypeInfo typeInfo, string? baseNamespace, string? resourcesRelativePath)
 		{
 			throw null;
 		}
@@ -35065,54 +43791,32 @@ namespace Microsoft.Extensions.Localization
 			throw null;
 		}
 
+		public IStringLocalizer Create(Type resourceSource)
+		{
+			throw null;
+		}
+
+		public IStringLocalizer Create(string baseName, string location)
+		{
+			throw null;
+		}
+
+		protected virtual ResourceManagerStringLocalizer CreateResourceManagerStringLocalizer(Assembly assembly, string baseName)
+		{
+			throw null;
+		}
+
 		protected virtual string GetResourcePrefix(string location, string baseName, string resourceLocation)
 		{
 			throw null;
 		}
 
-		protected virtual RootNamespaceAttribute GetRootNamespaceAttribute(Assembly assembly)
+		protected virtual ResourceLocationAttribute? GetResourceLocationAttribute(Assembly assembly)
 		{
 			throw null;
 		}
-	}
-}
 
-
-// Microsoft.Extensions.Localization\Microsoft.Extensions.Localization\ResourceManagerWithCultureStringLocalizer.cs
-using Microsoft.Extensions.Logging;
-using System;
-using System.Collections.Generic;
-using System.Globalization;
-using System.Reflection;
-using System.Resources;
-
-namespace Microsoft.Extensions.Localization
-{
-	[Obsolete("This method is obsolete. Use `CurrentCulture` and `CurrentUICulture` instead.")]
-	public class ResourceManagerWithCultureStringLocalizer : ResourceManagerStringLocalizer
-	{
-		public override LocalizedString this[string name]
-		{
-			get
-			{
-				throw null;
-			}
-		}
-
-		public override LocalizedString this[string name, params object[] arguments]
-		{
-			get
-			{
-				throw null;
-			}
-		}
-
-		public ResourceManagerWithCultureStringLocalizer(ResourceManager resourceManager, Assembly resourceAssembly, string baseName, IResourceNamesCache resourceNamesCache, CultureInfo culture, ILogger logger)
-			: base((ResourceManager)null, (Assembly)null, (string)null, (IResourceNamesCache)null, (ILogger)null)
-		{
-		}
-
-		public override IEnumerable<LocalizedString> GetAllStrings(bool includeParentCultures)
+		protected virtual RootNamespaceAttribute? GetRootNamespaceAttribute(Assembly assembly)
 		{
 			throw null;
 		}
@@ -35130,9 +43834,10 @@ namespace Microsoft.Extensions.Localization
 	{
 		public ResourceNamesCache()
 		{
+			throw null;
 		}
 
-		public IList<string> GetOrAdd(string name, Func<string, IList<string>> valueFactory)
+		public IList<string>? GetOrAdd(string name, Func<string, IList<string>?> valueFactory)
 		{
 			throw null;
 		}
@@ -35160,78 +43865,6 @@ namespace Microsoft.Extensions.Localization
 
 		public RootNamespaceAttribute(string rootNamespace)
 		{
-		}
-	}
-}
-
-
-// Microsoft.Extensions.Localization\Microsoft.Extensions.Localization.Internal\AssemblyWrapper.cs
-using System.IO;
-using System.Reflection;
-using System.Runtime.CompilerServices;
-
-namespace Microsoft.Extensions.Localization.Internal
-{
-	public class AssemblyWrapper
-	{
-		public Assembly Assembly
-		{
-			[CompilerGenerated]
-			get
-			{
-				throw null;
-			}
-		}
-
-		public virtual string FullName
-		{
-			get
-			{
-				throw null;
-			}
-		}
-
-		public AssemblyWrapper(Assembly assembly)
-		{
-		}
-
-		public virtual Stream GetManifestResourceStream(string name)
-		{
-			throw null;
-		}
-	}
-}
-
-
-// Microsoft.Extensions.Localization\Microsoft.Extensions.Localization.Internal\IResourceStringProvider.cs
-using System.Collections.Generic;
-using System.Globalization;
-
-namespace Microsoft.Extensions.Localization.Internal
-{
-	public interface IResourceStringProvider
-	{
-		IList<string> GetAllResourceStrings(CultureInfo culture, bool throwOnMissing);
-	}
-}
-
-
-// Microsoft.Extensions.Localization\Microsoft.Extensions.Localization.Internal\ResourceManagerStringProvider.cs
-using System.Collections.Generic;
-using System.Globalization;
-using System.Reflection;
-using System.Resources;
-
-namespace Microsoft.Extensions.Localization.Internal
-{
-	public class ResourceManagerStringProvider : IResourceStringProvider
-	{
-		public ResourceManagerStringProvider(IResourceNamesCache resourceCache, ResourceManager resourceManager, Assembly assembly, string baseName)
-		{
-		}
-
-		public IList<string> GetAllResourceStrings(CultureInfo culture, bool throwOnMissing)
-		{
 			throw null;
 		}
 	}
@@ -35239,9 +43872,7 @@ namespace Microsoft.Extensions.Localization.Internal
 
 
 // Microsoft.Extensions.Localization.Abstractions\Microsoft.Extensions.Localization\IStringLocalizer.cs
-using System;
 using System.Collections.Generic;
-using System.Globalization;
 
 namespace Microsoft.Extensions.Localization
 {
@@ -35258,9 +43889,6 @@ namespace Microsoft.Extensions.Localization
 		}
 
 		IEnumerable<LocalizedString> GetAllStrings(bool includeParentCultures);
-
-		[Obsolete("This method is obsolete. Use `CurrentCulture` and `CurrentUICulture` instead.")]
-		IStringLocalizer WithCulture(CultureInfo culture);
 	}
 	public interface IStringLocalizer<out T> : IStringLocalizer
 	{
@@ -35275,9 +43903,9 @@ namespace Microsoft.Extensions.Localization
 {
 	public interface IStringLocalizerFactory
 	{
-		IStringLocalizer Create(string baseName, string location);
-
 		IStringLocalizer Create(Type resourceSource);
+
+		IStringLocalizer Create(string baseName, string location);
 	}
 }
 
@@ -35298,24 +43926,6 @@ namespace Microsoft.Extensions.Localization
 			}
 		}
 
-		public bool ResourceNotFound
-		{
-			[CompilerGenerated]
-			get
-			{
-				throw null;
-			}
-		}
-
-		public string SearchedLocation
-		{
-			[CompilerGenerated]
-			get
-			{
-				throw null;
-			}
-		}
-
 		public string Value
 		{
 			[CompilerGenerated]
@@ -35325,19 +43935,41 @@ namespace Microsoft.Extensions.Localization
 			}
 		}
 
+		public bool ResourceNotFound
+		{
+			[CompilerGenerated]
+			get
+			{
+				throw null;
+			}
+		}
+
+		public string? SearchedLocation
+		{
+			[System.Runtime.CompilerServices.NullableContext(2)]
+			[CompilerGenerated]
+			get
+			{
+				throw null;
+			}
+		}
+
 		public LocalizedString(string name, string value)
 		{
+			throw null;
 		}
 
 		public LocalizedString(string name, string value, bool resourceNotFound)
 		{
+			throw null;
 		}
 
-		public LocalizedString(string name, string value, bool resourceNotFound, string searchedLocation)
+		public LocalizedString(string name, string value, bool resourceNotFound, string? searchedLocation)
 		{
+			throw null;
 		}
 
-		public static implicit operator string(LocalizedString localizedString)
+		public static implicit operator string?(LocalizedString localizedString)
 		{
 			throw null;
 		}
@@ -35351,13 +43983,11 @@ namespace Microsoft.Extensions.Localization
 
 
 // Microsoft.Extensions.Localization.Abstractions\Microsoft.Extensions.Localization\StringLocalizer.cs
-using System;
 using System.Collections.Generic;
-using System.Globalization;
 
 namespace Microsoft.Extensions.Localization
 {
-	public class StringLocalizer<TResourceSource> : IStringLocalizer, IStringLocalizer<TResourceSource>
+	public class StringLocalizer<TResourceSource> : IStringLocalizer<TResourceSource>, IStringLocalizer
 	{
 		public virtual LocalizedString this[string name]
 		{
@@ -35377,15 +44007,10 @@ namespace Microsoft.Extensions.Localization
 
 		public StringLocalizer(IStringLocalizerFactory factory)
 		{
-		}
-
-		public IEnumerable<LocalizedString> GetAllStrings(bool includeParentCultures)
-		{
 			throw null;
 		}
 
-		[Obsolete("This method is obsolete. Use `CurrentCulture` and `CurrentUICulture` instead.")]
-		public virtual IStringLocalizer WithCulture(CultureInfo culture)
+		public IEnumerable<LocalizedString> GetAllStrings(bool includeParentCultures)
 		{
 			throw null;
 		}
@@ -35400,17 +44025,17 @@ namespace Microsoft.Extensions.Localization
 {
 	public static class StringLocalizerExtensions
 	{
-		public static IEnumerable<LocalizedString> GetAllStrings(this IStringLocalizer stringLocalizer)
-		{
-			throw null;
-		}
-
 		public static LocalizedString GetString(this IStringLocalizer stringLocalizer, string name)
 		{
 			throw null;
 		}
 
 		public static LocalizedString GetString(this IStringLocalizer stringLocalizer, string name, params object[] arguments)
+		{
+			throw null;
+		}
+
+		public static IEnumerable<LocalizedString> GetAllStrings(this IStringLocalizer stringLocalizer)
 		{
 			throw null;
 		}
@@ -35447,7 +44072,7 @@ namespace Microsoft.Extensions.WebEncoders
 {
 	public sealed class WebEncoderOptions
 	{
-		public TextEncoderSettings TextEncoderSettings
+		public TextEncoderSettings? TextEncoderSettings
 		{
 			[CompilerGenerated]
 			get
@@ -35457,7 +44082,13 @@ namespace Microsoft.Extensions.WebEncoders
 			[CompilerGenerated]
 			set
 			{
+				throw null;
 			}
+		}
+
+		public WebEncoderOptions()
+		{
+			throw null;
 		}
 	}
 }
@@ -35479,15 +44110,22 @@ namespace Microsoft.Extensions.WebEncoders.Testing
 			}
 		}
 
+		public override string Encode(string value)
+		{
+			throw null;
+		}
+
 		public override void Encode(TextWriter output, char[] value, int startIndex, int characterCount)
 		{
+			throw null;
 		}
 
 		public override void Encode(TextWriter output, string value, int startIndex, int characterCount)
 		{
+			throw null;
 		}
 
-		public override string Encode(string value)
+		public override bool WillEncode(int unicodeScalar)
 		{
 			throw null;
 		}
@@ -35502,7 +44140,7 @@ namespace Microsoft.Extensions.WebEncoders.Testing
 			throw null;
 		}
 
-		public override bool WillEncode(int unicodeScalar)
+		public HtmlTestEncoder()
 		{
 			throw null;
 		}
@@ -35526,15 +44164,22 @@ namespace Microsoft.Extensions.WebEncoders.Testing
 			}
 		}
 
+		public override string Encode(string value)
+		{
+			throw null;
+		}
+
 		public override void Encode(TextWriter output, char[] value, int startIndex, int characterCount)
 		{
+			throw null;
 		}
 
 		public override void Encode(TextWriter output, string value, int startIndex, int characterCount)
 		{
+			throw null;
 		}
 
-		public override string Encode(string value)
+		public override bool WillEncode(int unicodeScalar)
 		{
 			throw null;
 		}
@@ -35549,7 +44194,7 @@ namespace Microsoft.Extensions.WebEncoders.Testing
 			throw null;
 		}
 
-		public override bool WillEncode(int unicodeScalar)
+		public JavaScriptTestEncoder()
 		{
 			throw null;
 		}
@@ -35573,15 +44218,22 @@ namespace Microsoft.Extensions.WebEncoders.Testing
 			}
 		}
 
+		public override string Encode(string value)
+		{
+			throw null;
+		}
+
 		public override void Encode(TextWriter output, char[] value, int startIndex, int characterCount)
 		{
+			throw null;
 		}
 
 		public override void Encode(TextWriter output, string value, int startIndex, int characterCount)
 		{
+			throw null;
 		}
 
-		public override string Encode(string value)
+		public override bool WillEncode(int unicodeScalar)
 		{
 			throw null;
 		}
@@ -35596,7 +44248,7 @@ namespace Microsoft.Extensions.WebEncoders.Testing
 			throw null;
 		}
 
-		public override bool WillEncode(int unicodeScalar)
+		public UrlTestEncoder()
 		{
 			throw null;
 		}
@@ -35605,7 +44257,9 @@ namespace Microsoft.Extensions.WebEncoders.Testing
 
 
 // Microsoft.JSInterop\Microsoft.JSInterop\DotNetObjectReference.cs
+using Microsoft.JSInterop.Infrastructure;
 using System;
+using System.Runtime.CompilerServices;
 
 namespace Microsoft.JSInterop
 {
@@ -35616,7 +44270,7 @@ namespace Microsoft.JSInterop
 			throw null;
 		}
 	}
-	public sealed class DotNetObjectReference<TValue> : IDisposable where TValue : class
+	public sealed class DotNetObjectReference<TValue> : IDotNetObjectReference, IDisposable where TValue : class
 	{
 		public TValue Value
 		{
@@ -35626,12 +44280,62 @@ namespace Microsoft.JSInterop
 			}
 		}
 
-		internal DotNetObjectReference()
+		internal long ObjectId
 		{
+			get
+			{
+				throw null;
+			}
+			set
+			{
+				throw null;
+			}
+		}
+
+		internal JSRuntime? JSRuntime
+		{
+			[System.Runtime.CompilerServices.NullableContext(2)]
+			get
+			{
+				throw null;
+			}
+			[System.Runtime.CompilerServices.NullableContext(2)]
+			set
+			{
+				throw null;
+			}
+		}
+
+		object IDotNetObjectReference.Value
+		{
+			get
+			{
+				throw null;
+			}
+		}
+
+		internal bool Disposed
+		{
+			[CompilerGenerated]
+			get
+			{
+				throw null;
+			}
+		}
+
+		internal DotNetObjectReference(TValue value)
+		{
+			throw null;
 		}
 
 		public void Dispose()
 		{
+			throw null;
+		}
+
+		internal void ThrowIfDisposed()
+		{
+			throw null;
 		}
 	}
 }
@@ -35671,23 +44375,33 @@ namespace Microsoft.JSInterop
 	{
 		public JSException(string message)
 		{
+			throw null;
 		}
 
 		public JSException(string message, Exception innerException)
 		{
+			throw null;
 		}
 	}
 }
 
 
 // Microsoft.JSInterop\Microsoft.JSInterop\JSInProcessRuntime.cs
+using System.Diagnostics.CodeAnalysis;
+
 namespace Microsoft.JSInterop
 {
 	public abstract class JSInProcessRuntime : JSRuntime, IJSInProcessRuntime, IJSRuntime
 	{
-		protected abstract string InvokeJS(string identifier, string argsJson);
-
+		[return: MaybeNull]
 		public TValue Invoke<TValue>(string identifier, params object[] args)
+		{
+			throw null;
+		}
+
+		protected abstract string? InvokeJS(string identifier, string? argsJson);
+
+		protected JSInProcessRuntime()
 		{
 			throw null;
 		}
@@ -35702,6 +44416,7 @@ namespace Microsoft.JSInterop
 	{
 		public static void InvokeVoid(this IJSInProcessRuntime jsRuntime, string identifier, params object[] args)
 		{
+			throw null;
 		}
 	}
 }
@@ -35716,7 +44431,7 @@ namespace Microsoft.JSInterop
 	[AttributeUsage(AttributeTargets.Method, AllowMultiple = true)]
 	public sealed class JSInvokableAttribute : Attribute
 	{
-		public string Identifier
+		public string? Identifier
 		{
 			[CompilerGenerated]
 			get
@@ -35727,10 +44442,13 @@ namespace Microsoft.JSInterop
 
 		public JSInvokableAttribute()
 		{
+			throw null;
 		}
 
+		[System.Runtime.CompilerServices.NullableContext(1)]
 		public JSInvokableAttribute(string identifier)
 		{
+			throw null;
 		}
 	}
 }
@@ -35739,6 +44457,7 @@ namespace Microsoft.JSInterop
 // Microsoft.JSInterop\Microsoft.JSInterop\JSRuntime.cs
 using Microsoft.JSInterop.Infrastructure;
 using System;
+using System.Diagnostics;
 using System.Runtime.CompilerServices;
 using System.Text.Json;
 using System.Threading;
@@ -35748,6 +44467,15 @@ namespace Microsoft.JSInterop
 {
 	public abstract class JSRuntime : IJSRuntime
 	{
+		protected internal JsonSerializerOptions JsonSerializerOptions
+		{
+			[CompilerGenerated]
+			get
+			{
+				throw null;
+			}
+		}
+
 		protected TimeSpan? DefaultAsyncTimeout
 		{
 			[CompilerGenerated]
@@ -35758,32 +44486,47 @@ namespace Microsoft.JSInterop
 			[CompilerGenerated]
 			set
 			{
-			}
-		}
-
-		protected internal JsonSerializerOptions JsonSerializerOptions
-		{
-			[CompilerGenerated]
-			get
-			{
 				throw null;
 			}
 		}
 
 		protected JSRuntime()
 		{
+			throw null;
 		}
 
-		protected abstract void BeginInvokeJS(long taskId, string identifier, string argsJson);
-
-		protected internal abstract void EndInvokeDotNet(DotNetInvocationInfo invocationInfo, in DotNetInvocationResult invocationResult);
-
+		[AsyncStateMachine(typeof(_003CInvokeAsync_003Ed__13<>))]
+		[DebuggerStepThrough]
 		public ValueTask<TValue> InvokeAsync<TValue>(string identifier, object[] args)
 		{
 			throw null;
 		}
 
 		public ValueTask<TValue> InvokeAsync<TValue>(string identifier, CancellationToken cancellationToken, object[] args)
+		{
+			throw null;
+		}
+
+		protected abstract void BeginInvokeJS(long taskId, string identifier, string? argsJson);
+
+		protected internal abstract void EndInvokeDotNet(DotNetInvocationInfo invocationInfo, in DotNetInvocationResult invocationResult);
+
+		internal void EndInvokeJS(long taskId, bool succeeded, ref Utf8JsonReader jsonReader)
+		{
+			throw null;
+		}
+
+		internal long TrackObjectReference<TValue>(DotNetObjectReference<TValue> dotNetObjectReference) where TValue : class
+		{
+			throw null;
+		}
+
+		internal IDotNetObjectReference GetObjectReference(long dotNetObjectId)
+		{
+			throw null;
+		}
+
+		internal void ReleaseObjectReference(long dotNetObjectId)
 		{
 			throw null;
 		}
@@ -35794,6 +44537,7 @@ namespace Microsoft.JSInterop
 // Microsoft.JSInterop\Microsoft.JSInterop\JSRuntimeExtensions.cs
 using System;
 using System.Diagnostics;
+using System.Runtime.CompilerServices;
 using System.Threading;
 using System.Threading.Tasks;
 
@@ -35801,6 +44545,13 @@ namespace Microsoft.JSInterop
 {
 	public static class JSRuntimeExtensions
 	{
+		[AsyncStateMachine(typeof(_003CInvokeVoidAsync_003Ed__0))]
+		[DebuggerStepThrough]
+		public static ValueTask InvokeVoidAsync(this IJSRuntime jsRuntime, string identifier, params object[] args)
+		{
+			throw null;
+		}
+
 		public static ValueTask<TValue> InvokeAsync<TValue>(this IJSRuntime jsRuntime, string identifier, params object[] args)
 		{
 			throw null;
@@ -35811,24 +44562,21 @@ namespace Microsoft.JSInterop
 			throw null;
 		}
 
-		[DebuggerStepThrough]
-		public static ValueTask<TValue> InvokeAsync<TValue>(this IJSRuntime jsRuntime, string identifier, TimeSpan timeout, params object[] args)
-		{
-			throw null;
-		}
-
-		[DebuggerStepThrough]
-		public static ValueTask InvokeVoidAsync(this IJSRuntime jsRuntime, string identifier, params object[] args)
-		{
-			throw null;
-		}
-
+		[AsyncStateMachine(typeof(_003CInvokeVoidAsync_003Ed__3))]
 		[DebuggerStepThrough]
 		public static ValueTask InvokeVoidAsync(this IJSRuntime jsRuntime, string identifier, CancellationToken cancellationToken, params object[] args)
 		{
 			throw null;
 		}
 
+		[AsyncStateMachine(typeof(_003CInvokeAsync_003Ed__4<>))]
+		[DebuggerStepThrough]
+		public static ValueTask<TValue> InvokeAsync<TValue>(this IJSRuntime jsRuntime, string identifier, TimeSpan timeout, params object[] args)
+		{
+			throw null;
+		}
+
+		[AsyncStateMachine(typeof(_003CInvokeVoidAsync_003Ed__5))]
 		[DebuggerStepThrough]
 		public static ValueTask InvokeVoidAsync(this IJSRuntime jsRuntime, string identifier, TimeSpan timeout, params object[] args)
 		{
@@ -35839,19 +44587,75 @@ namespace Microsoft.JSInterop
 
 
 // Microsoft.JSInterop\Microsoft.JSInterop.Infrastructure\DotNetDispatcher.cs
+using System;
+using System.Reflection;
+using System.Runtime.CompilerServices;
+using System.Text.Json;
+
 namespace Microsoft.JSInterop.Infrastructure
 {
 	public static class DotNetDispatcher
 	{
+		private readonly struct AssemblyKey : IEquatable<AssemblyKey>
+		{
+			public Assembly? Assembly
+			{
+				[System.Runtime.CompilerServices.NullableContext(2)]
+				[CompilerGenerated]
+				get
+				{
+					throw null;
+				}
+			}
+
+			public string AssemblyName
+			{
+				[CompilerGenerated]
+				get
+				{
+					throw null;
+				}
+			}
+
+			public AssemblyKey(Assembly assembly)
+			{
+				throw null;
+			}
+
+			public AssemblyKey(string assemblyName)
+			{
+				throw null;
+			}
+
+			public bool Equals(AssemblyKey other)
+			{
+				throw null;
+			}
+
+			public override int GetHashCode()
+			{
+				throw null;
+			}
+		}
+
+		internal static readonly JsonEncodedText DotNetObjectRefKey;
+
+		public static string? Invoke(JSRuntime jsRuntime, in DotNetInvocationInfo invocationInfo, string argsJson)
+		{
+			throw null;
+		}
+
 		public static void BeginInvokeDotNet(JSRuntime jsRuntime, DotNetInvocationInfo invocationInfo, string argsJson)
 		{
+			throw null;
+		}
+
+		internal static object?[] ParseArguments(JSRuntime jsRuntime, string methodIdentifier, string arguments, Type[] parameterTypes)
+		{
+			throw null;
 		}
 
 		public static void EndInvokeJS(JSRuntime jsRuntime, string arguments)
-		{
-		}
-
-		public static string Invoke(JSRuntime jsRuntime, in DotNetInvocationInfo invocationInfo, string argsJson)
 		{
 			throw null;
 		}
@@ -35866,10 +44670,6 @@ namespace Microsoft.JSInterop.Infrastructure
 {
 	public readonly struct DotNetInvocationInfo
 	{
-		private readonly object _dummy;
-
-		private readonly int _dummyPrimitive;
-
 		public string AssemblyName
 		{
 			[CompilerGenerated]
@@ -35879,7 +44679,7 @@ namespace Microsoft.JSInterop.Infrastructure
 			}
 		}
 
-		public string CallId
+		public string MethodIdentifier
 		{
 			[CompilerGenerated]
 			get
@@ -35897,7 +44697,7 @@ namespace Microsoft.JSInterop.Infrastructure
 			}
 		}
 
-		public string MethodIdentifier
+		public string CallId
 		{
 			[CompilerGenerated]
 			get
@@ -35922,11 +44722,7 @@ namespace Microsoft.JSInterop.Infrastructure
 {
 	public readonly struct DotNetInvocationResult
 	{
-		private readonly object _dummy;
-
-		private readonly int _dummyPrimitive;
-
-		public string ErrorKind
+		public Exception? Exception
 		{
 			[CompilerGenerated]
 			get
@@ -35935,7 +44731,7 @@ namespace Microsoft.JSInterop.Infrastructure
 			}
 		}
 
-		public Exception Exception
+		public string? ErrorKind
 		{
 			[CompilerGenerated]
 			get
@@ -35944,7 +44740,7 @@ namespace Microsoft.JSInterop.Infrastructure
 			}
 		}
 
-		public object Result
+		public object? Result
 		{
 			[CompilerGenerated]
 			get
@@ -35962,14 +44758,30 @@ namespace Microsoft.JSInterop.Infrastructure
 			}
 		}
 
-		public DotNetInvocationResult(Exception exception, string errorKind)
+		[System.Runtime.CompilerServices.NullableContext(1)]
+		public DotNetInvocationResult(Exception exception, string? errorKind)
 		{
 			throw null;
 		}
 
-		public DotNetInvocationResult(object result)
+		public DotNetInvocationResult(object? result)
 		{
 			throw null;
+		}
+	}
+}
+
+
+// Microsoft.JSInterop\Microsoft.JSInterop.Infrastructure\IDotNetObjectReference.cs
+using System;
+
+namespace Microsoft.JSInterop.Infrastructure
+{
+	internal interface IDotNetObjectReference : IDisposable
+	{
+		object Value
+		{
+			get;
 		}
 	}
 }
